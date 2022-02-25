@@ -1,0 +1,9 @@
+# list of input properties that can be used:
+
+------
+# list of output properties that can be used:
+-  location to use like $location
+-  lastModification to use like $lastModification
+-  frequency to use like $frequency
+-  priority to use like $priority
+-  score to use like $score

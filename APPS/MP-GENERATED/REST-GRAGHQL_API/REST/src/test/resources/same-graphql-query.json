@@ -1,0 +1,4 @@
+{"query":"query myquery($edition: String) {\n  program: programInfo(programWebPath: $edition) {\n    name\n    webPath\n    year\n    editionNumber\n  }\n  games: gameInfo(programWebPath: $edition) {\n    name: gameName\n    gameWebPath\n  }\n}",
+  "variables":{"edition":"les-quatre-terres"},
+  "operationName":"myquery"
+}

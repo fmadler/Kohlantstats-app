@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- acc log -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d %-5.5level [score] %-60.60logger{60} - %msg%n</Pattern>
+		</layout>
+	</appender>
+	
+	<appender name="score_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>../logs/score.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>../logs/score.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>50MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d %-5.5level [score] %-60.60logger{60} - %msg%n</Pattern>
+		</layout>
+	</appender>
+	
+	<!--
+	<property file="${appli.config.path}" />
+	-->
+
+	<timestamp key="bySecond" datePattern="yyyyMMddHHmmss" />
+	
+	<root name="com.game" level="INFO">
+		<appender-ref ref="score_APPENDER" />
+	</root>
+
+	<root name="com.game" level="DEBUG">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+<!--
+	 Copyright (c) minuteproject, minuteproject@gmail.com
+	 All rights reserved.
+	 
+	 Licensed under the Apache License, Version 2.0 (the "License")
+	 you may not use this file except in compliance with the License.
+	 You may obtain a copy of the License at
+	 
+	 http://www.apache.org/licenses/LICENSE-2.0
+	 
+	 Unless required by applicable law or agreed to in writing, software
+	 distributed under the License is distributed on an "AS IS" BASIS,
+	 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 See the License for the specific language governing permissions and
+	 limitations under the License.
+	 
+	 More information on minuteproject:
+	 twitter @minuteproject
+	 wiki http://minuteproject.wikispaces.com 
+	 blog http://minuteproject.blogspot.net
+	 
+-->
+<!--
+	 template reference : 
+	 - Minuteproject version : 0.9.11
+	 - name      : LogbackXml
+	 - file name : LogbackXml.vm
+-->

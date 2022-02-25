@@ -1,0 +1,762 @@
+schema {
+    query: Root
+}
+
+type Root {
+    """
+    Package sitemap
+    """
+    sitemap(
+
+    ): SitemapOut
+    sitemapParam(
+        entityTypeWebPath:String ,
+        contextTypeWebPath:String ,
+        name:String 
+    ): SitemapParamOut
+    distinctEntityType(
+
+    ): DistinctEntityTypeOut
+    distinctEntityDescriptionType(
+        entityTypeWebPath:String 
+    ): DistinctEntityDescriptionTypeOut
+    distinctEntityBinaryType(
+        entityTypeWebPath:String 
+    ): DistinctEntityBinaryTypeOut
+    """
+    Package team
+    """
+    createParticipantEntrance(
+        participantWebPath:String! ,
+        teamWebPath:String! ,
+        fromTime:Int! ,
+        entranceTypeWebPath:String! ,
+        participantTeamId:Int 
+    ): CreateParticipantEntranceOut
+    createParticipantDeparture(
+        participantWebPath:String! ,
+        teamWebPath:String! ,
+        toTime:Int! ,
+        departureTypeWebPath:String! ,
+        participantTeamId:Int 
+    ): CreateParticipantDepartureOut
+    createParticipantRealisation(
+        participantWebPath:String! ,
+        teamWebPath:String! ,
+        time:Int! ,
+        realisationWebPath:String! ,
+        participantTeamRealisationId:Int 
+    ): CreateParticipantRealisationOut
+    """
+    Package info
+    """
+    teamInfo(
+        programWebPath:String ,
+        teamWebPath:String 
+    ): TeamInfoOut
+    programInfo(
+        programWebPath:String 
+    ): ProgramInfoOut
+    """
+    Package distinct
+    """
+    distinctGameTags(
+        programWebPath:String 
+    ): DistinctGameTagsOut
+    distinctGames(
+        programWebPath:String ,
+        notProgramWebPath:String ,
+        gameTypeWebPath:String 
+    ): DistinctGamesOut
+    distinctPrograms(
+
+    ): DistinctProgramsOut
+    distinctTeams(
+        programWebPath:String! 
+    ): DistinctTeamsOut
+    distinctParticipants(
+        programWebPath:String! 
+    ): DistinctParticipantsOut
+    distinctConcurrentsForParticipant(
+        playerWebPath:String! ,
+
+    ): DistinctConcurrentsForParticipantOut
+    """
+    Package program
+    """
+    """
+    Package stat
+    """
+    gameStats(
+        programWebPath:String ,
+        playerWebPath:String ,
+        gameWebPath:String ,
+        teamWebPath:String ,
+        gameTypeWebPath:String ,
+        gameStakeTypeWebPath:String ,
+        gameParticipationTypeWebPath:String ,
+        gameActivityTypeWebPath:String ,
+        untilDay:Int 
+    ): GameStatsOut
+    """
+    Package vote
+    """
+    voteDetail(
+        programWebPath:String ,
+        teamWebPath:String ,
+        voterWebPath:String ,
+        voterTargetWebPath:String ,
+        voteEffectivenessTypeWebPath:String ,
+        voteTypeWebPath:String 
+    ): VoteDetailOut
+    firstVoteAgainst(
+        voterWebPath:String! ,
+        voterTargetWebPath:String! ,
+        teamWebPath:String! ,
+        timeUnit:Int! ,
+        voteEffectivenessTypeWebPath:String! 
+    ): FirstVoteAgainstOut
+    secondVoteAgainst(
+        voterWebPath:String! ,
+        voterTargetWebPath:String! ,
+        teamWebPath:String! ,
+        timeUnit:Int! ,
+        voteEffectivenessTypeWebPath:String! 
+    ): SecondVoteAgainstOut
+    """
+    Package quizz
+    """
+    quizzParticipationFilterMatrix(
+        programWebPath:String ,
+        gameWebPath:String ,
+        participationTypeWebPath:String 
+    ): QuizzParticipationFilterMatrixOut
+    quizzWinnerTeamMatrix(
+        programWebPath:String ,
+        limit:Int ,
+        offset:Int 
+    ): QuizzWinnerTeamMatrixOut
+    quizzWinnerTeamOption(
+        programWebPath:String ,
+        ranking:Int ,
+        gameWebPath:String ,
+        limit:Int ,
+        offset:Int 
+    ): QuizzWinnerTeamOptionOut
+    quizzParticipationOption(
+        maxWinners:Int ,
+        programWebPath:String ,
+        gameWebPath:String ,
+        participationTypeWebPath:String ,
+        participantWebPaths:String ,
+        ranking:Int ,
+        limit:Int ,
+        offset:Int 
+    ): QuizzParticipationOptionOut
+    quizzWinnerParticipantOrderFilterMatrix(
+        programWebPath:String ,
+        gameWebPath:String 
+    ): QuizzWinnerParticipantOrderFilterMatrixOut
+    quizzWinnerTeamOrderFilterMatrix(
+        programWebPath:String ,
+        gameWebPath:String 
+    ): QuizzWinnerTeamOrderFilterMatrixOut
+    quizzSortTeamMemberFilterMatrix(
+        programWebPath:String ,
+        gameWebPath:String 
+    ): QuizzSortTeamMemberFilterMatrixOut
+    quizzSortTeamMemberOption(
+        programWebPath:String ,
+        gameWebPath:String ,
+        teamWebPath:String ,
+        participantWebPath:String 
+    ): QuizzSortTeamMemberOptionOut
+    quizzWinnerParticipantOrderOption(
+        programWebPath:String ,
+        gameWebPath:String 
+    ): QuizzWinnerParticipantOrderOptionOut
+    quizzWinnerTeamOrderOption(
+        programWebPath:String ,
+        gameWebPath:String 
+    ): QuizzWinnerTeamOrderOptionOut
+    """
+    Package participant
+    """
+    participantSummary(
+        programWebPath:String ,
+        playerWebPath:String 
+    ): ParticipantSummaryOut
+    participantGameActivity(
+        programWebPath:String ,
+        playerWebPath:String ,
+        gameWebPath:String ,
+        gameTagWebPath:String ,
+        rewardWebPath:String 
+    ): ParticipantGameActivityOut
+    participantCampActivity(
+        programWebPath:String ,
+        teamWebPath:String ,
+        playerWebPath:String 
+    ): ParticipantCampActivityOut
+    """
+    Package property
+    """
+    getProperties(
+        entityType:String ,
+        entityWebPath:String ,
+        property:String 
+    ): GetPropertiesOut
+    """
+    Package player
+    """
+    playerPerformanceComparison(
+        comparisonPlayersWebPath:String! ,
+        programWebPath:String 
+    ): PlayerPerformanceComparisonOut
+    """
+    Package timeline
+    """
+    teamGameTimeline(
+        programWebPath:String ,
+        teamWebPath:String ,
+        gameWebPath:String ,
+        gameTypeWebPath:String ,
+        playerWebPath:String 
+    ): TeamGameTimelineOut
+    teamParticipantTimeline(
+        programWebPath:String ,
+        teamWebPath:String ,
+        playerWebPath:String 
+    ): TeamParticipantTimelineOut
+    """
+    Package game
+    """
+    gameInfo(
+        programWebPath:String ,
+        gameWebPath:String ,
+        gameTagWebPath:String ,
+        rewardWebPath:String 
+    ): GameInfoOut
+    gamePerformance(
+        playerWebPath:String ,
+        programWebPath:String 
+    ): GamePerformanceOut
+    createGameParticipation(
+        participantWebPath:String! ,
+        teamWebPath:String! ,
+        gameWebPath:String! ,
+        activityTypeWebPath:String! ,
+        participationTypeWebPath:String! ,
+        ranking:Int! ,
+        rewardWebPaths:String! 
+    ): CreateGameParticipationOut
+
+}
+
+
+    """
+    Package sitemap
+    """
+
+type SitemapOut {
+    location:String ,
+    lastModification:String ,
+    frequency:String ,
+    priority:String ,
+    score:String ,
+}
+
+
+type SitemapParamOut {
+    name:String ,
+    entityId:String ,
+    entityFullWebPath:String     contextTypeWebPath:String ,
+    contextWebPath:String ,
+    entityTypeWebPath:String ,
+    entityWebPath:String ,
+}
+
+
+type DistinctEntityTypeOut {
+    contextTypeWebPath:String ,
+    entityTypeWebPath:String ,
+    entityTypeName:String ,
+}
+
+
+type DistinctEntityDescriptionTypeOut {
+    descriptionTypeName:String     descriptionTypeWebPath:String ,
+    entityTypeWebPath:String ,
+}
+
+
+type DistinctEntityBinaryTypeOut {
+    binaryTypeName:String     binaryTypeWebPath:String ,
+    entityTypeWebPath:String ,
+}
+
+    """
+    Package team
+    """
+
+type CreateParticipantEntranceOut {
+    participantTeamId:Int ,
+}
+
+
+type CreateParticipantDepartureOut {
+    participantTeamId:Int ,
+}
+
+
+type CreateParticipantRealisationOut {
+    participantTeamRealisationId:Int ,
+}
+
+    """
+    Package info
+    """
+
+type TeamInfoOut {
+    programName:String ,
+    programWebPath:String     name:String ,
+    webPath:String ,
+    alias:String ,
+    fromTimeUnit:Int ,
+    toTimeUnit:String ,
+    nbOfBeginners:String ,
+    nbOfEnders:String ,
+}
+
+
+type ProgramInfoOut {
+    name:String     webPath:String ,
+    year:Int ,
+    editionNumber:Int ,
+    totalTimeLength:Int ,
+    country:String ,
+    countryFlag:String ,
+    countryWebPath:String ,
+    place:String ,
+    placeWebPath:String ,
+    latitude:Float ,
+    longitude:Float ,
+    winnerName:String ,
+    winnerWebPath:String ,
+    nbOfParticipants:String ,
+    nbOfGames:String ,
+}
+
+    """
+    Package distinct
+    """
+
+type DistinctGameTagsOut {
+    name:String     webPath:String ,
+    programName:String ,
+    programWebPath:String ,
+}
+
+
+type DistinctGamesOut {
+    name:String ,
+    webPath:String ,
+    timePosition:String     timeUnitIndex:Int ,
+    programIndex:Int ,
+    gameTypeName:String ,
+    gameTypeWebPath:String ,
+    gameStakeTypeName:String ,
+    gameStakeTypeWebPath:String ,
+    programName:String ,
+    programWebPath:String ,
+}
+
+
+type DistinctProgramsOut {
+    editionNumber:Int ,
+    year:Int ,
+    name:String ,
+    webPath:String ,
+    totalTimeLength:Int ,
+    country:String ,
+    countryFlag:String ,
+    countryWebPath:String ,
+    place:String ,
+    placeWebPath:String ,
+    nbOfParticipants:String ,
+    winnerName:String ,
+    winnerWebPath:String ,
+}
+
+
+type DistinctTeamsOut {
+    name:String     webPath:String ,
+}
+
+
+type DistinctParticipantsOut {
+    programWebPath:String     age:Int ,
+    name:String ,
+    webPath:String ,
+    familyName:String ,
+    sex:String ,
+    birthDate:Date ,
+    finalPosition:Int ,
+    nbVictories:String ,
+    maxTime:Int ,
+}
+
+
+type DistinctConcurrentsForParticipantOut {
+    programName:String ,
+    programWebPath:String     name:String ,
+    webPath:String ,
+}
+
+    """
+    Package program
+    """
+    """
+    Package stat
+    """
+
+type GameStatsOut {
+    participantName:String ,
+    participantWebPath:String ,
+    programName:String ,
+    programWebPath:String ,
+    score:Float ,
+    ranking1And2AloneScore:Float ,
+    longevity:String ,
+    totems:String ,
+    totemsIndividual:String     conforts:String ,
+    confortsIndividual:String ,
+    ranking1:String ,
+    ranking2:String ,
+    ranking3:String ,
+    rankingOther:String ,
+    ranking1Alone:String ,
+    ranking1AloneScore:String ,
+    ranking2Alone:String ,
+    ranking2AloneScore:Float ,
+    ranking3Alone:String ,
+    rankingOtherAlone:String ,
+    nbOfGames:String ,
+    individualGameLasts:String ,
+    activeParticipations:String ,
+    individualParticipations:String ,
+    participationDetails:String ,
+}
+
+    """
+    Package vote
+    """
+
+type VoteDetailOut {
+    id:Int ,
+    programName:String ,
+    programWebPath:String ,
+    teamName:String ,
+    teamWebPath:String ,
+    voteTypeName:String     voteTypeWebPath:String ,
+    voteEffectivenessTypeName:String ,
+    voteEffectivenessTypeWebPath:String ,
+    voterName:String ,
+    voterWebPath:String ,
+    voterTargetName:String ,
+    voterTargetWebPath:String ,
+    sequence:Int ,
+    timeUnit:Int ,
+    voteNumber:Int ,
+}
+
+
+type FirstVoteAgainstOut {
+}
+
+
+type SecondVoteAgainstOut {
+}
+
+    """
+    Package quizz
+    """
+
+type QuizzParticipationFilterMatrixOut {
+    editionNumber:Int ,
+    programName:String ,
+    programWebPath:String     timePosition:String ,
+    gameName:String ,
+    gameWebPath:String ,
+}
+
+
+type QuizzWinnerTeamMatrixOut {
+    programName:String ,
+    programWebPath:String ,
+    gameName:String     gameWebPath:String ,
+}
+
+
+type QuizzWinnerTeamOptionOut {
+    programName:String ,
+    programWebPath:String ,
+    gameName:String ,
+    gameWebPath:String ,
+    teamName:String     teamWebPath:String ,
+    ranking:Int ,
+    score:Float ,
+}
+
+
+type QuizzParticipationOptionOut {
+    participantName:String ,
+    participantWebPath:String ,
+    gameName:String ,
+    gameWebPath:String ,
+    programName:String ,
+    programWebPath:String ,
+    ranking:Int ,
+    score:Float }
+
+
+type QuizzWinnerParticipantOrderFilterMatrixOut {
+    gameName:String ,
+    gameWebPath:String     programName:String ,
+    programWebPath:String ,
+}
+
+
+type QuizzWinnerTeamOrderFilterMatrixOut {
+    programName:String ,
+    programWebPath:String     gameName:String ,
+    gameWebPath:String ,
+}
+
+
+type QuizzSortTeamMemberFilterMatrixOut {
+    programName:String ,
+    programWebPath:String     gameName:String ,
+    gameWebPath:String ,
+}
+
+
+type QuizzSortTeamMemberOptionOut {
+    programName:String ,
+    programWebPath:String ,
+    editionNumber:Int ,
+    gameName:String     gameWebPath:String ,
+    timePosition:String ,
+    teamName:String ,
+    teamWebPath:String ,
+    participantName:String ,
+    participantWebPath:String ,
+    gameActivityTypeWebPath:String ,
+}
+
+
+type QuizzWinnerParticipantOrderOptionOut {
+    gameName:String ,
+    gameWebPath:String     programName:String ,
+    programWebPath:String ,
+    participantName:String ,
+    participantWebPath:String ,
+    ranking:Int ,
+}
+
+
+type QuizzWinnerTeamOrderOptionOut {
+    programName:String ,
+    programWebPath:String     editionNumber:Int ,
+    gameName:String ,
+    gameWebPath:String ,
+    timePosition:String ,
+    teamName:String ,
+    teamWebPath:String ,
+    ranking:Int ,
+}
+
+    """
+    Package participant
+    """
+
+type ParticipantSummaryOut {
+    programWebPath:String ,
+    programName:String     programEditionNumber:Int ,
+    age:Int ,
+    name:String ,
+    webPath:String ,
+    familyName:String ,
+    sex:String ,
+    birthDate:Date ,
+    finalPosition:Int ,
+    nbVictories:String ,
+    maxTime:Int ,
+}
+
+
+type ParticipantGameActivityOut {
+    playerName:String ,
+    playerWebPath:String ,
+    gameName:String ,
+    gameWebPath:String ,
+    teamName:String     teamWebPath:String ,
+    timePosition:String ,
+    timeUnitIndex:Int ,
+    participationType:String ,
+    participationTypeWebPath:String ,
+    activityType:String ,
+    activityTypeWebPath:String ,
+    ranking:Int ,
+    score:Float ,
+    displayOrderAsc:String ,
+    gameTypeName:String ,
+    gameTypeWebPath:String ,
+    gameStakeTypeName:String ,
+    gameStakeTypeWebPath:String ,
+    rewards:String ,
+    gameRewards:String ,
+    gameTags:String ,
+}
+
+
+type ParticipantCampActivityOut {
+    programName:String ,
+    programWebPath:String ,
+    teamName:String     teamWebPath:String ,
+    teamFromTime:Int ,
+    teamToTime:String ,
+    playerName:String ,
+    playerWebPath:String ,
+    participantId:Int ,
+    teamPlayerEntranceType:String ,
+    teamPlayerFromTime:Int ,
+    teamPlayerDepartureType:String ,
+    teamPlayerToTime:Int ,
+    realisations:String ,
+}
+
+    """
+    Package property
+    """
+
+type GetPropertiesOut {
+    property:String ,
+    unit:String ,
+    propertyValue:String     entityType:String ,
+    entityWebPath:String ,
+}
+
+    """
+    Package player
+    """
+
+type PlayerPerformanceComparisonOut {
+    programName:String ,
+    programWebPath:String     programIndex:Int ,
+    gameName:String ,
+    timePosition:String ,
+    gameWebPath:String ,
+    nbRegisterParticipants:String ,
+    gameTypeName:String ,
+    gameTypeWebPath:String ,
+    gameStakeTypeName:String ,
+    gameStakeTypeWebPath:String ,
+    participationTypeName:String ,
+    participationTypeWebPath:String ,
+    participantName:String ,
+    participantWebPath:String ,
+    ranking:Int ,
+    score:Float ,
+    activityTypeName:String ,
+    activityTypeWebPath:String ,
+}
+
+    """
+    Package timeline
+    """
+
+type TeamGameTimelineOut {
+    programName:String ,
+    programWebPath:String ,
+    teamName:String ,
+    teamWebPath:String ,
+    gameName:String     gameWebPath:String ,
+    teamDetails:String ,
+    nbPlayers:String ,
+    nbTeams:String ,
+    isWinner:String ,
+    winnerTeamWebPath:String ,
+    winnerParticipantWebPaths:String ,
+    programIndex:Int ,
+    timePosition:String ,
+    gameTypeName:String ,
+    gameTypeWebPath:String ,
+    gameStakeTypeName:String ,
+    gameStakeTypeWebPath:String ,
+    participationTypeName:String ,
+    participationTypeWebPath:String ,
+}
+
+
+type TeamParticipantTimelineOut {
+    id:Int ,
+    programWebPath:String ,
+    teamName:String     teamWebPath:String ,
+    teamFromTime:Int ,
+    teamToTime:String ,
+    timeUnit:Int ,
+    participantName:String ,
+    participantWebPath:String ,
+    eventType:String ,
+    eventTypeName:String ,
+    eventTypeWebPath:String ,
+}
+
+    """
+    Package game
+    """
+
+type GameInfoOut {
+    program:String ,
+    programWebPath:String ,
+    editionNumber:Int ,
+    gameName:String     gameWebPath:String ,
+    timePosition:String ,
+    timeUnitIndex:Int ,
+    gameTypeName:String ,
+    gameTypeWebPath:String ,
+    gameStakeTypeName:String ,
+    gameStakeTypeWebPath:String ,
+    gameParticipationTypeName:String ,
+    gameParticipationTypeWebPath:String ,
+    gameRewards:String ,
+    winners:String ,
+    gameTags:String ,
+}
+
+
+type GamePerformanceOut {
+    participantWebPath:String ,
+    tagName:String     tagWebPath:String ,
+    totalNbOfGames:String ,
+    performanceFirst:String ,
+    performanceFirstPercent:Float ,
+    performanceFirstTwo:String ,
+    performanceFirstTwoPercent:Float ,
+    totalNbOfGamesIndividual:String ,
+    individualPerformanceFirst:String ,
+    individualPerformanceFirstPercent:Float ,
+    individualPerformanceFirstTwo:String ,
+    individualPerformanceFirstTwoPercent:Float ,
+    totalNbOfGamesInGroup:String ,
+    inGroupPerformanceFirst:String ,
+    inGroupPerformanceFirstPercent:Float ,
+    inGroupPerformanceFirstTwo:String ,
+    inGroupPerformanceFirstTwoPercent:Float ,
+}
+
+
+type CreateGameParticipationOut {
+}
+

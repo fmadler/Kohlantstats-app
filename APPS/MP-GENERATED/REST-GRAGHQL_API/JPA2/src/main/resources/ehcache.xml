@@ -1,0 +1,360 @@
+
+<ehcache>
+  <!--
+    Sets the path to the directory where cache files are created.
+
+    If the path is a Java System Property it is replaced by its value in the
+    running VM.
+
+    The following properties are translated:
+    * user.home - User's home directory
+    * user.dir - User's current working directory
+    * java.io.tmpdir - Default temp file path
+
+    Subdirectories can be specified below the property e.g. java.io.tmpdir/one
+    -->
+
+    <diskStore path="java.io.tmpdir"/>
+
+ <!--
+    Mandatory Default Cache configuration. These settings will be applied to caches
+    created programmtically using CacheManager.add(String cacheName)
+    -->
+    <defaultCache
+            maxElementsInMemory="1000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="300"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="300"
+            memoryStoreEvictionPolicy="LRU"
+            />
+<!-- The unnamed query cache -->
+   <cache
+    name="org.hibernate.cache.StandardQueryCache"
+    maxElementsInMemory="1000"
+    eternal="false"
+    timeToLiveSeconds="300"
+    overflowToDisk="false"
+   />
+
+
+
+	<!-- package sitemap -->
+   <cache
+    	name="sitemapCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="sitemapParamCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctEntityTypeCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctEntityDescriptionTypeCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctEntityBinaryTypeCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package team -->
+	<!-- package info -->
+   <cache
+    	name="teamInfoCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="programInfoCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package distinct -->
+   <cache
+    	name="distinctGameTagsCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctGamesCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctProgramsCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctTeamsCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctParticipantsCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="distinctConcurrentsForParticipantCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package program -->
+	<!-- package stat -->
+   <cache
+    	name="gameStatsCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package vote -->
+   <cache
+    	name="voteDetailCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package quizz -->
+   <cache
+    	name="quizzParticipationFilterMatrixCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzWinnerTeamMatrixCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzWinnerTeamOptionCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzParticipationOptionCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzWinnerParticipantOrderFilterMatrixCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzWinnerTeamOrderFilterMatrixCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzSortTeamMemberFilterMatrixCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzSortTeamMemberOptionCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzWinnerParticipantOrderOptionCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="quizzWinnerTeamOrderOptionCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package participant -->
+   <cache
+    	name="participantSummaryCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="participantGameActivityCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="participantCampActivityCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package property -->
+   <cache
+    	name="getPropertiesCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package player -->
+   <cache
+    	name="playerPerformanceComparisonCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package timeline -->
+   <cache
+    	name="teamGameTimelineCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="teamParticipantTimelineCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+	<!-- package game -->
+   <cache
+    	name="gameInfoCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="gamePerformanceCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+
+
+
+</ehcache>
+<!--
+	 Copyright (c) minuteproject, minuteproject@gmail.com
+	 All rights reserved.
+	 
+	 Licensed under the Apache License, Version 2.0 (the "License")
+	 you may not use this file except in compliance with the License.
+	 You may obtain a copy of the License at
+	 
+	 http://www.apache.org/licenses/LICENSE-2.0
+	 
+	 Unless required by applicable law or agreed to in writing, software
+	 distributed under the License is distributed on an "AS IS" BASIS,
+	 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 See the License for the specific language governing permissions and
+	 limitations under the License.
+	 
+	 More information on minuteproject:
+	 twitter @minuteproject
+	 wiki http://minuteproject.wikispaces.com 
+	 blog http://minuteproject.blogspot.net
+	 
+-->
+<!--
+	 template reference : 
+	 - Minuteproject version : 0.9.11
+	 - name      : EhCacheXml
+	 - file name : EhCache.Xml.vm
+-->
