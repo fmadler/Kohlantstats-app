@@ -1,0 +1,23 @@
+
+-- fill longevity
+call fill_participant_longevity ('les-armes-secretes','sylviane-2021',21,1,2);
+call fill_participant_longevity ('les-armes-secretes','marie-2021',20,1,5);
+call fill_participant_longevity ('les-armes-secretes','elodie-2021',19,1,9);
+call fill_participant_longevity ('les-armes-secretes','candice-2021',18,1,12);
+call fill_participant_longevity ('les-armes-secretes','gabin-2021',17,1,14);
+call fill_participant_longevity ('les-armes-secretes','aurelien-2021',16,1,14);
+call fill_participant_longevity ('les-armes-secretes','frederic-2021',15,1,16);
+call fill_participant_longevity ('les-armes-secretes','herve-2021',14,1,17);
+call fill_participant_longevity ('les-armes-secretes','mathieu-2021',13,1,20);
+call fill_participant_longevity ('les-armes-secretes','shanice-2021',12,1,20);
+call fill_participant_longevity ('les-armes-secretes','myriam-2021',11,1,23);
+call fill_participant_longevity ('les-armes-secretes','laetitia-2021',9,1,26);
+call fill_participant_longevity ('les-armes-secretes','vincent-2021',9,1,26);
+call fill_participant_longevity ('les-armes-secretes','thomas-2021',8,1,30);
+call fill_participant_longevity ('les-armes-secretes','flavio-2021',7,1,32);
+call fill_participant_longevity ('les-armes-secretes','magali-2021',6,1,32);
+call fill_participant_longevity ('les-armes-secretes','laure-2021',5,1,34);
+call fill_participant_longevity ('les-armes-secretes','arnaud-2021',4,1,34);
+call fill_participant_longevity ('les-armes-secretes','jonathan-2021',3,1,35);
+call fill_participant_longevity ('les-armes-secretes','lucie-2021',2,4,35);
+call fill_participant_longevity ('les-armes-secretes','maxine-2021',1,1,35);
