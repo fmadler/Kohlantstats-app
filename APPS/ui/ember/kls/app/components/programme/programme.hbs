@@ -1,0 +1,291 @@
+<div class="container" {{did-insert this.getTeams}}
+  {{!-- {{in-viewport onEnter=(fn this.onEnter artwork) onExit=this.onExit scrollableArea=".list"}} --}}>
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>
+        {{#if @task.isRunning}}
+        ...
+        {{else}}
+        {{@data.programInfo.[0].name}}
+        <span class="badge badge-warning">{{@data.programInfo.[0].year}}</span>
+        {{/if}}
+
+      </h1>
+      <h2>Edition
+        <span class="badge badge-warning">{{@data.programInfo.[0].editionNumber}}</span>
+      </h2>
+      {{#if @evTask.isRunning}}
+      {{else}}
+      {{{@evData.custom.description}}}
+      <hr />
+      {{/if}}
+
+      Nombre de jours : {{@data.programInfo.[0].totalTimeLength}}<br />
+
+      Nombre d'épreuves : {{@data.programInfo.[0].nbOfGames}} <br />
+
+      Participants : {{@data.programInfo.[0].nbOfParticipants}}<br />
+
+      Lieu : {{@data.programInfo.[0].place}}<br />
+
+      Points attribués
+      <FaIcon @icon="info-circle" class="text-info" {{on "click" (fn this.toggleScoreCaption)}}></FaIcon>
+      :
+      <Score::ScoreDistribution @gameStats={{@data.gameStats}} />
+      {{!-- <Display::DisplayScore @badge='danger' @score={{sum-score @data.gameStats}} />
+      dont
+      <Display::DisplayScore @badge='success' @score={{sum-score @data.gameStats 'ranking1And2AloneScore'}} /> en
+      épreuves
+      et
+      <Display::DisplayScore @badge='info' @score={{sum-score @data.gameStats 'longevity'}} /> en longévité --}}
+      <br />
+
+      {{#if @data.programInfo.[0].winnerName}}
+      Vainqueur
+      <LinkTo @route="programme.participant.participant"
+        @models={{array @data.programInfo.[0].webPath @data.programInfo.[0].winnerWebPath}}>
+        {{@data.programInfo.[0].winnerName}}
+      </LinkTo>
+      <br />
+      {{/if}}
+    </div>
+    <div class="col-sm-6">
+      <br />
+      {{#if @data.custom.nextProgram}}
+      Edition suivante :
+      <LinkTo @route="programme.programme" @model={{@data.custom.nextProgram.webPath}}>
+        {{@data.custom.nextProgram.name}}</LinkTo>
+      <FaIcon @icon="caret-right" />
+      <br />
+      {{/if}}
+      {{#if @data.custom.previousProgram}}
+      Edition précédente :
+      <LinkTo @route="programme.programme" @model={{@data.custom.previousProgram.webPath}}>
+        {{@data.custom.previousProgram.name}}</LinkTo>
+      <FaIcon @icon="caret-left" />
+      <br />
+      {{/if}}
+      {{#if @evTask.isRunning}}
+      ...
+      {{else}}
+      <br />
+      <Snippet::Image 
+        @alt="{{@data.custom.nextProgram.name}}" 
+        @src={{@evData.custom.binary_url}}
+        @icon="image"
+        />
+      {{/if}}
+    </div>
+  </div>
+
+  <BsModal @open={{this.modal}} @onSubmit={{action "submit"}} as |Modal|>
+    <Modal.header>
+      <h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i>
+        <LinkTo @route="programme.participant.participant"
+          @models={{array @data.programInfo.[0].webPath item.participantWebPath}}>{{item.participantName}}
+        </LinkTo>
+      </h4>
+    </Modal.header>
+    <Modal.body>
+      {{#each this.popUpParticipant.participationDetails as |participationDetails| }}
+      <br /> Jour
+      {{participationDetails.programIndex}}
+      Score
+      {{participationDetails.ranking}}
+      <LinkTo @route="game.game" @model={{participationDetails.gameWebPath}}>{{participationDetails.gameName}}
+      </LinkTo>
+
+      <br />
+      {{participationDetails.activityTypeName}}
+      {{participationDetails.participationTypeName}}
+      {{participationDetails.gameStakeTypeName}}
+      <br />
+      {{/each}}
+    </Modal.body>
+    <Modal.footer as |footer|>
+      <BsButton @onClick={{action closePopup}} @type="danger">Close</BsButton>
+    </Modal.footer>
+  </BsModal>
+
+  <br />
+  {{#if scoreCaption}}
+  <Layout::InfoCaption>
+    <Definition::PlayerPerformanceScoreDefinition></Definition::PlayerPerformanceScoreDefinition>
+  </Layout::InfoCaption>
+  <br />
+  {{/if}}
+  <BsTab as |tab|>
+    <tab.pane @title={{tab-title "Participants " @data.gameStats.length}}>
+      <div class="col-md-12">
+        <Component::ViewportComponent @vpLoaderId="participant">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Participant</th>
+                {{!-- <th>Détails</th> --}}
+                <th colspan="4">Score (Points) <FaIcon @icon="info-circle" class="text-info"
+                    {{on "click" (fn this.toggleScoreCaption)}}></FaIcon>
+                </th>
+                <th colspan="4">Résultat</th>
+                <th colspan="2">Totems</th>
+                <th colspan="2">Conforts</th>
+                <th colspan="4">Résultat Individuel</th>
+                <th colspan="4">Participations</th>
+              </tr>
+              <tr>
+                <th></th>
+                {{!-- <th></th> --}}
+                <th>Longévité</th>
+                <th>1ère place</th>
+                <th>2ème place</th>
+                <th>Total</th>
+
+                <th>#1</th>
+                <th>#2</th>
+                <th>#3</th>
+                <th>Autre</th>
+
+                <th>Total</th>
+                <th>Individuels</th>
+
+                <th>Total</th>
+                <th>Individuels</th>
+
+                <th>#1</th>
+                <th>#2</th>
+                <th>#3</th>
+                <th>Autre</th>
+
+                <th>Epreuves</th>
+                <th>Dernière position</th>
+                <th>effectives</th>
+                <th>individuelles</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each @data.gameStats as |item index| }}
+              <tr>
+                <td>
+                  <LinkTo @route="programme.participant.participant"
+                    @models={{array @data.programInfo.[0].webPath item.participantWebPath}}>{{item.participantName}}
+                  </LinkTo>
+                </td>
+                {{!-- <td> TODO after close popup does not open again...
+                <FaIcon @icon="link" {{on "click" (fn this.openPopup item)}} />
+              </td> --}}
+                <td>{{#if (eq item.longevity 0)}} - {{else}}
+                  {{item.longevity}}
+                  {{/if}}</td>
+                <td>{{item.ranking1AloneScore}}</td>
+                <td>{{item.ranking2AloneScore}}</td>
+                <td class="text-right"><span class="badge badge-danger"
+                    style="font-size: 1.1em;">{{score-helper item}}</span></td>
+
+                <td>{{item.ranking1}}</td>
+                <td>{{item.ranking2}}</td>
+                <td>{{item.ranking3}}</td>
+                <td>{{item.rankingOther}}</td>
+                <td>{{item.totems}}</td>
+                <td>{{item.totemsIndividual}}</td>
+                <td>{{item.conforts}}</td>
+                <td>{{item.confortsIndividual}}</td>
+
+                <td>{{item.ranking1Alone}}</td>
+                <td>{{item.ranking2Alone}}</td>
+                <td>{{item.ranking3Alone}}</td>
+                <td>{{item.rankingOtherAlone}}</td>
+                <td>{{item.nbOfGames}}</td>
+                <td>{{item.individualGameLasts}}</td>
+                <td>{{item.activeParticipations}}</td>
+                <td>{{item.individualParticipations}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </Component::ViewportComponent>
+      </div>
+    </tab.pane>
+    <tab.pane @title="Tribus et épreuves">
+      <div class="col-md-12">
+        {{!-- <h2>Results <span class="badge badge-dark">{{@data.teamGameTimeline.length}}</span></h2> --}}
+        <Component::ViewportComponent @vpLoaderId="tribu-epreuve">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+
+                <th>Jeu</th>
+                <th>Tribu</th>
+
+                <th>Membres</th>
+                <th>Nombre de joueur</th>
+                <th>Nombre de tribus</th>
+                <th>Tribu gagnante</th>
+                <th>gagnants</th>
+                <th>Jour</th>
+                <th>Type de jeux</th>
+                <th>Enjeu</th>
+                <th>Participation</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each @data.teamGameTimeline as |item index| }}
+              <tr>
+                <td>
+                  <LinkTo @route="programme.game.game" @models={{array @data.programInfo.[0].webPath item.gameWebPath}}>
+                    {{item.gameName}}
+                  </LinkTo>
+                </td>
+                <td>
+                  <LinkTo @route="programme.team.team" @models={{array @data.programInfo.[0].webPath item.teamWebPath}}>
+                    <span class="badge {{find-property-value this.teams 'team-css-class' item.teamWebPath}}">
+                      {{item.teamName}}
+                    </span>
+                  </LinkTo>
+                </td>
+                <td>
+                  {{#each item.teamDetails as |teamDetails| }}
+                  <LinkTo @route="programme.participant.participant"
+                    @models={{array @data.programInfo.[0].webPath teamDetails.participantWebPath}}>
+                    {{teamDetails.participantName}}
+                  </LinkTo>
+                  <br>{{!-- teamDetails.ranking --}}
+                  {{/each}}
+                </td>
+                <td>{{item.nbPlayers}}</td>
+                <td>{{item.nbTeams}}</td>
+
+                <td>
+                  <span class="badge {{find-property-value this.teams 'team-css-class' item.winnerTeamWebPath}}">
+                    {{find-property-value this.teams 'team-name' item.winnerTeamWebPath}}
+                  </span>
+                </td>
+                <td>
+                  {{#each item.winnerParticipantWebPaths as |winnerParticipantWebPaths| }}
+                  <LinkTo @route="programme.participant.participant"
+                    @models={{array @data.programInfo.[0].webPath winnerParticipantWebPaths.participantWebPath}}>
+                    {{winnerParticipantWebPaths.participantName}}
+                  </LinkTo>
+                  <br>
+                  {{/each}}
+                </td>
+                <td>{{item.programIndex}}</td>
+                <td>{{item.gameTypeName}}</td>
+
+                <td>{{item.gameStakeTypeName}}</td>
+
+                <td>{{item.participationTypeName}}</td>
+                <!--
+              <td>{{item.gameTypeWebPath}}</td>
+              <td>{{item.gameStakeTypeWebPath}}</td>
+              <td>{{item.participationTypeWebPath}}</td>
+              -->
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </Component::ViewportComponent>
+      </div>
+    </tab.pane>
+  </BsTab>
+</div>
+{{!-- <div id="loader"></div> --}}

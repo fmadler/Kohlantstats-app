@@ -1,0 +1,74 @@
+<div {{did-insert (perform this.getProperties @set1 @set2)}}></div>
+Affecter un participant à une tribu:<br />
+Selectionner un participant puis selectionner une tribu
+<br />
+{{!-- <br />
+https://ember-twiddle.com/ca521cba74f883d429b8dfb8dee42bfa?openFiles=templates.block-accordion-demo.hbs%2Ctemplates.components.contextual-accordion.hbs&route=%2FblockAccordionDemo
+<br />
+https://balinterdi.com/blog/complex-components-in-ember-dot-js-part-1-analyzing-user-flows/
+<br />
+https://www.mutuallyhuman.com/blog/creating-an-accordion-with-contextual-components-in-ember/ --}}
+<div class="row">
+    <div class="col-sm-6">
+        {{!-- {{#each (take 3 (shuffle @data.options.options)) as |item index|}} --}}
+        {{#each (take 3 (shuffle @set1)) as |item index|}}
+        {{!-- <div data-cy="option-{{item.participantWebPath}}" class="card"
+            {{on "click" (fn this.selectParticipant item @data.options.input.questionWebPath)}}
+            > --}}
+        <div data-cy="option-{{item.participantWebPath}}" class="card"
+            {{on "click" (fn @selectElement1 item @data.options.input.questionWebPath)}}>
+            <div class="card-body">
+            <Snippet::Image 
+                @alt="{{item.participantName}}"
+                @src={{binary-url (participant-full-entity-webpath item.programWebPath item.participantWebPath) 'photo_up' }}
+                @icon="user"
+                />
+            </div>
+            <div data-cy="option-body-participant-{{item.participantWebPath}}"
+                class="{{quiz-result-class this.showResult item.participantWebPath choicesResults}} card-footer">
+                <h3>
+                    {{#if (eq (affected-option item.participantWebPath @choices) "")}}
+                    {{item.participantName}}
+                    {{else}}
+                    <span
+                        class="badge {{find-property-value this.teamProperties 'team-css-class' (affected-option item.participantWebPath @choices)}}">
+                        {{item.participantName}}
+                    </span>
+                    {{/if}}
+                    {{!-- {{#if (includes item.participantWebPath this.choices)}}
+                    <span data-cy="option-ticked-{{item.participantWebPath}}" class="float-right" style="color: green;">
+                        <FaIcon @icon="check" />
+                    </span>
+                    {{/if}} --}}
+                </h3>
+            </div>
+        </div>
+        <br />
+        {{/each}}
+    </div>
+    <div class="col-sm-6">
+        {{!-- {{#each (shuffle (distinct-property @data.options.options 'teamWebPath')) as |item index|}} --}}
+        {{#each (shuffle @set2) as |item index|}}
+        <div data-cy="option-{{item.teamWebPath}}" class="card"
+            {{on "click" (fn @selectElement2 item @data.options.input.questionWebPath)}}>
+            <div class="card-body">
+                <FaIcon @icon="users" />
+            </div>
+            <div data-cy="option-body-team-{{item.teamWebPath}}"
+                class="{{quiz-result-class this.showResult item.participantWebPath choicesResults}} card-footer">
+                <h3>
+                    <span class="badge {{find-property-value this.teamProperties 'team-css-class' item.teamWebPath}}">
+                        {{item.teamName}}
+                    </span>
+                    {{#if (includes item.participantteamWebPathWebPath this.choices)}}
+                    <span data-cy="option-ticked-{{item.teamWebPath}}" class="float-right" style="color: green;">
+                        <FaIcon @icon="check" />
+                    </span>
+                    {{/if}}
+                </h3>
+            </div>
+        </div>
+        <br />
+        {{/each}}
+    </div>
+</div>

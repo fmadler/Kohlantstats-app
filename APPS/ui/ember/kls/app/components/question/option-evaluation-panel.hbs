@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-sm-6">
+        {{yield choix (fn this.affect wp1 wp2)}} 
+        {{!-- choix (fn this.affect wp1 wp2)}} --}}
+    </div>
+    <div class="col-sm-6">
+        {{isValidateDisable}}!! {{this.choices.length}}, {{@choix.length}}
+        <button data-cy="validate-btn" type="button" class="btn btn-info"
+            {{on "click" (fn this.validate @options @data)}} disabled={{isValidateDisable}}>
+            Valider !
+        </button>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+<div class="container">
+
+    <h1>{{@data.participantSummary.[0].name}}</h1>
+
+    <div class="row">
+        {{#if @evTask.isRunning}}...
+        {{else}}
+        <div class="col-md-6">
+            {{#if @evData.custom.description}}
+            {{{@evData.custom.description}}}
+            {{/if}}
+        </div>
+        <div class="col-md-6">
+           <Snippet::Image 
+                @alt="{{@data.participantSummary.[0].name}}" 
+                @src={{@evData.custom.binary_url}}
+                @icon="user"
+                />
+        </div>
+        {{/if}}
+    </div>
+
+    <h2>Parcours dans Koh Lanta</h2>
+    {{!-- résumé des victoire indi--}}
+
+
+    <div class="alert alert-info" role="alert">
+        <FaIcon @icon="exclamation-triangle"></FaIcon> Il se peut que toutes les données des participations précédentes
+        ne soient pas encore encodées.
+    </div>
+
+    <h3>
+        <Score::ScoreDistribution @gameStats={{@data.gameStats}} />
+    </h3>
+
+    {{#each @data.gameStats as |participationVictories|}}
+    {{#if (not-eq participationVictories.individualWinner.length 0)}}
+    Victoires individuelles dans l'édition
+
+    <LinkTo @route="programme.programme" @model={{participationVictories.programWebPath}}>
+        {{participationVictories.programName}}
+    </LinkTo> :
+
+    {{#each participationVictories.individualWinner as |gameWinner|}}
+    <LinkTo @route="programme.game.game" @models={{array participationVictories.programWebPath gameWinner.gameWebPath}}>
+        {{gameWinner.gameName}}
+    </LinkTo>
+
+    {{/each}}
+    <br />
+    <br />
+    {{/if}}
+    {{/each}}
+
+    {{#each @data.participantSummary as |participation|}}
+
+    <div class="card">
+        <div class="card-header">
+            <h3>
+                <b>Edition <span class="badge badge-warning">{{participation.programEditionNumber}}</span></b>
+                <LinkTo @route="programme.programme" @model={{participation.programWebPath}}>
+                    {{participation.programName}}
+                </LinkTo>
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    {{#if (eq participation.finalPosition 1)}}
+                    <h3 style="color: Tomato;">Vainqueur!
+                        <FaIcon @icon="trophy" />
+                    </h3>
+                    {{/if}}
+                    {{#if (not-eq participation.age 0)}}
+                    Age {{participation.age}} <br />
+                    {{/if}}
+                    {{#if (not-eq participation.maxTime 0)}}
+                    Nombre de jours {{participation.maxTime}}<br />
+                    {{/if}}
+                    Nombre de victoires {{participation.nbVictories}}<br />
+                    {{#if (not-eq participation.finalPosition 0)}}
+                    Position finale {{participation.finalPosition}}<br />
+                    {{/if}}
+                    <LinkTo @route="programme.participant.participant"
+                        @models={{array participation.programWebPath @data.participantSummary.[0].webPath}}>
+                        Plus les détails sur l'aventure de {{participation.name}}
+                    </LinkTo>
+                    <hr />
+                    <b>Palmarès</b>
+                    <br />
+                    <Participant::GamePalmaresAbstract
+                        @stats={{participant-game-stats @data.gameStats participation.programWebPath}} />
+                    <br />
+
+                    <Participant::GamePalmaresTable
+                        @stats={{participant-game-stats @data.gameStats participation.programWebPath}} />
+
+                    <b>Score</b>
+                    <br />
+                    <Participant::ParticipantScoreTable
+                        @stats={{participant-game-stats @data.gameStats participation.programWebPath}}>
+                    </Participant::ParticipantScoreTable>
+
+                    {{#if (has-individual-victory this.stats participation.programWebPath)}}
+                    Victoires individuelles
+                    {{#each (participation-filter (participant-game-stats this.stats participation.programWebPath) "1" "Individuel") as |victory|}}
+
+                    <LinkTo @route="programme.game.game"
+                        @models={{array participation.programWebPath victory.gameWebPath}}>
+                        {{victory.gameName}}
+                    </LinkTo>
+
+                    {{/each}}
+                    {{/if}}
+
+                </div>
+                <div class="col-md-6">
+                    <LinkTo @route="programme.programme" @model={{participation.programWebPath}}>
+                        <Snippet::Image 
+                            @alt="{{participation.programName}}"
+                            @src={{binary-url (concat 'programme/' participation.programWebPath) 'poster' }}
+                            @icon="image"
+                            />
+                    </LinkTo>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    {{/each}}
+
+    {{!-- {{#each this.individualWinnerStats as |participationVictories|}}
+    {{#if (not-eq participationVictories.individualWinner.length 0)}}
+    {{#each participationVictories.individualWinner as |gameWinner|}}
+    {{gameWinner.gameName}}
+    {{/each}}
+    {{/if}}
+    {{/each}} --}}
+</div>

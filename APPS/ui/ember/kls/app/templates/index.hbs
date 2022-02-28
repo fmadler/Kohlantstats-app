@@ -1,0 +1,25 @@
+<h1>Bienvenu à Kohlantstats</h1>
+<h3>Vous cherchez à avoir une vue détaillée des éditions, candidats et épreuves de Koh Lanta. C'est l'endroit.
+Kohlantstats vous propose aussi des statistiques.
+<br />
+Vous trouverez
+<LinkTo @route="programme.index">
+  les éditions
+</LinkTo>
+{{!-- ainsi que
+<LinkTo @route="quizz">
+  des quizz 
+</LinkTo> --}}
+!
+<br />
+Mais aussi les 
+<LinkTo @route="definitions">
+  définitions pour évaluer les participants 
+</LinkTo>
+!
+</h3>
+<hr />
+<div class="alert alert-info" role="alert">
+  <FaIcon @icon="exclamation-triangle"></FaIcon> Toutes les données des anciennes saisons ne sont pas encore encodées.
+</div>
+<Info::ContributorInfo />

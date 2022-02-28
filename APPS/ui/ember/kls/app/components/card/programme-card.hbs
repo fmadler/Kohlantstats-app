@@ -1,0 +1,52 @@
+<div class="card" {{did-insert this.getEntityValue}}>
+    <div class="card-header">
+        <h2>
+            <LinkTo data-cy="link-{{@data.webPath}}" @route="programme.programme" @model={{@data.webPath}}>
+                {{@data.name}}</LinkTo>
+            <span class="badge badge-warning">{{@data.year}}</span>
+        </h2>
+    </div>
+    <div class="card-body">
+        {{#if entityValue.isRunning}}
+        ...
+        {{else}}
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Edition <span class="badge badge-warning">{{@data.editionNumber}}</span>
+                </h3>
+                {{#if entityValue.value.custom.description}}
+                {{{entityValue.value.custom.description}}}
+                {{/if}}
+                <hr />
+                Candidats {{@data.nbOfParticipants}}
+                <br />
+                Jours {{@data.totalTimeLength}}
+                {{#if @data.winnerName}}
+                <br />
+                Vainqueur
+                <LinkTo @route="programme.participant.participant" @models={{array @data.webPath @data.winnerWebPath}}>
+                    {{@data.winnerName}}</LinkTo>
+                {{/if}}
+                <br />
+                Lieu {{@data.place}}
+                {{#unless gameStatsTask.isRunning}}
+                <br />
+                Points attribués
+                <Score::ScoreDistribution @gameStats={{gameStats.value.GameStatsOut}} />
+
+                {{/unless}}
+            </div>
+            <div class="col-sm-6">
+                {{!--#if entityValue.value.custom.binary_url}}{{/if--}}
+                <LinkTo @route="programme.programme" @model={{@data.webPath}}>
+                    <Snippet::Image 
+                        @alt={{@data.webPath}} 
+                        @src={{entityValue.value.custom.binary_url}} 
+                        @icon="image"/>
+                </LinkTo>
+                
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{{#if @data}}
+<b>Critères</b>
+<ul>
+    {{#each @data as |item index| }}
+    <li>
+        <LinkTo @route="programme.game.index" @model={{@programWebPath}} @query={{hash gameTagWebPath=item.webPath}}>
+            {{item.name}}
+        </LinkTo>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}

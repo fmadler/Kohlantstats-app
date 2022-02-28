@@ -1,0 +1,33 @@
+<table class="table table-condensed" >
+    <thead>
+        <tr>
+            <th>Score</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>en Longévité</th>
+            <td data-cy="{{@stats.programWebPath}}-{{@stats.participantWebPath}}-score-longevity">
+                {{#if (eq @stats.longevity 0)}} - {{else}}
+                {{@stats.longevity}}
+                {{/if}}
+                </td>
+        </tr>
+        <tr>
+            <th>en 1ère position</th>
+            <td data-cy="{{@stats.programWebPath}}-{{@stats.participantWebPath}}-score-1">{{@stats.ranking1AloneScore}}</td>
+        </tr>
+        <tr>
+            <th>en 2ème position</th>
+            <td data-cy="{{@stats.programWebPath}}-{{@stats.participantWebPath}}-score-2">{{@stats.ranking2AloneScore}}</td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td data-cy="{{@stats.programWebPath}}-{{@stats.participantWebPath}}-score-total"> 
+                {{!-- <span class="badge badge-danger" style="font-size: 1.1em;">{{this.score}}</span>  --}}
+                <Display::DisplayScore @badge='danger' @score={{@stats.score}} />
+            </td>
+        </tr>
+    </tbody>
+</table>

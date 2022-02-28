@@ -1,0 +1,33 @@
+<div class="card" {{!did-insert this.getEntityValue}}>
+    <div class="card-header">
+        <h2>
+            <LinkTo @route="programme.game.game" @models={{array @data.programWebPath @data.gameWebPath}}>
+                {{@data.gameName}}</LinkTo>
+
+            {{!-- <LinkTo @route="programme.programme" @model={{@data.programWebPath}}>{{@data.programName}}</LinkTo> --}}
+            {{!-- <span class="badge badge-warning">{{@data.editionNumber}}</span> --}}
+        </h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- game position -->
+                Jeu {{@data.gameParticipationTypeName}}
+                <br />
+                Jour : {{@data.timePosition}}
+                <br />
+                Jeu n° : {{@data.timeUnitIndex}}
+                <br />
+                <!-- winners -->
+
+
+                <Game::GameTags @data={{@data.gameTags}} @programWebPath={{@data.programWebPath}} />
+                <Game::GameRewards @data={{@data.gameRewards}} @programWebPath={{@data.programWebPath}} />
+            </div>
+            <div class="col-sm-6">
+                <Game::GameWinners @data={{@data.winners}} @programWebPath={{@data.programWebPath}} />
+
+            </div>
+        </div>
+    </div>
+</div>

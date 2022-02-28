@@ -1,0 +1,330 @@
+<h1>
+    {{@data.options.questionDetail.questionGenericName}}
+</h1>
+
+{{#if showComputedScore}}
+<h3>
+    Evaluations
+</h3>
+<h5>
+    <div class="progress">
+        {{!-- {{#link-to 'stats' (query-params isWineryBio=true)}} --}}
+        {{#if (gt this.computedScore.evaluation.correct.total 0)}}
+        <div class="progress-bar bg-success" role="progressbar"
+            style="width:{{html-safe this.computedScore.evaluation.correct.percent}}%">
+            Correctes {{this.computedScore.evaluation.correct.percent}} %
+        </div>
+        {{/if}}
+        {{!-- {{/link-to}}
+        {{#link-to 'stats' (query-params isWineryBio=false)}} --}}
+        {{#if (gt this.computedScore.evaluation.incorrect.total 0)}}
+        <div class="progress-bar bg-danger" role="progressbar"
+            style="width:{{html-safe this.computedScore.evaluation.incorrect.percent}}%">
+            Incorrectes {{this.computedScore.evaluation.incorrect.percent}} %
+        </div>
+        {{/if}}
+        {{!-- {{/link-to}} --}}
+    </div>
+    {{#if (not-eq this.computedScore.evaluation.correct.percent 0)}}
+    Correctes {{this.computedScore.evaluation.correct.total}} / {{this.computedScore.evaluation.total}} (
+    {{this.computedScore.evaluation.correct.percent}} %)
+    <br />
+    {{/if}}
+    {{#if (not-eq this.computedScore.evaluation.incorrect.percent 0)}}
+    Incorrectes {{this.computedScore.evaluation.incorrect.total}} / {{this.computedScore.evaluation.total}} (
+    {{this.computedScore.evaluation.incorrect.percent}} %)
+    {{/if}}
+</h5>
+{{!--
+<h3>
+    Questions
+</h3> --}}
+
+<h3>
+    Ligne chronologique
+</h3>
+<h5>
+    <div class="progress">
+        {{#each this.evaluations as |item index|}}
+        {{#if (eq item.assessment "correct")}}
+        <div class="progress-bar bg-success" role="progressbar" style="width:5%">
+        </div>
+        {{else}}
+        <div class="progress-bar bg-danger" role="progressbar" style="width:5%">
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</h5>
+{{/if}}
+
+<h2>
+    {{format-question @data}}
+</h2>
+<br />
+{{#if @data.options.options}}
+{{!--
+{{#if (eq @data.options.input.questionWebPath 'repartition-des-participants-par-epreuve')}}
+<Question::OptionEvaluationPanel @data={{@data}} @choix={{this.choices}} as |choix affectAction validateAction|>
+    <Question::Sorted::SortedQuestion @data={{@data}} @choix={{choix}} validateAction isValidationDisabled/>
+</Question::OptionEvaluationPanel>
+{{/if}}
+--}}
+
+<div class="row">
+    <div class="col-sm-6">
+
+        {{#if (eq @data.options.input.questionWebPath 'repartition-des-participants-par-epreuve')}}
+        <Question::Sorted::SortedQuestion @data={{@data}}
+            @set1={{distinct-property @data.options.options 'participantWebPath'}}
+            @set2={{distinct-property @data.options.options 'teamWebPath'}} @selectElement1={{this.selectElement1}}
+            @selectElement2={{this.selectElement2}} @choices={{this.choices}}>
+        </Question::Sorted::SortedQuestion>
+        {{/if}}
+        {{!-- {{#each @data.options as |item index| }} --}}
+        {{#if (eq @data.options.input.questionWebPath 'qui-a-gagne-le-jeu-de-la-saison')}}
+        {{#each (shuffle (take 3 @data.options.options)) as |item index|}}
+        <div data-cy="option-{{item.participantWebPath}}" class="card"
+            {{on "click" (fn this.toggle item @data.options.input.questionWebPath)}}>
+            <div class="card-body">
+                <Snippet::Image 
+                    @alt="{{item.participantName}}"
+                    @src={{binary-url (participant-full-entity-webpath item.programWebPath item.participantWebPath) 'photo_up' }}
+                    @icon="user"
+                    />
+            </div>
+            <div data-cy="option-body-{{item.participantWebPath}}"
+                class="{{quiz-result-class this.showResult item.participantWebPath choicesResults}} card-footer">
+                <h3>
+                    {{item.participantName}}
+                    {{!-- {{#if item.validationResult}}
+                    : {{item.validationResult}}
+                    {{/if}} --}}
+                    {{#if (includes item.participantWebPath this.choices)}}
+                    <span data-cy="option-ticked-{{item.participantWebPath}}" class="float-right" style="color: green;">
+                        <FaIcon @icon="check" />
+                    </span>
+
+                    {{/if}}
+                </h3>
+            </div>
+        </div>
+
+        <br />
+        {{/each}}
+        {{/if}}
+
+        {{#if (eq @data.options.input.questionWebPath 'classement-des-meilleurs-participants')}}
+        {{#each (shuffle @data.options.options) as |item index|}}
+        <div data-cy="option-{{item.participantWebPath}}" class="card">
+            <div class="card-body">
+                <Snippet::Image 
+                    @alt="{{item.participantName}}"
+                    @src={{binary-url (participant-full-entity-webpath item.programWebPath item.participantWebPath) 'photo_up' }}
+                    @icon="user"
+                    />
+            </div>
+            <div data-cy="option-body-{{item.participantWebPath}}"
+                class="{{quiz-result-class this.showResult item.participantWebPath choicesResults}} card-footer">
+                <h3>
+                    {{item.participantName}}
+                    <span class="float-right">
+                        {{#each @data.options.options as |nottouse optionIndex|}}
+                        {{#if (selected-order-option item.participantWebPath (plus optionIndex 1) this.choices)}}
+                        <span data-cy="option-ticked-{{item.participantWebPath}}-{{optionIndex}}"
+                            class="badge badge-pill badge-primary"
+                            {{on "click" (fn this.order item @data.options.input.questionWebPath (plus optionIndex 1) @data.options.options)}}>{{plus optionIndex 1}}</span>
+
+                        {{else}}
+                        <span data-cy="option-{{item.participantWebPath}}-{{optionIndex}}"
+                            class="badge badge-pill badge-secondary"
+                            {{on "click" (fn this.order item @data.options.input.questionWebPath (plus optionIndex 1) @data.options.options)}}>{{plus optionIndex 1}}</span>
+
+                        {{/if}}
+                        {{/each}}
+                    </span>
+                </h3>
+            </div>
+        </div>
+
+        <br />
+        {{/each}}
+        {{/if}}
+
+        {{#if (eq @data.options.input.questionWebPath 'classement-des-meilleurs-tribus')}}
+        {{#each (shuffle @data.options.options) as |item index|}}
+        <div data-cy="option-{{item.teamWebPath}}" class="card">
+            <div class="card-body">
+                <Snippet::Image 
+                    @alt="{{item.participantName}}"
+                    @src={{binary-url (participant-full-entity-webpath item.programWebPath item.participantWebPath) 'photo_up' }}
+                    @icon="user"
+                    />
+            </div>
+            <div data-cy="option-body-{{item.teamWebPath}}"
+                class="{{quiz-result-class this.showResult item.teamWebPath choicesResults}} card-footer">
+                <h3>
+                    {{item.teamName}}
+                    <span class="float-right">
+                        {{#each @data.options.options as |nottouse optionIndex|}}
+                        {{#if (selected-order-option item.teamWebPath (plus optionIndex 1) this.choices)}}
+                        <span data-cy="option-ticked-{{item.teamWebPath}}-{{optionIndex}}"
+                            class="badge badge-pill badge-primary"
+                            {{on "click" (fn this.order item @data.options.input.questionWebPath (plus optionIndex 1) @data.options.options)}}>{{plus optionIndex 1}}</span>
+
+                        {{else}}
+                        <span data-cy="option-{{item.teamWebPath}}-{{optionIndex}}"
+                            class="badge badge-pill badge-secondary"
+                            {{on "click" (fn this.order item @data.options.input.questionWebPath (plus optionIndex 1) @data.options.options)}}>{{plus optionIndex 1}}</span>
+
+                        {{/if}}
+                        {{/each}}
+                    </span>
+                </h3>
+            </div>
+        </div>
+
+        <br />
+        {{/each}}
+        {{/if}}
+
+        {{#if (eq @data.options.input.questionWebPath 'quelle-tribu-a-gagne-le-jeu-de-la-saison')}}
+        {{#each (shuffle (take 3 @data.options.options)) as |item index|}}
+        <div data-cy="option-{{item.teamWebPath}}" class="card"
+            {{on "click" (fn this.toggle item @data.options.input.questionWebPath)}}>
+            <div class="card-body">
+                Photo
+                <FaIcon @icon="users" />
+            </div>
+            <div data-cy="option-body-{{item.participantWebPath}}"
+                class="{{quiz-result-class this.showResult item.teamWebPath choicesResults}} card-footer">
+                <h3>
+                    {{item.teamName}}
+                    {{#if (includes item.teamWebPath this.choices)}}
+                    <span data-cy="option-ticked-{{choice.webPath}}" class="float-right" style="color: green;">
+                        <FaIcon @icon="check" />
+                    </span>
+                    {{/if}}
+                </h3>
+            </div>
+        </div>
+
+        <br />
+        {{/each}}
+        {{/if}}
+
+    </div>
+    <div class="col-sm-6">
+        {{#if
+            (or
+                (eq @data.options.input.questionWebPath 'quelle-tribu-a-gagne-le-jeu-de-la-saison')
+                (eq @data.options.input.questionWebPath 'qui-a-gagne-le-jeu-de-la-saison')
+            )
+        }}
+        {{#if this.showValidateButton}}
+        <button data-cy="validate-btn" type="button" class="btn btn-info"
+            {{on "click" (fn this.validate @options @data)}} disabled={{isValidateDisable}}>
+            Valider !
+        </button>
+        {{/if}}
+        {{/if}}
+        {{#if
+            (or
+                (eq @data.options.input.questionWebPath 'classement-des-meilleurs-tribus')
+                (eq @data.options.input.questionWebPath 'classement-des-meilleurs-participants')
+            )
+        }}
+        {{#if this.showValidateOrderButton}}
+        <button data-cy="validate-btn" type="button" class="btn btn-info"
+            {{on "click" (fn this.validateOrder @options @data)}} disabled={{isValidateOrderDisable}}>
+            Valider !
+        </button>
+        {{/if}}
+        {{/if}}
+        {{#if
+            (eq @data.options.input.questionWebPath 'repartition-des-participants-par-epreuve')
+        }}
+        {{#if this.showValidateSortButton}}
+        <button data-cy="validate-btn" type="button" class="btn btn-info"
+            {{on "click" (fn this.validateSort @options @data)}} disabled={{isValidateSortDisable}}>
+            Valider !
+        </button>
+        {{/if}}
+        {{/if}}
+
+        {{#if this.showResult}}
+        {{#if (and areChoicesCorrect this.matrix)}} {{!-- todo with ember concurrency --}}
+        <button data-cy="next-question-btn" type="button" class="btn btn-info"
+            {{on "click" (fn this.nextQuestion @data.options.questionDetail.questionWebPath)}}>
+            Prochaine question
+            <FaIcon @icon="play" />
+        </button>
+        {{/if}}
+        <hr />
+        {{#if areChoicesCorrect}}
+        <h3>
+            <span data-cy="correct-answer" style="color: green;">
+                <FaIcon @icon="check-circle" />
+            </span>
+        </h3>
+
+        <LinkTo @route="programme.game.game"
+            @models={{array @data.options.input.filter1WebPath @data.options.input.filter2WebPath}}>
+            En savoir plus sur ce jeu
+        </LinkTo>
+        {{!--
+        todo provide stats, similar games
+         --}}
+
+        {{else}}
+        <h3>
+            <span data-cy="incorrect-answer" style="color: red;">
+                <FaIcon @icon="times-circle" />
+            </span>
+        </h3>
+        {{!-- {{#each this.choicesResults as |item index|}}
+        {{item.participantName}} '{{item.validationResult}}'<br />
+        {{/each}} --}}
+        {{/if}}
+        {{/if}}
+    </div>
+</div>
+
+<hr />
+{{/if}}
+<button data-cy="all-questions-btn" type="button" class="btn btn-info"
+    {{on "click" (perform this.allPossibilites @data.options.questionDetail)}}>
+    Toutes les questions
+    {{#if this.allPossibilites.isRunning}}
+    ...
+    {{!-- <LoadingSpinner /> --}}
+    {{/if}}
+</button>
+{{!-- ou optez pour une option au sort
+<button data-cy="shuffle-btn" type="button" class="btn btn-info" {{on "click" (fn this.shuffleQuestion @data.options)}}>
+    <FaIcon @icon="random" />
+</button> --}}
+<br />
+
+<hr />
+{{!-- {{#if this.matrix}}
+Toutes les questions du genre <b>{{@data.options.questionDetail.questionGenericName}}</b>
+{{/if}} --}}
+{{#each this.matrix as |item index| }}
+{{!-- <LinkTo @route="quizz.question.question" @model={{@data.questionDetail.questionWebPath}}
+    @query={{hash filter1WebPath=item.programWebPath filter2WebPath=item.gameWebPath}}>
+    {{@data.questionDetail.questionName}} {{item.programName}} {{item.gameName}}
+</LinkTo> --}}
+<span>
+    <span data-cy="link-to-question-{{item.programWebPath}}-{{item.gameWebPath}}" {{on "click" (fn this.transition @data.options.questionDetail.questionWebPath item)}}>
+        <FaIcon @icon='link' />
+        {{question-filter-formatter @data.options.questionDetail.questionName item.programName item.gameName}}
+    </span>
+
+    {{!-- <button data-cy="link-to-question-{{item.programWebPath}}-{{item.gameWebPath}}" type="button" class="btn btn-info"
+        {{on "click" (fn this.transition @data.options.questionDetail.questionWebPath item)}}>
+        <FaIcon @icon='link' />
+    </button> --}}
+</span>
+<br />
+{{/each}}

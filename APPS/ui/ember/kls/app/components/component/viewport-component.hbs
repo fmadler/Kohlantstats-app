@@ -1,0 +1,6 @@
+<div {{did-insert this.setupInViewport}}>
+    {{#if this.isInViewPort}}
+    {{yield}}
+    {{/if}}
+</div>
+<div id={{@vpLoaderId}}></div>

@@ -1,0 +1,74 @@
+<Component::ViewportComponent @vpLoaderId={{@vpLoaderId}}>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Epreuve</th>
+                <th>Nombre de participants</th>
+                <th colspan="2">{{@participant1Name}}</th>
+                <th colspan="2">{{@participant2Name}}</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>classement</th>
+                <th>score</th>
+                <th>classement</th>
+                <th>score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each (sort-by "programIndex" @performanceComparison) as |item index| }}
+            <tr>
+                <td>
+                    <LinkTo @route="programme.game.game" @models={{array @params.programWebPath item.gameWebPath}}>
+                        {{item.gameName}}
+                    </LinkTo>
+                    ({{item.gameStakeTypeName}}, {{item.participationTypeName}})
+                </td>
+                <td>{{item.nbRegisterParticipants}}</td>
+                <td>
+                    {{#if (eq @params.playerWebPath item.participants.[0].participantWebPath)}}
+                    {{item.participants.[0].ranking}}
+                    {{else if (eq @params.playerWebPath item.participants.[1].participantWebPath)}}
+                    {{item.participants.[1].ranking}}
+                    {{/if}}
+
+                </td>
+                <td>
+                    {{#if (eq @params.playerWebPath item.participants.[0].participantWebPath)}}
+                    <Display::DisplayScore @badge='danger' @score={{item.participants.[0].score}} />
+                    {{else if (eq @params.playerWebPath item.participants.[1].participantWebPath)}}
+                    <Display::DisplayScore @badge='danger' @score={{item.participants.[1].score}} />
+                    {{/if}}
+
+                </td>
+                <td>
+                    {{#if (eq @params.comparisonPlayerWebPath item.participants.[0].participantWebPath)}}
+                    {{item.participants.[0].ranking}}
+                    {{else if (eq @params.comparisonPlayerWebPath item.participants.[1].participantWebPath)}}
+                    {{item.participants.[1].ranking}}
+                    {{/if}}
+                </td>
+                <td>
+                    {{#if (eq @params.comparisonPlayerWebPath item.participants.[0].participantWebPath)}}
+                    <Display::DisplayScore @badge='danger' @score={{item.participants.[0].score}} />
+                    {{else if (eq @params.comparisonPlayerWebPath item.participants.[1].participantWebPath)}}
+                    <Display::DisplayScore @badge='danger' @score={{item.participants.[1].score}} />
+                    {{/if}}
+                </td>
+            </tr>
+
+            {{!-- 
+                {{item.gameName}}
+                {{item.gameStakeTypeName}}
+                {{item.nbRegisterParticipants}}
+                {{item.participationTypeName}}
+                {{item.participants.[0].participantName}}
+                {{item.participants.[0].ranking}}
+                {{item.gameStakeTypeName}}
+ --}}
+
+            {{/each}}
+        </tbody>
+    </table>
+</Component::ViewportComponent>

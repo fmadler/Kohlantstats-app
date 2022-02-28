@@ -1,0 +1,15 @@
+{{#if @data}}
+<b>Gagnant</b>
+<ul>
+    {{#each @data as |item index| }}
+    <li class={{class-4-participant-activity item.gameActivityTypeWebPath}}>
+        <LinkTo @route="programme.participant.participant" @models={{array @programWebPath item.webPath}}>
+            {{item.name}}
+            {{#if (not-eq item.gameActivityTypeWebPath 'participant')}}
+            ({{item.gameActivityTypeWebPath}})
+            {{/if}}
+        </LinkTo>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}

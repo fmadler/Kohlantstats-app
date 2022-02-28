@@ -1,0 +1,200 @@
+{{!-- {{page-title this.pageTitle}} --}}
+<div class="container">
+    {{!--TODO common filter--}}
+    <h1 class="kls-feature">
+        Editions
+        <span class="badge badge-success">{{@model.distinctPrograms.length}}</span>
+    </h1>
+    {{#each @model.distinctPrograms as |item index| }}
+    <LinkTo @route="player.index" @query={{hash playerWebPath=@model.params.playerWebPath programWebPath=item.webPath}}>
+        {{#if (eq item.webPath @model.params.programWebPath)}}
+        <button data-cy="programme-{{item.webPath}}" type="button" class="btn btn-primary font-weight-bold">
+            {{item.name}}
+        </button>
+        {{else}}
+        <button data-cy="programme-{{item.webPath}}" type="button" class="btn btn-outline-primary">
+            {{item.name}}
+        </button>
+        {{/if}}
+    </LinkTo>
+    {{/each}}
+    <br />
+    {{#if (not-eq @model.distinctParticipants.length 0)}}
+    <br />
+    <h1 class="kls-feature">
+        Participants
+        <span class="badge badge-success">{{@model.distinctParticipants.length}}</span>
+    </h1>
+    <h2>
+        Les participants de l'édition
+        <LinkTo @route="programme.programme" @model={{@model.programInfo.[0].webPath}}>{{@model.programInfo.[0].name}}
+        </LinkTo>
+    </h2>
+    {{#each @model.distinctParticipants as |item index| }}
+    {{#if item.name}}
+    {{#if (eq item.webPath @model.params.playerWebPath)}}
+    <button data-cy="participant-{{item.webPath}}" type="button" class="btn btn-warning font-weight-bold"
+        {{on "click" (fn this.togglePlayer item.webPath @model.params.programWebPath)}}>
+        {{item.name}}
+    </button>
+    {{else}}
+    <button data-cy="participant-{{item.webPath}}" type="button" class="btn btn-outline-secondary"
+        {{on "click" (fn this.togglePlayer item.webPath @model.params.programWebPath)}}>
+        {{item.name}}
+    </button>
+    {{/if}}
+    {{/if}}
+    {{/each}}
+    <br />
+    {{/if}}
+    <br />
+    {{#if @model.params.playerWebPath}}
+    <h1 class="kls-feature">
+        Performances individuelles
+        <FaIcon @icon="info-circle" class="text-info" {{on "click" (fn this.togglePerformanceCaption)}}></FaIcon>
+
+    </h1>
+
+    {{#if @model.params.comparisonPlayerWebPath}}
+    <h2>Comparer
+        <LinkTo @route="programme.participant.participant"
+            @models={{array @model.params.programWebPath @model.params.playerWebPath}}>
+            {{@model.participantSummary.[0].name}}
+        </LinkTo>
+        à
+        <LinkTo @route="programme.participant.participant"
+            @models={{array @model.params.programWebPath @model.params.comparisonPlayerWebPath}}>
+            {{@model.participantSummaryPlayer2.[0].name}}
+        </LinkTo>
+        dans l'édition
+        <LinkTo @route="programme.programme" @model={{@model.params.programWebPath}}>{{@model.programInfo.[0].name}}
+        </LinkTo>
+    </h2>
+
+    {{else}}
+    <h2>Performances de
+        <LinkTo @route="programme.participant.participant"
+            @models={{array @model.params.programWebPath @model.params.playerWebPath}}>
+            {{@model.participantSummary.[0].name}}
+        </LinkTo>
+        dans l'édition
+        <LinkTo @route="programme.programme" @model={{@model.params.programWebPath}}>{{@model.programInfo.[0].name}}
+        </LinkTo>
+    </h2>
+    Comparer {{@model.participantSummary.[0].name}} à
+    <button class="btn btn-info" {{on "click" (fn this.toogleParticipantCompareTarget)}}>un autre aventurier</button>
+    {{/if}}
+    {{#if (or participantCompareTargetToggle @model.params.comparisonPlayerWebPath)}}
+    <br />
+    {{#each @model.distinctParticipants as |item index| }}
+    {{#if (and item.name (not-eq item.webPath @model.params.playerWebPath))}}
+    {{#if (eq item.webPath @model.params.comparisonPlayerWebPath)}}
+    <button type="button" class="btn btn-warning font-weight-bold"
+        {{on "click" (fn this.toggleComparisonPlayer item.webPath @model.params.programWebPath)}}>
+        {{item.name}}
+    </button>
+    {{else}}
+    <button type="button" class="btn btn-outline-secondary"
+        {{on "click" (fn this.toggleComparisonPlayer item.webPath @model.params.programWebPath)}}>
+        {{item.name}}
+    </button>
+    {{/if}}
+    {{/if}}
+    {{/each}}
+    <br />
+    {{/if}}
+
+    <br />
+    <Performance::PerformanceCaption @toggle={{this.performanceCaptionToggle}} />
+    <hr />
+    {{#if @model.params.comparisonPlayerWebPath}}
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>
+                <LinkTo @route="programme.participant.participant"
+                    @models={{array @model.params.programWebPath @model.params.playerWebPath}}>
+                    <button type="button" class="btn btn-light">
+                        {{@model.participantSummary.[0].name}}
+                    </button>
+                </LinkTo>
+                {{#if @playerData.custom.binary_url}}
+                <img alt="{{@model.params.playerWebPath}}" width="350" src={{@playerData.custom.binary_url}}
+                    class="circle" onerror="this.style.display='none'" />
+                {{/if}}
+            </h2>
+        </div>
+        <div class="col-sm-6">
+            <h2>
+                <LinkTo @route="programme.participant.participant"
+                    @models={{array @model.params.programWebPath @model.params.comparisonPlayerWebPath}}>
+                    <button type="button" class="btn btn-light">
+                        {{@model.participantSummaryPlayer2.[0].name}}
+                    </button>
+                </LinkTo>
+                {{#if @player2Data.custom.binary_url}}
+                <img alt="{{@model.params.comparisonPlayerWebPath}}" 
+                    width="350" 
+                    src={{@player2Data.custom.binary_url}}
+                    class="circle" onerror="this.style.display='none'" />
+                {{/if}}
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
+                @stats={{@model.gameStats}} 
+                @vpLoaderId={{@model.params.playerWebPath}}/>
+        </div>
+        <div class="col-sm-6">
+            <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
+                @stats={{@model.gameStatsPlayer2}} 
+                @vpLoaderId={{@model.params.comparisonPlayerWebPath}}/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <Participant::GamePalmaresCard @programWebPath={{@model.params.programWebPath}}
+                @stats={{@model.gameStats}} />
+        </div>
+        <div class="col-sm-6">
+            <Participant::GamePalmaresCard @programWebPath={{@model.params.programWebPath}}
+                @stats={{@model.gameStatsPlayer2}} />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <Participant::GamePerformance @programWebPath={{@model.params.programWebPath}}
+                @performances={{@model.gamePerformance}} />
+        </div>
+        <div class="col-sm-6">
+            <Participant::GamePerformance @programWebPath={{@model.params.programWebPath}}
+                @performances={{@model.gamePerformancePlayer2}} />
+        </div>
+    </div>
+    {{else}}
+    <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}} 
+        @stats={{@model.gameStats}} 
+        @vpLoaderId={{@model.params.playerWebPath}}/>
+    <hr />
+    <Participant::GamePerformanceCard @programWebPath={{@model.params.programWebPath}}
+        @performances={{@model.gamePerformance}} @stats={{@model.gameStats}}></Participant::GamePerformanceCard>
+    {{/if}}
+
+    {{/if}}
+    {{#if @model.params.comparisonPlayerWebPath}}
+    <h2 class="kls-feature">
+        Comparaison sur les épreuves
+    </h2>
+    <div class="row">
+        <Participant::GameComparisonTable 
+            @participant1Name={{@model.participantSummary.[0].name}}
+            @participant2Name={{@model.participantSummaryPlayer2.[0].name}}
+            @performanceComparison={{@model.playerPerformanceComparison}}
+            @params={{@model.params}}
+            @vpLoaderId="comparison"
+            />
+    </div>
+    {{/if}}
+</div>

@@ -1,0 +1,15 @@
+{{#if @data}}
+<b>Enjeu</b>
+<ul>
+    {{#each @data as |item index| }}
+    <li>{{item.name}}
+        {{#if (eq item.isPositive "1")}}
+        <FaIcon @icon="plus" />
+        {{/if}}
+        {{#if (eq item.isPositive "0")}}
+        <FaIcon @icon="minus" />
+        {{/if}}
+    </li>
+    {{/each}}
+</ul>
+{{/if}}

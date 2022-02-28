@@ -1,0 +1,31 @@
+<aside id="sticky-social" class="no-print" style="z-index : 10">
+    <ul>
+        <li>
+            <Share::TwitterShare 
+                @title={{@title}}
+                @via="Kohlantstats" 
+                @hashtags="Kohlanta"
+                >
+                </Share::TwitterShare>
+        </li>
+        <li>
+            <Share::FacebookShare 
+                @title={{@title}}
+                @quote="Kohlantstats" 
+                @hashtags="Kohlanta"
+                >
+                </Share::FacebookShare>
+        </li>
+        <li>
+            {{!-- <button class="btn-pinterest" aria-label="Partager sur Pinterest">
+                <FaIcon @icon="pinterest" @prefix="fab" />
+            </button> --}}
+            <Share::PinterestShare 
+                @title={{@title}}
+                @quote="Kohlantstats" 
+                @hashtags="Kohlanta"
+                >
+                </Share::PinterestShare>
+        </li>
+    </ul>
+</aside>

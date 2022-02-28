@@ -1,0 +1,66 @@
+<div class="container">
+    <h1 class="kls-feature">
+        Editions
+        <span class="badge badge-success">{{@model.programInfo.length}}</span>
+    </h1>
+    {{#each @model.distinctPrograms as |item index| }}
+    <LinkTo @route="programme.game.index" @model={{item.webPath}}
+        @query={{hash gameTagWebPath=@model.params.gameTagWebPath}}>
+        {{#if (eq item.webPath @model.params.programWebPath)}}
+        <button type="button" class="btn btn-primary font-weight-bold">
+            {{item.name}}
+        </button>
+        {{else}}
+        <button type="button" class="btn btn-outline-primary">
+            {{item.name}}
+        </button>
+        {{/if}}
+    </LinkTo>
+    {{/each}}
+    <br />
+    <br />
+    <h1 class="kls-feature">
+        Les critères des épreuves
+        <span class="badge badge-success">{{@model.distinctGameTags.length}}</span>
+    </h1>
+    Les critères d'évaluation des épreuves utilisés dans l'édition
+    <LinkTo @route="programme.programme" @model={{@model.programInfo.[0].webPath}}>{{@model.programInfo.[0].name}}
+    </LinkTo>
+    <br />
+    {{#each @model.distinctGameTags as |item index| }}
+    {{#if item.name}}
+    {{#if (eq item.webPath @model.params.gameTagWebPath)}}
+    <button type="button" class="btn btn-warning font-weight-bold" {{on "click" (fn this.toggleTag item.webPath)}}>
+        {{item.name}}
+    </button>
+    {{!-- <LinkTo @route="programme.game.index" @model={{@model.programInfo.[0].webPath}}
+        @query={{hash gameTagWebPath=item.webPath}}>
+        <button type="button" class="btn btn-warning font-weight-bold">
+            {{item.name}}
+        </button>
+    </LinkTo> --}}
+    {{else}}
+    <button type="button" class="btn btn-outline-secondary" {{on "click" (fn this.toggleTag item.webPath)}}>
+        {{item.name}}
+    </button>
+    {{!-- <LinkTo @route="programme.game.index" @model={{@model.programInfo.[0].webPath}}
+        @query={{hash gameTagWebPath=item.webPath}}>
+        <button type="button" class="btn btn-outline-secondary">
+            {{item.name}}
+        </button>
+    </LinkTo> --}}
+    {{/if}}
+    {{/if}}
+    {{/each}}
+    <br />
+    <br />
+    <h1 class="kls-feature">
+        Jeux
+        <span class="badge badge-success">{{@model.gameInfo.length}}</span>
+    </h1>
+
+    {{#each @model.gameInfo as |item index| }}
+    <br />
+    <Card::GameCard @data={{item}} />
+    {{/each}}
+</div>

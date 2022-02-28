@@ -1,0 +1,51 @@
+<!--footer-->
+<hr />
+<footer class="footer" role="navigation" data-cy="footer">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <Layout::FooterBox @title='Contact'>
+                    <div class="footerp">
+                        <p><b> <a href="mailto:kohlantstats@gmail.com">kohlantstats@gmail.com</a></b></p>
+                        {{!-- <p><b> {{#link-to 'cookies'}}{{t "nav.cookies"}}{{/link-to}}</b></p> --}}
+                    </div>
+                    <div class="social-icons">
+                        <ul class="nomargin">
+                            <a href="https://twitter.com/kohlantstats" aria-label="Compte Twitter de Kohlantstats">
+                                <FaIcon @icon="twitter" @size="2x" @prefix="fab" class="social social-tw" />
+                            </a>
+                            <a href="mailto:kohlantstats@gmail.com" aria-label="Mail to Kohlantstats">
+                                <FaIcon @icon="envelope" @size="2x" class="social social-em"/>
+                            </a>
+                        </ul>
+                    </div>
+                </Layout::FooterBox>
+                <Layout::FooterBox @title="S'impliquer">
+                    <div class="footerp">
+                        {{!--TODO when root entities w/ code => display this part
+                <p><b> {{#link-to 'code' (query-params origin="todo origin")}}{{t "nav.code"}}{{/link-to}}</b></p>
+                --}}
+                        <p><b> {{#link-to 'contributeurs'}}Contributeurs{{/link-to}}</b></p>
+                        <p><b> {{#link-to 'mentions-legales'}}Mentions légales{{/link-to}}</b></p>
+                    </div>
+                    <div class="social-icons">
+                        <ul class="nomargin">
+                            <a href="https://github.com/fmadler/kohlantstats" aria-label="Compte Github de Kohlantstats">
+                                <FaIcon @icon="github-square" @size="2x" @prefix="fab" class="social social-git"/>
+                            </a>
+                        </ul>
+                    </div>
+                </Layout::FooterBox>
+            </div>
+        </div>
+        {{!-- <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="copyright">
+                    © 2019, Winery project, All rights reserved
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    </div>
+</footer>

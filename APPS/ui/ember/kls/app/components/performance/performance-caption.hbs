@@ -1,0 +1,25 @@
+{{!-- definition --}}
+{{#if @toggle}}
+<Layout::InfoCaption>
+    <Definition::GamePerformanceDefinition></Definition::GamePerformanceDefinition>
+</Layout::InfoCaption>
+{{/if}}
+<h3>Code couleur</h3>
+Première position en
+<div class="progress">
+    <div class="progress-bar bg-success" role="progressbar"
+        style="width: 100%"
+        aria-valuenow="100" 
+        aria-valuemin="0"
+        aria-valuemax="100">
+    </div>
+</div>
+Deuxième position en
+<div class="progress">
+    <div class="progress-bar bg-info" role="progressbar"
+        style="width: 100%"
+        aria-valuenow="100" 
+        aria-valuemin="0"
+        aria-valuemax="100">
+    </div>
+</div>

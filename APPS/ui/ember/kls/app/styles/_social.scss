@@ -1,0 +1,196 @@
+// https://www.cssportal.com/blog/css-social-media-sidebar/
+// stick social media
+#sticky-social {
+    right: 0;
+    position: fixed;
+    top: 150px;
+ }
+ #sticky-social ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+ }
+ #sticky-social button {
+   background-color: inherit;
+   background: #333;
+   color: #fff;
+   display: block;
+   height: 35px;
+   font: 16px "Open Sans", sans-serif;
+   line-height: 35px;
+   position: relative;
+   text-align: center;
+   width: 35px;
+   padding : 0;
+   border-width: 0;
+ }
+
+
+/* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
+.icon-bar-social {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  /* social share */
+.mobile-social-share {
+//background: none repeat scroll 0 0 #EEEEEE;
+//display: block !important;
+display: inline;
+min-height: 70px !important;
+margin: 50px 0;
+}
+
+.mobile-social-share h3 {
+color: inherit;
+float: left;
+font-size: 15px;
+line-height: 20px;
+margin: 25px 25px 0 25px;
+}
+
+.share-group {
+float: right;
+margin: 18px 25px 0 0;
+}
+
+.btn-group {
+display: inline-block;
+font-size: 0;
+position: relative;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.mobile-social-share ul {
+float: right;
+list-style: none outside none;
+margin: 0;
+min-width: 61px;
+padding: 0;
+}
+
+.share {
+min-width: 17px;
+}
+
+.mobile-social-share li {
+display: block;
+font-size: 18px;
+list-style: none outside none;
+margin-bottom: 3px;
+margin-left: 4px;
+margin-top: 3px;
+}
+
+.btn-share {
+background-color: #BEBEBE;
+border-color: #CCCCCC;
+color: #333333;
+}
+
+.share-button {
+background-color: #BEBEBE;
+border-color: #CCCCCC;
+color: #333333;
+}
+
+.btn-twitter {
+background-color: $twitter-color !important;
+color:$white!important;
+}
+
+.twitter-share-button {
+background-color: $twitter-color !important;
+color:$white!important;
+}
+
+.btn-facebook {
+background-color: $facebook-color !important;
+color:$white!important;
+}
+
+.btn-google {
+background-color: $google-color !important;
+color:$white!important;
+}
+
+.btn-linkedin {
+background-color: $linkedin-color !important;
+color:$white!important;
+}
+
+.btn-code {
+background-color: $code-color !important;
+color:$white!important;
+}
+
+.btn-pdf {
+background-color: $pdf-color !important;
+color:$white!important;
+}
+
+.btn-pinterest {
+background-color: $pinterest-color !important;
+color:$white!important;
+}
+
+.btn-mail {
+background-color: $mail-color !important;
+color:$white!important;
+}
+
+.caret {
+border-left: 4px solid rgba(0, 0, 0, 0);
+border-right: 4px solid rgba(0, 0, 0, 0);
+border-top: 4px solid;
+display: inline-block;
+height: 0;
+margin-left: 2px;
+vertical-align: middle;
+width: 0;
+}
+
+#socialShare {
+max-width:59px;
+margin-bottom:18px;
+}
+
+#socialShare > a{
+padding: 6px 10px 6px 10px;
+}
+
+@media (max-width : 320px) {
+#socialHolder{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.mobile-social-share h3 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#socialShare{
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.mobile-social-share h3 {
+    font-size: 15px;
+}
+}
+
+@media (max-width : 238px) {
+.mobile-social-share h3 {
+    font-size: 12px;
+}
+}
+
+.right-inner-addon {
+    position: relative;
+}
+  

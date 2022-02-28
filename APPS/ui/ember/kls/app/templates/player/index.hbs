@@ -1,0 +1,9 @@
+{{#if @model.taskPlayerSearch.isRunning}}
+{{else}}
+<Component::PageComponent @pageTitle={{player-search-page-title @model.taskPlayerSearch.value}} />
+{{/if}}
+<Player::PlayerSearch 
+@model={{@model.taskPlayerSearch.value}} 
+@playerData={{model.playerEntityValue.value}}
+@player2Data={{model.player2EntityValue.value}}
+/>

@@ -1,0 +1,9 @@
+{{#if @src}}
+<img
+  alt={{@alt}}
+  src={{@src}}
+  class="kls-img"
+  onerror="this.style.display='none'" />
+{{else}}
+<div class="kls-img"><FaIcon @icon={{@icon}} @size="3x"/></div>
+{{/if}}

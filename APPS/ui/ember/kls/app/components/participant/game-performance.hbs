@@ -1,0 +1,17 @@
+<h3>Performance</h3>
+{{#if (game-performance-min @performances 1)}}
+Aucun critère trouvé.
+{{else}}
+{{#each @performances as |perf|}}
+{{#if (gt perf.individualPerformanceFirstTwoPercent 0)}}
+<LinkTo @route="programme.game.index" @model={{@programWebPath}} @query={{hash gameTagWebPath=perf.tagWebPath}}>
+    {{perf.tagName}}
+</LinkTo>
+({{perf.totalNbOfGamesIndividual}} épreuves)
+{{!-- TODO link to games with this tag for this season --}}
+
+<br />
+<Performance::ProgressBar @performance={{perf}} />
+{{/if}}
+{{/each}}
+{{/if}}

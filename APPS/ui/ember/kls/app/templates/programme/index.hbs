@@ -1,0 +1,8 @@
+<Component::PageComponent 
+    @pageTitle="Editions de Kohlanta" />
+<div class="container">
+{{#each @model.DistinctProgramsOut as |item index| }}
+<br/>
+<Card::ProgrammeCard @data={{item}} />
+{{/each}}
+</div>

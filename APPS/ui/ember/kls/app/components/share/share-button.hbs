@@ -1,0 +1,4 @@
+<button class="btn-{{@icon}}" aria-label={{@shareAltIntro}} {{on "click" @action}}>
+    <FaIcon @icon={{@icon}} @prefix="fab" />
+    {{yield}}
+</button>

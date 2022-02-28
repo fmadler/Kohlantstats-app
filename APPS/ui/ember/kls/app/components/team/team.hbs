@@ -1,0 +1,166 @@
+<div class="container">
+	{{!-- TODO add color --}}
+	<h1>Tribu {{@data.teamInfo.[0].name}}</h1>
+
+<div class="card">
+	{{!-- TODO put in common --}}
+	<div class="card-header">
+		<b>Edition <span class="badge badge-warning">{{@data.programInfo.[0].editionNumber}}</span></b>
+		<LinkTo @route="programme.programme" @model={{@data.programInfo.[0].webPath}}>
+		{{@data.programInfo.[0].name}}</LinkTo>
+	</div>
+    <div class="card-body">
+	Alias {{@data.teamInfo.[0].alias}}<br />
+	Du jour {{@data.teamInfo.[0].fromTimeUnit}} au jour {{@data.teamInfo.[0].toTimeUnit}}<br />
+	Nb de joueurs au début {{@data.teamInfo.[0].nbOfBeginners}}<br />
+	Nb de joueurs à la fin {{@data.teamInfo.[0].nbOfEnders}}<br />
+    </div>
+</div>
+<br/>
+	{{!-- TODO STATS: tribu perdant le plus/moins de membre  --}}
+
+<div class="card">
+    <div class="card-header">
+        <b>Palmarès</b>
+    </div>
+    <div class="card-body">
+        Nombre de jeux {{@data.gameStats.[0].nbOfGames}}
+        <br/>
+		Victoires {{@data.gameStats.[0].ranking1}}
+        <br/>
+        Totems {{@data.gameStats.[0].totems}}
+        <br/>
+        Conforts {{@data.gameStats.[0].conforts}}
+        {{!-- <br/>
+        Defaites {{@data.gameStats.[0].ranking1}}    --}}
+    </div>
+</div>
+<br/>
+{{!-- <div class="card">
+    <div class="card-header">
+        Réalisations
+    </div>
+    <div class="card-body">
+
+    </div>
+</div> --}}
+<br/>
+
+	<BsTab as |tab|>
+		<tab.pane @title={{tab-title "Jeux " @data.teamGameTimeline.length}}>
+			<div class="col-md-12">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>
+								Jeu
+							</th>
+							<th>
+								Résultat
+							</th>
+							<th>
+								Joueurs
+							</th>
+							<th>
+								Nombre de tribus
+							</th>
+							{{!-- <th>
+                	   isWinner
+                	</th> --}}
+							{{!-- <th>
+                	   winnerTeamWebPath
+                	</th>
+                	<th>
+                	   winnerParticipantWebPaths
+                	</th> --}}
+							<th>
+								Jour
+							</th>
+							{{!-- <th>
+                	   gameTypeName
+                	</th>
+                	<th>
+                	   gameTypeWebPath
+                	</th> --}}
+							<th>
+								Enjeu
+							</th>
+							{{!-- <th>
+                	   gameStakeTypeWebPath
+                	</th>
+                	<th>
+                	   participationTypeName
+                	</th>
+                	<th>
+                	   participationTypeWebPath
+                	</th> --}}
+						</tr>
+					</thead>
+					<tbody>
+						{{#each @data.teamGameTimeline as |item index| }}
+						<tr>
+							<td>
+								<LinkTo @route="programme.game.game"
+									@models={{array @data.params.programWebPath item.gameWebPath}}>
+									{{item.gameName}}
+								</LinkTo>
+							</td>
+							<td>
+								{{item.ranking}}
+							</td>
+							<td>
+								{{#each item.teamDetails as |teamDetails| }}
+								<LinkTo @route="programme.participant.participant"
+									@models={{array @data.params.programWebPath teamDetails.participantWebPath}}>
+									{{teamDetails.participantName}}
+								</LinkTo>
+								<br>{{!-- teamDetails.ranking --}}
+								{{/each}}
+							</td>
+							{{!-- <td>
+                		{{item.nbPlayers}}
+					</td> --}}
+							<td>
+								{{item.nbTeams}}
+							</td>
+							{{!-- <td>
+                		{{item.isWinner}}
+					</td>
+                	<td>
+                		{{item.winnerTeamWebPath}}
+					</td> --}}
+							{{!-- <td>
+{{#each item.winnerParticipantWebPaths as |winnerParticipantWebPaths| }}
+						{{winnerParticipantWebPaths.participantWebPath}}
+						{{winnerParticipantWebPaths.participantName}}
+{{/each}}
+					</td> --}}
+							<td>
+								{{item.programIndex}}
+							</td>
+							{{!-- <td>
+                		{{item.gameTypeName}}
+					</td>
+                	<td>
+                		{{item.gameTypeWebPath}}
+					</td> --}}
+							<td>
+								{{item.gameStakeTypeName}}
+							</td>
+							{{!-- <td>
+                		{{item.gameStakeTypeWebPath}}
+					</td>
+                	<td>
+                		{{item.participationTypeName}}
+					</td>
+                	<td>
+                		{{item.participationTypeWebPath}}
+					</td> --}}
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</tab.pane>
+	</BsTab>
+</div>

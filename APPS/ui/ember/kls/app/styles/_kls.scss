@@ -1,0 +1,117 @@
+//todo put into __color
+.kls-qz-correct-checked
+{
+    background-color: $green-quiz-color !important;
+    color: white;
+    font-weight: bold;
+}
+.kls-qz-correct-unchecked
+{
+    //background-color: $green-quiz-color !important;
+    //color: white;
+}
+.kls-qz-incorrect-checked
+{
+    background-color: $quiz-color-incorrect-checked !important;
+    color: black;
+}
+.kls-qz-incorrect-unchecked
+{
+    background-color: $quiz-incorrect-unchecked !important;
+    color: black;
+}
+
+.kls-team-green
+{
+    background-color:$green-team-color;
+    color: black;
+}
+.kls-team-rouge
+{
+    background-color: $red-team-color;
+    color: white;
+}
+.kls-team-red
+{
+    background-color: rgb(226, 24, 17);
+    color: white;
+}
+.kls-team-white
+{
+    background-color:beige;
+    color: black;
+}
+.kls-team-yellow
+{
+    background-color:rgb(243, 230, 41);
+    color: black;
+}
+.kls-team-blue
+{
+    background-color:rgb(41, 118, 243);
+    color: white;
+}
+.kls-team-purple
+{
+    background-color:rgb(175, 35, 240);
+    color: white;
+}
+.kls-team-orange
+{
+    background-color:rgb(238, 167, 35);
+    color: black;
+}
+.kls-team-grey
+{
+    background-color:rgb(85, 84, 83);
+    color: white;
+}
+// tab-title
+.kls-tab-title-quantity {
+    background-color: rgb(17, 55, 226);
+    color: white;
+}
+.kls-game-tab-title {
+    background-color: rgb(17, 55, 226);
+    color: white;
+}
+.kls-numberCircle {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+
+    font: 32px Arial, sans-serif;
+}
+
+.kls-feature {
+    width: auto;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-left: 6px solid $feature-side-color;
+    word-wrap: break-word;
+}
+
+.filter-btn {
+    background-color:transparent!important;
+    color:black;
+}
+
+.kls-game-activity-none {
+    background-color:rgb(236, 230, 230);
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.kls-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}

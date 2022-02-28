@@ -1,0 +1,22 @@
+<BsNavbar class="navbar navbar-expand-sm bg-dark navbar-dark" as |navbar|>
+  <div class="navbar-header bg-dark navbar-dark">
+    <navbar.toggle aria-label="collapse" />
+    <LinkTo class="navbar-brand" @route="index">KohLantStats</LinkTo>
+  </div>
+  <navbar.content>
+    <navbar.nav as |nav|>
+      <nav.item>
+        <nav.linkTo data-cy="nav-editions" @route="programme.index">Editions</nav.linkTo>
+      </nav.item>
+      <nav.item>
+        <nav.linkTo data-cy="nav-participants" @route="player.index">Participants</nav.linkTo>
+      </nav.item>
+      {{#if (not-eq environment "production")}}
+      <nav.item>
+        <nav.linkTo data-cy="nav-quizz" @route="quizz">Quizz</nav.linkTo>
+      </nav.item>
+      {{/if}}
+    </navbar.nav>
+  </navbar.content>
+</BsNavbar>
+{{!-- </nav> --}}

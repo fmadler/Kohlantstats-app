@@ -1,0 +1,15 @@
+{{#if model.taskInstance.isRunning}}
+{{else}}
+<Component::PageComponent 
+    @entity="Edition"
+    @entityTitle={{model.taskInstance.value.programInfo.[0].name}} />
+{{/if}}
+<Programme::Programme 
+@task={{model.taskInstance}} 
+@data={{model.taskInstance.value}} 
+@evTask={{model.taskEntityValueInstance}}
+@evData={{model.taskEntityValueInstance.value}}
+@programWebPath={{this.searchParams.programWebPath}} />
+{{!-- 
+TODO Add yield 
+--}}

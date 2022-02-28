@@ -1,0 +1,31 @@
+<div class="container">
+  <h4>Timeline Teams <FaIcon @icon="coffee" /></h4>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-timeline">
+        {{#each @data as |item index| }}
+          {{#if (not-eq item.timeUnit 0)}}
+            <a href="#" class="timeline">
+              <div class="timeline-icon">{{item.timeUnit}}</div>
+              <div class="timeline-content">
+                <h3 class="title">{{item.eventType}} {{item.eventTypeName}}</h3>
+                <p class="description">
+                  Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                  Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                  Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                  {{item.teamName}}
+                  <br/>
+                  {{item.participantName}}
+                  <br/>
+                  {{item.teamName}}
+                  <br/>
+                  {{item.participantName}}
+                </p>
+              </div>
+            </a>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
