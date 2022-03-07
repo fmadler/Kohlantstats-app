@@ -59,7 +59,7 @@ call first_vote_against ('le-totem-maudit','setha-2022','stephanie-2022','violet
 call first_vote_against ('le-totem-maudit','matteo-2022','celine-2022','violet-2022', 3, 'effectif');
 
 call create_participant_departure('le-totem-maudit','celine-2022','violet-2022',3,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('le-totem-maudit','celine-2022',24,1,3);
+call fill_participant_longevity ('le-totem-maudit','celine-2022',23,1,3);
 
 /* vote
 jean phi  ->lili
