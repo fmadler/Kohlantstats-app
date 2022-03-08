@@ -19,10 +19,10 @@ call create_game_participation('geraldine-2022','bleu-2022','toit-et-contre-poid
 call create_game_participation('yannick-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',1,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
 call create_game_participation('bastien-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',1,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
 call create_game_participation('jean-charles-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',1,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
-call create_game_participation('anne-sophie-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',2,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
-call create_game_participation('setha-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',2,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
-call create_game_participation('stephanie-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',2,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
-call create_game_participation('matteo-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',2,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
+call create_game_participation('anne-sophie-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',1,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
+call create_game_participation('setha-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',1,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
+call create_game_participation('stephanie-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',1,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
+call create_game_participation('matteo-2022','violet-2022','toit-et-contre-poids-2022','participant','collectif',1,'renfort-equipe-par-coequipier-adverse,pierre-a-feu,initiation-nature');
 
 call create_game_participation('jean-philippe-2022','vert-2022','toit-et-contre-poids-2022','participant','collectif',3,'deforcement-equipe-par-changement-coequipier');
 call create_game_participation('francois-2022','vert-2022','toit-et-contre-poids-2022','participant','collectif',3,'deforcement-equipe-par-changement-coequipier');
