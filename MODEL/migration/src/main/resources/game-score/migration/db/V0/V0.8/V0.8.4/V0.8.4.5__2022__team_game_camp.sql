@@ -77,16 +77,16 @@ call create_game_participation('nicolas-2022','vert-2022','tourniquet-2022','par
 call create_game_participation('louana-2022','vert-2022','tourniquet-2022','participant','collectif',2,'');
 call create_game_participation('setha-2022','vert-2022','tourniquet-2022','participant','collectif',3,'conseil');
 
-call first_vote_against ('le-totem-maudit','stephanie-2022','matteo-2022','violet-2022', 5, 'effectif');
-call first_vote_against ('le-totem-maudit','yannick-2022','matteo-2022','violet-2022', 5, 'effectif');
-call second_vote_against ('le-totem-maudit','yannick-2022','yannick-2022','violet-2022', 5, 'effectif');
-call first_vote_against ('le-totem-maudit','bastien-2022','stephanie-2022','violet-2022', 5, 'effectif');
-call first_vote_against ('le-totem-maudit','jean-charles-2022','stephanie-2022','violet-2022', 5, 'effectif');
-call first_vote_against ('le-totem-maudit','anne-sophie-2022','matteo-2022','violet-2022', 5, 'effectif');
-call first_vote_against ('le-totem-maudit','ambre-2022','matteo-2022','violet-2022', 5, 'effectif');
-call first_vote_against ('le-totem-maudit','matteo-2022','stephanie-2022','violet-2022', 5, 'effectif');
+call first_vote_against ('le-totem-maudit','stephanie-2022','matteo-2022','violet-2022', 6, 'effectif');
+call first_vote_against ('le-totem-maudit','yannick-2022','matteo-2022','violet-2022', 6, 'effectif');
+call second_vote_against ('le-totem-maudit','yannick-2022','yannick-2022','violet-2022', 6, 'effectif');
+call first_vote_against ('le-totem-maudit','bastien-2022','stephanie-2022','violet-2022', 6, 'effectif');
+call first_vote_against ('le-totem-maudit','jean-charles-2022','stephanie-2022','violet-2022', 6, 'effectif');
+call first_vote_against ('le-totem-maudit','anne-sophie-2022','matteo-2022','violet-2022', 6, 'effectif');
+call first_vote_against ('le-totem-maudit','ambre-2022','matteo-2022','violet-2022', 6, 'effectif');
+call first_vote_against ('le-totem-maudit','matteo-2022','stephanie-2022','violet-2022', 6, 'effectif');
 
-call create_participant_departure('le-totem-maudit','matteo-2022','violet-2022',5,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('le-totem-maudit','matteo-2022',21,1,5);
+call create_participant_departure('le-totem-maudit','matteo-2022','violet-2022',6,'exclusion-par-vote', @participant_team_id);
+call fill_participant_longevity ('le-totem-maudit','matteo-2022',21,1,6);
 
-call program_current_time ('le-totem-maudit',5);
+call program_current_time ('le-totem-maudit',6);
