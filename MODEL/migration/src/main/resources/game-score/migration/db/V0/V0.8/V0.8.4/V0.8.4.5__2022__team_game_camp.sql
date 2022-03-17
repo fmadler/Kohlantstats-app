@@ -32,6 +32,10 @@ call create_game_participation('nicolas-2022','vert-2022','toit-et-contre-poids-
 call create_game_participation('franck-2022','vert-2022','toit-et-contre-poids-2022','participant','collectif',3,'deforcement-equipe-par-changement-coequipier');
 call create_game_participation('louana-2022','vert-2022','toit-et-contre-poids-2022','participant','collectif',3,'deforcement-equipe-par-changement-coequipier');
 
+call team_game_ranking ('violet-2022','toit-et-contre-poids-2022',1);
+call team_game_ranking ('bleu-2022','toit-et-contre-poids-2022',2);
+call team_game_ranking ('vert-2022','toit-et-contre-poids-2022',3);
+
 -- depart de franck (abandon)
 call create_participant_departure('le-totem-maudit','franck-2022','vert-2022',4,'abandon-volantaire', @participant_team_id);
 call fill_participant_longevity ('le-totem-maudit','franck-2022',22,1,4);

@@ -219,6 +219,9 @@ call create_game_participation('nicolas-2022','jaune-2022','flambeaux-2022','par
 call create_game_participation('olga-2022','jaune-2022','flambeaux-2022','participant','collectif',1,'totem');
 call create_game_participation('setha-2022','jaune-2022','flambeaux-2022','participant','collectif',1,'totem');
 
+call team_game_ranking ('jaune-2022','flambeaux-2022',1);
+call team_game_ranking ('rouge-2022','flambeaux-2022',2);
+
 call create_participant_realisation ('le-totem-maudit','francois-2022','rouge-2022',9,'decouverte-collier-immunite',@realisation_id);
 
 call first_vote_against ('le-totem-maudit','louana-2022','samira-2022','rouge-2022', 9, 'effectif');

@@ -35,6 +35,10 @@ call create_game_participation('louana-2022','vert-2022','elastique-2022','parti
 call create_game_participation('lili-2022','vert-2022','elastique-2022','participant','collectif',3,'totem-maudit,conseil-immediat');
 
 
+call team_game_ranking ('violet-2022','elastique-2022',2);
+call team_game_ranking ('bleu-2022','elastique-2022',1);
+call team_game_ranking ('vert-2022','elastique-2022',3);
+
 call first_vote_against ('le-totem-maudit','jean-philippe-2022','lili-2022','vert-2022', 2, 'effectif');
 call first_vote_against ('le-totem-maudit','francois-2022','lili-2022','vert-2022', 2, 'effectif');
 call first_vote_against ('le-totem-maudit','pauline-2022','lili-2022','vert-2022', 2, 'effectif');

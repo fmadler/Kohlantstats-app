@@ -1,8 +1,10 @@
 
 -- 10ème jour
 INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Tireurs', 'tireurs', NULL);
-
-call create_game('le-totem-maudit','Tireurs en équipe','tireurs-en-equipe-2022','tireur','collectif','confort',8,10,'smoothy,amelioration-camp-maudit,exil-d-aventuriers','force,rapidite');
+INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Exil d\'aventuriers', 'exil-d-aventuriers', 2, 0);
+INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Amélioration camp', 'amelioration-camp', 4, 1);
+INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Smoothy', 'smoothy', 5, 1);
+call create_game('le-totem-maudit','Tireurs en équipe','tireurs-en-equipe-2022','tireur','collectif','confort',8,10,'smoothy,amelioration-camp,exil-d-aventuriers','force,rapidite');
 
 /*
 comfort camp mobilier campement, smoothy,amelioration-camp-maudit, 2-aventuriers-bannis,epreuve
@@ -49,8 +51,9 @@ rouge cadlao
 jaune --> matingi
 */
 
-call create_participant_realisation ('la-totem-maudit','maxime-2022','rouge-2022',10,'decouverte-talisman',@realisation_id);
-call create_participant_realisation ('la-totem-maudit','jean-philippe-2022','rouge-2022',10,'decouverte-talisman',@realisation_id);
+INSERT INTO `GS_REALISATION_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Découverte d\'un talisman', 'decouverte-talisman');
+call create_participant_realisation ('le-totem-maudit','maxime-2022','rouge-2022',10,'decouverte-talisman',@realisation_id);
+call create_participant_realisation ('le-totem-maudit','jean-philippe-2022','rouge-2022',10,'decouverte-talisman',@realisation_id);
 
 
 -- 2 talismans trouvés par maxime et jean-philippe
@@ -93,6 +96,35 @@ call team_game_ranking ('rouge-2022','guide-aveugle-2022',1);
 
 
 -- victoire pour les rouges
+
+call first_vote_against ('le-totem-maudit','benjamin-2022','alexandra-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','bastien-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','yannick-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call second_vote_against ('le-totem-maudit','yannick-2022','yannick-2022','jaune-2022', 11, 'effectif');
+call vote ('le-totem-maudit','yannick-2022','yannick-2022','rouge-2022', 3, 11, 1, 'effectif', 'vote-contre');
+call first_vote_against ('le-totem-maudit','alexandra-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','colin-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','olga-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','setha-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','stephanie-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','anne-sophie-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call first_vote_against ('le-totem-maudit','nicolas-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+
+call second_round_first_vote_for ('le-totem-maudit','benjamin-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','bastien-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','yannick-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','alexandra-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','colin-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','olga-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','setha-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','stephanie-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','anne-sophie-2022','benjamin-2022','jaune-2022', 11, 'effectif');
+call second_round_first_vote_for ('le-totem-maudit','nicolas-2022','stephanie-2022','jaune-2022', 11, 'effectif');
+
+INSERT INTO `GS_TEAM_DEPARTURE_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Exclusion par duel après vote', 'exclusion-par-duel-apres-vote');
+
+call create_participant_departure('le-totem-maudit','benjamin-2022','jaune-2022',11,'exclusion-par-duel-apres-vote', @participant_team_id);
+call fill_participant_longevity ('le-totem-maudit','benjamin-2022',19,1,11);
 
 /*
 vote 11ème hour'
@@ -137,3 +169,5 @@ départ de benjamin (par tirage au sort)
 
 
  */
+
+call program_current_time ('le-totem-maudit',11);
