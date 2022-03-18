@@ -15,6 +15,7 @@ export function getCurrentGame(distinctGames, gameWebPath) {
   let index = _.findIndex(distinctGames, function (g) { return g.webPath === gameWebPath });
   return distinctGames[index];
 }
+
 export function getNextGame(distinctGames, gameWebPath) {
   let index = _.findIndex(distinctGames, function (g) { return g.webPath == gameWebPath });
   let count = distinctGames.length;
@@ -22,8 +23,9 @@ export function getNextGame(distinctGames, gameWebPath) {
   if (nextGameIndex == count) return;
   return distinctGames[nextGameIndex];
 }
+
 export function getPreviousGame(distinctGames, gameWebPath) {
-  let index = _.findIndex(distinctGames, function (g) { return g.webPath == gameWebPath });
+  let index = _.findIndex(distinctGames, function (g) { return g.webPath === gameWebPath });
   let previousGameIndex = index - 1;
   if (previousGameIndex < 0) return;
   return distinctGames[previousGameIndex];
@@ -33,15 +35,35 @@ export function getCurrent(distincts, webPath) {
   let index = _.findIndex(distincts, function (g) { return g.webPath === webPath });
   return distincts[index];
 }
+
+//deprecated
 export function getNext(distincts, webPath) {
-  let index = _.findIndex(distincts, function (g) { return g.webPath == webPath });
+  let index = _.findIndex(distincts, function (g) { return g.webPath === webPath });
   let count = distincts.length;
   let nextIndex = index + 1;
   if (nextIndex == count) return;
   return distincts[nextIndex];
 }
+
+export function getNextWithOrder(distincts, order, webPath) {
+  let sorted = _.orderBy(distincts, order, "asc");
+  let index = _.findIndex(sorted, function (g) { return g.webPath === webPath });
+  let count = distincts.length;
+  let nextIndex = index + 1;
+  if (nextIndex == count) return;
+  return sorted[nextIndex];
+}
+
+export function getPreviousWithOrder(distincts, order, webPath) {
+  let sorted = _.orderBy(distincts, order, "asc");
+  let index = _.findIndex(sorted, function (g) { return g.webPath === webPath });
+  let previousIndex = index - 1;
+  if (previousIndex < 0) return;
+  return sorted[previousIndex];
+}
+//deprecated
 export function getPrevious(distincts, webPath) {
-  let index = _.findIndex(distincts, function (g) { return g.webPath == webPath });
+  let index = _.findIndex(distincts, function (g) { return g.webPath === webPath });
   let previousIndex = index - 1;
   if (previousIndex < 0) return;
   return distincts[previousIndex];

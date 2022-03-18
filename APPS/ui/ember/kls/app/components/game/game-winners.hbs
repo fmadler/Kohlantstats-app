@@ -6,7 +6,7 @@
         <LinkTo @route="programme.participant.participant" @models={{array @programWebPath item.webPath}}>
             {{item.name}}
             {{#if (not-eq item.gameActivityTypeWebPath 'participant')}}
-            ({{item.gameActivityTypeWebPath}})
+            ({{item.gameActivityTypeName}})
             {{/if}}
         </LinkTo>
     </li>

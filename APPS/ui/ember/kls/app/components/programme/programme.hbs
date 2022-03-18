@@ -53,14 +53,14 @@
       <br />
       {{#if @data.custom.nextProgram}}
       Edition suivante :
-      <LinkTo @route="programme.programme" @model={{@data.custom.nextProgram.webPath}}>
+      <LinkTo data-cy="link-next-edition" @route="programme.programme" @model={{@data.custom.nextProgram.webPath}} >
         {{@data.custom.nextProgram.name}}</LinkTo>
       <FaIcon @icon="caret-right" />
       <br />
       {{/if}}
       {{#if @data.custom.previousProgram}}
       Edition précédente :
-      <LinkTo @route="programme.programme" @model={{@data.custom.previousProgram.webPath}}>
+      <LinkTo data-cy="link-previous-edition" @route="programme.programme" @model={{@data.custom.previousProgram.webPath}}>
         {{@data.custom.previousProgram.name}}</LinkTo>
       <FaIcon @icon="caret-left" />
       <br />
@@ -69,8 +69,8 @@
       ...
       {{else}}
       <br />
-      <Snippet::Image 
-        @alt="{{@data.custom.nextProgram.name}}" 
+      <Snippet::Image
+        @alt="{{@data.custom.nextProgram.name}}"
         @src={{@evData.custom.binary_url}}
         @icon="image"
         />

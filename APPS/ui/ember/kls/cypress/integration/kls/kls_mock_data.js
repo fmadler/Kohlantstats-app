@@ -88,6 +88,7 @@ export const mock = {
 export const winner_parcours_du_combattant_2021 = mock.seasons[0].games[0].winner.name;
 export const winnerWebPath_parcours_du_combattant_2021 = mock.seasons[0].games[0].winner.webPath;
 export const program_Les4terres_webPath = mock.seasons[1].webPath;
+export const program_Les4terres_name = mock.seasons[1].name;
 export const loic_Les4terres_webPath = mock.seasons[1].participants[0].webPath;
 export const loic_webPath = mock.seasons[1].participants[0].webPath;
 export const loic_Les4terres_score_total = mock.seasons[1].participants[0].score.total;
@@ -97,6 +98,7 @@ export const loic_Les4terres_score_longevity = mock.seasons[1].participants[0].s
 export const alexandra_Les4terres_webPath = mock.seasons[1].participants[1].webPath;
 
 export const program_Lalegende_webPath = mock.seasons[2].webPath;
+export const program_Lalegende_name = mock.seasons[2].name;
 export const loic_Lalegende_score_total = mock.seasons[2].participants[0].score.total;
 export const loic_Lalegende_score_first = mock.seasons[2].participants[0].score.first;
 export const loic_Lalegende_score_second = mock.seasons[2].participants[0].score.second;

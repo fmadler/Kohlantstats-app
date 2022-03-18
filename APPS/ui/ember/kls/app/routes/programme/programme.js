@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { task } from 'ember-concurrency';
 import { action } from '@ember/object';
-import {getCurrent, getNext, getPrevious} from 'kohlantstats/utils/kls-data-util';
+import {getCurrent, getNextWithOrder, getPreviousWithOrder} from 'kohlantstats/utils/kls-data-util';
 import {fillCustomEntityValue} from 'kohlantstats/utils/entityvalue-utils';
 
 import config from 'kohlantstats/config/environment';
@@ -10,11 +10,11 @@ const { host, namespace } = config.entityValueStoreDS;
 const entityValueStoreBaseUrl = host+"/"+namespace;
 
 export default class ProgrammeProgrammeRoute extends Route {
-  
+
   @service('Score') scoreService;
   @service('Entityvaluestore') entityvaluestoreService;
   //@service inViewport
-  
+
   model(params) {
     return {
       params: params,
@@ -51,8 +51,8 @@ export default class ProgrammeProgrammeRoute extends Route {
       let distinctPrograms = d.distinctPrograms;
       d.custom = {
         'currentProgram' : getCurrent(distinctPrograms, programWebPath),
-        'nextProgram' : getNext(distinctPrograms, programWebPath),
-        'previousProgram' : getPrevious(distinctPrograms, programWebPath)
+        'nextProgram' : getNextWithOrder(distinctPrograms, "editionNumber", programWebPath),
+        'previousProgram' : getPreviousWithOrder(distinctPrograms, "editionNumber", programWebPath)
       }
       return d;
     });

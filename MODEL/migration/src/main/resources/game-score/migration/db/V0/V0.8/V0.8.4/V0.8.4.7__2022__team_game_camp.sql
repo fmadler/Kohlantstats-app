@@ -43,8 +43,6 @@ call team_game_ranking ('rouge-2022','tireurs-en-equipe-2022',2);
 -- 2 groupe de tireur
 -- changement de porteur
 
--- victoire pour les jaunes
-
 /*
 rouge cadlao
 
@@ -56,11 +54,7 @@ call create_participant_realisation ('le-totem-maudit','maxime-2022','rouge-2022
 call create_participant_realisation ('le-totem-maudit','jean-philippe-2022','rouge-2022',10,'decouverte-talisman',@realisation_id);
 
 
--- 2 talismans trouvés par maxime et jean-philippe
-
-
 call create_game('le-totem-maudit','Guide aveugle','guide-aveugle-2022','guide-aveugle','collectif','immunite',11,9,'conseil','rapidite,precision,voix,clarte');
-
 
 call create_game_participation('louana-2022','rouge-2022','guide-aveugle-2022','participant','collectif',1,'exil-d-aventuriers');
 call create_game_participation('maxime-2022','rouge-2022','guide-aveugle-2022','participant','collectif',1,'exil-d-aventuriers');
@@ -89,13 +83,6 @@ call team_game_ranking ('rouge-2022','guide-aveugle-2022',1);
 
 -- épreuve guide aveugle collectif
 -- 8 aveugles 1 guide relais + construction
-
-
--- olga exemption par tirage au sort
-
-
-
--- victoire pour les rouges
 
 call first_vote_against ('le-totem-maudit','benjamin-2022','alexandra-2022','jaune-2022', 11, 'effectif');
 call first_vote_against ('le-totem-maudit','bastien-2022','stephanie-2022','jaune-2022', 11, 'effectif');
@@ -126,48 +113,5 @@ INSERT INTO `GS_TEAM_DEPARTURE_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Exclusion par
 call create_participant_departure('le-totem-maudit','benjamin-2022','jaune-2022',11,'exclusion-par-duel-apres-vote', @participant_team_id);
 call fill_participant_longevity ('le-totem-maudit','benjamin-2022',19,1,11);
 
-/*
-vote 11ème hour'
-
-benjamin->alexandra
-bastien->stephanie
-yannick->benjamin
-yannick-->yannick
-yannick-->yannick
-alexandra->benjamin
-colin->stephanie
-olga->stephanie
-setha->stephanie
-stéphanie->benjamin
-anne-sophie->benjamin
-nicolas->stephanie
-
-
-vote contre setha
-4/4 steph/ben
-
-
-
-
-
-benjamin->stephanie
-bastien->stephanie
-yannick->benjamin
-alexandra->benjamin
-colin->stephanie
-olga->stephanie
-setha->stephanie
-stéphanie->benjamin
-anne-sophie->benjamin
-nicolas->stephanie
-
-5/5
-
-tirage au sort
-
-départ de benjamin (par tirage au sort)
-
-
- */
 
 call program_current_time ('le-totem-maudit',11);

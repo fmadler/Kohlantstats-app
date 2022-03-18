@@ -129,3 +129,10 @@ export function checkValue (dataCy, v) {
         expect(p1F).to.eq(v)
     })
 }
+export function checkText (dataCy, v) {
+  cy.get(dataCy).then(($p1) => {
+    cy.log("value to check "+$p1)
+    const p1F = $p1.text()
+    expect(p1F).to.eq(v)
+  })
+}
