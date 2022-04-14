@@ -59,7 +59,6 @@ call create_game_participation('yannick-2022','jaune-2022','fresque-2022','parti
 call create_game_participation('bastien-2022','jaune-2022','fresque-2022','participant','collectif',2,'totem');
 call create_game_participation('stephanie-2022','jaune-2022','fresque-2022','exclusion-apres-tirage-au-sort','collectif',2,'totem');
 call create_game_participation('alexandra-2022','jaune-2022','fresque-2022','participant','collectif',2,'totem');
-call create_game_participation('benjamin-2022','jaune-2022','fresque-2022','participant','collectif',2,'totem');
 call create_game_participation('colin-2022','jaune-2022','fresque-2022','participant','collectif',2,'totem');
 call create_game_participation('nicolas-2022','jaune-2022','fresque-2022','participant','collectif',2,'totem');
 call create_game_participation('olga-2022','jaune-2022','fresque-2022','participant','collectif',2,'totem');
