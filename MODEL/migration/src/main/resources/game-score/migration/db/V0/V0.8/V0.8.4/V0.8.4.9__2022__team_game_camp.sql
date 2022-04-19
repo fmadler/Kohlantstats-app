@@ -3,6 +3,11 @@
 
 -- TODO jean philippe : sort par décision médicale
 -- TODO stéphanie revient chez les rouges
+call create_participant_departure ('le-totem-maudit','jean-philippe-2022','rouge-2022',16,'abandon-medical', @participant_team_id);
+call fill_participant_longevity ('le-totem-maudit','jean-philippe-2022',17,1,16);
+
+call create_participant_entrance ('le-totem-maudit','stephanie-2022','rouge-2022',16,'remplacement', @participant_team_id);
+
 
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Poulet adobo', 'poulet-adobo', 5, 1);
 
@@ -71,6 +76,6 @@ call first_vote_against ('le-totem-maudit','ambre-2022','stephanie-2022','jaune-
 call first_vote_against ('le-totem-maudit','geraldine-2022','stephanie-2022','jaune-2022', 15, 'effectif');
 
 call create_participant_departure('le-totem-maudit','stephanie-2022','jaune-2022',11,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('le-totem-maudit','stephanie-2022',17,1,15);
+call fill_participant_longevity ('le-totem-maudit','stephanie-2022',16,1,15);
 
 call program_current_time ('le-totem-maudit',15);
