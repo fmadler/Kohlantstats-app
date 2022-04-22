@@ -220,7 +220,8 @@ select * from (
 		'|',
 		w.name,
 		w.web_path,
-		w.game_activity_type_web_path
+		w.game_activity_type_web_path,
+		w.game_activity_type_name
 		)
 		order by w.name
 		) winners
@@ -236,7 +237,7 @@ select * from (
 		gs_program pr,
 		gs_game g
 			left outer join (
-				select GS_GAME_ID, pl.NAME, pl.WEB_PATH, gat.WEB_PATH game_activity_type_web_path
+				select GS_GAME_ID, pl.NAME, pl.WEB_PATH, gat.WEB_PATH game_activity_type_web_path, gat.NAME game_activity_type_name
 					from GS_PARTICIPANT_X_GAME pxg,
 					GS_GAME_ACTIVITY_TYPE gat,
 					GS_PARTICIPANT pa,
@@ -295,8 +296,8 @@ select * from (
 							<query-field name="winners"
 										 is-structured-array="true"
 										 separator-characters=",|"
-										 array-columns="name,web_path,game_activity_type_web_path"
-										 array-columns-type="string,string,string">
+										 array-columns="name,web_path,game_activity_type_web_path,game_activity_type_name"
+										 array-columns-type="string,string,string,string">
 							</query-field>
 						</query-fields>
 						<query-filters>
@@ -2372,7 +2373,7 @@ min (longevity, $chunkUntilDay) longevity
 								is-structured-array="true" 
 								separator-characters=",|"
 								array-columns="game_name,game_web_path,program_index,activity_type_name,participation_type_name,game_stake_type_name,ranking"
-								array-columns-type="string,string,intstring,string,string,int">
+								array-columns-type="string,string,int,string,string,string,int">
 							</query-field>
 						</query-fields>
 					</query>
@@ -2553,6 +2554,36 @@ min (longevity, $chunkUntilDay) longevity
 							<query-param name="participant_team_realisation_id" is-output-param="true" type="int"
 								sample="10"></query-param>
 						</query-params>
+					</query>
+					<query name="master_data" id="master_data"
+						   package-name="generic">
+						<query-body>
+							<value>
+								<![CDATA[
+	select id, name, web_path from $table order by $orderby $sort
+	]]>
+							</value>
+						</query-body>
+						<query-chunks>
+							<query-chunk name="table" sample-value="gs_team_departure_type">
+								<query-chunk-value name="gs_team_departure_type" value="gs_team_departure_type"/>
+								<query-chunk-value name="gs_team_entrance_type" value="gs_team_entrance_type"/>
+								<query-chunk-value name="gs_team_reward_type" value="gs_team_reward_type"/>
+								<query-chunk-value name="gs_game_type" value="gs_game_type"/>
+								<query-chunk-value name="gs_game_stake_type" value="gs_game_stake_type"/>
+								<query-chunk-value name="gs_realisation_type" value="gs_realisation_type"/>
+								<query-chunk-value name="gs_vote_type" value="gs_vote_type"/>
+							</query-chunk>
+							<query-chunk name="orderby" sample-value="name">
+								<query-chunk-value name="id" value="id"/>
+								<query-chunk-value name="name" value="name"/>
+								<query-chunk-value name="web_path" value="web_path"/>
+							</query-chunk>
+							<query-chunk name="sort" sample-value="asc">
+								<query-chunk-value name="ascending" value="asc"/>
+								<query-chunk-value name="descending" value="desc"/>
+							</query-chunk>
+						</query-chunks>
 					</query>
 				</queries>
 
