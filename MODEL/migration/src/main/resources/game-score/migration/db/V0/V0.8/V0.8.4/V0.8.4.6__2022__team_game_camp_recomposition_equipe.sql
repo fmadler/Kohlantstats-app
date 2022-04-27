@@ -1,6 +1,6 @@
 INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'arrivee-2022', -1, 4, 'kls-team-white');
-INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'vert-2022', -1, 4, 'kls-team-rouge');
-INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'bleu-2022', -1, 4, 'kls-team-bleu');
+INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'vert-2022', -1, 4, 'kls-team-green');
+INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'bleu-2022', -1, 4, 'kls-team-blue');
 INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'violet-2022', -1, 4, 'kls-team-purple');
 INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'jaune-2022', -1, 4, 'kls-team-yellow');
 INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'rouge-2022', -1, 4, 'kls-team-rouge');
