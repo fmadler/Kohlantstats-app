@@ -28,7 +28,7 @@ call create_participant_departure ('la-legende-2021','clemence-2005','ile-des-ba
 call create_participant_departure ('la-legende-2021','alexandra-2020','rouge-2021-2',18,'recomposition-des-equipes', @participant_team_id);
 call create_participant_departure ('la-legende-2021','alix-2020','rouge-2021-2',18,'recomposition-des-equipes', @participant_team_id);
 
-call create_team('la-legende-2021','Blanc','blanc-2021-2','Rouge',18,40);
+call create_team('la-legende-2021','Blanc','blanc-2021-2','Blanc',18,40);
 
 call create_participant_entrance ('la-legende-2021','claude-2010','blanc-2021-2',18,'reunification', @participant_team_id);
 call create_participant_entrance ('la-legende-2021','sam-2018','blanc-2021-2',18,'reunification', @participant_team_id);
