@@ -7,8 +7,8 @@ import { fillCustomEntityValue } from 'kohlantstats/utils/entityvalue-utils';
 
 //TODO add in ConfigAwareRoute
 import config from 'kohlantstats/config/environment';
-const { host, namespace } = config.entityValueStoreDS;
-const entityValueStoreBaseUrl = host + "/" + namespace;
+const { host, namespace } = config.imageDS;
+const imageBaseUrl = host + "/" + namespace;
 
 export default class ProgrammeParticipantParticipantRoute extends ConfigAwareRoute {
     @service('Score') scoreService;
@@ -113,11 +113,12 @@ export default class ProgrammeParticipantParticipantRoute extends ConfigAwareRou
     * entityValueTask(params) {
         let searchParams = {
             entityFullWebPath: 'programme/' + params.programWebPath + '/participant/' + params.playerWebPath,
+            tenantWebPath: 'kls',
         };
         return yield this.entityvaluestoreService.entityValue2(
             searchParams
         ).then(d => {
-            let data = fillCustomEntityValue(d, { language: "FR", binaryType: "photo_up" }, entityValueStoreBaseUrl);
+            let data = fillCustomEntityValue(d, { language: "FR", binaryType: "photo_up" }, imageBaseUrl);
             this.headTags = [
                 {
                     // html element type (meta, link, etc.)

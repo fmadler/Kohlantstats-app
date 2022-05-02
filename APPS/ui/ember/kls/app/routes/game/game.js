@@ -5,7 +5,7 @@ import { fillCustomEntityValue } from 'kohlantstats/utils/entityvalue-utils';
 import { fillIndividualWinnerStats } from 'kohlantstats/utils/kls-data-util';
 import config from 'kohlantstats/config/environment';
 const { host, namespace } = config.entityValueStoreDS;
-const entityValueStoreBaseUrl = host+"/"+namespace;
+const imageBaseUrl = host+"/"+namespace;
 
 
 export default class GameGameRoute extends Route {
@@ -36,7 +36,7 @@ export default class GameGameRoute extends Route {
   * gameDetail(searchParams) {
       return this.scoreService.gameDetail2(
           searchParams
-      ).then(d => { 
+      ).then(d => {
           fillIndividualWinnerStats(d.gameStats);
           return d;
       });
@@ -46,11 +46,12 @@ export default class GameGameRoute extends Route {
   * entityValueTask(params) {
       let searchParams = {
           entityFullWebPath: 'game/' + params.gameWebPath,
+          tenantWebPath: 'kls',
       };
       return yield this.entityvaluestoreService.entityValue2(
           searchParams
       ).then(d => {
-          return fillCustomEntityValue(d, { language: "FR", binaryType: "photo_up" }, entityValueStoreBaseUrl);
+          return fillCustomEntityValue(d, { language: "FR", binaryType: "photo_up" }, imageBaseUrl);
       });
   }
 }

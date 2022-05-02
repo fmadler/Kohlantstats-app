@@ -4,7 +4,7 @@ import { task } from 'ember-concurrency';
 import { fillCustomEntityValue } from 'kohlantstats/utils/entityvalue-utils';
 import { fillIndividualWinnerStats } from 'kohlantstats/utils/kls-data-util';
 import config from 'kohlantstats/config/environment';
-const { host, namespace } = config.entityValueStoreDS;
+const { host, namespace } = config.imageDS;
 const entityValueStoreBaseUrl = host+"/"+namespace;
 
 export default class PlayerPlayerRoute extends Route {
@@ -33,7 +33,7 @@ export default class PlayerPlayerRoute extends Route {
     * participantDetail(searchParams) {
         return this.scoreService.participantDetail2(
             searchParams
-        ).then(d => { 
+        ).then(d => {
             fillIndividualWinnerStats(d.gameStats);
             return d;
         });
@@ -43,6 +43,7 @@ export default class PlayerPlayerRoute extends Route {
     * entityValueTask(params) {
         let searchParams = {
             entityFullWebPath: 'player/' + params.playerWebPath,
+            tenantWebPath: 'kls',
         };
         return yield this.entityvaluestoreService.entityValue2(
             searchParams

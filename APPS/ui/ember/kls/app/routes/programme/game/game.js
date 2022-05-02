@@ -7,15 +7,15 @@ import { task } from 'ember-concurrency';
 import { fillCustomEntityValue } from 'kohlantstats/utils/entityvalue-utils';
 import { fillIndividualWinnerStats } from 'kohlantstats/utils/kls-data-util';
 import config from 'kohlantstats/config/environment';
-const { host, namespace } = config.entityValueStoreDS;
-const entityValueStoreBaseUrl = host+"/"+namespace;
+const { host, namespace } = config.imageDS;
+const imageBaseUrl = host+"/"+namespace;
 
 
 export default class ProgrammeGameGameRoute extends Route {
 
     @service('Score') scoreService;
     @service('Entityvaluestore') entityvaluestoreService;
-    
+
     model(params) {
         let searchParams = {
             programWebPath: params.programWebPath,
@@ -36,7 +36,7 @@ export default class ProgrammeGameGameRoute extends Route {
         //     }
 		// 	return d;
 		// });
-        //return ret;    
+        //return ret;
         return {
             params: params,
             taskGameDetail: this.gameDetail.perform(
@@ -61,16 +61,17 @@ export default class ProgrammeGameGameRoute extends Route {
 			return d;
 		});
     }
-  
+
     @task
     * entityValueTask(params) {
         let searchParams = {
             entityFullWebPath: 'programme/' + params.programWebPath + '/game/' + params.gameWebPath,
+            tenantWebPath: 'kls',
         };
         return yield this.entityvaluestoreService.entityValue2(
             searchParams
         ).then(d => {
-            return fillCustomEntityValue(d, { language: "FR", binaryType: "photo_up" }, entityValueStoreBaseUrl);
+            return fillCustomEntityValue(d, { language: "FR", binaryType: "photo_up" }, imageBaseUrl);
         });
     }
 }

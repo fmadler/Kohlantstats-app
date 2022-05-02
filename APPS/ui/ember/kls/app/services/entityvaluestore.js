@@ -32,12 +32,40 @@ import { hash } from 'rsvp';
 
 export default Service.extend({
 
+	//entity
+
+    createEntity (params) {
+        var adapter = Adapter.create(); 
+        return adapter.createEntity(params);
+    },
+
+	//generic
+
+    masterData (params) {
+        var adapter = Adapter.create(); 
+        return adapter.masterData(params);
+    },
+
 	//description
 
     descriptionEntityValueRequest (params) {
         var adapter = Adapter.create(); 
         return adapter.descriptionEntityValueRequest(params);
     },
+
+	//property
+
+    createProperty (params) {
+        var adapter = Adapter.create(); 
+        return adapter.createProperty(params);
+    },
+
+
+    getProperty (params) {
+        var adapter = Adapter.create(); 
+        return adapter.getProperty(params);
+    },
+
 	//info
 	//tenant
 
@@ -45,18 +73,21 @@ export default Service.extend({
         var adapter = Adapter.create(); 
         return adapter.tenantRegistry(params);
     },
+
 	//binary
 
     binaryEntityValueRequest (params) {
         var adapter = Adapter.create(); 
         return adapter.binaryEntityValueRequest(params);
     },
+
 	//translation
 
     translationLanguage (params) {
         var adapter = Adapter.create(); 
         return adapter.translationLanguage(params);
     },
+
 	/** 
 	 * Service to composite entity-value info 
 	 * @param  {params} made of
@@ -66,6 +97,8 @@ export default Service.extend({
 	 *  - entityWebPath
 	 *  - entityTypeWebPath
 	 *  - languageCode
+	 *  - limit
+	 *  - offset
 	 * @returns {*} Promise
 	*/
     entityValue (params) {
@@ -81,6 +114,8 @@ export default Service.extend({
 	 *  - entityWebPath
 	 *  - entityTypeWebPath
 	 *  - languageCode
+	 *  - limit
+	 *  - offset
 	 * @returns {*} Promise
 	*/
     entityValue2 (params) {
@@ -93,9 +128,16 @@ export default Service.extend({
 		.then(d => {
 			return d.BinaryEntityValueRequestOut;
 		});
+		if (validategetProperty(params)) {
+			var getPropertyPromise = adapter.getProperty(params)
+			.then(d => {
+				return d.GetPropertyOut;
+			});
+		}
 		var promises = {
 			descriptionEntityValueRequest : descriptionEntityValueRequestPromise,
 			binaryEntityValueRequest : binaryEntityValueRequestPromise,
+			getProperty : validategetProperty(params) ? getPropertyPromise : [],
 			params : params,
 		};
     	return hash(promises);
@@ -104,3 +146,35 @@ export default Service.extend({
 
 
 });
+
+	// input validation check for createEntity
+export function validatecreateEntity(params) {
+	if (!params.tenantWebPath) return false;
+	if (!params.entityTypeWebPath) return false;
+	if (!params.name) return false;
+	if (!params.webPath) return false;
+	if (!params.entityFullWebPath) return false;
+	if (!params.rootEntityWebPath) return false;
+	if (!params.id) return false;
+	return true;
+}
+	// input validation check for masterData
+export function validatemasterData(params) {
+	if (!params.tenantWebPath) return false;
+	return true;
+}
+	// input validation check for createProperty
+export function validatecreateProperty(params) {
+	if (!params.tenantWebPath) return false;
+	if (!params.entityFullWebPath) return false;
+	if (!params.propertyTypeWebPath) return false;
+	if (!params.value) return false;
+	if (!params.id) return false;
+	return true;
+}
+	// input validation check for getProperty
+export function validategetProperty(params) {
+	if (!params.tenantWebPath) return false;
+	if (!params.entityFullWebPath) return false;
+	return true;
+}

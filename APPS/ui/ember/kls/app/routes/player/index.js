@@ -4,7 +4,7 @@ import { task } from 'ember-concurrency';
 import { fillCustomBinaryEntityValue } from 'kohlantstats/utils/entityvalue-utils';
 
 import config from 'kohlantstats/config/environment';
-const { host, namespace } = config.entityValueStoreDS;
+const { host, namespace } = config.imageDS;
 const entityValueStoreBaseUrl = host + "/" + namespace;
 
 export default class PlayerIndexRoute extends Route {
@@ -71,7 +71,7 @@ export default class PlayerIndexRoute extends Route {
     * playerSearch2(params) {
        return this.customscoreService.playerSearch2(params);
     }
-    
+
     @task
     * entityValueTask(programWebPath, playerWebPath) {
         let searchParams = {

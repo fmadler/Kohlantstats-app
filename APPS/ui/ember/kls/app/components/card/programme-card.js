@@ -6,8 +6,8 @@ import { inject as service } from '@ember/service';
 import {fillCustomEntityValue} from 'kohlantstats/utils/entityvalue-utils';
 
 import config from 'kohlantstats/config/environment';
-const { host, namespace } = config.entityValueStoreDS;
-const entityValueStoreBaseUrl = host+"/"+namespace;
+const { host, namespace } = config.imageDS;
+const imageBaseUrl = host+"/"+namespace;
 
 export default class CardProgrammeCardComponent extends Component {
 
@@ -32,11 +32,12 @@ export default class CardProgrammeCardComponent extends Component {
     * entityValueTask(params) {
       let searchParams = {
         entityFullWebPath : 'programme/'+params.programWebPath,
+        tenantWebPath: 'kls'
       };
       return yield this.entityvaluestoreService.entityValue2(
         searchParams
       ).then(d => {
-        return fillCustomEntityValue(d,{language:"FR",binaryType:"poster"}, entityValueStoreBaseUrl);
+        return fillCustomEntityValue(d,{language:"FR",binaryType:"poster"}, imageBaseUrl);
       });
     }
 }

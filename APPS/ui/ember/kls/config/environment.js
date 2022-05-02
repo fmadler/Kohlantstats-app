@@ -36,13 +36,15 @@ module.exports = function(environment) {
     scoreDS: {
       namespace: 'scoreKendoUiApp',
       host: 'https://winerylabs.com',
-      //host: 'http://localhost',
     },
     //Microservices
     entityValueStoreDS: {
+      namespace: 'entityvaluestoreKendoUiApp',
+      host: 'https://winerylabs.com',
+    },
+    imageDS: {
       namespace: 'imageManagementWeb',
       host: 'https://winerylabs.com',
-      //host: 'http://localhost/',
     },
     quizzDS: {
       namespace: 'quizzKendoUiApp',
@@ -67,9 +69,14 @@ module.exports = function(environment) {
       //host: 'http://localhost',
     }
     ENV.entityValueStoreDS = {
-      namespace: 'imageManagementWeb',
+      //namespace: 'imageManagementWeb',
+      namespace: 'entityvaluestoreKendoUiApp',
       host: 'https://winerylabs.com',
       //host: 'http://localhost/',
+    }
+    ENV.imageDS = {
+      namespace: 'imageManagementWeb',
+        host: 'https://winerylabs.com',
     }
     ENV.quizzDS= {
       namespace: 'quizzKendoUiApp',
@@ -90,9 +97,13 @@ module.exports = function(environment) {
       host: 'http://localhost',
     }
     ENV.entityValueStoreDS = {
+      //namespace: 'imageManagementWeb',
+      namespace: 'entityvaluestoreKendoUiApp',
+      host: 'https://winerylabs.com',
+    }
+    ENV.imageDS = {
       namespace: 'imageManagementWeb',
       host: 'https://winerylabs.com',
-      //host: 'http://localhost/',
     }
     ENV.quizzDS= {
       namespace: 'quizzKendoUiApp',
