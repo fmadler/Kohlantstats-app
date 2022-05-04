@@ -93,13 +93,14 @@ export default class ProgrammeParticipantParticipantRoute extends ConfigAwareRou
             entityWebPath: params.playerWebPath,
         };
         let entityValueTaskPerform = this.entityValueTask.perform(params);
+        let taskParticipantDetail = this.participantDetail.perform(searchParams);
+        let playerEntityValueTaskPerform = this.taskPlayerEntityValueTask.perform(searchParams);
         return {
-            params: params,
-            taskParticipantDetail: this.participantDetail.perform(
-                searchParams
-            ),
-            taskEntityValue: entityValueTaskPerform,
-        };
+          params: params,
+              taskParticipantDetail: taskParticipantDetail,
+              taskEntityValue: entityValueTaskPerform,
+              taskPlayerEntityValue: playerEntityValueTaskPerform
+          };
     }
 
     @task
@@ -107,6 +108,20 @@ export default class ProgrammeParticipantParticipantRoute extends ConfigAwareRou
         return this.scoreService.participantDetail2(
             searchParams
         );
+    }
+
+    @task
+    * taskPlayerEntityValueTask(params) {
+        let searchParams = {
+            entityFullWebPath: 'player/' + params.playerWebPath,
+            tenantWebPath: 'kls',
+        };
+        return yield this.entityvaluestoreService.entityValue2(
+            searchParams
+        ).then(d => {
+            let data = fillCustomEntityValue(d, { language: "FR", binaryType: "photo_up" }, imageBaseUrl);
+            return data;
+        });
     }
 
     @task

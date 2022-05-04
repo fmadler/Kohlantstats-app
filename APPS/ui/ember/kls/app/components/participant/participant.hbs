@@ -9,7 +9,23 @@
   {{#if @evTask.isRunning}}
   {{else}}
   {{{@evData.custom.description}}}
-  <br />
+
+  {{#if @evPlayerTask.isRunning}}...
+  {{else}}
+    {{#if (gt @evPlayerTask.value.getProperty.length 0) }}
+      <br/>
+      {{#each @evPlayerTask.value.getProperty as |property|}}
+        <a href="{{property.propertyValue}}" aria-label="{{property.propertyTypeName}}">
+          <FaIcon @icon="{{property.propertyTypeName}}" @size="2x" @prefix="fab" class="social social-tw" />
+        </a>
+      {{/each}}
+    {{/if}}
+
+  {{/if}}
+
+
+
+    <br />
   {{/if}}
   <LinkTo @route="player.player" @model={{@data.participantSummary.[0].webPath}}>
     <FaIcon @icon="link"></FaIcon> {{@data.participantSummary.[0].name}} dans Koh Lanta
@@ -33,8 +49,8 @@
           {{#if @evTask.isRunning}}
           ...
           {{else}}
-          <Snippet::Image 
-            @alt="{{item.participantName}}" 
+          <Snippet::Image
+            @alt="{{item.participantName}}"
             @src={{@evData.custom.binary_url}}
             @icon="user"
             />

@@ -12,7 +12,7 @@ const imageBaseUrl = host+"/"+namespace;
 export default class CardProgrammeCardComponent extends Component {
 
     @service('Entityvaluestore') entityvaluestoreService;
-    @service('score') score;//
+    @service('score') score;
     @tracked entityValue;
     @tracked gameStats;
     data = this.args.data;

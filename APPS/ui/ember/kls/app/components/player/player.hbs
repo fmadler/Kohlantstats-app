@@ -9,10 +9,18 @@
             {{#if @evData.custom.description}}
             {{{@evData.custom.description}}}
             {{/if}}
+          {{#if (gt @evData.getProperty.length 0) }}
+          <br/>
+            {{#each @evData.getProperty as |property|}}
+              <a href="{{property.propertyValue}}" aria-label="{{property.propertyTypeName}}">
+                <FaIcon @icon="{{property.propertyTypeName}}" @size="2x" @prefix="fab" class="social social-tw" />
+              </a>
+            {{/each}}
+          {{/if}}
         </div>
         <div class="col-md-6">
-           <Snippet::Image 
-                @alt="{{@data.participantSummary.[0].name}}" 
+           <Snippet::Image
+                @alt="{{@data.participantSummary.[0].name}}"
                 @src={{@evData.custom.binary_url}}
                 @icon="user"
                 />
@@ -116,7 +124,7 @@
                 </div>
                 <div class="col-md-6">
                     <LinkTo @route="programme.programme" @model={{participation.programWebPath}}>
-                        <Snippet::Image 
+                        <Snippet::Image
                             @alt="{{participation.programName}}"
                             @src={{binary-url (concat 'programme/' participation.programWebPath) 'poster' }}
                             @icon="image"
