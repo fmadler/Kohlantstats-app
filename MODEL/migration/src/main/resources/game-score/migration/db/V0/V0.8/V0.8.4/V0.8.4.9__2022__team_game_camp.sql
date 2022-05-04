@@ -75,7 +75,7 @@ call first_vote_against ('le-totem-maudit','jean-charles-2022','stephanie-2022',
 call first_vote_against ('le-totem-maudit','ambre-2022','stephanie-2022','jaune-2022', 15, 'effectif');
 call first_vote_against ('le-totem-maudit','geraldine-2022','stephanie-2022','jaune-2022', 15, 'effectif');
 
-call create_participant_departure('le-totem-maudit','stephanie-2022','jaune-2022',11,'exclusion-par-vote', @participant_team_id);
+call create_participant_departure('le-totem-maudit','stephanie-2022','jaune-2022',15,'exclusion-par-vote', @participant_team_id);
 call fill_participant_longevity ('le-totem-maudit','stephanie-2022',16,1,15);
 
 call program_current_time ('le-totem-maudit',15);

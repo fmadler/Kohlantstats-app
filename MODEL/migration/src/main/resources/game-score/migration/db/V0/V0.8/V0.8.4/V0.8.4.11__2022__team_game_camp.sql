@@ -75,7 +75,7 @@ call create_participant_entrance ('le-totem-maudit','olga-2022','blanc-2022',21,
 
 -- 2 boules noires pour colin
 
-call create_game('le-totem-maudit','Koala','koala-2022','koala','collectif','immunite',23,18,'totem','statique');
+call create_game('le-totem-maudit','Koala','koala-2022','koala','individuel','immunite',23,18,'totem','statique');
 -- le dernier gagne
 
 call create_game_participation('louana-2022','blanc-2022','koala-2022','participant','individuel',1,'totem');
@@ -95,28 +95,27 @@ call create_game_participation('nicolas-2022','blanc-2022','koala-2022','partici
 call create_game_participation('olga-2022','blanc-2022','koala-2022','participant','individuel',4,'');
 
 
-call first_vote_against ('le-totem-maudit','louana-2022','yannick-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','maxime-2022','colin-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','fouzi-2022','colin-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','francois-2022','colin-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','geraldine-2022','colin-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','pauline-2022','colin-2022','jaune-2022', 23, 'effectif');
-call second_vote_against ('le-totem-maudit','pauline-2022','pauline-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','jean-charles-2022','colin-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','ambre-2022','colin-2022','jaune-2022', 23, 'effectif');
-
-call first_vote_against ('le-totem-maudit','bastien-2022','maxime-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','yannick-2022','maxime-2022','jaune-2022', 23, 'effectif');
-call second_vote_against ('le-totem-maudit','yannick-2022','yannick-2022','jaune-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','louana-2022','yannick-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','maxime-2022','colin-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','fouzi-2022','colin-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','francois-2022','colin-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','geraldine-2022','colin-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','pauline-2022','colin-2022','blanc-2022', 23, 'effectif');
+call second_vote_against ('le-totem-maudit','pauline-2022','pauline-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','jean-charles-2022','colin-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','ambre-2022','colin-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','bastien-2022','maxime-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','yannick-2022','maxime-2022','blanc-2022', 23, 'effectif');
+call second_vote_against ('le-totem-maudit','yannick-2022','yannick-2022','blanc-2022', 23, 'effectif');
 call vote ('le-totem-maudit','yannick-2022','yannick-2022','rouge-2022', 3, 23, 1, 'effectif', 'vote-contre');
-call first_vote_against ('le-totem-maudit','alexandra-2022','setha-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','colin-2022','maxime-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','olga-2022','maxime-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','anne-sophie-2022','maxime-2022','jaune-2022', 23, 'effectif');
-call first_vote_against ('le-totem-maudit','nicolas-2022','colin-2022','jaune-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','colin-2022','maxime-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','olga-2022','maxime-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','anne-sophie-2022','maxime-2022','blanc-2022', 23, 'effectif');
+call first_vote_against ('le-totem-maudit','nicolas-2022','colin-2022','blanc-2022', 23, 'effectif');
 
 -- colin depart
-call create_participant_departure('le-totem-maudit','colin-2022','blanc-2022',11,'exclusion-par-duel-apres-vote', @participant_team_id);
-call fill_participant_longevity ('le-totem-maudit','colin-2022',13,1,23);
+call create_participant_departure('le-totem-maudit','yannick-2022','blanc-2022',23,'exclusion-par-duel-apres-vote', @participant_team_id);
+call fill_participant_longevity ('le-totem-maudit','yannick-2022',13,1,23);
 
 call program_current_time ('le-totem-maudit',23);
+
