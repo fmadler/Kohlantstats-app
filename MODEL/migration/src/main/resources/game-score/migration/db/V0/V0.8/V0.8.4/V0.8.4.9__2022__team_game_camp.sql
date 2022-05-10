@@ -39,7 +39,7 @@ call team_game_ranking ('rouge-2022','poutre-2022',2);
 
 -- par serie de 4 
 
-call create_game('le-totem-maudit','puzzle-contre-la-montre','puzzle-contre-la-montre-2022','puzzle-contre-la-montre','collectif','immunite',15,10,'conseil','rapidite,precision,voix,clarte');
+call create_game('le-totem-maudit','Puzzle contre la montre','puzzle-contre-la-montre-2022','puzzle-contre-la-montre','collectif','immunite',15,10,'conseil','rapidite,precision,voix,clarte');
 -- exclues stephanie par tirage au sort
 call create_game_participation('louana-2022','rouge-2022','puzzle-contre-la-montre-2022','participant','collectif',2,'conseil');
 call create_game_participation('maxime-2022','rouge-2022','puzzle-contre-la-montre-2022','participant','collectif',2,'conseil');
