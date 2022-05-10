@@ -15,9 +15,7 @@
     {{#if (gt @evPlayerTask.value.getProperty.length 0) }}
       <br/>
       {{#each @evPlayerTask.value.getProperty as |property|}}
-        <a href="{{property.propertyValue}}" aria-label="{{property.propertyTypeName}}">
-          <FaIcon @icon="{{property.propertyTypeName}}" @size="2x" @prefix="fab" class="social social-tw" />
-        </a>
+        <Snippet::UrlLinkProperty @property={{property}}/>
       {{/each}}
     {{/if}}
 

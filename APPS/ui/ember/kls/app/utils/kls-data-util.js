@@ -2,11 +2,6 @@ import _ from "lodash"
 
 export const DEFAULT_TITLE_PARTICIPANT_PERFORMANCES = "Découvrer les performances des participants";
 
-
-//export const TITLE_PARTICIPANT_NAME_PERFORMANCES_EDITION = `Découvrer les performances de ${playerName} dans l'édition ${programName}`;
-
-//export const TITLE_COMPARISON_PARTICIPANT_NAME_WITH_PARTICIPANT2_NAME_PERFORMANCES_EDITION = `Découvrer les performances de ${playerName} comparées à celles de ${player2Name} dans l'édition ${programName}`;
-
 export default function klsDataUtil() {
   return true;
 }

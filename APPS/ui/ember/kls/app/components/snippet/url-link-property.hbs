@@ -1,0 +1,5 @@
+{{#let (icon-property @property.propertyTypeIcon) as |icon|}}
+  <a target="_blank" href="{{#let (icon-property @property.propertyType)}}"propertyValue}}" aria-label="{{@property.propertyTypeName}}">
+    <FaIcon @icon="{{icon.key}}" @size="2x" @prefix="{{icon.prefix}}" class="social social-tw" />
+  </a>
+{{/let}}

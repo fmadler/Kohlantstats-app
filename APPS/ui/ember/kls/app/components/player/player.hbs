@@ -12,9 +12,7 @@
           {{#if (gt @evData.getProperty.length 0) }}
           <br/>
             {{#each @evData.getProperty as |property|}}
-              <a href="{{property.propertyValue}}" aria-label="{{property.propertyTypeName}}">
-                <FaIcon @icon="{{property.propertyTypeName}}" @size="2x" @prefix="fab" class="social social-tw" />
-              </a>
+              <Snippet::UrlLinkProperty @property={{property}}/>
             {{/each}}
           {{/if}}
         </div>
