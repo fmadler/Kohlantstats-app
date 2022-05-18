@@ -114,7 +114,7 @@ call first_vote_against ('le-totem-maudit','anne-sophie-2022','maxime-2022','bla
 call first_vote_against ('le-totem-maudit','nicolas-2022','colin-2022','blanc-2022', 23, 'effectif');
 
 -- colin depart
-call create_participant_departure('le-totem-maudit','yannick-2022','blanc-2022',23,'exclusion-par-duel-apres-vote', @participant_team_id);
+call create_participant_departure('le-totem-maudit','yannick-2022','blanc-2022',23,'exclusion-par-vote', @participant_team_id);
 call fill_participant_longevity ('le-totem-maudit','yannick-2022',13,1,23);
 
 call program_current_time ('le-totem-maudit',23);

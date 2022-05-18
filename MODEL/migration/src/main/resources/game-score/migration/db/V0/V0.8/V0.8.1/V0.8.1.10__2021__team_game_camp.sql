@@ -15,7 +15,7 @@ call create_game_participation('thomas-2021','blanc-2021','domino-2021','partici
 call create_game_participation('myriam-2021','blanc-2021','domino-2021','participant','equipe-composee',1,'nuit-hotel');
 call create_game_participation('vincent-2021','blanc-2021','domino-2021','participant','equipe-composee',1,'nuit-hotel');
 call create_game_participation('flavio-2021','blanc-2021','domino-2021','participant','equipe-composee',1,'nuit-hotel');
-call create_game_participation('lucie-2021','blanc-2021','domino-2021','exclusion-par-choix-d-equipe','individuel',10,'');
+call create_game_participation('lucie-2021','blanc-2021','domino-2021','exclusion-par-choix-d-equipe','equipe-composee',10,'');
 
 call create_participant_realisation('les-armes-secretes','lucie-2021','blanc-2021',21,'decouverte-arme-secrete',@realisation_id);
 -- 2
