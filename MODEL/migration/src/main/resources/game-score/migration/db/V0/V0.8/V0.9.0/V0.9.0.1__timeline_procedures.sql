@@ -1,14 +1,14 @@
 -- store procedure
 delimiter $$
-drop procedure IF EXISTS create_timeline_for_session$$
-create procedure create_timeline_for_session
+drop procedure IF EXISTS create_timeline_for_program$$
+create procedure create_timeline_for_program
 (
     _program_web_path varchar(100)
 )
 
 begin
-    DECLARE @participant_web_path varchar(100);
-    DECLARE @participant_end_day int;
+    DECLARE participant_web_path varchar(100);
+    DECLARE participant_end_day int;
     DECLARE cursor_participant CURSOR FOR
         select pl.web_path, pa.END_DAY from gs_player pl, gs_participant pa, gs_program pg
         where pa.gs_program_id = pg.id and pa.gs_player_id = pl.id
@@ -29,7 +29,7 @@ begin
         select pg.TOTAL_TIME_LENGTH from gs_program pg where web_path = _program_web_path into @nbOfDays;
         set @currentDay = 1;
 
-        fetch cursor_participant into @participant_web_path, @participant_end_day;
+        fetch cursor_participant into participant_web_path, participant_end_day;
         while (@currentDay<@nbOfDays AND @currentDay<@participant_end_day) do
             -- todo select snapshot for this day
             set @longevity = @currentDay;
