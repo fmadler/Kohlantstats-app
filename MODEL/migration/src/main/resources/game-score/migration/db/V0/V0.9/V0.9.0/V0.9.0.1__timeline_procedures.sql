@@ -3,7 +3,8 @@ delimiter $$
 drop procedure IF EXISTS create_timeline_for_program$$
 create procedure create_timeline_for_program
 (
-    _program_web_path varchar(100)
+    _program_web_path varchar(100),
+    out result varchar(100)
 )
 
 begin
@@ -23,6 +24,10 @@ begin
         SIGNAL SQLSTATE '50000'
             SET MESSAGE_TEXT = @message;
     END IF;
+    -- clean data
+    delete from DW_TIMELINE_SCORE
+    where CONTEXT_WEB_PATH = _program_web_path
+      and CONTEXT_TYPE_WEB_PATH = 'programme';
     -- for each participant
     OPEN cursor_participant;
     loopParticipant : LOOP
@@ -42,6 +47,7 @@ begin
 
 
     end loop;
+    set result = 'PROCESSED';
 end$$
 drop procedure IF EXISTS snapshot_score$$
 create procedure snapshot_score
@@ -178,7 +184,7 @@ begin
                 _participant_web_path,
                 'player',
                 _program_web_path,
-                'program',
+                'programme',
                 COALESCE(_longevity,0),
                 COALESCE(_score_1,0),
                 COALESCE(_score_2,0)
