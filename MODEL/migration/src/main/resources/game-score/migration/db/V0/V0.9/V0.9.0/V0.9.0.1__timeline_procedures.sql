@@ -44,8 +44,6 @@ begin
             call snapshot_score(_program_web_path, participant_web_path, @currentDay);
             SET @currentDay = @currentDay + 1;
         end while;
-
-
     end loop;
     set result = 'PROCESSED';
 end$$
