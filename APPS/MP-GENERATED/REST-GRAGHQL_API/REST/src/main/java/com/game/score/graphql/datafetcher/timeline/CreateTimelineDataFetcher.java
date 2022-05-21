@@ -26,12 +26,12 @@
 	* - name      : Spring.GraphQL.datafetcher
 	* - file name : Spring.GraphQL.datafetcher.vm
 */
-package com.game.score.graphql.datafetcher.game;
+package com.game.score.graphql.datafetcher.timeline;
 
-import com.game.score.sdd.in.game.GamePerformanceIn;
-import com.game.score.dao.sdd.face.game.GamePerformanceDaoFace;
-import com.game.score.sdd.out.game.GamePerformanceOutList;
-import com.game.score.sdd.out.game.GamePerformanceOut;
+import com.game.score.sdd.in.timeline.CreateTimelineIn;
+import com.game.score.dao.sdd.face.timeline.CreateTimelineDaoFace;
+import com.game.score.sdd.out.timeline.CreateTimelineOutList;
+import com.game.score.sdd.out.timeline.CreateTimelineOut;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,20 +41,20 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class GamePerformanceDataFetcher implements DataFetcher<List<GamePerformanceOut>> {
+public class CreateTimelineDataFetcher implements DataFetcher<List<CreateTimelineOut>> {
 
     @Autowired
-    @Qualifier("gamePerformanceDaoFace")
-    GamePerformanceDaoFace gamePerformanceDaoFace;
+    @Qualifier("createTimelineDaoFace")
+    CreateTimelineDaoFace createTimelineDaoFace;
 
     @Override
-    public List<GamePerformanceOut> get(DataFetchingEnvironment dataFetchingEnvironment) {
-        GamePerformanceIn gamePerformanceIn = new GamePerformanceIn ();
-        gamePerformanceIn.setPlayerWebPath (dataFetchingEnvironment.getArgument("playerWebPath"));
-        gamePerformanceIn.setProgramWebPath (dataFetchingEnvironment.getArgument("programWebPath"));
-        return gamePerformanceDaoFace.execute (
-        	gamePerformanceIn
-            ).getGamePerformanceOuts();
+    public List<CreateTimelineOut> get(DataFetchingEnvironment dataFetchingEnvironment) {
+        CreateTimelineIn createTimelineIn = new CreateTimelineIn ();
+        createTimelineIn.setProgramWebPath (dataFetchingEnvironment.getArgument("programWebPath"));
+        createTimelineIn.setResult (dataFetchingEnvironment.getArgument("result"));
+        return createTimelineDaoFace.execute (
+        	createTimelineIn
+            ).getCreateTimelineOuts();
     }
 
 }

@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class VoteDetailDataFetcher implements DataFetcher<List<VoteDetailOut>>{
+public class VoteDetailDataFetcher implements DataFetcher<List<VoteDetailOut>> {
 
     @Autowired
     @Qualifier("voteDetailDaoFace")

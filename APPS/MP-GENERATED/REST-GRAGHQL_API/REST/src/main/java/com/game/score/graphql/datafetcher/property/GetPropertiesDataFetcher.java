@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class GetPropertiesDataFetcher implements DataFetcher<List<GetPropertiesOut>>{
+public class GetPropertiesDataFetcher implements DataFetcher<List<GetPropertiesOut>> {
 
     @Autowired
     @Qualifier("getPropertiesDaoFace")

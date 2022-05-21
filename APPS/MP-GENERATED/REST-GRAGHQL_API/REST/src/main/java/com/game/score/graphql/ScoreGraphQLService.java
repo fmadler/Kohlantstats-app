@@ -56,6 +56,7 @@ import com.game.score.graphql.datafetcher.quizz.QuizzSortTeamMemberFilterMatrixD
 import com.game.score.graphql.datafetcher.quizz.QuizzSortTeamMemberOptionDataFetcher;
 import com.game.score.graphql.datafetcher.quizz.QuizzWinnerParticipantOrderOptionDataFetcher;
 import com.game.score.graphql.datafetcher.quizz.QuizzWinnerTeamOrderOptionDataFetcher;
+import com.game.score.graphql.datafetcher.generic.MasterDataDataFetcher;
 import com.game.score.graphql.datafetcher.participant.ParticipantSummaryDataFetcher;
 import com.game.score.graphql.datafetcher.participant.ParticipantGameActivityDataFetcher;
 import com.game.score.graphql.datafetcher.participant.ParticipantCampActivityDataFetcher;
@@ -63,6 +64,8 @@ import com.game.score.graphql.datafetcher.property.GetPropertiesDataFetcher;
 import com.game.score.graphql.datafetcher.player.PlayerPerformanceComparisonDataFetcher;
 import com.game.score.graphql.datafetcher.timeline.TeamGameTimelineDataFetcher;
 import com.game.score.graphql.datafetcher.timeline.TeamParticipantTimelineDataFetcher;
+import com.game.score.graphql.datafetcher.timeline.ScoreTimelineDataFetcher;
+import com.game.score.graphql.datafetcher.timeline.CreateTimelineDataFetcher;
 import com.game.score.graphql.datafetcher.game.GameInfoDataFetcher;
 import com.game.score.graphql.datafetcher.game.GamePerformanceDataFetcher;
 import graphql.GraphQL;
@@ -81,6 +84,7 @@ import java.io.File;
 import java.io.IOException;
 
 import graphql.scalars.ExtendedScalars;
+import com.game.score.graphql.scalar.TimestampScalar;
 
 @Service
 public class ScoreGraphQLService {
@@ -149,6 +153,8 @@ public class ScoreGraphQLService {
     @Autowired
     QuizzWinnerTeamOrderOptionDataFetcher quizzWinnerTeamOrderOptionDataFetcher;
     @Autowired
+    MasterDataDataFetcher masterDataDataFetcher;
+    @Autowired
     ParticipantSummaryDataFetcher participantSummaryDataFetcher;
     @Autowired
     ParticipantGameActivityDataFetcher participantGameActivityDataFetcher;
@@ -162,6 +168,10 @@ public class ScoreGraphQLService {
     TeamGameTimelineDataFetcher teamGameTimelineDataFetcher;
     @Autowired
     TeamParticipantTimelineDataFetcher teamParticipantTimelineDataFetcher;
+    @Autowired
+    ScoreTimelineDataFetcher scoreTimelineDataFetcher;
+    @Autowired
+    CreateTimelineDataFetcher createTimelineDataFetcher;
     @Autowired
     GameInfoDataFetcher gameInfoDataFetcher;
     @Autowired
@@ -182,6 +192,8 @@ public class ScoreGraphQLService {
     private RuntimeWiring buildRuntimeWiring() {
         return RuntimeWiring.newRuntimeWiring()
             .scalar(ExtendedScalars.Date)
+            .scalar(ExtendedScalars.DateTime)
+            .scalar(TimestampScalar.INSTANCE)
             .type("Query", typeWiring -> typeWiring
                 .dataFetcher("sitemap",sitemapDataFetcher)
                 .dataFetcher("sitemapParam",sitemapParamDataFetcher)
@@ -208,6 +220,7 @@ public class ScoreGraphQLService {
                 .dataFetcher("quizzSortTeamMemberOption",quizzSortTeamMemberOptionDataFetcher)
                 .dataFetcher("quizzWinnerParticipantOrderOption",quizzWinnerParticipantOrderOptionDataFetcher)
                 .dataFetcher("quizzWinnerTeamOrderOption",quizzWinnerTeamOrderOptionDataFetcher)
+                .dataFetcher("masterData",masterDataDataFetcher)
                 .dataFetcher("participantSummary",participantSummaryDataFetcher)
                 .dataFetcher("participantGameActivity",participantGameActivityDataFetcher)
                 .dataFetcher("participantCampActivity",participantCampActivityDataFetcher)
@@ -217,6 +230,9 @@ public class ScoreGraphQLService {
                 //.dataFetcher("playerPerformanceComparisonParticipants",playerPerformanceComparisonDataFetcher)
                 .dataFetcher("teamGameTimeline",teamGameTimelineDataFetcher)
                 .dataFetcher("teamParticipantTimeline",teamParticipantTimelineDataFetcher)
+                .dataFetcher("scoreTimeline",scoreTimelineDataFetcher)
+                //.dataFetcher("scoreTimelineParticipants",scoreTimelineDataFetcher)
+                //.dataFetcher("scoreTimelineResults",scoreTimelineDataFetcher)
                 .dataFetcher("gameInfo",gameInfoDataFetcher)
                 .dataFetcher("gamePerformance",gamePerformanceDataFetcher)
             )
@@ -224,6 +240,7 @@ public class ScoreGraphQLService {
                 .dataFetcher("createParticipantEntrance",createParticipantEntranceDataFetcher)
                 .dataFetcher("createParticipantDeparture",createParticipantDepartureDataFetcher)
                 .dataFetcher("createParticipantRealisation",createParticipantRealisationDataFetcher)
+                .dataFetcher("createTimeline",createTimelineDataFetcher)
             )
             .build();
     }

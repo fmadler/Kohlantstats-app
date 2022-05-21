@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DistinctGameTagsDataFetcher implements DataFetcher<List<DistinctGameTagsOut>>{
+public class DistinctGameTagsDataFetcher implements DataFetcher<List<DistinctGameTagsOut>> {
 
     @Autowired
     @Qualifier("distinctGameTagsDaoFace")

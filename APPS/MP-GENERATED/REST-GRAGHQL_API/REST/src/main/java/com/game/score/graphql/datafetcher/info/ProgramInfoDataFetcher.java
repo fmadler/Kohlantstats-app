@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ProgramInfoDataFetcher implements DataFetcher<List<ProgramInfoOut>>{
+public class ProgramInfoDataFetcher implements DataFetcher<List<ProgramInfoOut>> {
 
     @Autowired
     @Qualifier("programInfoDaoFace")

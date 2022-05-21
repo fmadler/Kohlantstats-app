@@ -23,15 +23,16 @@
 /**
 	* template reference : 
 	* - Minuteproject version : 0.9.11
-	* - name      : SDDOutputBean
+	* - name      : SDDInputBean
 	* - file name : JavaBean.vm
 */
-package com.game.score.sdd.out.game;
+package com.game.score.sdd.in.timeline;
 
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -42,47 +43,33 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  *
- * <p>Title: GameInfoOut</p>
+ * <p>Title: ScoreTimelineIn</p>
  *
- * <p>Description: GameInfo Java Bean </p>
+ * <p>Description: ScoreTimeline Java Bean </p>
  *
  */
 @Data
-public class GameInfoOut {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ScoreTimelineIn {
 
-    private String program;
     private String programWebPath;
-    private Integer editionNumber;
-    private String gameName;
-    private String gameWebPath;
-    private String timePosition;
-    private Integer timeUnitIndex;
-    private String gameTypeName;
-    private String gameTypeWebPath;
-    private String gameStakeTypeName;
-    private String gameStakeTypeWebPath;
-    private String gameParticipationTypeName;
-    private String gameParticipationTypeWebPath;
-	@Data
-	public class GameRewards {
-		String name;
-		String webPath;
-		String isPositive;
-	}
-    private List<GameRewards> gameRewards;
-	@Data
-	public class Winners {
-		String name;
-		String webPath;
-		String gameActivityTypeWebPath;
-		String gameActivityTypeName;
-	}
-    private List<Winners> winners;
-	@Data
-	public class GameTags {
-		String name;
-		String webPath;
-	}
-    private List<GameTags> gameTags;
+    private String participantWebPathsInput;
+    private List<String> participantWebPaths;
+
+    public List<String> getParticipantWebPaths () {
+        if (participantWebPaths==null)
+            participantWebPaths = new ArrayList<String>();
+        return participantWebPaths;
+    }
+    
+    public void setParticipantWebPaths (String participantWebPaths) {
+        this.participantWebPathsInput = participantWebPaths;
+    	if (participantWebPaths!=null) {
+    		for (String element : StringUtils.split(participantWebPaths, ",")) {
+        		getParticipantWebPaths().add (element);
+        	}
+        }
+    }
+    private Integer day;
 
 }

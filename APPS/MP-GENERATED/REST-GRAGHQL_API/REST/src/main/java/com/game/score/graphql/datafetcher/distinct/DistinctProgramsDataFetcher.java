@@ -40,7 +40,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DistinctProgramsDataFetcher implements DataFetcher<List<DistinctProgramsOut>>{
+public class DistinctProgramsDataFetcher implements DataFetcher<List<DistinctProgramsOut>> {
 
     @Autowired
     @Qualifier("distinctProgramsDaoFace")

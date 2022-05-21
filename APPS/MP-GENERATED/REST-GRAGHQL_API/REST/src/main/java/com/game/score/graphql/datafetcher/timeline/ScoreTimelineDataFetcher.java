@@ -26,12 +26,12 @@
 	* - name      : Spring.GraphQL.datafetcher
 	* - file name : Spring.GraphQL.datafetcher.vm
 */
-package com.game.score.graphql.datafetcher.game;
+package com.game.score.graphql.datafetcher.timeline;
 
-import com.game.score.sdd.in.game.GamePerformanceIn;
-import com.game.score.dao.sdd.face.game.GamePerformanceDaoFace;
-import com.game.score.sdd.out.game.GamePerformanceOutList;
-import com.game.score.sdd.out.game.GamePerformanceOut;
+import com.game.score.sdd.in.timeline.ScoreTimelineIn;
+import com.game.score.dao.sdd.face.timeline.ScoreTimelineDaoFace;
+import com.game.score.sdd.out.timeline.ScoreTimelineOutList;
+import com.game.score.sdd.out.timeline.ScoreTimelineOut;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,20 +41,21 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class GamePerformanceDataFetcher implements DataFetcher<List<GamePerformanceOut>> {
+public class ScoreTimelineDataFetcher implements DataFetcher<List<ScoreTimelineOut>> {
 
     @Autowired
-    @Qualifier("gamePerformanceDaoFace")
-    GamePerformanceDaoFace gamePerformanceDaoFace;
+    @Qualifier("scoreTimelineDaoFace")
+    ScoreTimelineDaoFace scoreTimelineDaoFace;
 
     @Override
-    public List<GamePerformanceOut> get(DataFetchingEnvironment dataFetchingEnvironment) {
-        GamePerformanceIn gamePerformanceIn = new GamePerformanceIn ();
-        gamePerformanceIn.setPlayerWebPath (dataFetchingEnvironment.getArgument("playerWebPath"));
-        gamePerformanceIn.setProgramWebPath (dataFetchingEnvironment.getArgument("programWebPath"));
-        return gamePerformanceDaoFace.execute (
-        	gamePerformanceIn
-            ).getGamePerformanceOuts();
+    public List<ScoreTimelineOut> get(DataFetchingEnvironment dataFetchingEnvironment) {
+        ScoreTimelineIn scoreTimelineIn = new ScoreTimelineIn ();
+        scoreTimelineIn.setProgramWebPath (dataFetchingEnvironment.getArgument("programWebPath"));
+        scoreTimelineIn.setParticipantWebPaths (dataFetchingEnvironment.getArgument("participantWebPaths"));
+        scoreTimelineIn.setDay (dataFetchingEnvironment.getArgument("day"));
+        return scoreTimelineDaoFace.execute (
+        	scoreTimelineIn
+            ).getScoreTimelineOuts();
     }
 
 }

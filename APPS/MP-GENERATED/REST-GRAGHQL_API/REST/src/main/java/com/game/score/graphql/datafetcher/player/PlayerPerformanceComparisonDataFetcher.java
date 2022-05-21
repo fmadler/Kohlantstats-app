@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class PlayerPerformanceComparisonDataFetcher implements DataFetcher<List<PlayerPerformanceComparisonOut>>{
+public class PlayerPerformanceComparisonDataFetcher implements DataFetcher<List<PlayerPerformanceComparisonOut>> {
 
     @Autowired
     @Qualifier("playerPerformanceComparisonDaoFace")

@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DistinctEntityBinaryTypeDataFetcher implements DataFetcher<List<DistinctEntityBinaryTypeOut>>{
+public class DistinctEntityBinaryTypeDataFetcher implements DataFetcher<List<DistinctEntityBinaryTypeOut>> {
 
     @Autowired
     @Qualifier("distinctEntityBinaryTypeDaoFace")

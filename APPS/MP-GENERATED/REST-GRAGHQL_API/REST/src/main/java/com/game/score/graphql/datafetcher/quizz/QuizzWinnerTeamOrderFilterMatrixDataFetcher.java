@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class QuizzWinnerTeamOrderFilterMatrixDataFetcher implements DataFetcher<List<QuizzWinnerTeamOrderFilterMatrixOut>>{
+public class QuizzWinnerTeamOrderFilterMatrixDataFetcher implements DataFetcher<List<QuizzWinnerTeamOrderFilterMatrixOut>> {
 
     @Autowired
     @Qualifier("quizzWinnerTeamOrderFilterMatrixDaoFace")

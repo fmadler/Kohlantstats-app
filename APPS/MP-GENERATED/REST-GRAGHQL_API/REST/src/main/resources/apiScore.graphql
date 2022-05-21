@@ -32,6 +32,8 @@ schema {
 }
 
 scalar Date
+scalar DateTime
+scalar Timestamp
 
 type Query {
     """
@@ -79,8 +81,7 @@ type Query {
         programWebPath:String! 
     ): [DistinctParticipantsOut]
     distinctConcurrentsForParticipant(
-        playerWebPath:String! ,
-
+        playerWebPath:String! 
     ): [DistinctConcurrentsForParticipantOut]
     """
     Package stat
@@ -164,6 +165,15 @@ type Query {
         gameWebPath:String 
     ): [QuizzWinnerTeamOrderOptionOut]
     """
+    Package generic
+    """
+    masterData(
+        table:MasterDataTable
+        orderby:MasterDataOrderby
+        sort:MasterDataSort
+
+    ): [MasterDataOut]
+    """
     Package participant
     """
     participantSummary(
@@ -220,6 +230,21 @@ type Query {
         teamWebPath:String ,
         playerWebPath:String 
     ): [TeamParticipantTimelineOut]
+    scoreTimeline(
+        programWebPath:String ,
+        participantWebPaths:String ,
+        day:Int 
+    ): [ScoreTimelineOut]
+    scoreTimelineParticipants (
+        programWebPath:String ,
+        participantWebPaths:String ,
+        day:Int 
+    ): [ScoreTimelineParticipant]
+    scoreTimelineResults (
+        programWebPath:String ,
+        participantWebPaths:String ,
+        day:Int 
+    ): [ScoreTimelineResult]
     """
     Package game
     """
@@ -244,25 +269,47 @@ type Mutation {
         participantWebPath:String! ,
         teamWebPath:String! ,
         fromTime:Int! ,
-        entranceTypeWebPath:String! ,
-        participantTeamId:Int 
+        entranceTypeWebPath:String! 
     ): [CreateParticipantEntranceOut]
     createParticipantDeparture(
         programWebPath:String! ,
         participantWebPath:String! ,
         teamWebPath:String! ,
         toTime:Int! ,
-        departureTypeWebPath:String! ,
-        participantTeamId:Int 
+        departureTypeWebPath:String! 
     ): [CreateParticipantDepartureOut]
     createParticipantRealisation(
         programWebPath:String! ,
         participantWebPath:String! ,
         teamWebPath:String! ,
         time:Int! ,
-        realisationWebPath:String! ,
-        participantTeamRealisationId:Int 
+        realisationWebPath:String! 
     ): [CreateParticipantRealisationOut]
+    """
+    Package timeline
+    """
+    createTimeline(
+        programWebPath:String! 
+    ): [CreateTimelineOut]
+}
+
+enum MasterDataTable {
+    gs_team_departure_type
+    gs_team_entrance_type
+    gs_team_reward_type
+    gs_game_type
+    gs_game_stake_type
+    gs_realisation_type
+    gs_vote_type
+}
+enum MasterDataOrderby {
+    id
+    name
+    web_path
+}
+enum MasterDataSort {
+    asc
+    desc
 }
 
     """
@@ -664,6 +711,18 @@ type QuizzWinnerTeamOrderOptionOut {
 
 
     """
+    Package generic
+    """
+
+type MasterDataOut {
+    id:Int
+    name:String
+    webPath:String
+}
+
+
+
+    """
     Package participant
     """
 
@@ -875,6 +934,47 @@ type TeamParticipantTimelineOut {
 
 
 
+
+type ScoreTimelineOut {
+    fullWebPath:String
+    entityWebPath:String
+    entityTypeWebPath:String
+    contextWebPath:String
+    contextTypeWebPath:String
+    day:Int
+    score:Float
+    longevity:Float
+    gameScore1:Float
+    gameScore2:Float
+}
+
+
+    """ pivot Participant """
+type ScoreTimelineParticipant {
+    fullWebPath: String
+    entityWebPath: String
+    entityTypeWebPath: String
+    contextWebPath: String
+    contextTypeWebPath: String
+    results: [ScoreTimelineResult]
+}
+    """ pivot Result """
+type ScoreTimelineResult {
+    day: Int
+    score: Float
+    longevity: Float
+    gameScore1: Float
+    gameScore2: Float
+    participants: [ScoreTimelineParticipant]
+}
+
+
+type CreateTimelineOut {
+    result:String
+}
+
+
+
     """
     Package game
     """
@@ -907,6 +1007,7 @@ type GameInfoOutWinners {
     name:String
     webPath:String
     gameActivityTypeWebPath:String
+    gameActivityTypeName:String
 }
 type GameInfoOutGameTags {
     name:String

@@ -249,6 +249,15 @@
         timeToLiveSeconds="600"
         overflowToDisk="false"
    />
+	<!-- package generic -->
+   <cache
+    	name="masterDataCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
 	<!-- package participant -->
    <cache
     	name="participantSummaryCache"
@@ -303,6 +312,14 @@
    />
    <cache
     	name="teamParticipantTimelineCache"
+        maxElementsInMemory="5000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+   />
+   <cache
+    	name="scoreTimelineCache"
         maxElementsInMemory="5000"
         eternal="false"
         timeToIdleSeconds="300"

@@ -26,7 +26,7 @@
 	* - name      : SDDOutputBean
 	* - file name : JavaBean.vm
 */
-package com.game.score.sdd.out.game;
+package com.game.score.sdd.out.timeline;
 
 import java.util.Date;
 import java.util.List;
@@ -42,47 +42,14 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  *
- * <p>Title: GameInfoOut</p>
+ * <p>Title: CreateTimelineOut</p>
  *
- * <p>Description: GameInfo Java Bean </p>
+ * <p>Description: CreateTimeline Java Bean </p>
  *
  */
 @Data
-public class GameInfoOut {
+public class CreateTimelineOut {
 
-    private String program;
-    private String programWebPath;
-    private Integer editionNumber;
-    private String gameName;
-    private String gameWebPath;
-    private String timePosition;
-    private Integer timeUnitIndex;
-    private String gameTypeName;
-    private String gameTypeWebPath;
-    private String gameStakeTypeName;
-    private String gameStakeTypeWebPath;
-    private String gameParticipationTypeName;
-    private String gameParticipationTypeWebPath;
-	@Data
-	public class GameRewards {
-		String name;
-		String webPath;
-		String isPositive;
-	}
-    private List<GameRewards> gameRewards;
-	@Data
-	public class Winners {
-		String name;
-		String webPath;
-		String gameActivityTypeWebPath;
-		String gameActivityTypeName;
-	}
-    private List<Winners> winners;
-	@Data
-	public class GameTags {
-		String name;
-		String webPath;
-	}
-    private List<GameTags> gameTags;
+    private String result;
 
 }

@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class CreateGameParticipationDataFetcher implements DataFetcher<List<CreateGameParticipationOut>>{
+public class CreateGameParticipationDataFetcher implements DataFetcher<List<CreateGameParticipationOut>> {
 
     @Autowired
     @Qualifier("createGameParticipationDaoFace")

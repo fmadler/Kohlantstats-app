@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DistinctParticipantsDataFetcher implements DataFetcher<List<DistinctParticipantsOut>>{
+public class DistinctParticipantsDataFetcher implements DataFetcher<List<DistinctParticipantsOut>> {
 
     @Autowired
     @Qualifier("distinctParticipantsDaoFace")

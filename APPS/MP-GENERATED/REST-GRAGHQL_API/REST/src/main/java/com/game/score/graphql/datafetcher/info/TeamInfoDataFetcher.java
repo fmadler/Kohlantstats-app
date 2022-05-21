@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class TeamInfoDataFetcher implements DataFetcher<List<TeamInfoOut>>{
+public class TeamInfoDataFetcher implements DataFetcher<List<TeamInfoOut>> {
 
     @Autowired
     @Qualifier("teamInfoDaoFace")

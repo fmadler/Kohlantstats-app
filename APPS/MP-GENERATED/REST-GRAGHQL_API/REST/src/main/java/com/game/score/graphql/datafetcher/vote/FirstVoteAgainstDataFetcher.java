@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class FirstVoteAgainstDataFetcher implements DataFetcher<List<FirstVoteAgainstOut>>{
+public class FirstVoteAgainstDataFetcher implements DataFetcher<List<FirstVoteAgainstOut>> {
 
     @Autowired
     @Qualifier("firstVoteAgainstDaoFace")

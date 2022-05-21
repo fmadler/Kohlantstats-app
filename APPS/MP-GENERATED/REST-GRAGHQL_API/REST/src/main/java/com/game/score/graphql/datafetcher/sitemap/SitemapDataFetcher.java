@@ -40,7 +40,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class SitemapDataFetcher implements DataFetcher<List<SitemapOut>>{
+public class SitemapDataFetcher implements DataFetcher<List<SitemapOut>> {
 
     @Autowired
     @Qualifier("sitemapDaoFace")

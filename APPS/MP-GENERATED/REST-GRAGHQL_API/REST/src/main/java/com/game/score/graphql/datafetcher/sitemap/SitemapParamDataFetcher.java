@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class SitemapParamDataFetcher implements DataFetcher<List<SitemapParamOut>>{
+public class SitemapParamDataFetcher implements DataFetcher<List<SitemapParamOut>> {
 
     @Autowired
     @Qualifier("sitemapParamDaoFace")
