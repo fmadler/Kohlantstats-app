@@ -24,10 +24,11 @@
         </tr>
         <tr>
             <th>Total</th>
-            <td data-cy="{{@stats.programWebPath}}-{{@stats.participantWebPath}}-score-total"> 
+            <td data-cy="{{@stats.programWebPath}}-{{@stats.participantWebPath}}-score-total">
                 {{!-- <span class="badge badge-danger" style="font-size: 1.1em;">{{this.score}}</span>  --}}
                 <Display::DisplayScore @badge='danger' @score={{@stats.score}} />
             </td>
         </tr>
     </tbody>
+  {{yield}}
 </table>

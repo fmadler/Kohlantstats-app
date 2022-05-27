@@ -98,6 +98,7 @@
       {{/if}}
       <Participant::ParticipantScoreTable
         @stats={{participant-game-stats @data.gameStats @data.participantSummary.[0].programWebPath}}>
+        <Participant::ParticipantScoreTimeline @scoreTimeline={{@data.scoreTimeline}}/>
       </Participant::ParticipantScoreTable>
     </div>
   </div>

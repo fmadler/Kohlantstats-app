@@ -1,27 +1,27 @@
 /*
 	 Copyright (c) minuteproject, minuteproject@gmail.com
 	 All rights reserved.
-	 
+
 	 Licensed under the Apache License, Version 2.0 (the "License")
 	 you may not use this file except in compliance with the License.
 	 You may obtain a copy of the License at
-	 
+
 	 http://www.apache.org/licenses/LICENSE-2.0
-	 
+
 	 Unless required by applicable law or agreed to in writing, software
 	 distributed under the License is distributed on an "AS IS" BASIS,
 	 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	 See the License for the specific language governing permissions and
 	 limitations under the License.
-	 
+
 	 More information on minuteproject:
 	 twitter @minuteproject
-	 wiki http://minuteproject.wikispaces.com 
+	 wiki http://minuteproject.wikispaces.com
 	 blog http://minuteproject.blogspot.net
-	 
+
 */
 /*
-	 template reference : 
+	 template reference :
 	 - Minuteproject version : 0.9.11
 	 - name      : EmberServiceJs
 	 - file name : EmberServiceJs.vm
@@ -83,6 +83,11 @@ export default Service.extend({
 			return d.GamePerformanceOut;
 		});
 
+    var scoreTimelinePromise = adapter.scoreTimeline(params)
+      .then(d => {
+        return d.ScoreTimelineOut;
+      });
+
 		// duplicate for player2WebPath TODO in MP generation for composite
 		if (validateComparisonPlayer2(params)) {
 			let alias = {playerWebPath: params.comparisonPlayerWebPath};
@@ -90,7 +95,7 @@ export default Service.extend({
 			.then(d => {
 				return d.GameStatsOut;
 			});
-	
+
 			var gamePerformancePromisePlayer2 = adapter.gamePerformance(alias)
 			.then(d => {
 				return d.GamePerformanceOut;
@@ -99,6 +104,10 @@ export default Service.extend({
 			var participantSummaryPromisePlayer2 = adapter.participantSummary(alias)
 			.then(d => {
 				return d.ParticipantSummaryOut;
+			});
+			var scoreTimelinePromisePlayer2 = adapter.scoreTimeline(alias)
+			.then(d => {
+				return d.ScoreTimelineOut;
 			});
 		}
 
@@ -117,17 +126,19 @@ export default Service.extend({
 			participantGameActivity : participantGameActivityPromise,
 			gameStats : gameStatsPromise,
 			gamePerformance : gamePerformancePromise,
-			
+      scoreTimeline : scoreTimelinePromise,
+
 			gameStatsPlayer2 : validateComparisonPlayer2(params) ? gameStatsPromisePlayer2 : [],
 			gamePerformancePlayer2 : validateComparisonPlayer2(params) ? gamePerformancePromisePlayer2 : [],
 			participantSummaryPlayer2 : validateComparisonPlayer2(params) ? participantSummaryPromisePlayer2 : [],
+      scoreTimelinePlayer2 : validateComparisonPlayer2(params) ? scoreTimelinePromisePlayer2 : [],
 
 			playerPerformanceComparison : validateplayerPerformanceComparison(params) ? playerPerformanceComparisonPromise : [],
 			params : params,
 		};
     	return hash(promises);
 
-    },    
+    },
 
 
 });

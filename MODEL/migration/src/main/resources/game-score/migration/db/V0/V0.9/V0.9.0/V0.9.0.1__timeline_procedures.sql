@@ -34,15 +34,15 @@ begin
         -- for each participant day on camp
         set @nbOfDays = null;
         select pg.TOTAL_TIME_LENGTH from gs_program pg where web_path = _program_web_path into @nbOfDays;
-        set @currentDay = 1;
+        set @currentDay = 0;
 
         fetch cursor_participant into participant_web_path, participant_end_day;
         IF done = 1 THEN
             LEAVE loopParticipant;
         END IF;
         while (@currentDay<@nbOfDays AND @currentDay<participant_end_day) do
-            call snapshot_score(_program_web_path, participant_web_path, @currentDay);
             SET @currentDay = @currentDay + 1;
+            call snapshot_score(_program_web_path, participant_web_path, @currentDay);
         end while;
     end loop;
     set result = 'PROCESSED';
