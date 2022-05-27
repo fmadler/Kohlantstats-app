@@ -101,6 +101,9 @@ ParticipantDetailDaoFace participantDetailDaoFace;
 			, @ApiParam(value = "property", required = false) @QueryParam ("property")  String property
 			, @ApiParam(value = "gameTagWebPath", required = false) @QueryParam ("gameTagWebPath")  String gameTagWebPath
 			, @ApiParam(value = "rewardWebPath", required = false) @QueryParam ("rewardWebPath")  String rewardWebPath
+			, @ApiParam(value = "participantWebPaths", required = false) @QueryParam ("participantWebPaths")   String participantWebPaths
+			, @ApiParam(value = "participantWebPath", required = false) @QueryParam ("participantWebPath")   String participantWebPath
+			, @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
     ) {
         return participantDetailDaoFace.execute(
 			new ParticipantDetailIn(
@@ -118,6 +121,9 @@ ParticipantDetailDaoFace participantDetailDaoFace;
 				, property
 				, gameTagWebPath
 				, rewardWebPath
+				, participantWebPaths
+				, participantWebPath
+				, day
 			)
         );
     }

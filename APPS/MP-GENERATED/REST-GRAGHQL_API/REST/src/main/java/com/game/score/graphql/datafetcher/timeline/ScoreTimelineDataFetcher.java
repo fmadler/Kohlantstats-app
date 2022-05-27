@@ -52,6 +52,7 @@ public class ScoreTimelineDataFetcher implements DataFetcher<List<ScoreTimelineO
         ScoreTimelineIn scoreTimelineIn = new ScoreTimelineIn ();
         scoreTimelineIn.setProgramWebPath (dataFetchingEnvironment.getArgument("programWebPath"));
         scoreTimelineIn.setParticipantWebPaths (dataFetchingEnvironment.getArgument("participantWebPaths"));
+        scoreTimelineIn.setParticipantWebPath (dataFetchingEnvironment.getArgument("participantWebPath"));
         scoreTimelineIn.setDay (dataFetchingEnvironment.getArgument("day"));
         return scoreTimelineDaoFace.execute (
         	scoreTimelineIn

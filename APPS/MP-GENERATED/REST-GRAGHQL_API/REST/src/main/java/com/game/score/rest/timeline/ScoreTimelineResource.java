@@ -103,11 +103,13 @@ public class ScoreTimelineResource {
     public ScoreTimelineOutList execute (
         @ApiParam(value = "programWebPath", required = false) @QueryParam ("programWebPath")  String programWebPath
         ,        @ApiParam(value = "participantWebPaths", required = false) @QueryParam ("participantWebPaths")   String participantWebPaths
+        ,        @ApiParam(value = "participantWebPath", required = false) @QueryParam ("participantWebPath")   String participantWebPath
         ,        @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
     ) {
 		return callImplementation(
          programWebPath
         ,         participantWebPaths
+        ,         participantWebPath
         ,         day
 		);
     }
@@ -116,11 +118,13 @@ public class ScoreTimelineResource {
 	public ScoreTimelineOutList callImplementation (
          String programWebPath
         ,          String participantWebPaths
+        ,          String participantWebPath
         ,         Integer day
 	) {
         ScoreTimelineIn scoreTimelineIn = new ScoreTimelineIn ();
 		scoreTimelineIn.setProgramWebPath (programWebPath);
 		scoreTimelineIn.setParticipantWebPaths (participantWebPaths);
+		scoreTimelineIn.setParticipantWebPath (participantWebPath);
 		scoreTimelineIn.setDay (day);
         return scoreTimelineDaoFace.execute(
         	scoreTimelineIn
@@ -136,11 +140,13 @@ public class ScoreTimelineResource {
     public List<Participant> getParticipants (
         @ApiParam(value = "programWebPath", required = false) @QueryParam ("programWebPath")  String programWebPath
         ,        @ApiParam(value = "participantWebPaths", required = false) @QueryParam ("participantWebPaths")   String participantWebPaths
+        ,        @ApiParam(value = "participantWebPath", required = false) @QueryParam ("participantWebPath")   String participantWebPath
         ,        @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
     ) {
         ScoreTimelineOutList list = execute(
  programWebPath
 , participantWebPaths
+, participantWebPath
 , day
 			);
         return getParticipants(list);
@@ -154,11 +160,13 @@ public class ScoreTimelineResource {
     public List<Result> getResults (
         @ApiParam(value = "programWebPath", required = false) @QueryParam ("programWebPath")  String programWebPath
         ,        @ApiParam(value = "participantWebPaths", required = false) @QueryParam ("participantWebPaths")   String participantWebPaths
+        ,        @ApiParam(value = "participantWebPath", required = false) @QueryParam ("participantWebPath")   String participantWebPath
         ,        @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
     ) {
         ScoreTimelineOutList list = execute(
  programWebPath
 , participantWebPaths
+, participantWebPath
 , day
 			);
         return getResults(list);

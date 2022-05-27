@@ -233,16 +233,19 @@ type Query {
     scoreTimeline(
         programWebPath:String ,
         participantWebPaths:String ,
+        participantWebPath:String ,
         day:Int 
     ): [ScoreTimelineOut]
     scoreTimelineParticipants (
         programWebPath:String ,
         participantWebPaths:String ,
+        participantWebPath:String ,
         day:Int 
     ): [ScoreTimelineParticipant]
     scoreTimelineResults (
         programWebPath:String ,
         participantWebPaths:String ,
+        participantWebPath:String ,
         day:Int 
     ): [ScoreTimelineResult]
     """

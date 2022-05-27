@@ -60,6 +60,7 @@ import com.game.score.dao.sdd.face.participant.ParticipantGameActivityDaoFace;
 import com.game.score.dao.sdd.face.participant.ParticipantCampActivityDaoFace;
 import com.game.score.dao.sdd.face.game.GamePerformanceDaoFace;
 import com.game.score.dao.sdd.face.timeline.TeamParticipantTimelineDaoFace;
+import com.game.score.dao.sdd.face.timeline.ScoreTimelineDaoFace;
 import com.game.score.sdd.out.distinct.DistinctParticipantsOutList;
 import com.game.score.sdd.out.participant.ParticipantSummaryOutList;
 import com.game.score.sdd.out.stat.GameStatsOutList;
@@ -68,6 +69,7 @@ import com.game.score.sdd.out.participant.ParticipantGameActivityOutList;
 import com.game.score.sdd.out.participant.ParticipantCampActivityOutList;
 import com.game.score.sdd.out.game.GamePerformanceOutList;
 import com.game.score.sdd.out.timeline.TeamParticipantTimelineOutList;
+import com.game.score.sdd.out.timeline.ScoreTimelineOutList;
 
 import com.game.score.dao.composite.face.ParticipantDetailDaoFace;
 /**
@@ -105,6 +107,9 @@ public class ParticipantDetailRepository implements ParticipantDetailDaoFace {
 	@Autowired
 	@Qualifier("teamParticipantTimelineDaoFace")
 	TeamParticipantTimelineDaoFace teamParticipantTimelineDaoFace;
+	@Autowired
+	@Qualifier("scoreTimelineDaoFace")
+	ScoreTimelineDaoFace scoreTimelineDaoFace;
 
 
     public ParticipantDetailOut execute (ParticipantDetailIn participantDetailIn) {
@@ -125,6 +130,8 @@ public class ParticipantDetailRepository implements ParticipantDetailDaoFace {
 		participantDetailOut.setGamePerformanceOutList (gamePerformanceOutList);
 		TeamParticipantTimelineOutList teamParticipantTimelineOutList = teamParticipantTimelineDaoFace.execute (participantDetailIn.getTeamParticipantTimelineIn());
 		participantDetailOut.setTeamParticipantTimelineOutList (teamParticipantTimelineOutList);
+		ScoreTimelineOutList scoreTimelineOutList = scoreTimelineDaoFace.execute (participantDetailIn.getScoreTimelineIn());
+		participantDetailOut.setScoreTimelineOutList (scoreTimelineOutList);
 		return participantDetailOut;
 	}
 

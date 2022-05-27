@@ -70,6 +70,23 @@ public class ScoreTimelineIn {
         	}
         }
     }
+    private String participantWebPathInput;
+    private List<String> participantWebPath;
+
+    public List<String> getParticipantWebPath () {
+        if (participantWebPath==null)
+            participantWebPath = new ArrayList<String>();
+        return participantWebPath;
+    }
+    
+    public void setParticipantWebPath (String participantWebPath) {
+        this.participantWebPathInput = participantWebPath;
+    	if (participantWebPath!=null) {
+    		for (String element : StringUtils.split(participantWebPath, ",")) {
+        		getParticipantWebPath().add (element);
+        	}
+        }
+    }
     private Integer day;
 
 }

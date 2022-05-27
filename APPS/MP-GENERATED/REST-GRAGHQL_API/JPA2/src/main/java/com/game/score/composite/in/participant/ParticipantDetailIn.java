@@ -39,6 +39,7 @@ import com.game.score.sdd.in.participant.ParticipantGameActivityIn;
 import com.game.score.sdd.in.participant.ParticipantCampActivityIn;
 import com.game.score.sdd.in.game.GamePerformanceIn;
 import com.game.score.sdd.in.timeline.TeamParticipantTimelineIn;
+import com.game.score.sdd.in.timeline.ScoreTimelineIn;
 
 
 /**
@@ -66,6 +67,9 @@ public class ParticipantDetailIn {
 		, String property
 		, String gameTagWebPath
 		, String rewardWebPath
+		, String participantWebPaths
+		, String participantWebPath
+		, Integer day
 	) {
 		this.distinctParticipantsIn = new DistinctParticipantsIn();
 		this.distinctParticipantsIn.setProgramWebPath(programWebPath);
@@ -103,6 +107,11 @@ public class ParticipantDetailIn {
 		this.teamParticipantTimelineIn.setProgramWebPath(programWebPath);
 		this.teamParticipantTimelineIn.setTeamWebPath(teamWebPath);
 		this.teamParticipantTimelineIn.setPlayerWebPath(playerWebPath);
+		this.scoreTimelineIn = new ScoreTimelineIn();
+		this.scoreTimelineIn.setProgramWebPath(programWebPath);
+		this.scoreTimelineIn.setParticipantWebPaths(participantWebPaths);
+		this.scoreTimelineIn.setParticipantWebPath(participantWebPath);
+		this.scoreTimelineIn.setDay(day);
 	}
     private String programWebPath;
     private String playerWebPath;
@@ -118,6 +127,9 @@ public class ParticipantDetailIn {
     private String property;
     private String gameTagWebPath;
     private String rewardWebPath;
+    private String participantWebPaths;
+    private String participantWebPath;
+    private Integer day;
     private DistinctParticipantsIn distinctParticipantsIn;
     private ParticipantSummaryIn participantSummaryIn;
     private GameStatsIn gameStatsIn;
@@ -126,6 +138,7 @@ public class ParticipantDetailIn {
     private ParticipantCampActivityIn participantCampActivityIn;
     private GamePerformanceIn gamePerformanceIn;
     private TeamParticipantTimelineIn teamParticipantTimelineIn;
+    private ScoreTimelineIn scoreTimelineIn;
 
 
 }
