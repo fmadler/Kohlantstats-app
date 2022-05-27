@@ -138,7 +138,7 @@ begin
                and aaa.id = g.id
                and p.WEB_PATH = _program_web_path
                and pl.web_path = _participant_web_path
-               and g.TIME_UNIT_INDEX < bbb.day
+               and g.TIME_UNIT_INDEX <= bbb.day
          )xxx
 
     group by
