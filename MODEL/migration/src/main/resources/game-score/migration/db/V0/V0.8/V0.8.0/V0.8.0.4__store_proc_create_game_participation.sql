@@ -3,7 +3,7 @@ delimiter $$
 DROP function IF EXISTS `SPLIT_STR`$$
 
 CREATE FUNCTION SPLIT_STR(
-  x VARCHAR(255),
+  x VARCHAR(1255),
   delim VARCHAR(12),
   pos INT
 )

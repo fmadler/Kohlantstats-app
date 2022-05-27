@@ -2,7 +2,7 @@
 -- 12ème jour
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Désavantage sur la prochaine épreuve', 'desavantage-prochaine-epreuve', 4, 1);
 
-call create_game('le-totem-maudit','Regate','regate-2022','regate','collectif','confort',13,10,'kit-de-peche,desavantage-prochaine-epreuve,poissons','navigation,force,rapidite');
+call create_game('le-totem-maudit','Regate','regate-2022','regate','collectif','confort',10,13,'kit-de-peche,desavantage-prochaine-epreuve,poissons','navigation,force,rapidite');
 
 /*
 2 courses poursuites
@@ -42,7 +42,7 @@ call team_game_ranking ('rouge-2022','regate-2022',1);
 -- 3 poseur de tissu
 INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Fresque', 'fresque', NULL);
 
-call create_game('le-totem-maudit','Fresque','fresque-2022','fresque','collectif','immunite',15,10,'conseil','rapidite,precision,voix,clarte');
+call create_game('le-totem-maudit','Fresque','fresque-2022','fresque','collectif','immunite',11,15,'conseil','rapidite,precision,voix,clarte');
 
 call create_game_participation('louana-2022','rouge-2022','fresque-2022','participant','collectif',1,'conseil');
 call create_game_participation('maxime-2022','rouge-2022','fresque-2022','participant','collectif',1,'conseil');

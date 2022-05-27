@@ -1,7 +1,7 @@
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Peche à la languouste', 'peche-languouste', 5, 1);
+INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Pêche à la languouste', 'peche-languouste', 5, 1);
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Nuit dans un hamac', 'nuit-hamac', 1, 1);
 
-call create_game('le-totem-maudit','Degustation & Bain de boue','degustation-boue-2022','degustation','binome','confort',28,22,'peche-languoste,nuit-hamac','degustation,rapidite');
+call create_game('le-totem-maudit','Degustation & Bain de boue','degustation-boue-2022','degustation','binome','confort',22,28,'peche-languoste,nuit-hamac','degustation,rapidite');
 -- degustation + boue
 
 call create_game_participation('francois-2022','blanc-2022','degustation-boue-2022','participant','binome',0,'');
@@ -20,7 +20,7 @@ call create_game_participation('nicolas-2022','blanc-2022','degustation-boue-202
 INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Equilibre avec perche', 'equilibre-perche', NULL);
 
 -- parcours du combattant + puzzle pour les 2 premiers
-call create_game('le-totem-maudit','Equilibre en duo avec perche','equilibre-perche-2022','equilibre-perche','binome','immunite',30,24,'totem,vote-contre-soi-du-dernier','rapidite,force,endurance');
+call create_game('le-totem-maudit','Equilibre en duo avec perche','equilibre-perche-2022','equilibre-perche','binome','immunite',23,30,'totem,vote-contre-soi-du-dernier','rapidite,force,endurance');
 
 call create_game_participation('louana-2022','blanc-2022','equilibre-perche-2022','participant','binome',3,'');
 call create_game_participation('maxime-2022','blanc-2022','equilibre-perche-2022','participant','binome',3,'');

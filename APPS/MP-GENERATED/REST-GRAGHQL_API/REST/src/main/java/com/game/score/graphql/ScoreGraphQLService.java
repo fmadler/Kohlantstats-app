@@ -226,7 +226,7 @@ public class ScoreGraphQLService {
                 .dataFetcher("participantCampActivity",participantCampActivityDataFetcher)
                 .dataFetcher("getProperties",getPropertiesDataFetcher)
                 .dataFetcher("playerPerformanceComparison",playerPerformanceComparisonDataFetcher)
-                //.dataFetcher("playerPerformanceComparisonGames",playerPerformanceComparisonDataFetcher)
+                .dataFetcher("playerPerformanceComparisonGames",playerPerformanceComparisonDataFetcher)
                 //.dataFetcher("playerPerformanceComparisonParticipants",playerPerformanceComparisonDataFetcher)
                 .dataFetcher("teamGameTimeline",teamGameTimelineDataFetcher)
                 .dataFetcher("teamParticipantTimeline",teamParticipantTimelineDataFetcher)

@@ -5,7 +5,7 @@
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Désavantage aux ambassadeurs', 'desavantage-aux-ambassadeurs', 2, 0);
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Brochettes & Pommes sautées', 'brochette-pommes-sautees', 5, 1);
 
-call create_game('le-totem-maudit','Perches','perches-2022','perches','collectif','confort',21,17,'brochette-pommes-sautees,desavantage-aux-ambassadeurs','rapidite,relais,dexterite');
+call create_game('le-totem-maudit','Perches','perches-2022','perches','collectif','confort',17,21,'brochette-pommes-sautees,desavantage-aux-ambassadeurs','rapidite,relais,dexterite');
 
 call create_game_participation('louana-2022','rouge-2022','perches-2022','participant','collectif',1,'brochette-pommes-sautees');
 call create_game_participation('maxime-2022','rouge-2022','perches-2022','participant','collectif',1,'brochette-pommes-sautees');
@@ -75,7 +75,7 @@ call create_participant_entrance ('le-totem-maudit','olga-2022','blanc-2022',21,
 
 -- 2 boules noires pour colin
 
-call create_game('le-totem-maudit','Koala','koala-2022','koala','individuel','immunite',23,18,'totem','statique');
+call create_game('le-totem-maudit','Koala','koala-2022','koala','individuel','immunite',18,23,'totem','statique');
 -- le dernier gagne
 
 call create_game_participation('louana-2022','blanc-2022','koala-2022','participant','individuel',1,'totem');

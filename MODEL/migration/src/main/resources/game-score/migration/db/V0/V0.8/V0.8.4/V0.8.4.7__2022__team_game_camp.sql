@@ -54,7 +54,7 @@ call create_participant_realisation ('le-totem-maudit','maxime-2022','rouge-2022
 call create_participant_realisation ('le-totem-maudit','jean-philippe-2022','rouge-2022',10,'decouverte-talisman',@realisation_id);
 
 
-call create_game('le-totem-maudit','Guide aveugle','guide-aveugle-2022','guide-aveugle','collectif','immunite',11,9,'conseil','rapidite,precision,voix,clarte');
+call create_game('le-totem-maudit','Guide aveugle','guide-aveugle-2022','guide-aveugle','collectif','immunite',9,11,'conseil','rapidite,precision,voix,clarte');
 
 call create_game_participation('louana-2022','rouge-2022','guide-aveugle-2022','participant','collectif',1,'exil-d-aventuriers');
 call create_game_participation('maxime-2022','rouge-2022','guide-aveugle-2022','participant','collectif',1,'exil-d-aventuriers');

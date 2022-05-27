@@ -2,7 +2,7 @@
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Bien-être', 'bien-etre', 1, 1);
 INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Gouttière', 'gouttiere', NULL);
 
-call create_game('le-totem-maudit','Gouttière','gouttiere-2022','gouttiere','individuel','confort',24,19,'toilette-massage,bien-etre,vote-contre-soi','statique,respiration,natation');
+call create_game('le-totem-maudit','Gouttière','gouttiere-2022','gouttiere','individuel','confort',19,24,'toilette-massage,bien-etre,vote-contre-soi','statique,respiration,natation');
 -- le dernier gagne
 
 call create_game_participation('louana-2022','blanc-2022','gouttiere-2022','participant','individuel',4,'');
@@ -22,7 +22,7 @@ call create_game_participation('olga-2022','blanc-2022','gouttiere-2022','partic
 
 
 
-call create_game('le-totem-maudit','Grapin','grapin-2022','grapin','individuel','immunite',25,20,'totem,elimination-du-dernier','rapidite,precision');
+call create_game('le-totem-maudit','Grapin','grapin-2022','grapin','individuel','immunite',20,25,'totem,elimination-du-dernier','rapidite,precision');
 
 call create_game_participation('louana-2022','blanc-2022','grapin-2022','participant','individuel',4,'');
 call create_game_participation('maxime-2022','blanc-2022','grapin-2022','participant','individuel',10,'');

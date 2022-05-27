@@ -1,6 +1,6 @@
 -- tir-a-l-arc
 
-call create_game('le-totem-maudit','Tir à l''arc','tir-a-l-arc-2022','tir-a-l-arc','collectif','confort',26,20,'bien-etre,telephone,exclusion-par-tirage-au-sort','statique,precision');
+call create_game('le-totem-maudit','Tir à l''arc','tir-a-l-arc-2022','tir-a-l-arc','collectif','confort',20,26,'bien-etre,telephone,exclusion-par-tirage-au-sort','statique,precision');
 -- le dernier gagne
 
 call create_game_participation('francois-2022','blanc-2022','tir-a-l-arc-2022','participant','equipe-composee',1,'bien-etre,telephone');
@@ -22,7 +22,7 @@ call create_game_participation('jean-charles-2022','blanc-2022','tir-a-l-arc-202
 --
 
 -- parcours du combattant + puzzle pour les 2 premiers
-call create_game('le-totem-maudit','Parcours du combattant','parcours-du-combattant-2022','parcours-du-combattant','individuel','immunite',27,22,'totem','rapidite,force,endurance');
+call create_game('le-totem-maudit','Parcours du combattant','parcours-du-combattant-2022','parcours-du-combattant','individuel','immunite',21,27,'totem','rapidite,force,endurance');
 
 call create_game_participation('louana-2022','blanc-2022','parcours-du-combattant-2022','participant','individuel',1,'totem');
 call create_game_participation('maxime-2022','blanc-2022','parcours-du-combattant-2022','participant','individuel',0,'');

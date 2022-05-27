@@ -10,7 +10,7 @@
 
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Pas d''entrainement pour la prochaine épreuve', 'pas-d-entrainement-pour-la-prochaine-epreuve', 5, 0);
 
-call create_game('le-totem-maudit','Poteries suspendues','poterie-suspendues-2022','poteries-suspendues','collectif','confort',18,14,'soiree-bateau,pas-d-entrainement-pour-la-prochaine-epreuve','equilibre,rapidite');
+call create_game('le-totem-maudit','Poteries suspendues','poterie-suspendues-2022','poteries-suspendues','collectif','confort',14,19,'soiree-bateau,pas-d-entrainement-pour-la-prochaine-epreuve','equilibre,rapidite');
 
 call create_game_participation('louana-2022','rouge-2022','poterie-suspendues-2022','participant','collectif',2,'pas-d-entrainement-pour-la-prochaine-epreuve');
 call create_game_participation('maxime-2022','rouge-2022','poterie-suspendues-2022','participant','collectif',2,'pas-d-entrainement-pour-la-prochaine-epreuve');
@@ -33,7 +33,7 @@ call create_game_participation('setha-2022','jaune-2022','poterie-suspendues-202
 call team_game_ranking ('jaune-2022','poterie-suspendues-2022',1);
 call team_game_ranking ('rouge-2022','poterie-suspendues-2022',2);
 
-call create_game('le-totem-maudit','Catapulte','catapulte-2022','catapulte','collectif','immunite',20,15,'conseil','rapidite,precision');
+call create_game('le-totem-maudit','Catapulte','catapulte-2022','catapulte','collectif','immunite',15,20,'conseil','rapidite,precision');
 
 call create_game_participation('louana-2022','rouge-2022','catapulte-2022','participant','collectif',1,'totem');
 call create_game_participation('maxime-2022','rouge-2022','catapulte-2022','participant','collectif',1,'totem');

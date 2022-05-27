@@ -11,7 +11,7 @@ call create_participant_entrance ('le-totem-maudit','stephanie-2022','rouge-2022
 
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Poulet adobo', 'poulet-adobo', 5, 1);
 
-call create_game('le-totem-maudit','Poutre','poutre-2022','poutre','collectif','confort',16,12,'poulet-adobo,nuit-ilot-exil','equilibre,rapidite');
+call create_game('le-totem-maudit','Poutre','poutre-2022','poutre','collectif','confort',12,16,'poulet-adobo,nuit-ilot-exil','equilibre,rapidite');
 
 call create_game_participation('louana-2022','rouge-2022','poutre-2022','participant','collectif',2,'nuit-ilot-exil');
 call create_game_participation('maxime-2022','rouge-2022','poutre-2022','participant','collectif',2,'nuit-ilot-exil');
@@ -39,7 +39,7 @@ call team_game_ranking ('rouge-2022','poutre-2022',2);
 
 -- par serie de 4 
 
-call create_game('le-totem-maudit','Puzzle contre la montre','puzzle-contre-la-montre-2022','puzzle-contre-la-montre','collectif','immunite',15,10,'conseil','rapidite,precision,voix,clarte');
+call create_game('le-totem-maudit','Puzzle contre la montre','puzzle-contre-la-montre-2022','puzzle-contre-la-montre','collectif','immunite',13,17,'conseil','rapidite,precision,voix,clarte');
 -- exclues stephanie par tirage au sort
 call create_game_participation('louana-2022','rouge-2022','puzzle-contre-la-montre-2022','participant','collectif',2,'conseil');
 call create_game_participation('maxime-2022','rouge-2022','puzzle-contre-la-montre-2022','participant','collectif',2,'conseil');
