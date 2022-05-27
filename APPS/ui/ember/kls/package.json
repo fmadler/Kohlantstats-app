@@ -83,6 +83,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "append-query": "^2.1.0",
     "ember-captcha": "0.0.1",
+    "ember-cli-chart": "^3.7.2",
     "lodash": "^4.17.20"
   }
 }

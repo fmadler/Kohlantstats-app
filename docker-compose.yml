@@ -16,6 +16,10 @@ services:
       - flyway_clean
   db:
  #   image: mysql_8_0
+    # if pb with group by
+    # in docker db instance
+    # $nano /etc/mysql/my.cnf
+    #   > add sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
     image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=P@ssw0rd
