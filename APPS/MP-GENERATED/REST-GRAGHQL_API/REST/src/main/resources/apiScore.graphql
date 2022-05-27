@@ -232,20 +232,20 @@ type Query {
     ): [TeamParticipantTimelineOut]
     scoreTimeline(
         programWebPath:String ,
-        participantWebPaths:String ,
-        participantWebPath:String ,
+        playerWebPaths:String ,
+        playerWebPath:String ,
         day:Int 
     ): [ScoreTimelineOut]
     scoreTimelineParticipants (
         programWebPath:String ,
-        participantWebPaths:String ,
-        participantWebPath:String ,
+        playerWebPaths:String ,
+        playerWebPath:String ,
         day:Int 
     ): [ScoreTimelineParticipant]
     scoreTimelineResults (
         programWebPath:String ,
-        participantWebPaths:String ,
-        participantWebPath:String ,
+        playerWebPaths:String ,
+        playerWebPath:String ,
         day:Int 
     ): [ScoreTimelineResult]
     """

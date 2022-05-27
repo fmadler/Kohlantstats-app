@@ -74,10 +74,10 @@ import com.game.score.sdd.in.timeline.ScoreTimelineIn;
 @Transactional(propagation = Propagation.REQUIRED)
 public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 
-	public static final String QUERY_NATIVE = "select        FULL_WEB_PATH,        ENTITY_WEB_PATH,        ENTITY_TYPE_WEB_PATH,        CONTEXT_WEB_PATH,        CONTEXT_TYPE_WEB_PATH,        DAY,        SCORE,        LONGEVITY,        GAME_SCORE_1,        GAME_SCORE_2 from dw_timeline_score        $whereProgramWebPath        $whereParticipantWebPathIn        $whereParticipantWebPath        $whereDay";
+	public static final String QUERY_NATIVE = "select        FULL_WEB_PATH,        ENTITY_WEB_PATH,        ENTITY_TYPE_WEB_PATH,        CONTEXT_WEB_PATH,        CONTEXT_TYPE_WEB_PATH,        DAY,        SCORE,        LONGEVITY,        GAME_SCORE_1,        GAME_SCORE_2 from dw_timeline_score        $whereProgramWebPath        $wherePlayerWebPathIn        $wherePlayerWebPath        $whereDay";
 	public static final String CHUNK_whereProgramWebPath = "CONTEXT_WEB_PATH = ? and CONTEXT_TYPE_WEB_PATH='programme'";
-	public static final String CHUNK_whereParticipantWebPathIn = "ENTITY_WEB_PATH in (?...) and ENTITY_TYPE_WEB_PATH='player'";
-	public static final String CHUNK_whereParticipantWebPath = "ENTITY_WEB_PATH = ? and ENTITY_TYPE_WEB_PATH='player'";
+	public static final String CHUNK_wherePlayerWebPathIn = "ENTITY_WEB_PATH in (?...) and ENTITY_TYPE_WEB_PATH='player'";
+	public static final String CHUNK_wherePlayerWebPath = "ENTITY_WEB_PATH = ? and ENTITY_TYPE_WEB_PATH='player'";
 	public static final String CHUNK_whereDay = "day = ?";
 
 	@PersistenceContext(unitName = "score")  
@@ -102,14 +102,14 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 		if (scoreTimelineIn.getProgramWebPath() == null) return false;
 		return true;	
 	}
-	public boolean isFilterwhereParticipantWebPathInActive(ScoreTimelineIn scoreTimelineIn) {
-		if (scoreTimelineIn.getParticipantWebPaths() == null) return false;
-		if (scoreTimelineIn.getParticipantWebPaths().size()==0) return false;
+	public boolean isFilterwherePlayerWebPathInActive(ScoreTimelineIn scoreTimelineIn) {
+		if (scoreTimelineIn.getPlayerWebPaths() == null) return false;
+		if (scoreTimelineIn.getPlayerWebPaths().size()==0) return false;
 		return true;	
 	}
-	public boolean isFilterwhereParticipantWebPathActive(ScoreTimelineIn scoreTimelineIn) {
-		if (scoreTimelineIn.getParticipantWebPath() == null) return false;
-		if (scoreTimelineIn.getParticipantWebPath().size()==0) return false;
+	public boolean isFilterwherePlayerWebPathActive(ScoreTimelineIn scoreTimelineIn) {
+		if (scoreTimelineIn.getPlayerWebPath() == null) return false;
+		if (scoreTimelineIn.getPlayerWebPath().size()==0) return false;
 		return true;	
 	}
 	public boolean isFilterwhereDayActive(ScoreTimelineIn scoreTimelineIn) {
@@ -135,26 +135,26 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 			query = StringUtils.replace (query, "$"+"whereProgramWebPath","");//replaceOnce
 		}
 		if (
-			 isFilterwhereParticipantWebPathInActive( scoreTimelineIn)			) {
+			 isFilterwherePlayerWebPathInActive( scoreTimelineIn)			) {
 			String connectionWord = " AND ";
 			if (!isWhereDone) {
 				connectionWord = " WHERE ";
 			}
-			query = StringUtils.replace (query, "$"+"whereParticipantWebPathIn", connectionWord + getChunkwhereParticipantWebPathIn(scoreTimelineIn, CHUNK_whereParticipantWebPathIn) ); //replaceOnce
+			query = StringUtils.replace (query, "$"+"wherePlayerWebPathIn", connectionWord + getChunkwherePlayerWebPathIn(scoreTimelineIn, CHUNK_wherePlayerWebPathIn) ); //replaceOnce
 			isWhereDone = true;
 		} else {
-			query = StringUtils.replace (query, "$"+"whereParticipantWebPathIn","");//replaceOnce
+			query = StringUtils.replace (query, "$"+"wherePlayerWebPathIn","");//replaceOnce
 		}
 		if (
-			 isFilterwhereParticipantWebPathActive( scoreTimelineIn)			) {
+			 isFilterwherePlayerWebPathActive( scoreTimelineIn)			) {
 			String connectionWord = " AND ";
 			if (!isWhereDone) {
 				connectionWord = " WHERE ";
 			}
-			query = StringUtils.replace (query, "$"+"whereParticipantWebPath", connectionWord + getChunkwhereParticipantWebPath(scoreTimelineIn, CHUNK_whereParticipantWebPath) ); //replaceOnce
+			query = StringUtils.replace (query, "$"+"wherePlayerWebPath", connectionWord + getChunkwherePlayerWebPath(scoreTimelineIn, CHUNK_wherePlayerWebPath) ); //replaceOnce
 			isWhereDone = true;
 		} else {
-			query = StringUtils.replace (query, "$"+"whereParticipantWebPath","");//replaceOnce
+			query = StringUtils.replace (query, "$"+"wherePlayerWebPath","");//replaceOnce
 		}
 		if (
 			 isFilterwhereDayActive( scoreTimelineIn)			) {
@@ -174,24 +174,24 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 		return chunk;
 	}
 
-	private String getChunkwhereParticipantWebPathIn (ScoreTimelineIn scoreTimelineIn, String chunk) {
-	   StringBuffer inSbparticipantWebPaths = new StringBuffer();
-	   for (int i = 0; i < scoreTimelineIn.getParticipantWebPaths().size(); i++) {
-	   	  inSbparticipantWebPaths.append("?");
-	   	  if (i+1!=scoreTimelineIn.getParticipantWebPaths().size())
-	   	  	inSbparticipantWebPaths.append(",");
+	private String getChunkwherePlayerWebPathIn (ScoreTimelineIn scoreTimelineIn, String chunk) {
+	   StringBuffer inSbplayerWebPaths = new StringBuffer();
+	   for (int i = 0; i < scoreTimelineIn.getPlayerWebPaths().size(); i++) {
+	   	  inSbplayerWebPaths.append("?");
+	   	  if (i+1!=scoreTimelineIn.getPlayerWebPaths().size())
+	   	  	inSbplayerWebPaths.append(",");
 	   }
-	   return StringUtils.replace (chunk, "?...", inSbparticipantWebPaths.toString());//replaceOnce
+	   return StringUtils.replace (chunk, "?...", inSbplayerWebPaths.toString());//replaceOnce
 	}
 
-	private String getChunkwhereParticipantWebPath (ScoreTimelineIn scoreTimelineIn, String chunk) {
-	   StringBuffer inSbparticipantWebPath = new StringBuffer();
-	   for (int i = 0; i < scoreTimelineIn.getParticipantWebPath().size(); i++) {
-	   	  inSbparticipantWebPath.append("?");
-	   	  if (i+1!=scoreTimelineIn.getParticipantWebPath().size())
-	   	  	inSbparticipantWebPath.append(",");
+	private String getChunkwherePlayerWebPath (ScoreTimelineIn scoreTimelineIn, String chunk) {
+	   StringBuffer inSbplayerWebPath = new StringBuffer();
+	   for (int i = 0; i < scoreTimelineIn.getPlayerWebPath().size(); i++) {
+	   	  inSbplayerWebPath.append("?");
+	   	  if (i+1!=scoreTimelineIn.getPlayerWebPath().size())
+	   	  	inSbplayerWebPath.append(",");
 	   }
-	   return StringUtils.replace (chunk, "?...", inSbparticipantWebPath.toString());//replaceOnce
+	   return StringUtils.replace (chunk, "?...", inSbplayerWebPath.toString());//replaceOnce
 	}
 
 	private String getChunkwhereDay (ScoreTimelineIn scoreTimelineIn, String chunk) {
@@ -218,16 +218,16 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
             }
             index ++;
 			}
-			if (isFilterwhereParticipantWebPathInActive( scoreTimelineIn)) {
-            if (scoreTimelineIn.getParticipantWebPaths()==null) {
-			   for (String element : scoreTimelineIn.getParticipantWebPaths()) {
+			if (isFilterwherePlayerWebPathInActive( scoreTimelineIn)) {
+            if (scoreTimelineIn.getPlayerWebPaths()==null) {
+			   for (String element : scoreTimelineIn.getPlayerWebPaths()) {
 			      pstmt.setNull(index, java.sql.Types.VARCHAR);
 			      index ++;
 			   }
 			   //remove extra element
 			   index --;
             } else {
-			   for (String element : scoreTimelineIn.getParticipantWebPaths()) {
+			   for (String element : scoreTimelineIn.getPlayerWebPaths()) {
 			      pstmt.setString(index, element);
 			      index ++;
 			   }
@@ -236,16 +236,16 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
             }
             index ++;
 			}
-			if (isFilterwhereParticipantWebPathActive( scoreTimelineIn)) {
-            if (scoreTimelineIn.getParticipantWebPath()==null) {
-			   for (String element : scoreTimelineIn.getParticipantWebPath()) {
+			if (isFilterwherePlayerWebPathActive( scoreTimelineIn)) {
+            if (scoreTimelineIn.getPlayerWebPath()==null) {
+			   for (String element : scoreTimelineIn.getPlayerWebPath()) {
 			      pstmt.setNull(index, java.sql.Types.VARCHAR);
 			      index ++;
 			   }
 			   //remove extra element
 			   index --;
             } else {
-			   for (String element : scoreTimelineIn.getParticipantWebPath()) {
+			   for (String element : scoreTimelineIn.getPlayerWebPath()) {
 			      pstmt.setString(index, element);
 			      index ++;
 			   }

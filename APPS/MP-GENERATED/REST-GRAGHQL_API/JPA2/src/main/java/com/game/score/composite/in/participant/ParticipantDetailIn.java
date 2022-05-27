@@ -67,8 +67,7 @@ public class ParticipantDetailIn {
 		, String property
 		, String gameTagWebPath
 		, String rewardWebPath
-		, String participantWebPaths
-		, String participantWebPath
+		, String playerWebPaths
 		, Integer day
 	) {
 		this.distinctParticipantsIn = new DistinctParticipantsIn();
@@ -109,8 +108,8 @@ public class ParticipantDetailIn {
 		this.teamParticipantTimelineIn.setPlayerWebPath(playerWebPath);
 		this.scoreTimelineIn = new ScoreTimelineIn();
 		this.scoreTimelineIn.setProgramWebPath(programWebPath);
-		this.scoreTimelineIn.setParticipantWebPaths(participantWebPaths);
-		this.scoreTimelineIn.setParticipantWebPath(participantWebPath);
+		this.scoreTimelineIn.setPlayerWebPaths(playerWebPaths);
+		this.scoreTimelineIn.setPlayerWebPath(playerWebPath);
 		this.scoreTimelineIn.setDay(day);
 	}
     private String programWebPath;
@@ -127,8 +126,7 @@ public class ParticipantDetailIn {
     private String property;
     private String gameTagWebPath;
     private String rewardWebPath;
-    private String participantWebPaths;
-    private String participantWebPath;
+    private String playerWebPaths;
     private Integer day;
     private DistinctParticipantsIn distinctParticipantsIn;
     private ParticipantSummaryIn participantSummaryIn;

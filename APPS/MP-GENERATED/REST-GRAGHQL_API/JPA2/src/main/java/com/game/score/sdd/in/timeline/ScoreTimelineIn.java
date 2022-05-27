@@ -53,37 +53,37 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class ScoreTimelineIn {
 
     private String programWebPath;
-    private String participantWebPathsInput;
-    private List<String> participantWebPaths;
+    private String playerWebPathsInput;
+    private List<String> playerWebPaths;
 
-    public List<String> getParticipantWebPaths () {
-        if (participantWebPaths==null)
-            participantWebPaths = new ArrayList<String>();
-        return participantWebPaths;
+    public List<String> getPlayerWebPaths () {
+        if (playerWebPaths==null)
+            playerWebPaths = new ArrayList<String>();
+        return playerWebPaths;
     }
     
-    public void setParticipantWebPaths (String participantWebPaths) {
-        this.participantWebPathsInput = participantWebPaths;
-    	if (participantWebPaths!=null) {
-    		for (String element : StringUtils.split(participantWebPaths, ",")) {
-        		getParticipantWebPaths().add (element);
+    public void setPlayerWebPaths (String playerWebPaths) {
+        this.playerWebPathsInput = playerWebPaths;
+    	if (playerWebPaths!=null) {
+    		for (String element : StringUtils.split(playerWebPaths, ",")) {
+        		getPlayerWebPaths().add (element);
         	}
         }
     }
-    private String participantWebPathInput;
-    private List<String> participantWebPath;
+    private String playerWebPathInput;
+    private List<String> playerWebPath;
 
-    public List<String> getParticipantWebPath () {
-        if (participantWebPath==null)
-            participantWebPath = new ArrayList<String>();
-        return participantWebPath;
+    public List<String> getPlayerWebPath () {
+        if (playerWebPath==null)
+            playerWebPath = new ArrayList<String>();
+        return playerWebPath;
     }
     
-    public void setParticipantWebPath (String participantWebPath) {
-        this.participantWebPathInput = participantWebPath;
-    	if (participantWebPath!=null) {
-    		for (String element : StringUtils.split(participantWebPath, ",")) {
-        		getParticipantWebPath().add (element);
+    public void setPlayerWebPath (String playerWebPath) {
+        this.playerWebPathInput = playerWebPath;
+    	if (playerWebPath!=null) {
+    		for (String element : StringUtils.split(playerWebPath, ",")) {
+        		getPlayerWebPath().add (element);
         	}
         }
     }
