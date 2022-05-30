@@ -88,5 +88,6 @@ public class ScoreTimelineIn {
         }
     }
     private Integer day;
+    private Integer rankingLessThanEqualTo;
 
 }

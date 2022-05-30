@@ -103,6 +103,7 @@ ParticipantDetailDaoFace participantDetailDaoFace;
 			, @ApiParam(value = "rewardWebPath", required = false) @QueryParam ("rewardWebPath")  String rewardWebPath
 			, @ApiParam(value = "playerWebPaths", required = false) @QueryParam ("playerWebPaths")   String playerWebPaths
 			, @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
+			, @ApiParam(value = "rankingLessThanEqualTo", required = false) @QueryParam ("rankingLessThanEqualTo")  Integer rankingLessThanEqualTo
     ) {
         return participantDetailDaoFace.execute(
 			new ParticipantDetailIn(
@@ -122,6 +123,7 @@ ParticipantDetailDaoFace participantDetailDaoFace;
 				, rewardWebPath
 				, playerWebPaths
 				, day
+				, rankingLessThanEqualTo
 			)
         );
     }

@@ -36,6 +36,7 @@ import com.game.score.sdd.in.distinct.DistinctParticipantsIn;
 import com.game.score.sdd.in.info.ProgramInfoIn;
 import com.game.score.sdd.in.participant.ParticipantSummaryIn;
 import com.game.score.sdd.in.participant.ParticipantGameActivityIn;
+import com.game.score.sdd.in.timeline.ScoreTimelineIn;
 import com.game.score.sdd.in.stat.GameStatsIn;
 import com.game.score.sdd.in.game.GamePerformanceIn;
 import com.game.score.sdd.in.player.PlayerPerformanceComparisonIn;
@@ -57,6 +58,9 @@ public class PlayerSearchIn {
 		, String gameWebPath
 		, String gameTagWebPath
 		, String rewardWebPath
+		, String playerWebPaths
+		, Integer day
+		, Integer rankingLessThanEqualTo
 		, String teamWebPath
 		, String gameTypeWebPath
 		, String gameStakeTypeWebPath
@@ -79,6 +83,12 @@ public class PlayerSearchIn {
 		this.participantGameActivityIn.setGameWebPath(gameWebPath);
 		this.participantGameActivityIn.setGameTagWebPath(gameTagWebPath);
 		this.participantGameActivityIn.setRewardWebPath(rewardWebPath);
+		this.scoreTimelineIn = new ScoreTimelineIn();
+		this.scoreTimelineIn.setProgramWebPath(programWebPath);
+		this.scoreTimelineIn.setPlayerWebPaths(playerWebPaths);
+		this.scoreTimelineIn.setPlayerWebPath(playerWebPath);
+		this.scoreTimelineIn.setDay(day);
+		this.scoreTimelineIn.setRankingLessThanEqualTo(rankingLessThanEqualTo);
 		this.gameStatsIn = new GameStatsIn();
 		this.gameStatsIn.setProgramWebPath(programWebPath);
 		this.gameStatsIn.setPlayerWebPath(playerWebPath);
@@ -101,6 +111,9 @@ public class PlayerSearchIn {
     private String gameWebPath;
     private String gameTagWebPath;
     private String rewardWebPath;
+    private String playerWebPaths;
+    private Integer day;
+    private Integer rankingLessThanEqualTo;
     private String teamWebPath;
     private String gameTypeWebPath;
     private String gameStakeTypeWebPath;
@@ -113,6 +126,7 @@ public class PlayerSearchIn {
     private ProgramInfoIn programInfoIn;
     private ParticipantSummaryIn participantSummaryIn;
     private ParticipantGameActivityIn participantGameActivityIn;
+    private ScoreTimelineIn scoreTimelineIn;
     private GameStatsIn gameStatsIn;
     private GamePerformanceIn gamePerformanceIn;
     private PlayerPerformanceComparisonIn playerPerformanceComparisonIn;

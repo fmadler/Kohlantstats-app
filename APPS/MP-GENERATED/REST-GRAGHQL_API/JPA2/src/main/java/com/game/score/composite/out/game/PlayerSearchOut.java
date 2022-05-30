@@ -36,6 +36,7 @@ import com.game.score.sdd.out.distinct.DistinctParticipantsOutList;
 import com.game.score.sdd.out.info.ProgramInfoOutList;
 import com.game.score.sdd.out.participant.ParticipantSummaryOutList;
 import com.game.score.sdd.out.participant.ParticipantGameActivityOutList;
+import com.game.score.sdd.out.timeline.ScoreTimelineOutList;
 import com.game.score.sdd.out.stat.GameStatsOutList;
 import com.game.score.sdd.out.game.GamePerformanceOutList;
 import com.game.score.sdd.out.player.PlayerPerformanceComparisonOutList;
@@ -60,6 +61,8 @@ public class PlayerSearchOut {
     //private ParticipantSummaryOut participantSummaryOut;
 	private ParticipantGameActivityOutList participantGameActivityOutList;
     //private ParticipantGameActivityOut participantGameActivityOut;
+	private ScoreTimelineOutList scoreTimelineOutList;
+    //private ScoreTimelineOut scoreTimelineOut;
 	private GameStatsOutList gameStatsOutList;
     //private GameStatsOut gameStatsOut;
 	private GamePerformanceOutList gamePerformanceOutList;

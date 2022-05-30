@@ -74,11 +74,12 @@ import com.game.score.sdd.in.timeline.ScoreTimelineIn;
 @Transactional(propagation = Propagation.REQUIRED)
 public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 
-	public static final String QUERY_NATIVE = "select        FULL_WEB_PATH,        ENTITY_WEB_PATH,        ENTITY_TYPE_WEB_PATH,        CONTEXT_WEB_PATH,        CONTEXT_TYPE_WEB_PATH,        DAY,        SCORE,        LONGEVITY,        GAME_SCORE_1,        GAME_SCORE_2 from dw_timeline_score        $whereProgramWebPath        $wherePlayerWebPathIn        $wherePlayerWebPath        $whereDay";
-	public static final String CHUNK_whereProgramWebPath = "CONTEXT_WEB_PATH = ? and CONTEXT_TYPE_WEB_PATH='programme'";
-	public static final String CHUNK_wherePlayerWebPathIn = "ENTITY_WEB_PATH in (?...) and ENTITY_TYPE_WEB_PATH='player'";
-	public static final String CHUNK_wherePlayerWebPath = "ENTITY_WEB_PATH = ? and ENTITY_TYPE_WEB_PATH='player'";
-	public static final String CHUNK_whereDay = "day = ?";
+	public static final String QUERY_NATIVE = "select         dw.FULL_WEB_PATH,         dw.ENTITY_WEB_PATH,         ENTITY_TYPE_WEB_PATH,         dw.CONTEXT_WEB_PATH,         CONTEXT_TYPE_WEB_PATH,         DAY,         SCORE,         LONGEVITY,         GAME_SCORE_1,         GAME_SCORE_2     from dw_timeline_score dw, v_timeline_abstract v     where dw.ENTITY_WEB_PATH = v.ENTITY_WEB_PATH     	and dw.CONTEXT_WEB_PATH = v.CONTEXT_WEB_PATH        $whereProgramWebPath        $wherePlayerWebPathIn        $wherePlayerWebPath        $whereDay        $whereRankingLeq     order by dw.context_web_path, v.ranking, dw.entity_web_path, day asc";
+	public static final String CHUNK_whereProgramWebPath = "dw.CONTEXT_WEB_PATH = ? and dw.CONTEXT_TYPE_WEB_PATH='programme'";
+	public static final String CHUNK_wherePlayerWebPathIn = "dw.ENTITY_WEB_PATH in (?...) and dw.ENTITY_TYPE_WEB_PATH='player'";
+	public static final String CHUNK_wherePlayerWebPath = "dw.ENTITY_WEB_PATH = ? and dw.ENTITY_TYPE_WEB_PATH='player'";
+	public static final String CHUNK_whereDay = "dw.day = ?";
+	public static final String CHUNK_whereRankingLeq = "v.ranking <= ?";
 
 	@PersistenceContext(unitName = "score")  
     EntityManager entityManager;  
@@ -116,6 +117,10 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 		if (scoreTimelineIn.getDay() == null) return false;
 		return true;	
 	}
+	public boolean isFilterwhereRankingLeqActive(ScoreTimelineIn scoreTimelineIn) {
+		if (scoreTimelineIn.getRankingLessThanEqualTo() == null) return false;
+		return true;	
+	}
 
 
 	public String getStatement(
@@ -126,9 +131,6 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 		if (
 			 isFilterwhereProgramWebPathActive( scoreTimelineIn)			) {
 			String connectionWord = " AND ";
-			if (!isWhereDone) {
-				connectionWord = " WHERE ";
-			}
 			query = StringUtils.replace (query, "$"+"whereProgramWebPath", connectionWord + getChunkwhereProgramWebPath(scoreTimelineIn, CHUNK_whereProgramWebPath) ); //replaceOnce
 			isWhereDone = true;
 		} else {
@@ -137,9 +139,6 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 		if (
 			 isFilterwherePlayerWebPathInActive( scoreTimelineIn)			) {
 			String connectionWord = " AND ";
-			if (!isWhereDone) {
-				connectionWord = " WHERE ";
-			}
 			query = StringUtils.replace (query, "$"+"wherePlayerWebPathIn", connectionWord + getChunkwherePlayerWebPathIn(scoreTimelineIn, CHUNK_wherePlayerWebPathIn) ); //replaceOnce
 			isWhereDone = true;
 		} else {
@@ -148,9 +147,6 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 		if (
 			 isFilterwherePlayerWebPathActive( scoreTimelineIn)			) {
 			String connectionWord = " AND ";
-			if (!isWhereDone) {
-				connectionWord = " WHERE ";
-			}
 			query = StringUtils.replace (query, "$"+"wherePlayerWebPath", connectionWord + getChunkwherePlayerWebPath(scoreTimelineIn, CHUNK_wherePlayerWebPath) ); //replaceOnce
 			isWhereDone = true;
 		} else {
@@ -159,13 +155,18 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 		if (
 			 isFilterwhereDayActive( scoreTimelineIn)			) {
 			String connectionWord = " AND ";
-			if (!isWhereDone) {
-				connectionWord = " WHERE ";
-			}
 			query = StringUtils.replace (query, "$"+"whereDay", connectionWord + getChunkwhereDay(scoreTimelineIn, CHUNK_whereDay) ); //replaceOnce
 			isWhereDone = true;
 		} else {
 			query = StringUtils.replace (query, "$"+"whereDay","");//replaceOnce
+		}
+		if (
+			 isFilterwhereRankingLeqActive( scoreTimelineIn)			) {
+			String connectionWord = " AND ";
+			query = StringUtils.replace (query, "$"+"whereRankingLeq", connectionWord + getChunkwhereRankingLeq(scoreTimelineIn, CHUNK_whereRankingLeq) ); //replaceOnce
+			isWhereDone = true;
+		} else {
+			query = StringUtils.replace (query, "$"+"whereRankingLeq","");//replaceOnce
 		}
 		return query;
 	}
@@ -195,6 +196,10 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 	}
 
 	private String getChunkwhereDay (ScoreTimelineIn scoreTimelineIn, String chunk) {
+		return chunk;
+	}
+
+	private String getChunkwhereRankingLeq (ScoreTimelineIn scoreTimelineIn, String chunk) {
 		return chunk;
 	}
 	
@@ -259,6 +264,14 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
                pstmt.setNull(index, java.sql.Types.INTEGER);
             } else {
                pstmt.setInt(index, scoreTimelineIn.getDay()); 
+            }
+            index ++;
+			}
+			if (isFilterwhereRankingLeqActive( scoreTimelineIn)) {
+            if (scoreTimelineIn.getRankingLessThanEqualTo()==null) {
+               pstmt.setNull(index, java.sql.Types.INTEGER);
+            } else {
+               pstmt.setInt(index, scoreTimelineIn.getRankingLessThanEqualTo()); 
             }
             index ++;
 			}

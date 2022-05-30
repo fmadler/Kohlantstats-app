@@ -92,6 +92,9 @@ PlayerSearchDaoFace playerSearchDaoFace;
 			, @ApiParam(value = "gameWebPath", required = false) @QueryParam ("gameWebPath")  String gameWebPath
 			, @ApiParam(value = "gameTagWebPath", required = false) @QueryParam ("gameTagWebPath")  String gameTagWebPath
 			, @ApiParam(value = "rewardWebPath", required = false) @QueryParam ("rewardWebPath")  String rewardWebPath
+			, @ApiParam(value = "playerWebPaths", required = false) @QueryParam ("playerWebPaths")   String playerWebPaths
+			, @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
+			, @ApiParam(value = "rankingLessThanEqualTo", required = false) @QueryParam ("rankingLessThanEqualTo")  Integer rankingLessThanEqualTo
 			, @ApiParam(value = "teamWebPath", required = false) @QueryParam ("teamWebPath")  String teamWebPath
 			, @ApiParam(value = "gameTypeWebPath", required = false) @QueryParam ("gameTypeWebPath")  String gameTypeWebPath
 			, @ApiParam(value = "gameStakeTypeWebPath", required = false) @QueryParam ("gameStakeTypeWebPath")  String gameStakeTypeWebPath
@@ -107,6 +110,9 @@ PlayerSearchDaoFace playerSearchDaoFace;
 				, gameWebPath
 				, gameTagWebPath
 				, rewardWebPath
+				, playerWebPaths
+				, day
+				, rankingLessThanEqualTo
 				, teamWebPath
 				, gameTypeWebPath
 				, gameStakeTypeWebPath

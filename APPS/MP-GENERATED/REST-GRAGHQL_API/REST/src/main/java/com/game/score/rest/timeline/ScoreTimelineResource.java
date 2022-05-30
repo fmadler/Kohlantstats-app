@@ -105,12 +105,14 @@ public class ScoreTimelineResource {
         ,        @ApiParam(value = "playerWebPaths", required = false) @QueryParam ("playerWebPaths")   String playerWebPaths
         ,        @ApiParam(value = "playerWebPath", required = false) @QueryParam ("playerWebPath")   String playerWebPath
         ,        @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
+        ,        @ApiParam(value = "rankingLessThanEqualTo", required = false) @QueryParam ("rankingLessThanEqualTo")  Integer rankingLessThanEqualTo
     ) {
 		return callImplementation(
          programWebPath
         ,         playerWebPaths
         ,         playerWebPath
         ,         day
+        ,         rankingLessThanEqualTo
 		);
     }
 
@@ -120,12 +122,14 @@ public class ScoreTimelineResource {
         ,          String playerWebPaths
         ,          String playerWebPath
         ,         Integer day
+        ,         Integer rankingLessThanEqualTo
 	) {
         ScoreTimelineIn scoreTimelineIn = new ScoreTimelineIn ();
 		scoreTimelineIn.setProgramWebPath (programWebPath);
 		scoreTimelineIn.setPlayerWebPaths (playerWebPaths);
 		scoreTimelineIn.setPlayerWebPath (playerWebPath);
 		scoreTimelineIn.setDay (day);
+		scoreTimelineIn.setRankingLessThanEqualTo (rankingLessThanEqualTo);
         return scoreTimelineDaoFace.execute(
         	scoreTimelineIn
         );
@@ -142,12 +146,14 @@ public class ScoreTimelineResource {
         ,        @ApiParam(value = "playerWebPaths", required = false) @QueryParam ("playerWebPaths")   String playerWebPaths
         ,        @ApiParam(value = "playerWebPath", required = false) @QueryParam ("playerWebPath")   String playerWebPath
         ,        @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
+        ,        @ApiParam(value = "rankingLessThanEqualTo", required = false) @QueryParam ("rankingLessThanEqualTo")  Integer rankingLessThanEqualTo
     ) {
         ScoreTimelineOutList list = execute(
  programWebPath
 , playerWebPaths
 , playerWebPath
 , day
+, rankingLessThanEqualTo
 			);
         return getParticipants(list);
     }
@@ -162,12 +168,14 @@ public class ScoreTimelineResource {
         ,        @ApiParam(value = "playerWebPaths", required = false) @QueryParam ("playerWebPaths")   String playerWebPaths
         ,        @ApiParam(value = "playerWebPath", required = false) @QueryParam ("playerWebPath")   String playerWebPath
         ,        @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
+        ,        @ApiParam(value = "rankingLessThanEqualTo", required = false) @QueryParam ("rankingLessThanEqualTo")  Integer rankingLessThanEqualTo
     ) {
         ScoreTimelineOutList list = execute(
  programWebPath
 , playerWebPaths
 , playerWebPath
 , day
+, rankingLessThanEqualTo
 			);
         return getResults(list);
     }

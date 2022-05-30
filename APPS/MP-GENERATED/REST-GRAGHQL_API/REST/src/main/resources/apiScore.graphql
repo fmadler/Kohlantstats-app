@@ -234,19 +234,22 @@ type Query {
         programWebPath:String ,
         playerWebPaths:String ,
         playerWebPath:String ,
-        day:Int 
+        day:Int ,
+        rankingLessThanEqualTo:Int 
     ): [ScoreTimelineOut]
     scoreTimelineParticipants (
         programWebPath:String ,
         playerWebPaths:String ,
         playerWebPath:String ,
-        day:Int 
+        day:Int ,
+        rankingLessThanEqualTo:Int 
     ): [ScoreTimelineParticipant]
     scoreTimelineResults (
         programWebPath:String ,
         playerWebPaths:String ,
         playerWebPath:String ,
-        day:Int 
+        day:Int ,
+        rankingLessThanEqualTo:Int 
     ): [ScoreTimelineResult]
     """
     Package game

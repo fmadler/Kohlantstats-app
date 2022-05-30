@@ -54,6 +54,7 @@ public class ScoreTimelineDataFetcher implements DataFetcher<List<ScoreTimelineO
         scoreTimelineIn.setPlayerWebPaths (dataFetchingEnvironment.getArgument("playerWebPaths"));
         scoreTimelineIn.setPlayerWebPath (dataFetchingEnvironment.getArgument("playerWebPath"));
         scoreTimelineIn.setDay (dataFetchingEnvironment.getArgument("day"));
+        scoreTimelineIn.setRankingLessThanEqualTo (dataFetchingEnvironment.getArgument("rankingLessThanEqualTo"));
         return scoreTimelineDaoFace.execute (
         	scoreTimelineIn
             ).getScoreTimelineOuts();

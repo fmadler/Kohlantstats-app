@@ -57,6 +57,7 @@ import com.game.score.dao.sdd.face.distinct.DistinctParticipantsDaoFace;
 import com.game.score.dao.sdd.face.info.ProgramInfoDaoFace;
 import com.game.score.dao.sdd.face.participant.ParticipantSummaryDaoFace;
 import com.game.score.dao.sdd.face.participant.ParticipantGameActivityDaoFace;
+import com.game.score.dao.sdd.face.timeline.ScoreTimelineDaoFace;
 import com.game.score.dao.sdd.face.stat.GameStatsDaoFace;
 import com.game.score.dao.sdd.face.game.GamePerformanceDaoFace;
 import com.game.score.dao.sdd.face.player.PlayerPerformanceComparisonDaoFace;
@@ -65,6 +66,7 @@ import com.game.score.sdd.out.distinct.DistinctParticipantsOutList;
 import com.game.score.sdd.out.info.ProgramInfoOutList;
 import com.game.score.sdd.out.participant.ParticipantSummaryOutList;
 import com.game.score.sdd.out.participant.ParticipantGameActivityOutList;
+import com.game.score.sdd.out.timeline.ScoreTimelineOutList;
 import com.game.score.sdd.out.stat.GameStatsOutList;
 import com.game.score.sdd.out.game.GamePerformanceOutList;
 import com.game.score.sdd.out.player.PlayerPerformanceComparisonOutList;
@@ -97,6 +99,9 @@ public class PlayerSearchRepository implements PlayerSearchDaoFace {
 	@Qualifier("participantGameActivityDaoFace")
 	ParticipantGameActivityDaoFace participantGameActivityDaoFace;
 	@Autowired
+	@Qualifier("scoreTimelineDaoFace")
+	ScoreTimelineDaoFace scoreTimelineDaoFace;
+	@Autowired
 	@Qualifier("gameStatsDaoFace")
 	GameStatsDaoFace gameStatsDaoFace;
 	@Autowired
@@ -119,6 +124,8 @@ public class PlayerSearchRepository implements PlayerSearchDaoFace {
 		playerSearchOut.setParticipantSummaryOutList (participantSummaryOutList);
 		ParticipantGameActivityOutList participantGameActivityOutList = participantGameActivityDaoFace.execute (playerSearchIn.getParticipantGameActivityIn());
 		playerSearchOut.setParticipantGameActivityOutList (participantGameActivityOutList);
+		ScoreTimelineOutList scoreTimelineOutList = scoreTimelineDaoFace.execute (playerSearchIn.getScoreTimelineIn());
+		playerSearchOut.setScoreTimelineOutList (scoreTimelineOutList);
 		GameStatsOutList gameStatsOutList = gameStatsDaoFace.execute (playerSearchIn.getGameStatsIn());
 		playerSearchOut.setGameStatsOutList (gameStatsOutList);
 		GamePerformanceOutList gamePerformanceOutList = gamePerformanceDaoFace.execute (playerSearchIn.getGamePerformanceIn());

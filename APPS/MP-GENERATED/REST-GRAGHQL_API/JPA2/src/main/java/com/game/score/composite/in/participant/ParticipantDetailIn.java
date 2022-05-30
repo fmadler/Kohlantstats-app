@@ -69,6 +69,7 @@ public class ParticipantDetailIn {
 		, String rewardWebPath
 		, String playerWebPaths
 		, Integer day
+		, Integer rankingLessThanEqualTo
 	) {
 		this.distinctParticipantsIn = new DistinctParticipantsIn();
 		this.distinctParticipantsIn.setProgramWebPath(programWebPath);
@@ -111,6 +112,7 @@ public class ParticipantDetailIn {
 		this.scoreTimelineIn.setPlayerWebPaths(playerWebPaths);
 		this.scoreTimelineIn.setPlayerWebPath(playerWebPath);
 		this.scoreTimelineIn.setDay(day);
+		this.scoreTimelineIn.setRankingLessThanEqualTo(rankingLessThanEqualTo);
 	}
     private String programWebPath;
     private String playerWebPath;
@@ -128,6 +130,7 @@ public class ParticipantDetailIn {
     private String rewardWebPath;
     private String playerWebPaths;
     private Integer day;
+    private Integer rankingLessThanEqualTo;
     private DistinctParticipantsIn distinctParticipantsIn;
     private ParticipantSummaryIn participantSummaryIn;
     private GameStatsIn gameStatsIn;

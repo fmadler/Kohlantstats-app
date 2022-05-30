@@ -10,9 +10,11 @@ create procedure create_timeline_for_program
 begin
     DECLARE participant_web_path varchar(100);
     DECLARE participant_end_day int;
+    DECLARE program_currentDay int;
+    DECLARE until_day int;
     DECLARE done INT DEFAULT 0;
     DECLARE cursor_participant CURSOR FOR
-        select pl.web_path, pa.END_DAY from gs_player pl, gs_participant pa, gs_program pg
+        select pl.web_path, pa.END_DAY, pg.current_day, greatest(COALESCE(pa.END_DAY,pg.TOTAL_TIME_LENGTH), pg.current_day) until_day from gs_player pl, gs_participant pa, gs_program pg
         where pa.gs_program_id = pg.id and pa.gs_player_id = pl.id
           and pg.web_path = _program_web_path;
 
@@ -36,11 +38,12 @@ begin
         select pg.TOTAL_TIME_LENGTH from gs_program pg where web_path = _program_web_path into @nbOfDays;
         set @currentDay = 0;
 
-        fetch cursor_participant into participant_web_path, participant_end_day;
+        fetch cursor_participant into participant_web_path, participant_end_day, program_currentDay, until_day;
         IF done = 1 THEN
             LEAVE loopParticipant;
         END IF;
-        while (@currentDay<@nbOfDays AND @currentDay<participant_end_day) do
+        -- while (@currentDay<@nbOfDays) do -- AND @currentDay<participant_end_day) do no pas de fin pour les concurrents encore en lice
+        while (@currentDay<@nbOfDays AND @currentDay<until_day) do -- no pas de fin pour les concurrents encore en lice
             SET @currentDay = @currentDay + 1;
             call snapshot_score(_program_web_path, participant_web_path, @currentDay);
         end while;
@@ -50,7 +53,8 @@ end$$
 drop procedure IF EXISTS snapshot_score$$
 create procedure snapshot_score
     (_program_web_path varchar(100),
-    _participant_web_path varchar(100), _currentDay int)
+    _participant_web_path varchar(100),
+    _currentDay int)
 begin
     set @longevity = _currentDay;
     set @scoreFirstPlace = null;
