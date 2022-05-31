@@ -74,7 +74,7 @@ import com.game.score.sdd.in.timeline.ScoreTimelineIn;
 @Transactional(propagation = Propagation.REQUIRED)
 public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 
-	public static final String QUERY_NATIVE = "select         dw.FULL_WEB_PATH,         dw.ENTITY_WEB_PATH,         ENTITY_TYPE_WEB_PATH,         dw.CONTEXT_WEB_PATH,         CONTEXT_TYPE_WEB_PATH,         DAY,         SCORE,         LONGEVITY,         GAME_SCORE_1,         GAME_SCORE_2     from dw_timeline_score dw, v_timeline_abstract v     where dw.ENTITY_WEB_PATH = v.ENTITY_WEB_PATH     	and dw.CONTEXT_WEB_PATH = v.CONTEXT_WEB_PATH        $whereProgramWebPath        $wherePlayerWebPathIn        $wherePlayerWebPath        $whereDay        $whereRankingLeq     order by dw.context_web_path, v.ranking, dw.entity_web_path, day asc";
+	public static final String QUERY_NATIVE = "select     	dw.DISPLAY_NAME,         dw.FULL_WEB_PATH,         dw.ENTITY_WEB_PATH,         ENTITY_TYPE_WEB_PATH,         dw.CONTEXT_WEB_PATH,         CONTEXT_TYPE_WEB_PATH,         DAY,         SCORE,         LONGEVITY,         GAME_SCORE_1,         GAME_SCORE_2     from dw_timeline_score dw, v_timeline_abstract v     where dw.ENTITY_WEB_PATH = v.ENTITY_WEB_PATH     	and dw.CONTEXT_WEB_PATH = v.CONTEXT_WEB_PATH        $whereProgramWebPath        $wherePlayerWebPathIn        $wherePlayerWebPath        $whereDay        $whereRankingLeq     order by dw.context_web_path, v.ranking, dw.entity_web_path, day asc";
 	public static final String CHUNK_whereProgramWebPath = "dw.CONTEXT_WEB_PATH = ? and dw.CONTEXT_TYPE_WEB_PATH='programme'";
 	public static final String CHUNK_wherePlayerWebPathIn = "dw.ENTITY_WEB_PATH in (?...) and dw.ENTITY_TYPE_WEB_PATH='player'";
 	public static final String CHUNK_wherePlayerWebPath = "dw.ENTITY_WEB_PATH = ? and dw.ENTITY_TYPE_WEB_PATH='player'";
@@ -290,6 +290,7 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 					try (ResultSet rs = pstmt.executeQuery()) {
 					while (rs.next()) {
 						ScoreTimelineOut scoreTimelineOut = new ScoreTimelineOut();
+						scoreTimelineOut.setDisplayName(rs.getString("DISPLAY_NAME"));
 						scoreTimelineOut.setFullWebPath(rs.getString("FULL_WEB_PATH"));
 						scoreTimelineOut.setEntityWebPath(rs.getString("ENTITY_WEB_PATH"));
 						scoreTimelineOut.setEntityTypeWebPath(rs.getString("ENTITY_TYPE_WEB_PATH"));

@@ -31,7 +31,9 @@ type Root {
         teamWebPath:String! ,
         fromTime:Int! ,
         entranceTypeWebPath:String! ,
-        participantTeamId:Int
+        participantTeamId:Int 
+
+        qdsffdqs
     ): CreateParticipantEntranceOut
     createParticipantDeparture(
         participantWebPath:String! ,

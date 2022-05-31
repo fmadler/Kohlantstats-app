@@ -942,6 +942,7 @@ type TeamParticipantTimelineOut {
 
 
 type ScoreTimelineOut {
+    displayName:String
     fullWebPath:String
     entityWebPath:String
     entityTypeWebPath:String

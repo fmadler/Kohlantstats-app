@@ -9,12 +9,13 @@ create procedure create_timeline_for_program
 
 begin
     DECLARE participant_web_path varchar(100);
+    DECLARE participant_start_day int;
     DECLARE participant_end_day int;
     DECLARE program_currentDay int;
     DECLARE until_day int;
     DECLARE done INT DEFAULT 0;
     DECLARE cursor_participant CURSOR FOR
-        select pl.web_path, pa.END_DAY, pg.current_day, greatest(COALESCE(pa.END_DAY,pg.TOTAL_TIME_LENGTH), pg.current_day) until_day from gs_player pl, gs_participant pa, gs_program pg
+        select pl.web_path, coalesce(pa.START_DAY,1), pa.END_DAY, pg.current_day, greatest(COALESCE(pa.END_DAY,pg.TOTAL_TIME_LENGTH), pg.current_day) until_day from gs_player pl, gs_participant pa, gs_program pg
         where pa.gs_program_id = pg.id and pa.gs_player_id = pl.id
           and pg.web_path = _program_web_path;
 
@@ -36,9 +37,9 @@ begin
         -- for each participant day on camp
         set @nbOfDays = null;
         select pg.TOTAL_TIME_LENGTH from gs_program pg where web_path = _program_web_path into @nbOfDays;
-        set @currentDay = 0;
 
-        fetch cursor_participant into participant_web_path, participant_end_day, program_currentDay, until_day;
+        fetch cursor_participant into participant_web_path, participant_start_day, participant_end_day, program_currentDay, until_day;
+        set @currentDay = participant_start_day-1;
         IF done = 1 THEN
             LEAVE loopParticipant;
         END IF;
@@ -62,8 +63,10 @@ begin
     set @scoreFirstSecondPlace = null;
     set @score = null;
     set @participation_details = null;
+    set @participant_name = null;
 
     select
+        participant_name,
         COALESCE(sum(ranking_1_alone_score),0) as ranking_1_alone_score,
         COALESCE(sum(ranking_2_alone_score),0) as ranking_2_alone_score,
         COALESCE(sum(ranking_1_alone_score),0) + COALESCE(sum(ranking_2_alone_score),0) as ranking_1_and_2_alone_score,
@@ -88,7 +91,7 @@ begin
                     case
                         when pa.start_day is not null and pa.end_day is not null
                             then LEAST(pa.end_day - pa.start_day + 1, bbb.day)
-                        else p.current_day end                                                  longevity,
+                        else bbb.day end                                                  longevity,
                     pxg.RANKING                                                                 ranking,
                     case
                         when pxg.RANKING = 1 and gpt.WEB_PATH = 'individuel' then nb_register_participants
@@ -150,16 +153,17 @@ begin
         participant_web_path,
         program_name,
         program_web_path
-    into @scoreFirstPlace, @scoreSecondPlace, @scoreFirstSecondPlace, @score, @longevity, @participation_details
+    into @participant_name, @scoreFirstPlace, @scoreSecondPlace, @scoreFirstSecondPlace, @score, @longevity, @participation_details
     ;
 
-    call add_score (_program_web_path,_participant_web_path, @currentDay, @longevity, @scoreFirstPlace, @scoreSecondPlace);
+    call add_score (_program_web_path,_participant_web_path, @participant_name, @currentDay, @longevity, @scoreFirstPlace, @scoreSecondPlace);
  end$$
 drop procedure IF EXISTS add_score$$
 create procedure add_score
 (
     _program_web_path varchar(100),
     _participant_web_path varchar(100),
+    _participant_name varchar(100),
     _day int,
     _longevity DECIMAL(10,4),
     _score_1 DECIMAL(10,4),
@@ -170,6 +174,7 @@ begin
         (
          `DAY`,
          SCORE,
+         DISPLAY_NAME,
          FULL_WEB_PATH,
          ENTITY_WEB_PATH,
          ENTITY_TYPE_WEB_PATH,
@@ -182,6 +187,7 @@ begin
         values (
                 _day,
                 COALESCE(COALESCE(_longevity,0)+COALESCE(_score_1,0)+COALESCE(_score_2,0),0),
+                _participant_name,
                 concat('programme/',_program_web_path,'/player/',_participant_web_path),
                 _participant_web_path,
                 'player',

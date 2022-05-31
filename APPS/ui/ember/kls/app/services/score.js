@@ -456,6 +456,9 @@ export default Service.extend({
    *  - gameParticipationTypeWebPath
    *  - gameActivityTypeWebPath
    *  - untilDay
+   *  - playerWebPaths
+   *  - day
+   *  - rankingLessThanEqualTo
    * @returns {*} Promise
    */
   programDetail (params) {
@@ -479,6 +482,9 @@ export default Service.extend({
    *  - gameParticipationTypeWebPath
    *  - gameActivityTypeWebPath
    *  - untilDay
+   *  - playerWebPaths
+   *  - day
+   *  - rankingLessThanEqualTo
    * @returns {*} Promise
    */
   programDetail2 (params) {
@@ -515,6 +521,10 @@ export default Service.extend({
       .then(d => {
         return d.GameStatsOut;
       });
+    var scoreTimelinePromise = adapter.scoreTimeline(params)
+      .then(d => {
+        return d.ScoreTimelineOut;
+      });
     var promises = {
       getProperties : getPropertiesPromise,
       distinctPrograms : distinctProgramsPromise,
@@ -524,6 +534,7 @@ export default Service.extend({
       teamParticipantTimeline : teamParticipantTimelinePromise,
       teamGameTimeline : teamGameTimelinePromise,
       gameStats : gameStatsPromise,
+      scoreTimeline : scoreTimelinePromise,
       params : params,
     };
     return hash(promises);
@@ -549,6 +560,7 @@ export default Service.extend({
    *  - rewardWebPath
    *  - playerWebPaths
    *  - day
+   *  - rankingLessThanEqualTo
    * @returns {*} Promise
    */
   participantDetail (params) {
@@ -574,6 +586,7 @@ export default Service.extend({
    *  - rewardWebPath
    *  - playerWebPaths
    *  - day
+   *  - rankingLessThanEqualTo
    * @returns {*} Promise
    */
   participantDetail2 (params) {
@@ -754,6 +767,9 @@ export default Service.extend({
    *  - gameWebPath
    *  - gameTagWebPath
    *  - rewardWebPath
+   *  - playerWebPaths
+   *  - day
+   *  - rankingLessThanEqualTo
    *  - teamWebPath
    *  - gameTypeWebPath
    *  - gameStakeTypeWebPath
@@ -775,6 +791,9 @@ export default Service.extend({
    *  - gameWebPath
    *  - gameTagWebPath
    *  - rewardWebPath
+   *  - playerWebPaths
+   *  - day
+   *  - rankingLessThanEqualTo
    *  - teamWebPath
    *  - gameTypeWebPath
    *  - gameStakeTypeWebPath
@@ -808,6 +827,10 @@ export default Service.extend({
       .then(d => {
         return d.ParticipantGameActivityOut;
       });
+    var scoreTimelinePromise = adapter.scoreTimeline(params)
+      .then(d => {
+        return d.ScoreTimelineOut;
+      });
     var gameStatsPromise = adapter.gameStats(params)
       .then(d => {
         return d.GameStatsOut;
@@ -828,6 +851,7 @@ export default Service.extend({
       programInfo : programInfoPromise,
       participantSummary : participantSummaryPromise,
       participantGameActivity : participantGameActivityPromise,
+      scoreTimeline : scoreTimelinePromise,
       gameStats : gameStatsPromise,
       gamePerformance : gamePerformancePromise,
       playerPerformanceComparison : validateplayerPerformanceComparison(params) ? playerPerformanceComparisonPromise : [],

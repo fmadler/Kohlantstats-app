@@ -101,6 +101,9 @@ ProgramDetailDaoFace programDetailDaoFace;
 			, @ApiParam(value = "gameParticipationTypeWebPath", required = false) @QueryParam ("gameParticipationTypeWebPath")  String gameParticipationTypeWebPath
 			, @ApiParam(value = "gameActivityTypeWebPath", required = false) @QueryParam ("gameActivityTypeWebPath")  String gameActivityTypeWebPath
 			, @ApiParam(value = "untilDay", required = false) @QueryParam ("untilDay")  Integer untilDay
+			, @ApiParam(value = "playerWebPaths", required = false) @QueryParam ("playerWebPaths")   String playerWebPaths
+			, @ApiParam(value = "day", required = false) @QueryParam ("day")  Integer day
+			, @ApiParam(value = "rankingLessThanEqualTo", required = false) @QueryParam ("rankingLessThanEqualTo")  Integer rankingLessThanEqualTo
     ) {
         return programDetailDaoFace.execute(
 			new ProgramDetailIn(
@@ -118,6 +121,9 @@ ProgramDetailDaoFace programDetailDaoFace;
 				, gameParticipationTypeWebPath
 				, gameActivityTypeWebPath
 				, untilDay
+				, playerWebPaths
+				, day
+				, rankingLessThanEqualTo
 			)
         );
     }

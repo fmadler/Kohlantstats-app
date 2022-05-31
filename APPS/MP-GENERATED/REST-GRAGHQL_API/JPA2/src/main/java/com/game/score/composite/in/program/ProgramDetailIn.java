@@ -39,6 +39,7 @@ import com.game.score.sdd.in.participant.ParticipantCampActivityIn;
 import com.game.score.sdd.in.timeline.TeamParticipantTimelineIn;
 import com.game.score.sdd.in.timeline.TeamGameTimelineIn;
 import com.game.score.sdd.in.stat.GameStatsIn;
+import com.game.score.sdd.in.timeline.ScoreTimelineIn;
 
 
 /**
@@ -66,6 +67,9 @@ public class ProgramDetailIn {
 		, String gameParticipationTypeWebPath
 		, String gameActivityTypeWebPath
 		, Integer untilDay
+		, String playerWebPaths
+		, Integer day
+		, Integer rankingLessThanEqualTo
 	) {
 		this.getPropertiesIn = new GetPropertiesIn();
 		this.getPropertiesIn.setEntityType(entityType);
@@ -104,6 +108,12 @@ public class ProgramDetailIn {
 		this.gameStatsIn.setGameParticipationTypeWebPath(gameParticipationTypeWebPath);
 		this.gameStatsIn.setGameActivityTypeWebPath(gameActivityTypeWebPath);
 		this.gameStatsIn.setUntilDay(untilDay);
+		this.scoreTimelineIn = new ScoreTimelineIn();
+		this.scoreTimelineIn.setProgramWebPath(programWebPath);
+		this.scoreTimelineIn.setPlayerWebPaths(playerWebPaths);
+		this.scoreTimelineIn.setPlayerWebPath(playerWebPath);
+		this.scoreTimelineIn.setDay(day);
+		this.scoreTimelineIn.setRankingLessThanEqualTo(rankingLessThanEqualTo);
 	}
     private String entityType;
     private String entityWebPath;
@@ -119,6 +129,9 @@ public class ProgramDetailIn {
     private String gameParticipationTypeWebPath;
     private String gameActivityTypeWebPath;
     private Integer untilDay;
+    private String playerWebPaths;
+    private Integer day;
+    private Integer rankingLessThanEqualTo;
     private GetPropertiesIn getPropertiesIn;
     private DistinctProgramsIn distinctProgramsIn;
     private ProgramInfoIn programInfoIn;
@@ -127,6 +140,7 @@ public class ProgramDetailIn {
     private TeamParticipantTimelineIn teamParticipantTimelineIn;
     private TeamGameTimelineIn teamGameTimelineIn;
     private GameStatsIn gameStatsIn;
+    private ScoreTimelineIn scoreTimelineIn;
 
 
 }

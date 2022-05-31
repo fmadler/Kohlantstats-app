@@ -50,6 +50,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @Data
 public class ScoreTimelineOut {
 
+    private String displayName;
     private String fullWebPath;
     private String entityWebPath;
     private String entityTypeWebPath;

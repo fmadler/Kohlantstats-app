@@ -40,7 +40,6 @@ const baseUrl = host+"/"+namespace;
 // const baseUrl = host+"/"+namespace;
 
 //const baseUrl = "http://localhost/scoreKendoUiApp";//"https://winerylabs.com/scoreKendoUiApp";
-
 export default class score extends JSONAPIAdapter {
 
   //package sitemap
@@ -383,6 +382,9 @@ function filterprogramDetail (filter) {
         "gameParticipationTypeWebPath":filter.gameParticipationTypeWebPath ,
         "gameActivityTypeWebPath":filter.gameActivityTypeWebPath ,
         "untilDay":filter.untilDay ,
+        "playerWebPaths":filter.playerWebPaths ,
+        "day":filter.day ,
+        "rankingLessThanEqualTo":filter.rankingLessThanEqualTo ,
       },
       { removeNull: true }
     );
@@ -410,6 +412,7 @@ function filterparticipantDetail (filter) {
         "rewardWebPath":filter.rewardWebPath ,
         "playerWebPaths":filter.playerWebPaths ,
         "day":filter.day ,
+        "rankingLessThanEqualTo":filter.rankingLessThanEqualTo ,
       },
       { removeNull: true }
     );
@@ -462,6 +465,9 @@ function filterplayerSearch (filter) {
         "gameWebPath":filter.gameWebPath ,
         "gameTagWebPath":filter.gameTagWebPath ,
         "rewardWebPath":filter.rewardWebPath ,
+        "playerWebPaths":filter.playerWebPaths ,
+        "day":filter.day ,
+        "rankingLessThanEqualTo":filter.rankingLessThanEqualTo ,
         "teamWebPath":filter.teamWebPath ,
         "gameTypeWebPath":filter.gameTypeWebPath ,
         "gameStakeTypeWebPath":filter.gameStakeTypeWebPath ,
@@ -1034,6 +1040,7 @@ function filterScoreTimeline (filter) {
         "playerWebPaths":filter.playerWebPaths,
         "playerWebPath":filter.playerWebPath,
         "day":filter.day,
+        "rankingLessThanEqualTo":filter.rankingLessThanEqualTo,
       },
       { removeNull: true }
     );

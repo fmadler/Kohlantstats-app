@@ -48,6 +48,12 @@
       </LinkTo>
       <br />
       {{/if}}
+{{#if @task.isRunning}}
+    ...
+{{else}}
+      <Participant::ParticipantScoreTimeline @scoreTimeline={{@data.scoreTimeline}} />
+{{/if}}
+
     </div>
     <div class="col-sm-6">
       <br />

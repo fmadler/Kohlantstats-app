@@ -43,6 +43,7 @@ export default class ProgrammeProgrammeRoute extends Route {
       programWebPath : params.programWebPath,
       entityType : "program",
       entityWebPath : params.programWebPath,
+      rankingLessThanEqualTo : 3
     };
     this.searchParams = searchParams;
     return yield  this.scoreService.programDetail2(

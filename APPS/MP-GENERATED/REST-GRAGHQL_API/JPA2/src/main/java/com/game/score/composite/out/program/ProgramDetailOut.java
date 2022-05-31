@@ -39,6 +39,7 @@ import com.game.score.sdd.out.participant.ParticipantCampActivityOutList;
 import com.game.score.sdd.out.timeline.TeamParticipantTimelineOutList;
 import com.game.score.sdd.out.timeline.TeamGameTimelineOutList;
 import com.game.score.sdd.out.stat.GameStatsOutList;
+import com.game.score.sdd.out.timeline.ScoreTimelineOutList;
 
 
 /**
@@ -66,6 +67,8 @@ public class ProgramDetailOut {
     //private TeamGameTimelineOut teamGameTimelineOut;
 	private GameStatsOutList gameStatsOutList;
     //private GameStatsOut gameStatsOut;
+	private ScoreTimelineOutList scoreTimelineOutList;
+    //private ScoreTimelineOut scoreTimelineOut;
 
 
 }

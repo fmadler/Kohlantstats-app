@@ -60,6 +60,7 @@ import com.game.score.dao.sdd.face.participant.ParticipantCampActivityDaoFace;
 import com.game.score.dao.sdd.face.timeline.TeamParticipantTimelineDaoFace;
 import com.game.score.dao.sdd.face.timeline.TeamGameTimelineDaoFace;
 import com.game.score.dao.sdd.face.stat.GameStatsDaoFace;
+import com.game.score.dao.sdd.face.timeline.ScoreTimelineDaoFace;
 import com.game.score.sdd.out.property.GetPropertiesOutList;
 import com.game.score.sdd.out.distinct.DistinctProgramsOutList;
 import com.game.score.sdd.out.info.ProgramInfoOutList;
@@ -68,6 +69,7 @@ import com.game.score.sdd.out.participant.ParticipantCampActivityOutList;
 import com.game.score.sdd.out.timeline.TeamParticipantTimelineOutList;
 import com.game.score.sdd.out.timeline.TeamGameTimelineOutList;
 import com.game.score.sdd.out.stat.GameStatsOutList;
+import com.game.score.sdd.out.timeline.ScoreTimelineOutList;
 
 import com.game.score.dao.composite.face.ProgramDetailDaoFace;
 /**
@@ -105,6 +107,9 @@ public class ProgramDetailRepository implements ProgramDetailDaoFace {
 	@Autowired
 	@Qualifier("gameStatsDaoFace")
 	GameStatsDaoFace gameStatsDaoFace;
+	@Autowired
+	@Qualifier("scoreTimelineDaoFace")
+	ScoreTimelineDaoFace scoreTimelineDaoFace;
 
 
     public ProgramDetailOut execute (ProgramDetailIn programDetailIn) {
@@ -125,6 +130,8 @@ public class ProgramDetailRepository implements ProgramDetailDaoFace {
 		programDetailOut.setTeamGameTimelineOutList (teamGameTimelineOutList);
 		GameStatsOutList gameStatsOutList = gameStatsDaoFace.execute (programDetailIn.getGameStatsIn());
 		programDetailOut.setGameStatsOutList (gameStatsOutList);
+		ScoreTimelineOutList scoreTimelineOutList = scoreTimelineDaoFace.execute (programDetailIn.getScoreTimelineIn());
+		programDetailOut.setScoreTimelineOutList (scoreTimelineOutList);
 		return programDetailOut;
 	}
 
