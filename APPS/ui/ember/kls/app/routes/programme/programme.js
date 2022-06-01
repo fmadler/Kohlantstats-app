@@ -10,7 +10,11 @@ const { host, namespace } = config.imageDS;
 const imageBaseUrl = host+"/"+namespace;
 
 export default class ProgrammeProgrammeRoute extends Route {
-
+  queryParams = {
+    rankingLessThanEqualTo: {
+      refreshModel: true
+    }
+  };
   @service('Score') scoreService;
   @service('Entityvaluestore') entityvaluestoreService;
   //@service inViewport
@@ -39,11 +43,12 @@ export default class ProgrammeProgrammeRoute extends Route {
 
   @task
   * programInfoTask(params) {
+    let rankingLessThanEqualTo = params.rankingLessThanEqualTo || 3;
     let searchParams = {
       programWebPath : params.programWebPath,
       entityType : "program",
       entityWebPath : params.programWebPath,
-      rankingLessThanEqualTo : 3
+      rankingLessThanEqualTo : rankingLessThanEqualTo
     };
     this.searchParams = searchParams;
     return yield  this.scoreService.programDetail2(

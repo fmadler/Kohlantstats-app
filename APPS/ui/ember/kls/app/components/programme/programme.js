@@ -14,6 +14,7 @@ export default class ProgrammeProgrammeComponent extends Component {
   modal = false;
 
   popUpParticipant;
+  topPerformersArray = [2,3,4,5,6];
 
   @action
   submit(form) {
@@ -44,5 +45,5 @@ export default class ProgrammeProgrammeComponent extends Component {
   toggleScoreCaption() {
     this.scoreCaption = !this.scoreCaption;
   }
-  
+
 }

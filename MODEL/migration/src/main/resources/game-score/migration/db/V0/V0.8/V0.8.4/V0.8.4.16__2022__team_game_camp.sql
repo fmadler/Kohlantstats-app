@@ -7,7 +7,8 @@
 -- lettre
 call create_participant_realisation ('le-totem-maudit','jean-charles-2022','blanc-2022',34,'decouverte-collier-immunite',@realisation_id);
 
-call create_game('le-totem-maudit','Equilibre sur l''eau','equilibre-sur-eau-2022','equilibre-sur-eau','individuel','immunite',34,26,'totem','rapidite,equilibree');
+INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Equilibre sur l''eau', 'equilibre-sur-eau', NULL);
+call create_game('le-totem-maudit','Equilibre sur l''eau','equilibre-sur-eau-2022','equilibre-sur-eau','individuel','immunite',26,34,'totem','rapidite,equilibree');
 -- degustation + boue
 
 call create_game_participation('francois-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',3,'');

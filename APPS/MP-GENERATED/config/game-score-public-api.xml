@@ -2179,36 +2179,111 @@ order by time_unit asc
 						</query-filters>
 					</query>
 
-					<!-- stats -->
-					<!--
-					<query name="game_stats_per_program" id="game_stats_per_program" package-name="stat">
+					<!-- score_timeline -->
+					<query name="score_timeline" id="score_timeline"
+						   package-name="timeline" >
 						<query-body>
 							<value>
-
-select
-	program_name,
-	program_web_path,
-	sum(score) score,
-	sum(ranking_1_and_2_alone_score) ranking_1_and_2_alone_score,
-	sum(longevity) longevity
-from (
-	select
-		program_name,
-		program_web_path,
-		longevity + sum(ranking_1_alone_nb_concurrents) + sum(ranking_2_alone_nb_concurrents) as score,
-		sum(ranking_1_alone_nb_concurrents) + sum(ranking_2_alone_nb_concurrents) as ranking_1_and_2_alone_score,
-		longevity
-	from v_game_stats
-) s
-group by program_name, program_web_path
-
+	<![CDATA[
+    select
+    	dw.DISPLAY_NAME,
+        dw.FULL_WEB_PATH,
+        dw.ENTITY_WEB_PATH,
+        ENTITY_TYPE_WEB_PATH,
+        dw.CONTEXT_WEB_PATH,
+        CONTEXT_TYPE_WEB_PATH,
+        DAY,
+        SCORE,
+        LONGEVITY,
+        GAME_SCORE_1,
+        GAME_SCORE_2
+    from dw_timeline_score dw, v_timeline_abstract v
+    where dw.ENTITY_WEB_PATH = v.ENTITY_WEB_PATH
+    	and dw.CONTEXT_WEB_PATH = v.CONTEXT_WEB_PATH
+       $whereProgramWebPath
+       $wherePlayerWebPathIn
+       $wherePlayerWebPath
+       $whereDay
+       $whereRankingLeq
+    order by dw.context_web_path, v.ranking, dw.entity_web_path, day asc
+	]]>
 							</value>
 						</query-body>
+						<query-filters>
+							<query-filter name="whereProgramWebPath" and-where-connection="and">
+								<!-- p.web_path = ? -->
+								<value><![CDATA[ dw.CONTEXT_WEB_PATH = ? and dw.CONTEXT_TYPE_WEB_PATH='programme' ]]></value>
+								<query-params>
+									<query-param name="program_web_path" type="string" sample="'test'">
+									</query-param>
+								</query-params>
+							</query-filter>
+							<query-filter name="wherePlayerWebPathIn" and-where-connection="and">
+								<value><![CDATA[ dw.ENTITY_WEB_PATH in (?...) and dw.ENTITY_TYPE_WEB_PATH='player' ]]></value>
+								<query-params>
+									<query-param name="player_web_paths" type="string" sample="'test'" is-in-clause="true">
+									</query-param>
+								</query-params>
+							</query-filter>
+							<query-filter name="wherePlayerWebPath" and-where-connection="and">
+								<value><![CDATA[ dw.ENTITY_WEB_PATH = ? and dw.ENTITY_TYPE_WEB_PATH='player' ]]></value>
+								<query-params>
+									<query-param name="player_web_path" type="string" sample="'test'" is-in-clause="true">
+									</query-param>
+								</query-params>
+							</query-filter>
+							<query-filter name="whereDay" and-where-connection="and">
+								<!-- pl.web_path = ? -->
+								<value><![CDATA[ dw.day = ? ]]></value>
+								<query-params>
+									<query-param name="day" type="int" sample="3">
+									</query-param>
+								</query-params>
+							</query-filter>
+							<query-filter name="whereRankingLeq" and-where-connection="and">
+								<value><![CDATA[ v.ranking <= ? ]]></value>
+								<query-params>
+									<query-param name="ranking_less_than_equal_to" type="int" sample="3">
+									</query-param>
+								</query-params>
+							</query-filter>
+						</query-filters>
+						<query-pivots>
+							<query-pivot name = "participant"
+										 columns = "FULL_WEB_PATH,ENTITY_WEB_PATH,ENTITY_TYPE_WEB_PATH,CONTEXT_WEB_PATH,CONTEXT_TYPE_WEB_PATH"
+										 pivot="FULL_WEB_PATH">
+							</query-pivot>
+							<query-pivot name = "result"
+										 columns = "day,score,longevity,game_score_1,game_score_2"
+										 pivot = "day"></query-pivot>
+						</query-pivots>
 					</query>
-					-->
+					<query name="create_timeline" id="create_timeline"
+						   package-name="timeline" is-write="true">
+						<query-body>
+							<value>
+	<![CDATA[
+	call create_timeline_for_program (?, ?)
+	]]>
+							</value>
+						</query-body>
+						<query-params>
+							<query-param name="program_web_path" is-mandatory="true" type="string"
+										 sample="'win'">
+							</query-param>
+							<query-param name="result" is-output-param="true" type="string"
+										 sample="10"></query-param>
+						</query-params>
+					</query>
+
+					<!-- stats -->
 					<query name="game_stats" id="game_stats" package-name="stat">
 						<query-body>
 							<value>
+								<![CDATA[
+select *
+from
+(
 select
 participant_name,
 participant_web_path,
@@ -2266,8 +2341,10 @@ participant_name,
 participant_web_path,
 program_name,
 program_web_path
+) yyy
 order by
-ranking_1 desc, ranking_2 desc, ranking_3 desc
+score desc, ranking_1 desc, ranking_2 desc, ranking_3 desc
+]]>
 							</value>
 						</query-body>
 						<query-dynamic-table name="current_day" sample=" join (select '1' as current_day from dual) cd ">
@@ -2646,6 +2723,7 @@ min (longevity, $chunkUntilDay) longevity
 
 							<query refid="game_performance" result-cardinality="many" holder="false"></query>
 							<query refid="team_participant_timeline" result-cardinality="many" holder="false"></query>
+							<query refid="score_timeline" result-cardinality="many" holder="false"></query>
 						</queries>
 						
 						<composite-params>
@@ -2700,6 +2778,7 @@ min (longevity, $chunkUntilDay) longevity
 							<query refid="program_info" result-cardinality="one" holder="false"></query>
 							<query refid="participant_summary" result-cardinality="one" holder="false"></query>
 							<query refid="participant_game_activity" result-cardinality="many" holder="false"></query>
+							<query refid="score_timeline" result-cardinality="many" holder="false"></query>
 
 							<query refid="game_stats" result-cardinality="many" holder="false"></query>
 							<query refid="game_performance" result-cardinality="many" holder="false"></query>
@@ -2765,6 +2844,7 @@ MP TODO add indirection for mapping input params
 							<query refid="team_participant_timeline" result-cardinality="many" holder="false"></query>							
 							<query refid="team_game_timeline" result-cardinality="many" holder="false"></query>
 							<query refid="game_stats" result-cardinality="many" holder="false"></query>
+							<query refid="score_timeline" result-cardinality="many" holder="false"></query>
 						</queries>
 						<composite-params>
 							<query-param name="program_web_path" id="program_web_path" is-mandatory="true"

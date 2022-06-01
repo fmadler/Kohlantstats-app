@@ -48,11 +48,7 @@
       </LinkTo>
       <br />
       {{/if}}
-{{#if @task.isRunning}}
-    ...
-{{else}}
-      <Participant::ParticipantScoreTimeline @scoreTimeline={{@data.scoreTimeline}} />
-{{/if}}
+
 
     </div>
     <div class="col-sm-6">
@@ -80,6 +76,27 @@
         @src={{@evData.custom.binary_url}}
         @icon="image"
         />
+      {{/if}}
+    </div>
+    <div class="col-md-12">
+      {{#if @task.isRunning}}
+        ...
+      {{else}}
+        <hr/>
+        Evolution des performances (nombre de points / jours) au cours de l'édition pour les {{@data.params.rankingLessThanEqualTo}} meilleurs
+        <BsDropdown as |dd|>
+          <dd.toggle>Top performeurs</dd.toggle>
+          <dd.menu as |ddm|>
+        {{#each this.topPerformersArray as |nb|}}
+            <ddm.item>
+              <ddm.linkTo @route="programme.programme" @model={{@data.params.programWebPath}} @query={{hash rankingLessThanEqualTo=nb}}>
+                {{nb}}
+              </ddm.linkTo>
+            </ddm.item>
+        {{/each}}
+          </dd.menu>
+        </BsDropdown>
+        <Participant::ParticipantScoreTimeline @scoreTimeline={{@data.scoreTimeline}} />
       {{/if}}
     </div>
   </div>

@@ -20,7 +20,6 @@ export function getChartJsDatasets(scoreTimeline) {
   let datasets = [];
   let i = 0;
   for (let propName in data) {
-    debugger
     if (typeof (data[propName]) != "undefined") {
       let values = data[propName];
       let label = propName;

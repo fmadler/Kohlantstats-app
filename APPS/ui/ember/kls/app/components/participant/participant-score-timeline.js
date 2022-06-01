@@ -16,7 +16,6 @@ export default class ParticipantParticipantScoreTimelineComponent extends Compon
   }
 
   get scoreChart() {
-    debugger
     return {
       labels: getTimelineAbscissa(this.scoreTimeline),
       datasets: getChartJsDatasets(this.scoreTimeline)
