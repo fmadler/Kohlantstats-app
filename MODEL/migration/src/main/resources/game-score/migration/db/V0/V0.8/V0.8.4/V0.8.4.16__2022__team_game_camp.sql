@@ -33,7 +33,7 @@ call second_vote_against ('le-totem-maudit','nicolas-2022','geraldine-2022','bla
 
 
 call create_participant_departure('le-totem-maudit','nicolas-2022','blanc-2022',34,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('le-totem-maudit','nicolas-2022',8,1,34);
+call fill_participant_longevity ('le-totem-maudit','nicolas-2022',7,1,34);
 
 call program_current_time ('le-totem-maudit',34);
 
