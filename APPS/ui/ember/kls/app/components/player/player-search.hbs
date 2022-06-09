@@ -104,8 +104,8 @@
     <br />
     {{/if}}
 
-    <br />
-    <Performance::PerformanceCaption @toggle={{this.performanceCaptionToggle}} />
+    {{!-- end filters --}}
+
     <hr />
     {{#if @model.params.comparisonPlayerWebPath}}
     <div class="row">
@@ -145,17 +145,26 @@
             <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
                 @stats={{@model.gameStats}}
                 @vpLoaderId={{@model.params.playerWebPath}}>
+              {{!--
               <Participant::ParticipantScoreTimeline @scoreTimeline={{@model.scoreTimeline}}/>
+              --}}
             </Participant::ParticipantScoreCard>
         </div>
         <div class="col-sm-6">
             <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
                 @stats={{@model.gameStatsPlayer2}}
                 @vpLoaderId={{@model.params.comparisonPlayerWebPath}}>
+              {{!--
               <Participant::ParticipantScoreTimeline @scoreTimeline={{@model.scoreTimelinePlayer2}}/>
+              --}}
             </Participant::ParticipantScoreCard>
         </div>
     </div>
+      <div class="row">
+        <div class="col-sm-12">
+            <Participant::ParticipantScoreTimeline @scoreTimeline={{@model.scoreTimelineComparison}}/>
+        </div>
+      </div>
     <div class="row">
         <div class="col-sm-6">
             <Participant::GamePalmaresCard @programWebPath={{@model.params.programWebPath}}
@@ -166,7 +175,8 @@
                 @stats={{@model.gameStatsPlayer2}} />
         </div>
     </div>
-
+      <br />
+      <Performance::PerformanceCaption @toggle={{this.performanceCaptionToggle}} />
     <div class="row">
         <div class="col-sm-6">
             <Participant::GamePerformance @programWebPath={{@model.params.programWebPath}}
@@ -177,13 +187,16 @@
                 @performances={{@model.gamePerformancePlayer2}} />
         </div>
     </div>
-    {{else}}
-    <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
-        @stats={{@model.gameStats}}
-        @vpLoaderId={{@model.params.playerWebPath}}/>
-    <hr />
-    <Participant::GamePerformanceCard @programWebPath={{@model.params.programWebPath}}
-        @performances={{@model.gamePerformance}} @stats={{@model.gameStats}}></Participant::GamePerformanceCard>
+    {{else}}{{!-- single player --}}
+        <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
+            @stats={{@model.gameStats}}
+            @vpLoaderId={{@model.params.playerWebPath}}>
+          <Participant::ParticipantScoreTimeline @scoreTimeline={{@model.scoreTimeline}}/>
+        </Participant::ParticipantScoreCard>
+        <br />
+        <Performance::PerformanceCaption @toggle={{this.performanceCaptionToggle}} />
+        <Participant::GamePerformanceCard @programWebPath={{@model.params.programWebPath}}
+            @performances={{@model.gamePerformance}} @stats={{@model.gameStats}}></Participant::GamePerformanceCard>
     {{/if}}
 
     {{/if}}

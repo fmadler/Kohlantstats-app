@@ -109,6 +109,11 @@ export default Service.extend({
 			.then(d => {
 				return d.ScoreTimelineOut;
 			});
+
+      var scoreTimelineComparisonPromise = adapter.scoreTimeline({playerWebPaths:params.comparisonPlayersWebPath})
+        .then(d => {
+          return d.ScoreTimelineOut;
+        });
 		}
 
 		if (validateplayerPerformanceComparison(params)) {
@@ -134,6 +139,7 @@ export default Service.extend({
       scoreTimelinePlayer2 : validateComparisonPlayer2(params) ? scoreTimelinePromisePlayer2 : [],
 
 			playerPerformanceComparison : validateplayerPerformanceComparison(params) ? playerPerformanceComparisonPromise : [],
+      scoreTimelineComparison : validateplayerPerformanceComparison(params) ? scoreTimelineComparisonPromise : [],
 			params : params,
 		};
     	return hash(promises);

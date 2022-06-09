@@ -6,12 +6,11 @@ import { inject as service } from '@ember/service';
 export default class PlayerPlayerSearchComponent extends Component {
     @service router;
 
-
     @tracked
     performanceCaptionToggle=false;
     @tracked
     participantCompareTargetToggle=false;
-    
+
     @tracked
     selectedPlayerWebPath = this.args.model.params.playerWebPath;
     @tracked
@@ -49,13 +48,13 @@ export default class PlayerPlayerSearchComponent extends Component {
             }
         });
     }
-    
-    @action 
+
+    @action
     toogleParticipantCompareTarget () {
         this.participantCompareTargetToggle = !this.participantCompareTargetToggle;
     }
 
-    @action 
+    @action
     togglePerformanceCaption () {
         this.performanceCaptionToggle = !this.performanceCaptionToggle;
     }

@@ -103,5 +103,6 @@ Router.map(function () {
   this.route('mentions-legales');
   this.route('features');
   this.route('definitions');
+  this.route('dashboard');
 });
 

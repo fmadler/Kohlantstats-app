@@ -1,38 +1,25 @@
 -- 35
-
-
--- 2 avantages strategiques
--- un collier
--- un double vote
--- lettre
-
--- INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Equilibre sur l''eau', 'equilibre-sur-eau', NULL);
 call create_game('le-totem-maudit','Parcours lesté','parcours-leste-2022','parcours-leste','individuel','confort',27,35,'villa-luxe','rapidite,strategie,force');
 -- homme init 6kg, femme init 3kg
 
-call create_game_participation('francois-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',1,'');
-call create_game_participation('olga-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',3,'');
-call create_game_participation('ambre-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',2,'');
-call create_game_participation('bastien-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',4,'');
-call create_game_participation('geraldine-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',5,'');
-call create_game_participation('jean-charles-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',6,'');
+call create_game_participation('francois-2022','blanc-2022','parcours-leste-2022','participant','individuel',1,'');
+call create_game_participation('olga-2022','blanc-2022','parcours-leste-2022','participant','individuel',3,'');
+call create_game_participation('ambre-2022','blanc-2022','parcours-leste-2022','participant','individuel',2,'');
+call create_game_participation('bastien-2022','blanc-2022','parcours-leste-2022','participant','individuel',4,'');
+call create_game_participation('geraldine-2022','blanc-2022','parcours-leste-2022','participant','individuel',5,'');
+call create_game_participation('jean-charles-2022','blanc-2022','parcours-leste-2022','participant','individuel',6,'');
 
 
 INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Pallets sur rail', 'pallets-sur-rail', NULL);
 call create_game('le-totem-maudit','Pallets sur rail','pallets-sur-rail-2022','pallets-sur-rail','individuel','immunite',28,36,'totem,vote-contre-soi','rapidite,strategie,force');
 
 
-call create_game_participation('francois-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',2,'');
-call create_game_participation('olga-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',4,'');
-call create_game_participation('ambre-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',2,'');
-call create_game_participation('bastien-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',1,'');
-call create_game_participation('geraldine-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',3,'');
-call create_game_participation('jean-charles-2022','blanc-2022','equilibre-sur-eau-2022','participant','individuel',6,'vote-contre-soi');
-
-
-
-
-
+call create_game_participation('francois-2022','blanc-2022','pallets-sur-rail-2022','participant','individuel',2,'');
+call create_game_participation('olga-2022','blanc-2022','pallets-sur-rail-2022','participant','individuel',4,'');
+call create_game_participation('ambre-2022','blanc-2022','pallets-sur-rail-2022','participant','individuel',2,'');
+call create_game_participation('bastien-2022','blanc-2022','pallets-sur-rail-2022','participant','individuel',1,'');
+call create_game_participation('geraldine-2022','blanc-2022','pallets-sur-rail-2022','participant','individuel',3,'');
+call create_game_participation('jean-charles-2022','blanc-2022','pallets-sur-rail-2022','participant','individuel',6,'vote-contre-soi');
 
 call first_vote_against ('le-totem-maudit','maxime-2022','nicolas-2022','blanc-2022', 36, 'effectif');
 call first_vote_against ('le-totem-maudit','francois-2022','olga-2022','blanc-2022', 36, 'effectif');
