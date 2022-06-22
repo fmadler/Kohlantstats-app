@@ -10,3 +10,22 @@ call create_participant_departure('le-totem-maudit','ambre-2022','blanc-2022',38
 call fill_participant_longevity ('le-totem-maudit','ambre-2022',6,1,38);
 
 call program_current_time ('le-totem-maudit',38);
+
+2 jean-charles
+4 francois
+3 bastien
+1 geraldine
+
+fouzi -> francois
+ambre-> francois
+olga -> geraldine
+nicolas -> francois
+maxime -> geraldine
+jean-charles -> bastien
+louana -> geraldine
+anne-sophie -> bastien
+yannick -> bastien
+pauline -> francois
+colin -> bastien
+
+2 vainqueurs bastien / francois
