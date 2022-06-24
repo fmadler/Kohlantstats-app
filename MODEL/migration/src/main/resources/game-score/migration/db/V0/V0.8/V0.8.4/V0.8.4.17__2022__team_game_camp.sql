@@ -1,10 +1,10 @@
 -- 35
-call create_game('le-totem-maudit','Parcours lesté','parcours-leste-2022','parcours-leste','individuel','confort',27,35,'villa-luxe','rapidite,strategie,force');
+call create_game('le-totem-maudit','Parcours lesté','parcours-leste-2022','parcours-leste','individuel','confort',27,35,'nuit-luxueuse','rapidite,strategie,force');
 -- homme init 6kg, femme init 3kg
 
-call create_game_participation('francois-2022','blanc-2022','parcours-leste-2022','participant','individuel',1,'villa-luxe');
+call create_game_participation('francois-2022','blanc-2022','parcours-leste-2022','participant','individuel',1,'nuit-luxueuse');
 call create_game_participation('olga-2022','blanc-2022','parcours-leste-2022','participant','individuel',3,'');
-call create_game_participation('ambre-2022','blanc-2022','parcours-leste-2022','participant','individuel',2,'villa-luxe');
+call create_game_participation('ambre-2022','blanc-2022','parcours-leste-2022','participant','individuel',2,'nuit-luxueuse');
 call create_game_participation('bastien-2022','blanc-2022','parcours-leste-2022','participant','individuel',4,'');
 call create_game_participation('geraldine-2022','blanc-2022','parcours-leste-2022','participant','individuel',5,'');
 call create_game_participation('jean-charles-2022','blanc-2022','parcours-leste-2022','participant','individuel',6,'');

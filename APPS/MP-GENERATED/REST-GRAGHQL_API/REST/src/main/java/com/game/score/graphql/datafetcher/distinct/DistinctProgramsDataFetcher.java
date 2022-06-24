@@ -48,7 +48,7 @@ public class DistinctProgramsDataFetcher implements DataFetcher<List<DistinctPro
 
     @Override
     public List<DistinctProgramsOut> get(DataFetchingEnvironment dataFetchingEnvironment) {
-        return distinctProgramsDaoFace.execute (
+    	return distinctProgramsDaoFace.execute (
             ).getDistinctProgramsOuts();
     }
 

@@ -28,6 +28,7 @@
 */
 package com.game.score.graphql;
 
+import com.game.score.dao.sdd.face.participant.ParticipantSummaryDaoFace;
 import com.game.score.graphql.datafetcher.sitemap.SitemapDataFetcher;
 import com.game.score.graphql.datafetcher.sitemap.SitemapParamDataFetcher;
 import com.game.score.graphql.datafetcher.sitemap.DistinctEntityTypeDataFetcher;
@@ -68,13 +69,18 @@ import com.game.score.graphql.datafetcher.timeline.ScoreTimelineDataFetcher;
 import com.game.score.graphql.datafetcher.timeline.CreateTimelineDataFetcher;
 import com.game.score.graphql.datafetcher.game.GameInfoDataFetcher;
 import com.game.score.graphql.datafetcher.game.GamePerformanceDataFetcher;
+import com.game.score.sdd.in.participant.ParticipantSummaryIn;
+import com.game.score.sdd.out.distinct.DistinctProgramsOut;
+import com.game.score.sdd.out.participant.ParticipantSummaryOut;
 import graphql.GraphQL;
+import graphql.schema.DataFetchingEnvironment;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import graphql.schema.idl.TypeDefinitionRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -82,6 +88,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import graphql.scalars.ExtendedScalars;
 import com.game.score.graphql.scalar.TimestampScalar;
@@ -194,6 +201,9 @@ public class ScoreGraphQLService {
             .scalar(ExtendedScalars.Date)
             .scalar(ExtendedScalars.DateTime)
             .scalar(TimestampScalar.INSTANCE)
+                //https://www.youtube.com/watch?v=SDz4ItoVKfo for nested objects
+            .type("DistinctProgramsOut", typeWiring -> typeWiring
+                .dataFetcher("participants", env -> getParticipantDF(env)))    
             .type("Query", typeWiring -> typeWiring
                 .dataFetcher("sitemap",sitemapDataFetcher)
                 .dataFetcher("sitemapParam",sitemapParamDataFetcher)
@@ -245,6 +255,19 @@ public class ScoreGraphQLService {
             .build();
     }
 
+    private List<ParticipantSummaryOut> getParticipantDF(DataFetchingEnvironment environment) {
+        ParticipantSummaryIn participantSummaryIn = new ParticipantSummaryIn ();
+        final DistinctProgramsOut source = environment.getSource();
+        participantSummaryIn.setProgramWebPath (source.getWebPath());
+        return participantSummaryDaoFace.execute (
+                participantSummaryIn
+        ).getParticipantSummaryOuts();
+    }
+
+    @Autowired
+    @Qualifier("participantSummaryDaoFace")
+    ParticipantSummaryDaoFace participantSummaryDaoFace;
+    
     public GraphQL getGraphQL() {
         return graphQL;
     }

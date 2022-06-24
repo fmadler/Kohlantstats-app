@@ -82,3 +82,4 @@ call team_game_ranking ('blanc-2020','poteaux-2020',1);
 
 
 INSERT INTO `GS_TEAM_DEPARTURE_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Délibération du jury final', 'deliberation-jury-final');
+INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Groupe final', 'groupe-final', 1, 1);

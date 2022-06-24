@@ -58,13 +58,14 @@ TODO MP improvements:
 				<queries>
 					<!-- sitemap queries -->
 					<query name="sitemap" id="sitemap"
-						   package-name="sitemap">
+						   package-name="sitemap" naming-convention="camelcase">
 						<query-body>
 							<value>
 								select * from v_sitemap order by score
 							</value>
 						</query-body>
-						<query-schedulers><!-- schedulers are actions + scheduling and reporting
+						<query-schedulers>
+							<!-- schedulers are actions + scheduling and reporting
 								=> extends action -->
 							<!--
                             * "0 0 * * * *" = the top of every hour of every day.
@@ -85,6 +86,15 @@ TODO MP improvements:
 											 report-template-name="sitemap.xml.vm">
 							</query-scheduler>
 						</query-schedulers>
+						<!--
+						<query-post-processors>
+							<query-post-processor name="xml"
+												  processor-type="velocity"
+												  processor-template-name="sitemap.xml.vm">
+												  rendition-type="xml">
+							</query-post-processor>
+						</query-post-processors>
+						-->
 					</query>
 					<query name="sitemap_param" id="sitemap_param"
 						   package-name="sitemap">
@@ -1266,8 +1276,33 @@ ORDER by edition_number asc
 									</query-param>
 								</query-params>
 							</query-filter>
-
 						</query-filters>
+						<query-links>
+							<query-link name="participants"
+										type="one-to-many"
+										query-name="participant_summary">
+								<query-link-params>
+									<query-link-param
+											is-mandatory="true"
+											name="program_web_path"
+											input-field-name="web_path"
+											input-query-param-name="program_web_path">
+									</query-link-param>
+								</query-link-params>
+							</query-link>
+							<query-link name="games"
+										type="one-to-many"
+										query-name="game_info">
+								<query-link-params>
+									<query-link-param
+											is-mandatory="true"
+											name="program_web_path"
+											input-field-name="web_path"
+											input-query-param-name="program_web_path">
+									</query-link-param>
+								</query-link-params>
+							</query-link>
+						</query-links>
 					</query>
 				<!--  distinct queries -->
 				
@@ -2683,7 +2718,6 @@ min (longevity, $chunkUntilDay) longevity
 					<composite name="participant_camp_activity_info" id="participant_camp_activity_info"
 							   package-name="info">
 						<queries>
-							<!-- -->
 							<query refid="participant_camp_activity" result-cardinality="many" holder="false"></query>
 
 							<query refid="distinct_programs" result-cardinality="many" holder="false"></query>
@@ -2889,7 +2923,7 @@ MP TODO add indirection for mapping input params
 				<property name="mail.smtp.ssl.trust" value="smtp.mailgun.org" />
 
 				<property name="username" value="postmaster@winerylabs.com" />
-				<property name="password" value="5155c8411cb29829e715462bbd3cf878" />
+				<property name="password" value="xxx" />
 				<property name="url" value="smtp.mailgun.com" />
 			</property>
 

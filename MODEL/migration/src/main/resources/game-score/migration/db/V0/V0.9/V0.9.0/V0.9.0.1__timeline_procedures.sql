@@ -15,7 +15,12 @@ begin
     DECLARE until_day int;
     DECLARE done INT DEFAULT 0;
     DECLARE cursor_participant CURSOR FOR
-        select pl.web_path, coalesce(pa.START_DAY,1), pa.END_DAY, pg.current_day, greatest(COALESCE(pa.END_DAY,pg.TOTAL_TIME_LENGTH), pg.current_day) until_day from gs_player pl, gs_participant pa, gs_program pg
+        select pl.web_path,
+               coalesce(pa.START_DAY,1),
+               pa.END_DAY,
+               pg.current_day,
+               least(COALESCE(pa.END_DAY,pg.current_day), pg.TOTAL_TIME_LENGTH) until_day
+        from gs_player pl, gs_participant pa, gs_program pg
         where pa.gs_program_id = pg.id and pa.gs_player_id = pl.id
           and pg.web_path = _program_web_path;
 

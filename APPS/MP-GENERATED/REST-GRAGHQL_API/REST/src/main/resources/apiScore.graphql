@@ -481,8 +481,9 @@ type DistinctProgramsOut {
     nbOfParticipants:String
     winnerName:String
     winnerWebPath:String
+    participants:[ParticipantSummaryOut]
 }
-
+## hi
 
 
 
