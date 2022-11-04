@@ -5,8 +5,8 @@ import { inject as service } from '@ember/service';
 
 export default class QuizzQuizzComponent extends Component {
     @action
-    question(item) {d
+    question(item) {
       console.log("item "+item)
     }
-  
+
 }

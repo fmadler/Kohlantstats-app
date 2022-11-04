@@ -10,7 +10,7 @@ It starts a docker composer which
 * start tomcat server
 * deploy REST/graphQL API 
 ```sh
-$./start-kls-backend.sh 
+./start-kls-backend.sh 
 ```
 ### development in ember
 Starts ember server on http://localhost:4400/
@@ -18,24 +18,24 @@ Starts ember server on http://localhost:4400/
 
 With local data pointing to the local backend 
 ```sh
-$./start-kls-ember-dev.sh 
+./start-kls-ember-dev.sh 
 ```
 
 With remote data
 ```sh
-$./start-kls-ember.sh 
+./start-kls-ember.sh 
 ```
 
 ### Tests 
 Unit tests 
 
 ```sh
-$./start-kls-test.sh 
+./start-kls-test.sh 
 ```
 Cypress functional tests 
 
 ```sh
-$./start-kls-cypress.sh 
+./start-kls-cypress.sh 
 ```
 
 ## Setup development 

@@ -48,7 +48,7 @@ export default class ProgrammeGameGameRoute extends Route {
 
     @task
     * gameDetail(searchParams) {
-        return this.scoreService.gameDetail2(
+        return yield this.scoreService.gameDetail2(
             searchParams
         ).then(d => {
             let gameWebPath= d.params.gameWebPath;

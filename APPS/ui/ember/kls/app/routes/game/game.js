@@ -34,7 +34,7 @@ export default class GameGameRoute extends Route {
 
   @task
   * gameDetail(searchParams) {
-      return this.scoreService.gameDetail2(
+      return yield this.scoreService.gameDetail2(
           searchParams
       ).then(d => {
           fillIndividualWinnerStats(d.gameStats);

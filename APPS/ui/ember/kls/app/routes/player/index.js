@@ -69,7 +69,7 @@ export default class PlayerIndexRoute extends Route {
 
     @task
     * playerSearch2(params) {
-       return this.customscoreService.playerSearch2(params);
+       return yield this.customscoreService.playerSearch2(params);
     }
 
     @task

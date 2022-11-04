@@ -31,7 +31,7 @@ export default class PlayerPlayerRoute extends Route {
 
     @task
     * participantDetail(searchParams) {
-        return this.scoreService.participantDetail2(
+        return yield this.scoreService.participantDetail2(
             searchParams
         ).then(d => {
             fillIndividualWinnerStats(d.gameStats);

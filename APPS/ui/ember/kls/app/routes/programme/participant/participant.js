@@ -105,7 +105,7 @@ export default class ProgrammeParticipantParticipantRoute extends ConfigAwareRou
 
     @task
     * participantDetail(searchParams) {
-        return this.scoreService.participantDetail2(
+        return yield this.scoreService.participantDetail2(
             searchParams
         );
     }
