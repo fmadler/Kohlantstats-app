@@ -2,7 +2,10 @@
 <Context>
     <!-- use embedded context for test only, such as docker-compose build stack -->
     <!-- <WatchedResource>WEB-INF/web.xml</WatchedResource>-->
-    <Resource name="jdbc/scoreDS" auth="Container" type="javax.sql.DataSource"
+<!-- embeddedDatasource = Property[value=docker,tag=,isCacheEnabled=false,alias=<null>,label=<null>,comment=<null>,name=embedded-datasource,refname=<null>,description=<null>,properties=[Property[value=jdbc:mysql://db:3306/kohlantstats?connectTimeout=0&socketTimeout=0&autoReconnect=true,tag=<null>,isCacheEnabled=false,alias=<null>,label=<null>,comment=<null>,name=jdbcUrl,refname=<null>,description=<null>,properties=<null>,parent=<null>,configurationFileInClassPath=<null>,isAliasFormatted=false,isAliasSet=false,displayName=<null>,namingConvention=<null>,displayOrder=0,id=<null>,refid=<null>], Property[value=root,tag=<null>,isCacheEnabled=false,alias=<null>,label=<null>,comment=<null>,name=username,refname=<null>,description=<null>,properties=<null>,parent=<null>,configurationFileInClassPath=<null>,isAliasFormatted=false,isAliasSet=false,displayName=<null>,namingConvention=<null>,displayOrder=0,id=<null>,refid=<null>], Property[value=P@ssw0rd,tag=<null>,isCacheEnabled=false,alias=<null>,label=<null>,comment=<null>,name=password,refname=<null>,description=<null>,properties=<null>,parent=<null>,configurationFileInClassPath=<null>,isAliasFormatted=false,isAliasSet=false,displayName=<null>,namingConvention=<null>,displayOrder=0,id=<null>,refid=<null>]],parent=<null>,configurationFileInClassPath=<null>,isAliasFormatted=false,isAliasSet=false,displayName=<null>,namingConvention=<null>,displayOrder=0,id=<null>,refid=<null>] -->
+    <Resource name="jdbc/scoreDS"
+       auth="Container"
+       type="javax.sql.DataSource"
        maxActive="20" maxIdle="5" maxWait="10000"
        username="root"
        password="P@ssw0rd"

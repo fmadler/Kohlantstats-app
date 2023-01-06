@@ -191,9 +191,7 @@ public class TeamInfoRepository implements TeamInfoDaoFace {
 						teamInfoOut.setNbOfBeginners(rs.getLong("nb_of_beginners"));
 						teamInfoOut.setNbOfEnders(rs.getLong("nb_of_enders"));
 						list.add(teamInfoOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<TeamInfoOut> getResult() {

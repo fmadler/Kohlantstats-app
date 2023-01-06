@@ -8,10 +8,10 @@
 	</appender>
 	
 	<appender name="score_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>../logs/score.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<file>/logs/score.log</file>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>../logs/score.%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>/logs/score.%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

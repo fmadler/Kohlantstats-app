@@ -213,9 +213,7 @@ public class QuizzParticipationFilterMatrixRepository implements QuizzParticipat
 						quizzParticipationFilterMatrixOut.setGameName(rs.getString("game_name"));
 						quizzParticipationFilterMatrixOut.setGameWebPath(rs.getString("game_web_path"));
 						list.add(quizzParticipationFilterMatrixOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzParticipationFilterMatrixOut> getResult() {

@@ -12,7 +12,62 @@ It starts a docker composer which
 ```sh
 ./start-kls-backend.sh 
 ```
+### development of the model 
+```sh
+$docker pull mysql:latest
+```
+or 
+```sh
+$docker pull mysql:8.0
+```
+Instantiate image into container
+```sh
+docker run -d -e MYSQL_ROOT_PASSWORD=admin --name mysql_8_0 mysql:8.0 --lower_case_table_names=1
+```
+
+#### Change global 
+https://stackoverflow.com/questions/23921117/disable-only-full-group-by
+
+```sh
+docker exec -i mysql_8_0 bash
+
+
+apt-get update
+Apt-get install nano
+nano /etc/mysql/my.cnf
+
+Copy at the end
+[mysqld] 
+sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+log_bin_trust_function_creators = 1
+
+$ service mysql restart
+```
+
+#### Get the IP address
+```sh
+docker inspect mysql_8_0 | grep -i ipaddress
+```
+
+#### Configure your IDE 
+Configure mysqlworkbench 
+
+#### Run flyway script via maven cmd
+```sh
+./migrate.sh 
+```
+
 ### development in ember
+
+#### Nvm check 
+Regarding the version of ember it requires a certain nodejs version
+To check node v14.21.1
+
+```sh
+nvm ls
+nvm use 14.21.1
+```
+
 Starts ember server on http://localhost:4400/
 
 
@@ -48,10 +103,29 @@ Migrations are executed by Flyway.
 
 
 ### Business code 
+
 Written in java based on reverse engineering DB structure and sql statements. 
 
 100% of the Backend rest service code is done by minuteproject generating REST and GRAPHQL API as well as stub for ember data.
 
+* Initiate DB instance 
+```sh
+docker start mysql_8_0
+```
+* Run DB scripts
+In MODEL/migration
+```sh
+./migrate.sh 
+```
+* Build & deploy app for local development
+In the generated folder of minuteproject (ex : minuteproject/product/game-score-public-api/REST-GRAPHQL_API)
+```sh
+mvn clean package -Ptomcat-embedded-ds 
+cp REST/target/scoreGraphQLApp.war ${pathToKlsGitLocalRepository}/Kohlantstats-app/APPS/__RELEASES/tomcat/
+```
+* 2 apps 
+** scoreKendoUiApp (http://localhost/scoreKendoUiApp/data/*)
+** scoreGraphQLApp (http://localhost/scoreGraphQLApp/data/graphql/graphiql)
 
 ## Kohlantstats microservices ecosystem
 ### Property microservices

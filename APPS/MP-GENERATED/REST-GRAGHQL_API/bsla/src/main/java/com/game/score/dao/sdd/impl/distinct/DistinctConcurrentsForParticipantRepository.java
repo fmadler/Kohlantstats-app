@@ -148,9 +148,7 @@ public class DistinctConcurrentsForParticipantRepository implements DistinctConc
 						distinctConcurrentsForParticipantOut.setName(rs.getString("name"));
 						distinctConcurrentsForParticipantOut.setWebPath(rs.getString("web_path"));
 						list.add(distinctConcurrentsForParticipantOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctConcurrentsForParticipantOut> getResult() {

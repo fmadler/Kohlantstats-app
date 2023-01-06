@@ -200,9 +200,7 @@ public class GamePerformanceRepository implements GamePerformanceDaoFace {
 						gamePerformanceOut.setInGroupPerformanceFirstTwo(rs.getLong("in_group_performance_first_two"));
 						gamePerformanceOut.setInGroupPerformanceFirstTwoPercent(rs.getBigDecimal("in_group_performance_first_two_percent"));
 						list.add(gamePerformanceOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<GamePerformanceOut> getResult() {

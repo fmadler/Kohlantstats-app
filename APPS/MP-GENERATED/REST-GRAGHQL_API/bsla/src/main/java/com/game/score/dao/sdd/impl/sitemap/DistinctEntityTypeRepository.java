@@ -121,9 +121,7 @@ public class DistinctEntityTypeRepository implements DistinctEntityTypeDaoFace {
 						distinctEntityTypeOut.setEntityTypeWebPath(rs.getString("entity_type_web_path"));
 						distinctEntityTypeOut.setEntityTypeName(rs.getString("entity_type_name"));
 						list.add(distinctEntityTypeOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctEntityTypeOut> getResult() {

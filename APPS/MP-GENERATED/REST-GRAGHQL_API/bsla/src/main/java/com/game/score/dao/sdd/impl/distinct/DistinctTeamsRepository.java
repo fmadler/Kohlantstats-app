@@ -140,9 +140,7 @@ public class DistinctTeamsRepository implements DistinctTeamsDaoFace {
 						distinctTeamsOut.setName(rs.getString("name"));
 						distinctTeamsOut.setWebPath(rs.getString("web_path"));
 						list.add(distinctTeamsOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctTeamsOut> getResult() {

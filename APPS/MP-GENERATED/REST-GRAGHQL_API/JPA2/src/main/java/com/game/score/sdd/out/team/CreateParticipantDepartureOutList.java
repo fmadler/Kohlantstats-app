@@ -46,7 +46,7 @@ import com.game.score.sdd.out.team.CreateParticipantDepartureOut;
 @XmlRootElement (name="CreateParticipantDepartureOutList")
 public class CreateParticipantDepartureOutList {
 
-    @XmlElement (name="CreateParticipantDepartureOut") //(name="createparticipantdepartureouts")
+    @XmlElement (name="CreateParticipantDepartureOut")
     private List<CreateParticipantDepartureOut> createParticipantDepartureOuts;
 
     /**

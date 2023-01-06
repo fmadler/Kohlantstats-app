@@ -148,9 +148,7 @@ public class DistinctParticipantsRepository implements DistinctParticipantsDaoFa
 						distinctParticipantsOut.setNbVictories(rs.getLong("nb_victories"));
 						distinctParticipantsOut.setMaxTime(rs.getInt("max_time"));
 						list.add(distinctParticipantsOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctParticipantsOut> getResult() {

@@ -186,9 +186,7 @@ public class QuizzWinnerParticipantOrderFilterMatrixRepository implements QuizzW
 						quizzWinnerParticipantOrderFilterMatrixOut.setProgramName(rs.getString("program_name"));
 						quizzWinnerParticipantOrderFilterMatrixOut.setProgramWebPath(rs.getString("program_web_path"));
 						list.add(quizzWinnerParticipantOrderFilterMatrixOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzWinnerParticipantOrderFilterMatrixOut> getResult() {

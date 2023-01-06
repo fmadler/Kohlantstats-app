@@ -46,7 +46,7 @@ import com.game.score.sdd.out.info.ProgramInfoOut;
 @XmlRootElement (name="ProgramInfoOutList")
 public class ProgramInfoOutList {
 
-    @XmlElement (name="ProgramInfoOut") //(name="programinfoouts")
+    @XmlElement (name="ProgramInfoOut")
     private List<ProgramInfoOut> programInfoOuts;
 
     /**

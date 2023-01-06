@@ -211,9 +211,7 @@ public class QuizzWinnerTeamMatrixRepository implements QuizzWinnerTeamMatrixDao
 						quizzWinnerTeamMatrixOut.setGameName(rs.getString("game_name"));
 						quizzWinnerTeamMatrixOut.setGameWebPath(rs.getString("game_web_path"));
 						list.add(quizzWinnerTeamMatrixOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzWinnerTeamMatrixOut> getResult() {

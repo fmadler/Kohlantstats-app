@@ -46,3 +46,7 @@ call program_current_time ('le-totem-maudit',39);
 call team_game_ranking ('blanc-2022','orientation-2022',1);
 
 call team_game_ranking ('blanc-2022','poteaux-2022',1);
+
+call fill_participant_longevity ('le-totem-maudit','geraldine-2022',3,1,39);
+call fill_participant_longevity ('le-totem-maudit','bastien-2022',1,1,39);
+call fill_participant_longevity ('le-totem-maudit','francois-2022',1,1,39);

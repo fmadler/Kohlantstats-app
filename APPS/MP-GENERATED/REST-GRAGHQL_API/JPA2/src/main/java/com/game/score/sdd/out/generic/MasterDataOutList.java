@@ -46,7 +46,7 @@ import com.game.score.sdd.out.generic.MasterDataOut;
 @XmlRootElement (name="MasterDataOutList")
 public class MasterDataOutList {
 
-    @XmlElement (name="MasterDataOut") //(name="masterdataouts")
+    @XmlElement (name="MasterDataOut")
     private List<MasterDataOut> masterDataOuts;
 
     /**

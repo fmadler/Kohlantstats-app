@@ -246,52 +246,59 @@ public class GameInfoRepository implements GameInfoDaoFace {
 						gameInfoOut.setGameStakeTypeWebPath(rs.getString("game_stake_type_web_path"));
 						gameInfoOut.setGameParticipationTypeName(rs.getString("game_participation_type_name"));
 						gameInfoOut.setGameParticipationTypeWebPath(rs.getString("game_participation_type_web_path"));
-						gameInfoOut.setGameRewards(
-							Arrays.asList(rs.getString("game_rewards").split("\\,")).stream()
-								.map(u -> {
-									String[] uA = u.split("\\|");
-									GameInfoOut.GameRewards c = gameInfoOut.new GameRewards();
-									if (uA.length==3) {
-										c.setName(uA[0]);
-										c.setWebPath(uA[1]);
-										c.setIsPositive(uA[2]);
-									}
-									return c;
-								})
-								.collect(Collectors.toList())
-						);
-						gameInfoOut.setWinners(
-							Arrays.asList(rs.getString("winners").split("\\,")).stream()
-								.map(u -> {
-									String[] uA = u.split("\\|");
-									GameInfoOut.Winners c = gameInfoOut.new Winners();
-									if (uA.length==4) {
-										c.setName(uA[0]);
-										c.setWebPath(uA[1]);
-										c.setGameActivityTypeWebPath(uA[2]);
-										c.setGameActivityTypeName(uA[3]);
-									}
-									return c;
-								})
-								.collect(Collectors.toList())
-						);
-						gameInfoOut.setGameTags(
-							Arrays.asList(rs.getString("game_tags").split("\\,")).stream()
-								.map(u -> {
-									String[] uA = u.split("\\|");
-									GameInfoOut.GameTags c = gameInfoOut.new GameTags();
-									if (uA.length==2) {
-										c.setName(uA[0]);
-										c.setWebPath(uA[1]);
-									}
-									return c;
-								})
-								.collect(Collectors.toList())
-						);
+						String gameRewards = rs.getString("game_rewards");
+						if (gameRewards != null) {
+							gameInfoOut.setGameRewards(
+								Arrays.asList(gameRewards.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										GameInfoOut.GameRewards c = gameInfoOut.new GameRewards();
+										if (uA.length==3) {
+											c.setName(uA[0]);
+											c.setWebPath(uA[1]);
+											c.setIsPositive(uA[2]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
+						String winners = rs.getString("winners");
+						if (winners != null) {
+							gameInfoOut.setWinners(
+								Arrays.asList(winners.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										GameInfoOut.Winners c = gameInfoOut.new Winners();
+										if (uA.length==4) {
+											c.setName(uA[0]);
+											c.setWebPath(uA[1]);
+											c.setGameActivityTypeWebPath(uA[2]);
+											c.setGameActivityTypeName(uA[3]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
+						String gameTags = rs.getString("game_tags");
+						if (gameTags != null) {
+							gameInfoOut.setGameTags(
+								Arrays.asList(gameTags.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										GameInfoOut.GameTags c = gameInfoOut.new GameTags();
+										if (uA.length==2) {
+											c.setName(uA[0]);
+											c.setWebPath(uA[1]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
 						list.add(gameInfoOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<GameInfoOut> getResult() {

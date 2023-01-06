@@ -191,9 +191,7 @@ public class QuizzWinnerTeamOrderOptionRepository implements QuizzWinnerTeamOrde
 						quizzWinnerTeamOrderOptionOut.setTeamWebPath(rs.getString("team_web_path"));
 						quizzWinnerTeamOrderOptionOut.setRanking(rs.getInt("ranking"));
 						list.add(quizzWinnerTeamOrderOptionOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzWinnerTeamOrderOptionOut> getResult() {

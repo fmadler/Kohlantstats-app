@@ -381,28 +381,29 @@ public class GameStatsRepository implements GameStatsDaoFace {
 						gameStatsOut.setIndividualGameLasts(rs.getLong("individual_game_lasts"));
 						gameStatsOut.setActiveParticipations(rs.getLong("active_participations"));
 						gameStatsOut.setIndividualParticipations(rs.getLong("individual_participations"));
-						gameStatsOut.setParticipationDetails(
-							Arrays.asList(rs.getString("participation_details").split("\\,")).stream()
-								.map(u -> {
-									String[] uA = u.split("\\|");
-									GameStatsOut.ParticipationDetails c = gameStatsOut.new ParticipationDetails();
-									if (uA.length==7) {
-										c.setGameName(uA[0]);
-										c.setGameWebPath(uA[1]);
-										c.setProgramIndex(uA[2]);
-										c.setActivityTypeName(uA[3]);
-										c.setParticipationTypeName(uA[4]);
-										c.setGameStakeTypeName(uA[5]);
-										c.setRanking(uA[6]);
-									}
-									return c;
-								})
-								.collect(Collectors.toList())
-						);
+						String participationDetails = rs.getString("participation_details");
+						if (participationDetails != null) {
+							gameStatsOut.setParticipationDetails(
+								Arrays.asList(participationDetails.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										GameStatsOut.ParticipationDetails c = gameStatsOut.new ParticipationDetails();
+										if (uA.length==7) {
+											c.setGameName(uA[0]);
+											c.setGameWebPath(uA[1]);
+											c.setProgramIndex(uA[2]);
+											c.setActivityTypeName(uA[3]);
+											c.setParticipationTypeName(uA[4]);
+											c.setGameStakeTypeName(uA[5]);
+											c.setRanking(uA[6]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
 						list.add(gameStatsOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<GameStatsOut> getResult() {

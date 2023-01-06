@@ -46,7 +46,7 @@ import com.game.score.sdd.out.info.TeamInfoOut;
 @XmlRootElement (name="TeamInfoOutList")
 public class TeamInfoOutList {
 
-    @XmlElement (name="TeamInfoOut") //(name="teaminfoouts")
+    @XmlElement (name="TeamInfoOut")
     private List<TeamInfoOut> teamInfoOuts;
 
     /**

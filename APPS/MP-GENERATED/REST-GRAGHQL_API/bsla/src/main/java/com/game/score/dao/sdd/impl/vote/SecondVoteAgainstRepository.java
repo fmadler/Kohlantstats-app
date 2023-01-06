@@ -158,8 +158,7 @@ public class SecondVoteAgainstRepository implements SecondVoteAgainstDaoFace {
 				) {
 					injectPrepareStatementParams(pstmt, secondVoteAgainstIn);
 					pstmt.executeUpdate();
-	        	}//from try (autoclosable)
-       }
+	        	}       }
 
        List<SecondVoteAgainstOut> getResult() {
           return list;

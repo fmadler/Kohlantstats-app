@@ -224,9 +224,7 @@ public class SitemapParamRepository implements SitemapParamDaoFace {
 						sitemapParamOut.setEntityTypeWebPath(rs.getString("entity_type_web_path"));
 						sitemapParamOut.setEntityWebPath(rs.getString("entity_web_path"));
 						list.add(sitemapParamOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<SitemapParamOut> getResult() {

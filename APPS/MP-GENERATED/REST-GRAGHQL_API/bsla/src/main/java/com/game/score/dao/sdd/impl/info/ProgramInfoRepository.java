@@ -173,9 +173,7 @@ public class ProgramInfoRepository implements ProgramInfoDaoFace {
 						programInfoOut.setNbOfParticipants(rs.getLong("nb_of_participants"));
 						programInfoOut.setNbOfGames(rs.getLong("nb_of_games"));
 						list.add(programInfoOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<ProgramInfoOut> getResult() {

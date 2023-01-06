@@ -46,7 +46,7 @@ import com.game.score.sdd.out.timeline.ScoreTimelineOut;
 @XmlRootElement (name="ScoreTimelineOutList")
 public class ScoreTimelineOutList {
 
-    @XmlElement (name="ScoreTimelineOut") //(name="scoretimelineouts")
+    @XmlElement (name="ScoreTimelineOut")
     private List<ScoreTimelineOut> scoreTimelineOuts;
 
     /**

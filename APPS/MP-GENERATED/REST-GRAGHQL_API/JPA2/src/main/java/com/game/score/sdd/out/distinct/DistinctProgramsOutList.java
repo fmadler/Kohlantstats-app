@@ -46,7 +46,7 @@ import com.game.score.sdd.out.distinct.DistinctProgramsOut;
 @XmlRootElement (name="DistinctProgramsOutList")
 public class DistinctProgramsOutList {
 
-    @XmlElement (name="DistinctProgramsOut") //(name="distinctprogramsouts")
+    @XmlElement (name="DistinctProgramsOut")
     private List<DistinctProgramsOut> distinctProgramsOuts;
 
     /**

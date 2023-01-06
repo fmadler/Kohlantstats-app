@@ -228,9 +228,7 @@ public class TeamParticipantTimelineRepository implements TeamParticipantTimelin
 						teamParticipantTimelineOut.setEventTypeName(rs.getString("event_type_name"));
 						teamParticipantTimelineOut.setEventTypeWebPath(rs.getString("event_type_web_path"));
 						list.add(teamParticipantTimelineOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<TeamParticipantTimelineOut> getResult() {

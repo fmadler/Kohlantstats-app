@@ -26,10 +26,9 @@
 	* - name      : RESTDbAPISDDResource
 	* - file name : RESTDbAPISDDResource.vm
 */
-
-
+	
 package com.game.score.rest.distinct;
-    //templateModelCompress REST.Compress.Annotation
+
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.*;
@@ -82,6 +81,7 @@ import com.game.score.rest.Compress;
 * <p>Title: DistinctTeamsResource</p>
 *
 * <p>Description: class for DistinctTeamsResource service </p>
+* <p>Convention: $query.getNamingConvention() </p>
 *
 */
 @Path("/sdd/DistinctTeamsIn")
@@ -119,8 +119,6 @@ public class DistinctTeamsResource {
         );
 	}
 	
-
-
 
 
 

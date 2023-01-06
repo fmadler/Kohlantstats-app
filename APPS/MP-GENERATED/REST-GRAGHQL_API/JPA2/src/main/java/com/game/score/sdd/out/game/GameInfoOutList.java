@@ -46,7 +46,7 @@ import com.game.score.sdd.out.game.GameInfoOut;
 @XmlRootElement (name="GameInfoOutList")
 public class GameInfoOutList {
 
-    @XmlElement (name="GameInfoOut") //(name="gameinfoouts")
+    @XmlElement (name="GameInfoOut")
     private List<GameInfoOut> gameInfoOuts;
 
     /**

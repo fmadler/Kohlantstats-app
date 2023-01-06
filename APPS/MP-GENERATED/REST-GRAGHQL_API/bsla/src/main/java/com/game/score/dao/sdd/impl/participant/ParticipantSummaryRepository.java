@@ -194,9 +194,7 @@ public class ParticipantSummaryRepository implements ParticipantSummaryDaoFace {
 						participantSummaryOut.setNbVictories(rs.getLong("nb_victories"));
 						participantSummaryOut.setMaxTime(rs.getInt("max_time"));
 						list.add(participantSummaryOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<ParticipantSummaryOut> getResult() {

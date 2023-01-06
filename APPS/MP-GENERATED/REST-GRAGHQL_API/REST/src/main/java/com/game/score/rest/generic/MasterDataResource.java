@@ -26,10 +26,9 @@
 	* - name      : RESTDbAPISDDResource
 	* - file name : RESTDbAPISDDResource.vm
 */
-
-
+	
 package com.game.score.rest.generic;
-    //templateModelCompress REST.Compress.Annotation
+
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.*;
@@ -81,6 +80,7 @@ import com.game.score.rest.Compress;
 * <p>Title: MasterDataResource</p>
 *
 * <p>Description: class for MasterDataResource service </p>
+* <p>Convention: $query.getNamingConvention() </p>
 *
 */
 @Path("/sdd/MasterDataIn")
@@ -124,8 +124,6 @@ public class MasterDataResource {
         );
 	}
 	
-
-
 
 
 

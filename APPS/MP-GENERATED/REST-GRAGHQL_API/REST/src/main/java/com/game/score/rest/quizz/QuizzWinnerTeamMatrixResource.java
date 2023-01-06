@@ -26,10 +26,9 @@
 	* - name      : RESTDbAPISDDResource
 	* - file name : RESTDbAPISDDResource.vm
 */
-
-
+	
 package com.game.score.rest.quizz;
-    //templateModelCompress REST.Compress.Annotation
+
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.*;
@@ -82,6 +81,7 @@ import com.game.score.rest.Compress;
 * <p>Title: QuizzWinnerTeamMatrixResource</p>
 *
 * <p>Description: class for QuizzWinnerTeamMatrixResource service </p>
+* <p>Convention: $query.getNamingConvention() </p>
 *
 */
 @Path("/sdd/QuizzWinnerTeamMatrixIn")
@@ -127,8 +127,6 @@ public class QuizzWinnerTeamMatrixResource {
         );
 	}
 	
-
-
 
 
 

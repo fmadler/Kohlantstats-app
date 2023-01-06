@@ -139,8 +139,7 @@ public class CreateTimelineRepository implements CreateTimelineDaoFace {
 				CreateTimelineOut createTimelineOut = new CreateTimelineOut();
 				createTimelineOut.setResult(pstmt.getString(2));
 				list.add(createTimelineOut);
-	        	}//from try (autoclosable)
-       }
+	        	}       }
 
        List<CreateTimelineOut> getResult() {
           return list;

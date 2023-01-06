@@ -218,9 +218,7 @@ public class DistinctGamesRepository implements DistinctGamesDaoFace {
 						distinctGamesOut.setProgramName(rs.getString("program_name"));
 						distinctGamesOut.setProgramWebPath(rs.getString("program_web_path"));
 						list.add(distinctGamesOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctGamesOut> getResult() {

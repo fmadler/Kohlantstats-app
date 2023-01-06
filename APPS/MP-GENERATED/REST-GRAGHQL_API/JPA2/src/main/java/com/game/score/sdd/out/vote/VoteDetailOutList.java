@@ -46,7 +46,7 @@ import com.game.score.sdd.out.vote.VoteDetailOut;
 @XmlRootElement (name="VoteDetailOutList")
 public class VoteDetailOutList {
 
-    @XmlElement (name="VoteDetailOut") //(name="votedetailouts")
+    @XmlElement (name="VoteDetailOut")
     private List<VoteDetailOut> voteDetailOuts;
 
     /**

@@ -163,8 +163,7 @@ public class CreateParticipantEntranceRepository implements CreateParticipantEnt
 				CreateParticipantEntranceOut createParticipantEntranceOut = new CreateParticipantEntranceOut();
 				createParticipantEntranceOut.setParticipantTeamId(pstmt.getInt(6));
 				list.add(createParticipantEntranceOut);
-	        	}//from try (autoclosable)
-       }
+	        	}       }
 
        List<CreateParticipantEntranceOut> getResult() {
           return list;

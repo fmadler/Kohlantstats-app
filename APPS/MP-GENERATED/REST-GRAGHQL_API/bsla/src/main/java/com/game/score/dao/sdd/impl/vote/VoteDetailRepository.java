@@ -298,9 +298,7 @@ public class VoteDetailRepository implements VoteDetailDaoFace {
 						voteDetailOut.setTimeUnit(rs.getInt("time_unit"));
 						voteDetailOut.setVoteNumber(rs.getInt("vote_number"));
 						list.add(voteDetailOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<VoteDetailOut> getResult() {

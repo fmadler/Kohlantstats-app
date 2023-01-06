@@ -218,9 +218,7 @@ public class PlayerPerformanceComparisonRepository implements PlayerPerformanceC
 						playerPerformanceComparisonOut.setActivityTypeName(rs.getString("activity_type_name"));
 						playerPerformanceComparisonOut.setActivityTypeWebPath(rs.getString("activity_type_web_path"));
 						list.add(playerPerformanceComparisonOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<PlayerPerformanceComparisonOut> getResult() {

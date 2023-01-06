@@ -46,7 +46,7 @@ import com.game.score.sdd.out.quizz.QuizzSortTeamMemberFilterMatrixOut;
 @XmlRootElement (name="QuizzSortTeamMemberFilterMatrixOutList")
 public class QuizzSortTeamMemberFilterMatrixOutList {
 
-    @XmlElement (name="QuizzSortTeamMemberFilterMatrixOut") //(name="quizzsortteammemberfiltermatrixouts")
+    @XmlElement (name="QuizzSortTeamMemberFilterMatrixOut")
     private List<QuizzSortTeamMemberFilterMatrixOut> quizzSortTeamMemberFilterMatrixOuts;
 
     /**

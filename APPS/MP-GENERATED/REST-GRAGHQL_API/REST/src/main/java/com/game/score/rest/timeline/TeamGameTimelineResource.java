@@ -26,10 +26,9 @@
 	* - name      : RESTDbAPISDDResource
 	* - file name : RESTDbAPISDDResource.vm
 */
-
-
+	
 package com.game.score.rest.timeline;
-    //templateModelCompress REST.Compress.Annotation
+
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.*;
@@ -82,6 +81,7 @@ import com.game.score.rest.Compress;
 * <p>Title: TeamGameTimelineResource</p>
 *
 * <p>Description: class for TeamGameTimelineResource service </p>
+* <p>Convention: $query.getNamingConvention() </p>
 *
 */
 @Path("/sdd/TeamGameTimelineIn")
@@ -135,8 +135,6 @@ public class TeamGameTimelineResource {
         );
 	}
 	
-
-
 
 
 

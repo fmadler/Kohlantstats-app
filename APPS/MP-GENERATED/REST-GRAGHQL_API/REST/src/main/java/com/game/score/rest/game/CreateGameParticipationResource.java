@@ -26,10 +26,9 @@
 	* - name      : RESTDbAPISDDResource
 	* - file name : RESTDbAPISDDResource.vm
 */
-
-
+	
 package com.game.score.rest.game;
-    //templateModelCompress REST.Compress.Annotation
+
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.*;
@@ -82,6 +81,7 @@ import com.game.score.rest.Compress;
 * <p>Title: CreateGameParticipationResource</p>
 *
 * <p>Description: class for CreateGameParticipationResource service </p>
+* <p>Convention: $query.getNamingConvention() </p>
 *
 */
 @Path("/sdd/CreateGameParticipationIn")
@@ -165,8 +165,6 @@ public class CreateGameParticipationResource {
         );
 	}
 	
-
-
 
 
 

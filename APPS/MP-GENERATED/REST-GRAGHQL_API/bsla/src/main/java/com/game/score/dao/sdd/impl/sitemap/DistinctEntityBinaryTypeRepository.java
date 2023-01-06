@@ -163,9 +163,7 @@ public class DistinctEntityBinaryTypeRepository implements DistinctEntityBinaryT
 						distinctEntityBinaryTypeOut.setBinaryTypeWebPath(rs.getString("binary_type_web_path"));
 						distinctEntityBinaryTypeOut.setEntityTypeWebPath(rs.getString("entity_type_web_path"));
 						list.add(distinctEntityBinaryTypeOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctEntityBinaryTypeOut> getResult() {

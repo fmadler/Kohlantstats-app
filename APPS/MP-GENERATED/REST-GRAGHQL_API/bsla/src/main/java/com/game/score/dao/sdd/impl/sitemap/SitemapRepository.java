@@ -123,9 +123,7 @@ public class SitemapRepository implements SitemapDaoFace {
 						sitemapOut.setPriority(rs.getString("priority"));
 						sitemapOut.setScore(rs.getLong("score"));
 						list.add(sitemapOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<SitemapOut> getResult() {

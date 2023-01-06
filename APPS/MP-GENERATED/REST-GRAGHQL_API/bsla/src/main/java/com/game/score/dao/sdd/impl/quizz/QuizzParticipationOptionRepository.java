@@ -357,9 +357,7 @@ public class QuizzParticipationOptionRepository implements QuizzParticipationOpt
 						quizzParticipationOptionOut.setRanking(rs.getInt("ranking"));
 						quizzParticipationOptionOut.setScore(rs.getBigDecimal("score"));
 						list.add(quizzParticipationOptionOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzParticipationOptionOut> getResult() {

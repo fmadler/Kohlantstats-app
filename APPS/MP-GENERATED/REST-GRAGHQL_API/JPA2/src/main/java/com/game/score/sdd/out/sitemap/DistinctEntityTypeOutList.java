@@ -46,7 +46,7 @@ import com.game.score.sdd.out.sitemap.DistinctEntityTypeOut;
 @XmlRootElement (name="DistinctEntityTypeOutList")
 public class DistinctEntityTypeOutList {
 
-    @XmlElement (name="DistinctEntityTypeOut") //(name="distinctentitytypeouts")
+    @XmlElement (name="DistinctEntityTypeOut")
     private List<DistinctEntityTypeOut> distinctEntityTypeOuts;
 
     /**

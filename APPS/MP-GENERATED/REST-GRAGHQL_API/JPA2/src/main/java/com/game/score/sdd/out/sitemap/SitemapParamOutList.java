@@ -46,7 +46,7 @@ import com.game.score.sdd.out.sitemap.SitemapParamOut;
 @XmlRootElement (name="SitemapParamOutList")
 public class SitemapParamOutList {
 
-    @XmlElement (name="SitemapParamOut") //(name="sitemapparamouts")
+    @XmlElement (name="SitemapParamOut")
     private List<SitemapParamOut> sitemapParamOuts;
 
     /**

@@ -73,7 +73,7 @@ import com.game.score.dao.sdd.face.distinct.DistinctProgramsDaoFace;
 @Transactional(propagation = Propagation.REQUIRED)
 public class DistinctProgramsRepository implements DistinctProgramsDaoFace {
 
-	public static final String QUERY_NATIVE = "SELECT p.edition_number, p.year, p.name, p.web_path, p.TOTAL_TIME_LENGTH, l.COUNTRY, l.COUNTRY_FLAG, l.COUNTRY_WEB_PATH, l.PLACE, l.PLACE_WEB_PATH, count(p.ID) nb_of_participants, winner.name winner_name, winner.web_path winner_web_path FROM gs_program p left outer join  ( 	select 		pl.name name, 		pl.web_path web_path, 		pg.id program_id 	from gs_participant pa, gs_player pl, gs_program pg 	where pa.gs_program_id = pg.id 		and pa.gs_player_id = pl.id 		and pa.final_position = 1 	group by pg.id ) winner on winner.program_id = p.id , gs_location l, gs_participant pa where p.GS_LOCATION_ID = l.ID and pa.GS_PROGRAM_ID = p.ID group by p.edition_number ORDER by edition_number desc";
+	public static final String QUERY_NATIVE = "SELECT p.edition_number, p.year, p.name, p.web_path, p.TOTAL_TIME_LENGTH,        l.COUNTRY, l.COUNTRY_FLAG, l.COUNTRY_WEB_PATH, l.PLACE, l.PLACE_WEB_PATH,        count(p.ID) nb_of_participants, winner.winners FROM gs_program p          left outer join (     select         GROUP_CONCAT(distinct                      CONCAT_WS(                              '|',                              pl.name,                              pl.web_path                          )             ) winners,            pg.id program_id     from gs_participant pa, gs_player pl, gs_program pg     where pa.gs_program_id = pg.id       and pa.gs_player_id = pl.id       and pa.final_position = 1     group by pg.id ) winner on winner.program_id = p.id    , gs_location l, gs_participant pa where         p.GS_LOCATION_ID = l.ID and pa.GS_PROGRAM_ID = p.ID group by p.edition_number ORDER by edition_number desc";
 
 	@PersistenceContext(unitName = "score")  
     EntityManager entityManager;  
@@ -128,12 +128,24 @@ public class DistinctProgramsRepository implements DistinctProgramsDaoFace {
 						distinctProgramsOut.setPlace(rs.getString("PLACE"));
 						distinctProgramsOut.setPlaceWebPath(rs.getString("PLACE_WEB_PATH"));
 						distinctProgramsOut.setNbOfParticipants(rs.getLong("nb_of_participants"));
-						distinctProgramsOut.setWinnerName(rs.getString("winner_name"));
-						distinctProgramsOut.setWinnerWebPath(rs.getString("winner_web_path"));
+						String winners = rs.getString("winners");
+						if (winners != null) {
+							distinctProgramsOut.setWinners(
+								Arrays.asList(winners.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										DistinctProgramsOut.Winners c = distinctProgramsOut.new Winners();
+										if (uA.length==2) {
+											c.setName(uA[0]);
+											c.setWebPath(uA[1]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
 						list.add(distinctProgramsOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctProgramsOut> getResult() {

@@ -61,7 +61,11 @@ public class DistinctProgramsOut {
     private String place;
     private String placeWebPath;
     private Long nbOfParticipants;
-    private String winnerName;
-    private String winnerWebPath;
+	@Data
+	public class Winners {
+		String name;
+		String webPath;
+	}
+    private List<Winners> winners;
 
 }

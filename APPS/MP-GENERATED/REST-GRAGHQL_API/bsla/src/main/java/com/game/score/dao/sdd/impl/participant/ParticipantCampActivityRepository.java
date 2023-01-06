@@ -219,23 +219,24 @@ public class ParticipantCampActivityRepository implements ParticipantCampActivit
 						participantCampActivityOut.setTeamPlayerFromTime(rs.getInt("team_player_from_time"));
 						participantCampActivityOut.setTeamPlayerDepartureType(rs.getString("team_player_departure_type"));
 						participantCampActivityOut.setTeamPlayerToTime(rs.getInt("team_player_to_time"));
-						participantCampActivityOut.setRealisations(
-							Arrays.asList(rs.getString("realisations").split("\\,")).stream()
-								.map(u -> {
-									String[] uA = u.split("\\|");
-									ParticipantCampActivityOut.Realisations c = participantCampActivityOut.new Realisations();
-									if (uA.length==2) {
-										c.setName(uA[0]);
-										c.setWebPath(uA[1]);
-									}
-									return c;
-								})
-								.collect(Collectors.toList())
-						);
+						String realisations = rs.getString("realisations");
+						if (realisations != null) {
+							participantCampActivityOut.setRealisations(
+								Arrays.asList(realisations.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										ParticipantCampActivityOut.Realisations c = participantCampActivityOut.new Realisations();
+										if (uA.length==2) {
+											c.setName(uA[0]);
+											c.setWebPath(uA[1]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
 						list.add(participantCampActivityOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<ParticipantCampActivityOut> getResult() {

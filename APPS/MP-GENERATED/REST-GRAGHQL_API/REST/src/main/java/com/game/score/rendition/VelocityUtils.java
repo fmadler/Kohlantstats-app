@@ -48,7 +48,8 @@ import lombok.extern.slf4j.Slf4j;
  * @since 22.01.2004
  */
 @Slf4j
-public abstract class VelocityUtils { 
+public abstract class VelocityUtils {
+
 	/**
 	 * Merge the specified Velocity template with the given model and write the
 	 * result to the given Writer.

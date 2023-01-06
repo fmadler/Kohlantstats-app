@@ -163,9 +163,7 @@ public class DistinctEntityDescriptionTypeRepository implements DistinctEntityDe
 						distinctEntityDescriptionTypeOut.setDescriptionTypeWebPath(rs.getString("description_type_web_path"));
 						distinctEntityDescriptionTypeOut.setEntityTypeWebPath(rs.getString("entity_type_web_path"));
 						list.add(distinctEntityDescriptionTypeOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<DistinctEntityDescriptionTypeOut> getResult() {

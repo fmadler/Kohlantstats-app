@@ -302,9 +302,7 @@ public class ScoreTimelineRepository implements ScoreTimelineDaoFace {
 						scoreTimelineOut.setGameScore1(rs.getBigDecimal("GAME_SCORE_1"));
 						scoreTimelineOut.setGameScore2(rs.getBigDecimal("GAME_SCORE_2"));
 						list.add(scoreTimelineOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<ScoreTimelineOut> getResult() {

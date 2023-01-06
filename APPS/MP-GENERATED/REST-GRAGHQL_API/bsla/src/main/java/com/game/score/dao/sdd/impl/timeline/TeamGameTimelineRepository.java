@@ -262,37 +262,43 @@ public class TeamGameTimelineRepository implements TeamGameTimelineDaoFace {
 						teamGameTimelineOut.setTeamWebPath(rs.getString("team_web_path"));
 						teamGameTimelineOut.setGameName(rs.getString("game_name"));
 						teamGameTimelineOut.setGameWebPath(rs.getString("game_web_path"));
-						teamGameTimelineOut.setTeamDetails(
-							Arrays.asList(rs.getString("team_details").split("\\,")).stream()
-								.map(u -> {
-									String[] uA = u.split("\\|");
-									TeamGameTimelineOut.TeamDetails c = teamGameTimelineOut.new TeamDetails();
-									if (uA.length==3) {
-										c.setParticipantWebPath(uA[0]);
-										c.setParticipantName(uA[1]);
-										c.setRanking(uA[2]);
-									}
-									return c;
-								})
-								.collect(Collectors.toList())
-						);
+						String teamDetails = rs.getString("team_details");
+						if (teamDetails != null) {
+							teamGameTimelineOut.setTeamDetails(
+								Arrays.asList(teamDetails.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										TeamGameTimelineOut.TeamDetails c = teamGameTimelineOut.new TeamDetails();
+										if (uA.length==3) {
+											c.setParticipantWebPath(uA[0]);
+											c.setParticipantName(uA[1]);
+											c.setRanking(uA[2]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
 						teamGameTimelineOut.setNbPlayers(rs.getLong("nb_players"));
 						teamGameTimelineOut.setNbTeams(rs.getLong("nb_teams"));
 						teamGameTimelineOut.setIsWinner(rs.getLong("is_winner"));
 						teamGameTimelineOut.setWinnerTeamWebPath(rs.getString("winner_team_web_path"));
-						teamGameTimelineOut.setWinnerParticipantWebPaths(
-							Arrays.asList(rs.getString("winner_participant_web_paths").split("\\,")).stream()
-								.map(u -> {
-									String[] uA = u.split("\\|");
-									TeamGameTimelineOut.WinnerParticipantWebPaths c = teamGameTimelineOut.new WinnerParticipantWebPaths();
-									if (uA.length==2) {
-										c.setParticipantWebPath(uA[0]);
-										c.setParticipantName(uA[1]);
-									}
-									return c;
-								})
-								.collect(Collectors.toList())
-						);
+						String winnerParticipantWebPaths = rs.getString("winner_participant_web_paths");
+						if (winnerParticipantWebPaths != null) {
+							teamGameTimelineOut.setWinnerParticipantWebPaths(
+								Arrays.asList(winnerParticipantWebPaths.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										TeamGameTimelineOut.WinnerParticipantWebPaths c = teamGameTimelineOut.new WinnerParticipantWebPaths();
+										if (uA.length==2) {
+											c.setParticipantWebPath(uA[0]);
+											c.setParticipantName(uA[1]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
 						teamGameTimelineOut.setProgramIndex(rs.getInt("program_index"));
 						teamGameTimelineOut.setTimePosition(rs.getString("TIME_POSITION"));
 						teamGameTimelineOut.setGameTypeName(rs.getString("game_type_name"));
@@ -302,9 +308,7 @@ public class TeamGameTimelineRepository implements TeamGameTimelineDaoFace {
 						teamGameTimelineOut.setParticipationTypeName(rs.getString("participation_type_name"));
 						teamGameTimelineOut.setParticipationTypeWebPath(rs.getString("participation_type_web_path"));
 						list.add(teamGameTimelineOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<TeamGameTimelineOut> getResult() {

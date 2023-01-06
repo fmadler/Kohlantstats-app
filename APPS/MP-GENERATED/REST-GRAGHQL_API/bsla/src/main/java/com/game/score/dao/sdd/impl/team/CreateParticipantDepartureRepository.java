@@ -163,8 +163,7 @@ public class CreateParticipantDepartureRepository implements CreateParticipantDe
 				CreateParticipantDepartureOut createParticipantDepartureOut = new CreateParticipantDepartureOut();
 				createParticipantDepartureOut.setParticipantTeamId(pstmt.getInt(6));
 				list.add(createParticipantDepartureOut);
-	        	}//from try (autoclosable)
-       }
+	        	}       }
 
        List<CreateParticipantDepartureOut> getResult() {
           return list;

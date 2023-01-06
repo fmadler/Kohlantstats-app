@@ -243,9 +243,7 @@ public class QuizzSortTeamMemberOptionRepository implements QuizzSortTeamMemberO
 						quizzSortTeamMemberOptionOut.setParticipantWebPath(rs.getString("participant_web_path"));
 						quizzSortTeamMemberOptionOut.setGameActivityTypeWebPath(rs.getString("game_activity_type_web_path"));
 						list.add(quizzSortTeamMemberOptionOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzSortTeamMemberOptionOut> getResult() {

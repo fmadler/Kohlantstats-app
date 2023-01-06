@@ -186,9 +186,7 @@ public class QuizzWinnerTeamOrderFilterMatrixRepository implements QuizzWinnerTe
 						quizzWinnerTeamOrderFilterMatrixOut.setGameName(rs.getString("game_name"));
 						quizzWinnerTeamOrderFilterMatrixOut.setGameWebPath(rs.getString("game_web_path"));
 						list.add(quizzWinnerTeamOrderFilterMatrixOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzWinnerTeamOrderFilterMatrixOut> getResult() {

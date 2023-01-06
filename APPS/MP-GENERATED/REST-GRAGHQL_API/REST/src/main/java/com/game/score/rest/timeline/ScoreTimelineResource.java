@@ -26,10 +26,9 @@
 	* - name      : RESTDbAPISDDResource
 	* - file name : RESTDbAPISDDResource.vm
 */
-
-
+	
 package com.game.score.rest.timeline;
-    //templateModelCompress REST.Compress.Annotation
+
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.*;
@@ -82,6 +81,7 @@ import com.game.score.rest.Compress;
 * <p>Title: ScoreTimelineResource</p>
 *
 * <p>Description: class for ScoreTimelineResource service </p>
+* <p>Convention: $query.getNamingConvention() </p>
 *
 */
 @Path("/sdd/ScoreTimelineIn")
@@ -180,8 +180,6 @@ public class ScoreTimelineResource {
         return getResults(list);
     }
 
-
-
 	@lombok.Data
 	private class Participant {
 		String fullWebPath;
@@ -196,7 +194,6 @@ public class ScoreTimelineResource {
 			getResults().add(e);
 		}
 	}
-	
 
 	public List<Participant> getParticipants (ScoreTimelineOutList input) {
         List<Participant> ret = new ArrayList<>();
@@ -241,7 +238,6 @@ public class ScoreTimelineResource {
 			getParticipants().add(e);
 		}
 	}
-	
 
 	public List<Result> getResults (ScoreTimelineOutList input) {
         List<Result> ret = new ArrayList<>();

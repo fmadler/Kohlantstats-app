@@ -170,8 +170,7 @@ public class CreateGameParticipationRepository implements CreateGameParticipatio
 				) {
 					injectPrepareStatementParams(pstmt, createGameParticipationIn);
 					pstmt.executeUpdate();
-	        	}//from try (autoclosable)
-       }
+	        	}       }
 
        List<CreateGameParticipationOut> getResult() {
           return list;

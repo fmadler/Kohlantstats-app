@@ -189,9 +189,7 @@ public class QuizzWinnerParticipantOrderOptionRepository implements QuizzWinnerP
 						quizzWinnerParticipantOrderOptionOut.setParticipantWebPath(rs.getString("participant_web_path"));
 						quizzWinnerParticipantOrderOptionOut.setRanking(rs.getInt("ranking"));
 						list.add(quizzWinnerParticipantOrderOptionOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzWinnerParticipantOrderOptionOut> getResult() {

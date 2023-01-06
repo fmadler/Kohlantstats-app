@@ -163,8 +163,7 @@ public class CreateParticipantRealisationRepository implements CreateParticipant
 				CreateParticipantRealisationOut createParticipantRealisationOut = new CreateParticipantRealisationOut();
 				createParticipantRealisationOut.setParticipantTeamRealisationId(pstmt.getInt(6));
 				list.add(createParticipantRealisationOut);
-	        	}//from try (autoclosable)
-       }
+	        	}       }
 
        List<CreateParticipantRealisationOut> getResult() {
           return list;

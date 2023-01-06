@@ -46,7 +46,7 @@ import com.game.score.sdd.out.participant.ParticipantSummaryOut;
 @XmlRootElement (name="ParticipantSummaryOutList")
 public class ParticipantSummaryOutList {
 
-    @XmlElement (name="ParticipantSummaryOut") //(name="participantsummaryouts")
+    @XmlElement (name="ParticipantSummaryOut")
     private List<ParticipantSummaryOut> participantSummaryOuts;
 
     /**

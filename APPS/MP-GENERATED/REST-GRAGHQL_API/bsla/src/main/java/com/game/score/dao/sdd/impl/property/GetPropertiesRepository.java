@@ -212,9 +212,7 @@ public class GetPropertiesRepository implements GetPropertiesDaoFace {
 						getPropertiesOut.setEntityType(rs.getString("entity_type"));
 						getPropertiesOut.setEntityWebPath(rs.getString("entity_web_path"));
 						list.add(getPropertiesOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<GetPropertiesOut> getResult() {

@@ -21,11 +21,13 @@
                 Candidats {{@data.nbOfParticipants}}
                 <br />
                 Jours {{@data.totalTimeLength}}
-                {{#if @data.winnerName}}
+                {{#if (gt @data.winners.length 0)}}
                 <br />
                 Vainqueur
-                <LinkTo @route="programme.participant.participant" @models={{array @data.webPath @data.winnerWebPath}}>
-                    {{@data.winnerName}}</LinkTo>
+                  {{#each @data.winners as |winner index| }}
+                <LinkTo @route="programme.participant.participant" @models={{array @data.webPath winner.webPath}}>
+                    {{winner.name}}</LinkTo>
+                {{/each}}
                 {{/if}}
                 <br />
                 Lieu {{@data.place}}
@@ -39,12 +41,12 @@
             <div class="col-sm-6">
                 {{!--#if entityValue.value.custom.binary_url}}{{/if--}}
                 <LinkTo @route="programme.programme" @model={{@data.webPath}}>
-                    <Snippet::Image 
-                        @alt={{@data.webPath}} 
-                        @src={{entityValue.value.custom.binary_url}} 
+                    <Snippet::Image
+                        @alt={{@data.webPath}}
+                        @src={{entityValue.value.custom.binary_url}}
                         @icon="image"/>
                 </LinkTo>
-                
+
             </div>
         </div>
         {{/if}}

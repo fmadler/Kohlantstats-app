@@ -26,4 +26,3 @@
 	 - name      : SequenceSQL
 	 - file name : SequenceSQL.vm
 */
-CREATE SEQUENCE null;

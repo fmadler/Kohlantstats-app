@@ -26,10 +26,9 @@
 	* - name      : RESTDbAPISDDResource
 	* - file name : RESTDbAPISDDResource.vm
 */
-
-
+	
 package com.game.score.rest.sitemap;
-    //templateModelCompress REST.Compress.Annotation
+
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.*;
@@ -76,16 +75,18 @@ import com.game.score.sdd.out.sitemap.SitemapOut;
 import com.game.score.dao.sdd.face.sitemap.SitemapDaoFace;
 import com.game.score.rest.Cacheable;
 import com.game.score.rest.Compress;
+import com.game.score.rendition.VelocityMerger;
 /**
 *
 * <p>Title: SitemapResource</p>
 *
 * <p>Description: class for SitemapResource service </p>
+* <p>Convention: camelcase </p>
 *
 */
-@Path("/sdd/SitemapIn")
+@Path("/sdd/sitemap")
 @Produces(MediaType.APPLICATION_JSON)
-@Api(value="/sdd/SitemapIn", description = "operation about SitemapIn")
+@Api(value="/sdd/sitemap", description = "operation about SitemapIn")
 public class SitemapResource {
     @Autowired
     @Qualifier("sitemapDaoFace")
@@ -113,8 +114,31 @@ public class SitemapResource {
 	}
 	
 
+    @Autowired
+    VelocityMerger velocityMerger;
+    //Post Processor xml
+    
+    private String render (SitemapOutList list) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("sitemap",list);
+        return velocityMerger.merge("velocity/sitemap.xml.vm", map);
+    }
 
-
+    @GET
+    @Path("/xml")
+    @Cacheable(cc = "public, max-age=3600")
+    @Compress
+    @ApiOperation(value = "sitemap", notes = "perform sitemap", response = SitemapOutList.class)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "ok")
+    })
+    public String processToxml (
+            ) {
+        SitemapOutList l =
+            callImplementation(
+                            );
+        return render(l);
+    }
 
 
 }

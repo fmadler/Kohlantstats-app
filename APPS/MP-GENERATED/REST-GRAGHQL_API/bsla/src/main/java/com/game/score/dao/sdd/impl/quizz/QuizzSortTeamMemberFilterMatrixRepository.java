@@ -186,9 +186,7 @@ public class QuizzSortTeamMemberFilterMatrixRepository implements QuizzSortTeamM
 						quizzSortTeamMemberFilterMatrixOut.setGameName(rs.getString("game_name"));
 						quizzSortTeamMemberFilterMatrixOut.setGameWebPath(rs.getString("game_web_path"));
 						list.add(quizzSortTeamMemberFilterMatrixOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzSortTeamMemberFilterMatrixOut> getResult() {

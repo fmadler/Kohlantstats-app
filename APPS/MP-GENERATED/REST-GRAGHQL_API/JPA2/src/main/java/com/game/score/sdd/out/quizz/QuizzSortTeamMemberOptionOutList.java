@@ -46,7 +46,7 @@ import com.game.score.sdd.out.quizz.QuizzSortTeamMemberOptionOut;
 @XmlRootElement (name="QuizzSortTeamMemberOptionOutList")
 public class QuizzSortTeamMemberOptionOutList {
 
-    @XmlElement (name="QuizzSortTeamMemberOptionOut") //(name="quizzsortteammemberoptionouts")
+    @XmlElement (name="QuizzSortTeamMemberOptionOut")
     private List<QuizzSortTeamMemberOptionOut> quizzSortTeamMemberOptionOuts;
 
     /**

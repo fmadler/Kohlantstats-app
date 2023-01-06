@@ -265,9 +265,7 @@ public class QuizzWinnerTeamOptionRepository implements QuizzWinnerTeamOptionDao
 						quizzWinnerTeamOptionOut.setRanking(rs.getInt("ranking"));
 						quizzWinnerTeamOptionOut.setScore(rs.getBigDecimal("score"));
 						list.add(quizzWinnerTeamOptionOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<QuizzWinnerTeamOptionOut> getResult() {

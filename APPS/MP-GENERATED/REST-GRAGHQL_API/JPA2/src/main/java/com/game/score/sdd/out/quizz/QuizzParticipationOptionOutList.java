@@ -46,7 +46,7 @@ import com.game.score.sdd.out.quizz.QuizzParticipationOptionOut;
 @XmlRootElement (name="QuizzParticipationOptionOutList")
 public class QuizzParticipationOptionOutList {
 
-    @XmlElement (name="QuizzParticipationOptionOut") //(name="quizzparticipationoptionouts")
+    @XmlElement (name="QuizzParticipationOptionOut")
     private List<QuizzParticipationOptionOut> quizzParticipationOptionOuts;
 
     /**

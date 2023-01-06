@@ -1,4 +1,4 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
+	<beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
@@ -25,8 +25,24 @@
 
     <import resource="classpath:com/game/score/factory/spring/spring-config-Score-BE-main.xml"/>    
  
-	<context:component-scan base-package="com.game.score.rest,com.game.score.service.impl,com.game.score.scheduler,com.game.score.graphql" />
+	<context:component-scan base-package="com.game.score.rest,com.game.score.service.impl,com.game.score.scheduler," />
 
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+
+            <value>
+                resource.loader=class
+                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+
+        </property>
+    </bean>
+    <!--
+    -->
+    <bean id="velocityMerger" class="com.game.score.rendition.VelocityMerger">
+        <property name="engine" ref="velocityEngine"/>
+        <property name="toolBoxConfigLocation" value="/WEB-INF/velocity-tools.xml"/>
+    </bean>
 
 </beans>
 <!--

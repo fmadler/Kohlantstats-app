@@ -46,7 +46,7 @@ import com.game.score.sdd.out.distinct.DistinctConcurrentsForParticipantOut;
 @XmlRootElement (name="DistinctConcurrentsForParticipantOutList")
 public class DistinctConcurrentsForParticipantOutList {
 
-    @XmlElement (name="DistinctConcurrentsForParticipantOut") //(name="distinctconcurrentsforparticipantouts")
+    @XmlElement (name="DistinctConcurrentsForParticipantOut")
     private List<DistinctConcurrentsForParticipantOut> distinctConcurrentsForParticipantOuts;
 
     /**

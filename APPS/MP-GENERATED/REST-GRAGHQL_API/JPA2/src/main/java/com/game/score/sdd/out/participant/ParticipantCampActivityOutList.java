@@ -46,7 +46,7 @@ import com.game.score.sdd.out.participant.ParticipantCampActivityOut;
 @XmlRootElement (name="ParticipantCampActivityOutList")
 public class ParticipantCampActivityOutList {
 
-    @XmlElement (name="ParticipantCampActivityOut") //(name="participantcampactivityouts")
+    @XmlElement (name="ParticipantCampActivityOut")
     private List<ParticipantCampActivityOut> participantCampActivityOuts;
 
     /**

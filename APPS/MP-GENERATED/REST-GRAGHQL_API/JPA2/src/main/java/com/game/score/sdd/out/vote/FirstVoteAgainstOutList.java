@@ -46,7 +46,7 @@ import com.game.score.sdd.out.vote.FirstVoteAgainstOut;
 @XmlRootElement (name="FirstVoteAgainstOutList")
 public class FirstVoteAgainstOutList {
 
-    @XmlElement (name="FirstVoteAgainstOut") //(name="firstvoteagainstouts")
+    @XmlElement (name="FirstVoteAgainstOut")
     private List<FirstVoteAgainstOut> firstVoteAgainstOuts;
 
     /**

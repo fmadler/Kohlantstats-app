@@ -176,7 +176,7 @@ public class ScoreScheduler {
             message.setContent(multipart);
 
             SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
-            t.connect("smtp.mailgun.com", "postmaster@winerylabs.com", "5155c8411cb29829e715462bbd3cf878");
+            t.connect("smtp.mailgun.com", "postmaster@winerylabs.com", "xxx");
             t.sendMessage(message, message.getAllRecipients());
             t.close();
 

@@ -46,7 +46,7 @@ import com.game.score.sdd.out.game.CreateGameParticipationOut;
 @XmlRootElement (name="CreateGameParticipationOutList")
 public class CreateGameParticipationOutList {
 
-    @XmlElement (name="CreateGameParticipationOut") //(name="creategameparticipationouts")
+    @XmlElement (name="CreateGameParticipationOut")
     private List<CreateGameParticipationOut> createGameParticipationOuts;
 
     /**

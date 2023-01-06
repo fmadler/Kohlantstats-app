@@ -46,7 +46,7 @@ import com.game.score.sdd.out.player.PlayerPerformanceComparisonOut;
 @XmlRootElement (name="PlayerPerformanceComparisonOutList")
 public class PlayerPerformanceComparisonOutList {
 
-    @XmlElement (name="PlayerPerformanceComparisonOut") //(name="playerperformancecomparisonouts")
+    @XmlElement (name="PlayerPerformanceComparisonOut")
     private List<PlayerPerformanceComparisonOut> playerPerformanceComparisonOuts;
 
     /**

@@ -193,9 +193,7 @@ public class MasterDataRepository implements MasterDataDaoFace {
 						masterDataOut.setName(rs.getString("name"));
 						masterDataOut.setWebPath(rs.getString("web_path"));
 						list.add(masterDataOut);
-	        		}//from while (rs.next())
-	        	}//from try (autoclosable)
-			}
+	        		}	        	}			}
        }
 
        List<MasterDataOut> getResult() {

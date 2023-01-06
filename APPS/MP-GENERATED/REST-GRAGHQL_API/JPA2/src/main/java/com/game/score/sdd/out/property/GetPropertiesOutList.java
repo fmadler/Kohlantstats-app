@@ -46,7 +46,7 @@ import com.game.score.sdd.out.property.GetPropertiesOut;
 @XmlRootElement (name="GetPropertiesOutList")
 public class GetPropertiesOutList {
 
-    @XmlElement (name="GetPropertiesOut") //(name="getpropertiesouts")
+    @XmlElement (name="GetPropertiesOut")
     private List<GetPropertiesOut> getPropertiesOuts;
 
     /**

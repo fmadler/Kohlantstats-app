@@ -158,8 +158,7 @@ public class FirstVoteAgainstRepository implements FirstVoteAgainstDaoFace {
 				) {
 					injectPrepareStatementParams(pstmt, firstVoteAgainstIn);
 					pstmt.executeUpdate();
-	        	}//from try (autoclosable)
-       }
+	        	}       }
 
        List<FirstVoteAgainstOut> getResult() {
           return list;
