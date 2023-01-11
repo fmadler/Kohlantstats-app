@@ -62,8 +62,12 @@ public class ProgramInfoOut {
     private String placeWebPath;
     private java.math.BigDecimal latitude;
     private java.math.BigDecimal longitude;
-    private String winnerName;
-    private String winnerWebPath;
+	@Data
+	public class Winners {
+		String name;
+		String webPath;
+	}
+    private List<Winners> winners;
     private Long nbOfParticipants;
     private Long nbOfGames;
 

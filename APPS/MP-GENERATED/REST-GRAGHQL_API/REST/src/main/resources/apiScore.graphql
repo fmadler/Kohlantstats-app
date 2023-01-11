@@ -428,12 +428,15 @@ type ProgramInfoOut {
     placeWebPath:String
     latitude:Float
     longitude:Float
-    winnerName:String
-    winnerWebPath:String
+    winners:[ProgramInfoOutWinners]
     nbOfParticipants:String
     nbOfGames:String
 }
 
+type ProgramInfoOutWinners {
+    name:String
+    webPath:String
+}
 
 
     """
@@ -479,11 +482,13 @@ type DistinctProgramsOut {
     place:String
     placeWebPath:String
     nbOfParticipants:String
-    winnerName:String
-    winnerWebPath:String
-    participants:[ParticipantSummaryOut]
+    winners:[DistinctProgramsOutWinners]
 }
-## hi
+
+type DistinctProgramsOutWinners {
+    name:String
+    webPath:String
+}
 
 
 

@@ -117,15 +117,49 @@ In MODEL/migration
 ```sh
 ./migrate.sh 
 ```
+* Minuteproject Generation 
+** For KendoUI, ember stacks
+```sh
+java net.sf.minuteProject.application.ModelViewGenerator game-score-public-api.xml -DjdbcUrl=jdbc:mysql://172.19.0.2:3306/kohlantstats -Dusername=kls_crud -Dpassword=K!_user$crud1_mp -Dtarget=REST-Kendoui,Ember
+```
+** For graphql, ember stacks
+```sh
+java net.sf.minuteProject.application.ModelViewGenerator game-score-public-api.xml -DjdbcUrl=jdbc:mysql://172.19.0.2:3306/kohlantstats -Dusername=kls_crud -Dpassword=K!_user$crud1_mp -Dtarget=REST-GRAPHQL_API,Ember
+```
 * Build & deploy app for local development
 In the generated folder of minuteproject (ex : minuteproject/product/game-score-public-api/REST-GRAPHQL_API)
 ```sh
 mvn clean package -Ptomcat-embedded-ds 
 cp REST/target/scoreGraphQLApp.war ${pathToKlsGitLocalRepository}/Kohlantstats-app/APPS/__RELEASES/tomcat/
 ```
-* 2 apps 
+** 2 apps 
 ** scoreKendoUiApp (http://localhost/scoreKendoUiApp/data/*)
 ** scoreGraphQLApp (http://localhost/scoreGraphQLApp/data/graphql/graphiql)
+
+* Ember API adapters and services 
+Minuteproject generates Ember stubs for adapters and services that can be copied in Ember adapter and services
+Environment configuration of datasource is to be added in environment.js 
+
+## Deployment
+### Migrate DB script
+On mysql cloud server perform migration
+### REST API on tomcat 
+#### Build without embedded datasource 
+```sh
+mvn clean package 
+cp REST/target/scoreGraphQLApp.war to cloud tomcat server
+```
+Check URL API, graphql etc 
+### Deploy Ember application
+#### On surge
+```sh
+./surge-release.sh 
+```
+#### On Apache2 http server 
+ember build --environment=prototype
+
+Copy dist artifacts (ftp)
+
 
 ## Kohlantstats microservices ecosystem
 ### Property microservices

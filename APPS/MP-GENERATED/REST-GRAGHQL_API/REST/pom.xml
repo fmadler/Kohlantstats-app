@@ -8,7 +8,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>scoreKendoUiApp</artifactId><!-- KendoUiApp -->
+    <artifactId>scoreGraphQLApp</artifactId>
     <packaging>war</packaging>
     <name>score REST service</name>
     
@@ -143,6 +143,18 @@
             <version>4.0.beta3.7</version>
         </dependency>
 
+        <!-- graphql -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>5.2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-extended-scalars</artifactId>
+            <version>17.0</version>
+        </dependency>
         <!-- swagger -->
         <dependency>
             <groupId>io.swagger</groupId>
@@ -291,7 +303,7 @@
 
     </dependencies>
     <build>
-        <finalName>scoreKendoUiApp</finalName>
+        <finalName>scoreGraphQLApp</finalName>
         <plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>

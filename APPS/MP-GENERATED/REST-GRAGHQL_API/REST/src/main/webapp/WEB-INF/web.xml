@@ -48,7 +48,7 @@
 		</init-param>
 		<init-param>
 			<param-name>swagger.api.basepath</param-name>
-			<param-value>/scoreKendoUiApp/data</param-value>
+			<param-value>/scoreGraphQLApp/data</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>
 	</servlet>

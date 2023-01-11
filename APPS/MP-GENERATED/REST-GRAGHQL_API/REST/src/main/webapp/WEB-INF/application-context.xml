@@ -25,7 +25,7 @@
 
     <import resource="classpath:com/game/score/factory/spring/spring-config-Score-BE-main.xml"/>    
  
-	<context:component-scan base-package="com.game.score.rest,com.game.score.service.impl,com.game.score.scheduler," />
+	<context:component-scan base-package="com.game.score.rest,com.game.score.service.impl,com.game.score.scheduler,com.game.score.graphql" />
 
     <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
         <property name="velocityProperties">

@@ -74,7 +74,7 @@ import com.game.score.sdd.in.info.ProgramInfoIn;
 @Transactional(propagation = Propagation.REQUIRED)
 public class ProgramInfoRepository implements ProgramInfoDaoFace {
 
-	public static final String QUERY_NATIVE = "select p.name, p.web_path, p.year, 	p.EDITION_NUMBER EDITION_NUMBER,     p.TOTAL_TIME_LENGTH,     l.COUNTRY,     l.COUNTRY_FLAG,     l.COUNTRY_WEB_PATH,     l.PLACE,     l.PLACE_WEB_PATH,     l.LATITUDE,     l.LONGITUDE,     winner.name winner_name,     winner.WEB_PATH winner_web_path,     participants.nb nb_of_participants,     games.nb nb_of_games  from gs_location l, gs_program p left outer join  ( 	select 		pl.name name, 		pl.web_path web_path, 		pg.id program_id 	from gs_participant pa, gs_player pl, gs_program pg 	where pa.gs_program_id = pg.id 		and pa.gs_player_id = pl.id 		and pa.final_position = 1 	group by pg.id ) winner on winner.program_id = p.id, ( 	select count(*) nb, pg.WEB_PATH program_web_path from gs_participant pa, gs_program pg 	where pa.GS_PROGRAM_ID = pg.ID 	group by pg.web_path ) participants, ( 	select count(*) nb, pg.WEB_PATH program_web_path from gs_game g, gs_program pg 	where g.GS_PROGRAM_ID = pg.ID 	group by pg.web_path ) games where 	p.GS_LOCATION_ID = l.ID and     p.web_path = participants.program_web_path and     p.web_path = games.program_web_path $whereProgramWebPath ORDER by edition_number asc";
+	public static final String QUERY_NATIVE = "select p.name, p.web_path, p.year, 	p.EDITION_NUMBER EDITION_NUMBER,     p.TOTAL_TIME_LENGTH,     l.COUNTRY,     l.COUNTRY_FLAG,     l.COUNTRY_WEB_PATH,     l.PLACE,     l.PLACE_WEB_PATH,     l.LATITUDE,     l.LONGITUDE,    	winner.winners,    	participants.nb nb_of_participants,    	games.nb nb_of_games from gs_location l, gs_program p left outer join      (          select              GROUP_CONCAT(distinct                           CONCAT_WS(                                   '|',                                   pl.name,                                   pl.web_path                               )                  ) winners,              pg.id program_id          from gs_participant pa, gs_player pl, gs_program pg          where pa.gs_program_id = pg.id            and pa.gs_player_id = pl.id            and pa.final_position = 1          group by pg.id      ) winner on winner.program_id = p.id,      (          select count(*) nb, pg.WEB_PATH program_web_path from gs_participant pa, gs_program pg          where pa.GS_PROGRAM_ID = pg.ID          group by pg.web_path      ) participants,      (          select count(*) nb, pg.WEB_PATH program_web_path from gs_game g, gs_program pg          where g.GS_PROGRAM_ID = pg.ID          group by pg.web_path      ) games where         p.GS_LOCATION_ID = l.ID and         p.web_path = participants.program_web_path and         p.web_path = games.program_web_path $whereProgramWebPath ORDER by edition_number asc";
 	public static final String CHUNK_whereProgramWebPath = "p.web_path = ?";
 
 	@PersistenceContext(unitName = "score")  
@@ -168,8 +168,22 @@ public class ProgramInfoRepository implements ProgramInfoDaoFace {
 						programInfoOut.setPlaceWebPath(rs.getString("PLACE_WEB_PATH"));
 						programInfoOut.setLatitude(rs.getBigDecimal("LATITUDE"));
 						programInfoOut.setLongitude(rs.getBigDecimal("LONGITUDE"));
-						programInfoOut.setWinnerName(rs.getString("winner_name"));
-						programInfoOut.setWinnerWebPath(rs.getString("winner_web_path"));
+						String winners = rs.getString("winners");
+						if (winners != null) {
+							programInfoOut.setWinners(
+								Arrays.asList(winners.split("\\,")).stream()
+									.map(u -> {
+										String[] uA = u.split("\\|");
+										ProgramInfoOut.Winners c = programInfoOut.new Winners();
+										if (uA.length==2) {
+											c.setName(uA[0]);
+											c.setWebPath(uA[1]);
+										}
+										return c;
+									})
+									.collect(Collectors.toList())
+							);
+						}
 						programInfoOut.setNbOfParticipants(rs.getLong("nb_of_participants"));
 						programInfoOut.setNbOfGames(rs.getLong("nb_of_games"));
 						list.add(programInfoOut);

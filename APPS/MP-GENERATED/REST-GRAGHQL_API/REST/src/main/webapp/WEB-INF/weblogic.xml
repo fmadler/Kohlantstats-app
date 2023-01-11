@@ -47,12 +47,12 @@ http://xmlns.oracle.com/weblogic/weblogic-web-app/1.2/weblogic-web-app.xsd">
     </container-descriptor>
 
     <session-descriptor>
-        <cookie-name>scoreKendoUiApp_SESSIONID</cookie-name>
-        <cookie-path>/scoreKendoUiApp</cookie-path>
+        <cookie-name>scoreGraphQLApp_SESSIONID</cookie-name>
+        <cookie-path>/scoreGraphQLApp</cookie-path>
         <url-rewriting-enabled>false</url-rewriting-enabled>
     </session-descriptor>
 
-    <context-root>/scoreKendoUiApp</context-root>
+    <context-root>/scoreGraphQLApp</context-root>
 </wls:weblogic-web-app>
 <!--
 	 Copyright (c) minuteproject, minuteproject@gmail.com

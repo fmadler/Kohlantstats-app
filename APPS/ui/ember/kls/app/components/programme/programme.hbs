@@ -40,12 +40,14 @@
       <Display::DisplayScore @badge='info' @score={{sum-score @data.gameStats 'longevity'}} /> en longévité --}}
       <br />
 
-      {{#if @data.programInfo.[0].winnerName}}
+      {{#if (gt @data.programInfo.[0].winners.length 0)}}
       Vainqueur
+        {{#each @data.programInfo.[0].winners as |winner index| }}
       <LinkTo @route="programme.participant.participant"
-        @models={{array @data.programInfo.[0].webPath @data.programInfo.[0].winnerWebPath}}>
-        {{@data.programInfo.[0].winnerName}}
+        @models={{array @data.programInfo.[0].webPath winner.webPath}}>
+        {{winner.name}}
       </LinkTo>
+        {{/each}}
       <br />
       {{/if}}
 
