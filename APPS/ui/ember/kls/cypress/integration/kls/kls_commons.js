@@ -73,9 +73,10 @@ export function goToEditions() {
     cy.get("[data-cy=nav-editions").click()
 }
 
-export function goToEdition(edition) {
-    goToEditions()
-    cy.get(`a[href="/programme/${edition}"]`).first().click()
+export function goToEdition(programWp) {
+    //goToEditions()
+    //cy.get(`a[href="/programme/${edition}"]`).first().click()
+    cy.visit(`${root_url}/programme/${programWp}`)
 }
 
 export function goToHomePage() {

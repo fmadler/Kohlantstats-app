@@ -43,7 +43,7 @@
       {{#if (gt @data.programInfo.[0].winners.length 0)}}
       Vainqueur
         {{#each @data.programInfo.[0].winners as |winner index| }}
-      <LinkTo @route="programme.participant.participant"
+      <LinkTo @route="programme.participant.participant" data-cy="{{@data.programInfo.[0].webPath}}-winner-{{index}}"
         @models={{array @data.programInfo.[0].webPath winner.webPath}}>
         {{winner.name}}
       </LinkTo>

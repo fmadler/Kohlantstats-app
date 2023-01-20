@@ -82,7 +82,21 @@ export const mock = {
                     webPath:"alexandra-2020"
                 }
             ]
-        }
+        },
+        {
+          name:"Le Totem maudit",
+          webPath:"le-totem-maudit",
+          participants : [
+            {
+              name:"François",
+              webPath:"francois-2022"
+            },
+            {
+              name:"Bastien",
+              webPath:"bastien-2022"
+            },
+          ]
+        },
     ]
 }
 export const winner_parcours_du_combattant_2021 = mock.seasons[0].games[0].winner.name;
@@ -97,9 +111,14 @@ export const loic_Les4terres_score_second = mock.seasons[1].participants[0].scor
 export const loic_Les4terres_score_longevity = mock.seasons[1].participants[0].score.longevity;
 export const alexandra_Les4terres_webPath = mock.seasons[1].participants[1].webPath;
 
+export const alexandra_webPath = mock.seasons[1].participants[1].webPath;
+
 export const program_Lalegende_webPath = mock.seasons[2].webPath;
 export const program_Lalegende_name = mock.seasons[2].name;
 export const loic_Lalegende_score_total = mock.seasons[2].participants[0].score.total;
 export const loic_Lalegende_score_first = mock.seasons[2].participants[0].score.first;
 export const loic_Lalegende_score_second = mock.seasons[2].participants[0].score.second;
 export const loic_Lalegende_score_longevity = mock.seasons[2].participants[0].score.longevity;
+
+export const program_LeTotemMaudit_webPath = mock.seasons[3].webPath;
+export const program_LeTotemMaudit_name = mock.seasons[3].name;
