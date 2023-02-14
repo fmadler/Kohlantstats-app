@@ -13,7 +13,7 @@ call create_participant_departure('le-totem-maudit','ambre-2022','blanc-2022',38
 call fill_participant_longevity ('le-totem-maudit','ambre-2022',6,1,38);
 
 
-call create_game('le-totem-maudit','Les poteaux','poteaux-2022','poteaux','individuel','finale',30,39,'groupe-final','equilibre,statique,patience');
+call create_game('le-totem-maudit','L   es poteaux','poteaux-2022','poteaux','individuel','finale',30,39,'groupe-final','equilibre,statique,patience');
 
 call create_game_participation('francois-2022','blanc-2022','poteaux-2022','participant','individuel',4,'');
 call create_game_participation('bastien-2022','blanc-2022','poteaux-2022','participant','individuel',3,'');
