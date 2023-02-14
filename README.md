@@ -25,6 +25,11 @@ Instantiate image into container
 docker run -d -e MYSQL_ROOT_PASSWORD=admin --name mysql_8_0 mysql:8.0 --lower_case_table_names=1
 ```
 
+Start from an installed container 
+```sh
+docker start mysql_8_0
+```
+
 #### Change global 
 https://stackoverflow.com/questions/23921117/disable-only-full-group-by
 
