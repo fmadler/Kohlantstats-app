@@ -19,6 +19,9 @@ call create_participant_entrance ('le-feu-sacre','rudy-2023','arrivee-2023',1,'a
 call create_participant_entrance ('le-feu-sacre','frederic-2023','arrivee-2023',1,'arrivee', @participant_team_id);
 call create_participant_entrance ('le-feu-sacre','emin-2023','arrivee-2023',1,'arrivee', @participant_team_id);
 
+call create_game('le-feu-sacre','Parcours du combattant','parcours-du-combattant-2023','parcours-du-combattant','individuel','talisman,chef-equipe',1,1,'totem','rapidite,force,endurance');
+
+
 /*
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Choix du chef adverse', 'determination-chef-adverse', 9, 1);
 INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Bracelet maudit', 'bracelet-maudit', 2, 0);
