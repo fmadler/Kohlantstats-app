@@ -22,9 +22,10 @@ begin
     set @vote_type_id = null;
         
     select id into @team_id from gs_team where web_path = _team_web_path;
-	IF(@team_id is null) THEN 
+	IF(@team_id is null) THEN
+        set @msg = concat('Team not found', _team_web_path);
 		SIGNAL SQLSTATE '45000'
-			SET MESSAGE_TEXT = 'Team not found for ';
+			SET MESSAGE_TEXT = @msg;
 	END IF;
     
     /* TODO check that voter and target are from same team */

@@ -68,9 +68,10 @@ begin
     select p.id into @participant_id from gs_participant p, gs_player pl, gs_program pr 
 		where p.GS_PLAYER_ID = pl.id and pl.WEB_PATH =_participant_web_path
 		and p.GS_PROGRAM_ID = pr.ID and pr.WEB_PATH=_program_web_path;
-	IF(@participant_id is null) THEN 
+	IF(@participant_id is null) THEN
+        set @msg = concat('Participant not found ', _participant_web_path,' ', _program_web_path);
 		SIGNAL SQLSTATE '50000'
-			SET MESSAGE_TEXT = 'Participant not found for ';
+			SET MESSAGE_TEXT = @msg;
 	END IF;
     select id into @team_id from gs_team where web_path = _team_web_path;
 	IF(@team_id is null) THEN 
@@ -79,7 +80,7 @@ begin
 	END IF;
     
     select id into @gs_participant_team_id from gs_participant_team where gs_participant_id = @participant_id and gs_team_id = @team_id;
-	IF(@gs_participant_team_id is null) THEN 
+	IF(@gs_participant_team_id is null) THEN
 		SIGNAL SQLSTATE '45000'
 			SET MESSAGE_TEXT = 'team participation not found for ';
 	END IF;    

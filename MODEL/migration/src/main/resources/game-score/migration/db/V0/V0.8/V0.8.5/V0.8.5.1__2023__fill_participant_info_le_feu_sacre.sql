@@ -60,5 +60,3 @@ call add_participant('le-feu-sacre', 'Frédéric', '', 'frederic-2023', 'H', 33,
 call add_participant('le-feu-sacre', 'Emin', '', 'emin-2023', 'H', 56, null, 0, 'Belgique', 'directeur général d''une entreprise d''événementiel');
 -- Emin, 56 ans, directeur général d'une entreprise d'événementiel en Belgique. Cela fait… 20 ans que le doyen de la saison s’inscrit à Koh-Lanta chaque année. Cette fois-ci, c'est la bonne !
 
-call create_team('le-feu-sacre','Arrivée','arrivee-2023','Arrivée',1,1);
-

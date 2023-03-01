@@ -36,5 +36,5 @@ call first_vote_against ('le-feu-sacre','clemence-2023','celia-2023','jaune-2023
 call first_vote_against ('le-feu-sacre','benjamin-2023','celia-2023','jaune-2023', 3, 'effectif');
 call first_vote_against ('le-feu-sacre','celia-2023','clemence-2023','jaune-2023', 3, 'effectif');
 
-call create_participant_departure('le-totem-maudit','celia-2023','jaune-2023',3,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('le-totem-maudit','celia-2023',20,1,3);
+call create_participant_departure('le-feu-sacre','celia-2023','jaune-2023',3,'exclusion-par-vote', @participant_team_id);
+call fill_participant_longevity ('le-feu-sacre','celia-2023',20,1,3);

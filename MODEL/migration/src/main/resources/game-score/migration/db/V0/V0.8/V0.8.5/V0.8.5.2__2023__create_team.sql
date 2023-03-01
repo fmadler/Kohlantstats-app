@@ -22,7 +22,7 @@ call create_participant_entrance ('le-feu-sacre','frederic-2023','arrivee-2023',
 call create_participant_entrance ('le-feu-sacre','emin-2023','arrivee-2023',1,'arrivee', @participant_team_id);
 
 
-call create_game('le-feu-sacre','Parcours du combattant','parcours-du-combattant-2023','parcours-du-combattant','individuel','talisman,chef-equipe',1,1,'totem','rapidite,force,endurance');
+call create_game('le-feu-sacre','Parcours du combattant','parcours-du-combattant-2023','parcours-du-combattant','individuel','capitaine',1,1,'talisman,chef-equipe','rapidite,force,endurance');
 
 call create_game_participation('julie-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',0,'');
 call create_game_participation('helena-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',2,'chef-equipe');
@@ -44,12 +44,14 @@ call create_game_participation('frederic-2023','arrivee-2023','parcours-du-comba
 call create_game_participation('emin-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',0,'');
 call create_game_participation('quentin-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',0,'');
 
-call create_team('le-feu-sacre','Jaune','jaune-2023','Equipe jaune',2,7); -- paniman
-call create_team('le-feu-sacre','Rouge','rouge-2023','Equipe rouge',2,7); -- dinago
+-- paniman
+call create_team('le-feu-sacre','Jaune','jaune-2023','Equipe jaune',2,7);
+-- dinago
+call create_team('le-feu-sacre','Rouge','rouge-2023','Equipe rouge',2,7);
 
 call create_participant_entrance ('le-feu-sacre','nicolas-2023','jaune-2023',1,'constitution-des-equipes', @participant_team_id);
-call create_participant_entrance ('le-feu-sacre','grace-2023','jauner-2023',2,'constitution-des-equipes', @participant_team_id);
-call create_participant_entrance ('le-feu-sacre','frederic-2023','jauner-2023',2,'constitution-des-equipes', @participant_team_id);
+call create_participant_entrance ('le-feu-sacre','grace-2023','jaune-2023',2,'constitution-des-equipes', @participant_team_id);
+call create_participant_entrance ('le-feu-sacre','frederic-2023','jaune-2023',2,'constitution-des-equipes', @participant_team_id);
 call create_participant_entrance ('le-feu-sacre','quentin-2023','jaune-2023',2,'constitution-des-equipes', @participant_team_id);
 call create_participant_entrance ('le-feu-sacre','gilles-2023','jaune-2023',2,'constitution-des-equipes', @participant_team_id);
 call create_participant_entrance ('le-feu-sacre','clemence-2023','jaune-2023',2,'constitution-des-equipes', @participant_team_id);
