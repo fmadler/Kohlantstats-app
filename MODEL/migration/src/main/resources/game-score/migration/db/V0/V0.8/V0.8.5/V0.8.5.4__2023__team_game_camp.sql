@@ -2,26 +2,26 @@ INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Destruct
 
 call create_game('le-feu-sacre','Destruction de cibles','destruction-cibles-2023','destruction-cibles','collectif','confort',3,4,'kit-peche','rapidite,force,precision');
 
-call create_game_participation('helena-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('julie-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('christine-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('anne-sophie-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('elodie-2023','rouge-2023','destruction-cibles-2023','exclusion-apres-tirage-au-sort','individuel',1,'kit-peche');
-call create_game_participation('martin-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('esteban-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('alexandre-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('rudy-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('emin-2023','rouge-2023','destruction-cibles-2023','participant','individuel',1,'kit-peche');
+call create_game_participation('helena-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('julie-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('christine-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('anne-sophie-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('elodie-2023','rouge-2023','destruction-cibles-2023','exclusion-apres-tirage-au-sort','collectif',1,'kit-peche');
+call create_game_participation('martin-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('esteban-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('alexandre-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('rudy-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('emin-2023','rouge-2023','destruction-cibles-2023','participant','collectif',1,'kit-peche');
 
-call create_game_participation('nicolas-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('grace-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('frederic-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('quentin-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('gilles-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('tania-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('clemence-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('benjamin-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
-call create_game_participation('celia-2023','jaune-2023','destruction-cibles-2023','participant','individuel',2,'');
+call create_game_participation('nicolas-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('grace-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('frederic-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('quentin-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('gilles-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('tania-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('clemence-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('benjamin-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
+call create_game_participation('celia-2023','jaune-2023','destruction-cibles-2023','participant','collectif',2,'');
 
 call team_game_ranking ('jaune-2023','destruction-cibles-2023',2);
 call team_game_ranking ('rouge-2023','destruction-cibles-2023',1);
@@ -31,26 +31,26 @@ call team_game_ranking ('rouge-2023','destruction-cibles-2023',1);
 
 call create_game('le-feu-sacre','Flambeaux','flambeaux-2023','flambeaux','collectif','immunite',4,5,'kit-peche','rapidite,force,precision');
 
-call create_game_participation('helena-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('julie-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('christine-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('anne-sophie-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('elodie-2023','rouge-2023','flambeaux-2023','exclusion-apres-tirage-au-sort','individuel',1,'kit-peche');
-call create_game_participation('martin-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('esteban-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('alexandre-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('rudy-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
-call create_game_participation('emin-2023','rouge-2023','flambeaux-2023','participant','individuel',1,'kit-peche');
+call create_game_participation('helena-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('julie-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('christine-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('anne-sophie-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('elodie-2023','rouge-2023','flambeaux-2023','exclusion-apres-tirage-au-sort','collectif',1,'kit-peche');
+call create_game_participation('martin-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('esteban-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('alexandre-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('rudy-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
+call create_game_participation('emin-2023','rouge-2023','flambeaux-2023','participant','collectif',1,'kit-peche');
 
-call create_game_participation('nicolas-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('grace-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('frederic-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('quentin-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('laura-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('gilles-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('tania-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('clemence-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
-call create_game_participation('benjamin-2023','jaune-2023','flambeaux-2023','participant','individuel',2,'');
+call create_game_participation('nicolas-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('grace-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('frederic-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('quentin-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('laura-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('gilles-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('tania-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('clemence-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
+call create_game_participation('benjamin-2023','jaune-2023','flambeaux-2023','participant','collectif',2,'');
 
 call team_game_ranking ('jaune-2023','flambeaux-2023',1);
 call team_game_ranking ('rouge-2023','flambeaux-2023',2);
@@ -70,3 +70,5 @@ call second_vote_against ('le-feu-sacre','emin-2023','christine-2023','rouge-202
 
 call create_participant_departure('le-feu-sacre','emin-2023','rouge-2023',5,'exclusion-par-vote', @participant_team_id);
 call fill_participant_longevity ('le-feu-sacre','emin-2023',19,1,5);
+
+call program_current_time ('le-feu-sacre',5);

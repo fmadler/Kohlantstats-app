@@ -1,26 +1,26 @@
 call create_game('le-feu-sacre','Placement boules','placement-de-boules-2023','placement-de-boules','collectif','immunite',2,2,'totem','rapidite,force,precision');
 
-call create_game_participation('helena-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('julie-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('christine-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('anne-sophie-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('elodie-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('martin-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('esteban-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('alexandre-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('rudy-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
-call create_game_participation('emin-2023','rouge-2023','placement-de-boules-2023','participant','individuel',1,'totem');
+call create_game_participation('helena-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('julie-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('christine-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('anne-sophie-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('elodie-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('martin-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('esteban-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('alexandre-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('rudy-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
+call create_game_participation('emin-2023','rouge-2023','placement-de-boules-2023','participant','collectif',1,'totem');
 
-call create_game_participation('nicolas-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('grace-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('frederic-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('quentin-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('laura-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('gilles-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('tania-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('clemence-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('benjamin-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
-call create_game_participation('celia-2023','jaune-2023','placement-de-boules-2023','participant','individuel',2,'conseil');
+call create_game_participation('nicolas-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('grace-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('frederic-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('quentin-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('laura-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('gilles-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('tania-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('clemence-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('benjamin-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
+call create_game_participation('celia-2023','jaune-2023','placement-de-boules-2023','participant','collectif',2,'conseil');
 
 call team_game_ranking ('jaune-2023','placement-de-boules-2023',2);
 call team_game_ranking ('rouge-2023','placement-de-boules-2023',1);

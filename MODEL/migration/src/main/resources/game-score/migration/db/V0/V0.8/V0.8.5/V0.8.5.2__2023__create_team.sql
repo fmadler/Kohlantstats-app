@@ -43,6 +43,7 @@ call create_game_participation('rudy-2023','arrivee-2023','parcours-du-combattan
 call create_game_participation('frederic-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',0,'');
 call create_game_participation('emin-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',0,'');
 call create_game_participation('quentin-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',0,'');
+call create_game_participation('celia-2023','arrivee-2023','parcours-du-combattant-2023','participant','individuel',0,'');
 
 -- paniman
 call create_team('le-feu-sacre','Jaune','jaune-2023','Equipe jaune',2,7);
