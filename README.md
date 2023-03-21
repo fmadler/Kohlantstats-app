@@ -34,7 +34,7 @@ docker start mysql_8_0
 https://stackoverflow.com/questions/23921117/disable-only-full-group-by
 
 ```sh
-docker exec -i mysql_8_0 bash
+docker exec -it mysql_8_0 bash
 
 
 apt-get update
