@@ -41,7 +41,7 @@ call create_game_participation('anne-sophie-2023','rouge-2-2023','placement-de-s
 call create_game_participation('esteban-2023','rouge-2-2023','placement-de-sacs-sur-tour-2023','exclusion-apres-tirage-au-sort','collectif',1,'');
 call create_game_participation('quentin-2023','rouge-2-2023','placement-de-sacs-sur-tour-2023','participant','collectif',1,'');
 call create_game_participation('rudy-2023','rouge-2-2023','placement-de-sacs-sur-tour-2023','participant','collectif',1,'');
-call create_game_participation('frederic-2023','rouge-2-2023','placement-de-sacs-sur-tour-2023','participant','collectif',1,'');
+call create_game_participation('frederic-2023','rouge-2-2023','placement-de-sacs-sur-tour-2023','participant',N'collectif',1,'');
 call create_game_participation('clemence-2023','rouge-2-2023','placement-de-sacs-sur-tour-2023','participant','collectif',1,'');
 
 call create_game_participation('nicolas-2023','jaune-2-2023','placement-de-sacs-sur-tour-2023','participant','collectif',2,'totem');

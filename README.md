@@ -125,11 +125,11 @@ In MODEL/migration
 * Minuteproject Generation 
 ** For KendoUI, ember stacks
 ```sh
-java net.sf.minuteProject.application.ModelViewGenerator game-score-public-api.xml -DjdbcUrl=jdbc:mysql://172.19.0.2:3306/kohlantstats -Dusername=kls_crud -Dpassword=K!_user$crud1_mp -Dtarget=REST-Kendoui,Ember
+java net.sf.minuteProject.application.ModelViewGenerator game-score-public-api.xml -DjdbcUrl=jdbc:mysql://172.19.0.2:3306/kohlantstats -Dusername=kls_crud -Dpassword=xxx -Dtarget=REST-Kendoui,Ember
 ```
 ** For graphql, ember stacks
 ```sh
-java net.sf.minuteProject.application.ModelViewGenerator game-score-public-api.xml -DjdbcUrl=jdbc:mysql://172.19.0.2:3306/kohlantstats -Dusername=kls_crud -Dpassword=K!_user$crud1_mp -Dtarget=REST-GRAPHQL_API,Ember
+java net.sf.minuteProject.application.ModelViewGenerator game-score-public-api.xml -DjdbcUrl=jdbc:mysql://172.19.0.2:3306/kohlantstats -Dusername=kls_crud -Dpassword=xxx -Dtarget=REST-GRAPHQL_API,Ember
 ```
 * Build & deploy app for local development
 In the generated folder of minuteproject (ex : minuteproject/product/game-score-public-api/REST-GRAPHQL_API)
