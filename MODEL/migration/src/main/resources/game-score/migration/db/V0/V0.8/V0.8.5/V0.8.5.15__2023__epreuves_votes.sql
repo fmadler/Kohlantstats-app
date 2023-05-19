@@ -50,17 +50,16 @@ depart de gilles
  */
 
 
-call first_vote_against ('le-feu-sacre','gilles-2023','esteban-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','frederic-2023','tania-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','quentin-2023','tania-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','clemence-2023','gilles-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','esteban-2023','helena-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','nicolas-2023','esteban-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','laura-2023','gilles-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','tania-2023','gilles-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','julie-2023','gilles-2023','blanc-2023', 26, 'effectif');
-call first_vote_against ('le-feu-sacre','clemence-2023','gilles-2023','blanc-2023', 26, 'effectif');
-call second_vote_against ('le-feu-sacre','clemence-2023','gilles-2023','blanc-2023', 26, 'effectif');
+call first_vote_against ('le-feu-sacre','gilles-2023','esteban-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','frederic-2023','tania-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','quentin-2023','tania-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','esteban-2023','gilles-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','nicolas-2023','esteban-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','laura-2023','gilles-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','tania-2023','gilles-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','julie-2023','gilles-2023','blanc-2023', 29, 'effectif');
+call first_vote_against ('le-feu-sacre','clemence-2023','gilles-2023','blanc-2023', 29, 'effectif');
+call second_vote_against ('le-feu-sacre','clemence-2023','gilles-2023','blanc-2023', 29, 'effectif');
 
 call create_participant_departure('le-feu-sacre','gilles-2023','blanc-2023',29,'exclusion-par-vote', @participant_team_id);
 call fill_participant_longevity ('le-feu-sacre','gilles-2023',9,1,29);
