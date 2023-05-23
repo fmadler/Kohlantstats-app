@@ -106,6 +106,7 @@ call first_vote_against ('le-feu-sacre','esteban-2023','alexandre-2023','rouge-2
 call first_vote_against ('le-feu-sacre','rudy-2023','alexandre-2023','rouge-2-2023', 9, 'effectif');
 */
 call create_participant_departure('le-feu-sacre','tania-2023','rouge-2-2023',9,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('le-feu-sacre','tania-2023',16,1,12);
+-- tania est revenue
+-- call fill_participant_longevity ('le-feu-sacre','tania-2023',16,1,12);
 
 call program_current_time ('le-feu-sacre',12);
