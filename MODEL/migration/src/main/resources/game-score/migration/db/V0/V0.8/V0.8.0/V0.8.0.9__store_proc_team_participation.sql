@@ -74,21 +74,24 @@ begin
 			SET MESSAGE_TEXT = @msg;
 	END IF;
     select id into @team_id from gs_team where web_path = _team_web_path;
-	IF(@team_id is null) THEN 
+	IF(@team_id is null) THEN
+        set @msg = concat('Team not found for ', _team_web_path);
 		SIGNAL SQLSTATE '45000'
 			SET MESSAGE_TEXT = 'Team not found for ';
 	END IF;
     
     select id into @gs_participant_team_id from gs_participant_team where gs_participant_id = @participant_id and gs_team_id = @team_id;
 	IF(@gs_participant_team_id is null) THEN
-		SIGNAL SQLSTATE '45000'
-			SET MESSAGE_TEXT = 'team participation not found for ';
+        set @msg = concat('team participation not found for ', _team_web_path,', participant ', _participant_web_path);
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = @msg;
 	END IF;    
     
     select id into @departure_type_id from gs_team_departure_type where web_path = _departure_type_web_path;
-	IF(@departure_type_id is null) THEN 
+	IF(@departure_type_id is null) THEN
+        set @msg = concat('Departure type not found for ', _departure_type_web_path);
 		SIGNAL SQLSTATE '45000'
-			SET MESSAGE_TEXT = 'Departure type not found for ';
+			SET MESSAGE_TEXT = @msg;
 	END IF;
     
     update gs_participant_team set to_time_unit = _to_time, gs_team_departure_type_id = @departure_type_id

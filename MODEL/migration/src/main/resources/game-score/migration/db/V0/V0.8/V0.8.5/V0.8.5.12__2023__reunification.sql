@@ -34,6 +34,7 @@ call create_participant_entrance ('le-feu-sacre','helena-2023','blanc-2023',23,'
 call create_participant_entrance ('le-feu-sacre','anne-sophie-2023','blanc-2023',23,'reunification', @participant_team_id);
 call create_participant_entrance ('le-feu-sacre','tania-2023','blanc-2023',23,'reunification', @participant_team_id);
 call create_participant_entrance ('le-feu-sacre','julie-2023','blanc-2023',23,'reunification', @participant_team_id);
+call create_participant_entrance ('le-feu-sacre','quentin-2023','blanc-2023',23,'reunification', @participant_team_id);
 
 call create_game('le-feu-sacre','Grappin','grappin-2023','grappin','individuel','immunite',16,24,'totem,vote-contre-soi','adresse,dexterite');
 
