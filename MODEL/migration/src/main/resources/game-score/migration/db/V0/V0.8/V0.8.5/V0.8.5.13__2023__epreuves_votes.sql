@@ -1,6 +1,6 @@
 -- 25
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Repas de poisson', 'poisson', 5, 1);
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Decouverte des coraux', 'decouverte-coraux', 5, 1);
+call create_reward ('Repas de poisson', 'poisson', 'nourriture', 1);
+call create_reward ('Decouverte des coraux', 'decouverte-coraux', 'excursion', 1);
 
 call create_game('le-feu-sacre','Parcours en quatre étapes','parcours-quatre-etapes-2023','parcours-quatre-etapes','individuel','confort',16,25,'decouverte-coraux,poisson','force,rapidite');
 

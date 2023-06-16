@@ -1,6 +1,6 @@
-INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Marcher sur l eau', 'marcher-sur-l-eau', NULL);
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Récolte de riz', 'recolte-riz', 5, 1);
-
+call create_game_type ('Marcher sur l eau', 'marcher-sur-l-eau', NULL);
+-- INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Récolte de riz', 'recolte-riz', 5, 1);
+call create_reward ('Récolte de riz', 'recolte-riz', 'nourriture', 1);
 call create_game('le-feu-sacre','Marcher sur l''eau','marcher-sur-l-eau-2023','marcher-sur-l-eau','collectif','confort',5,7,'recolte-riz','rapidite,equilibre');
 
 call create_game_participation('helena-2023','rouge-2023','marcher-sur-l-eau-2023','participant','collectif',2,'');

@@ -1,4 +1,4 @@
-call create_programme('Le Feu Sacré', 'le-feu-sacre', '2023', 24, 39, 'philippines', 'philippines', 1);
+call create_programme('Le Feu Sacré', 'le-feu-sacre', '2023', 24, 40, 'philippines', 'philippines', 1);
 
 
 call add_participant('le-feu-sacre', 'Julie', 'Debever', 'julie-2023', 'F', 33, null, 0, 'Essonne', 'Footballeuse');

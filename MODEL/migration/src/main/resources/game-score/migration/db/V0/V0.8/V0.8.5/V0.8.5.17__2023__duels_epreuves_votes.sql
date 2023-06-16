@@ -6,7 +6,8 @@ call create_game_participation('clemence-2023','blanc-2023','tour-puzzle-2023','
 call create_participant_departure('le-feu-sacre','clemence-2023','blanc-2023',31,'elimination-du-dernier', @participant_team_id);
 call fill_participant_longevity ('le-feu-sacre','clemence-2023',8,1,31);
 
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Immunité pour un autre aventurier', 'immunite-par-protection-d-un-aventurier', 1, 1);
+call create_reward_type ('Avantage strategique', 'avantage-strategique');
+call create_reward ('Immunité pour un autre aventurier', 'immunite-par-protection-d-un-aventurier', 'avantage-strategique', 1);
 
 call create_game('le-feu-sacre','Table bascule','table-bascule-2023','table-bascule','individuel','immunite',24,32,'talisman,immunite-par-protection-d-un-aventurier,vote-contre-soi','rapidite,dexterite,calme');
 

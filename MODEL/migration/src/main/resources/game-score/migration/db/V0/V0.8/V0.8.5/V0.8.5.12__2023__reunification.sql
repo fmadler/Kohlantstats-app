@@ -1,6 +1,5 @@
 
-INSERT INTO `GS_TEAM_DEPARTURE_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Tirage boule noire aux ambassadeur', 'tirage-boule-noire-ambassadeur');
-INSERT INTO `GS_TEAM_DEPARTURE_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Tirage boule noirer', 'tirage-boule-noire');
+call create_departure_type ('Tirage boule noire aux ambassadeur', 'tirage-boule-noire-ambassadeur');
 
 call create_participant_realisation ('le-feu-sacre','grace-2023','jaune-2-2023',23,'ambassadeur-par-choix-d-equipe',@realisation_id);
 call create_participant_realisation ('le-feu-sacre','quentin-2023','rouge-2-2023',23,'ambassadeur-par-choix-d-equipe',@realisation_id);

@@ -1,7 +1,7 @@
 
 
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Voyage pour deux personnes', 'voyage-deux-personnes', 5, 1);
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Nourriture', 'nourriture', 5, 1);
+call create_reward ('Voyage pour deux personnes', 'voyage-deux-personnes', 'excursion', 1);
+call create_reward ('Nourriture', 'nourriture', 'nourriture', 1);
 call create_game('le-feu-sacre','Tir à l''arc','tir-a-l-arc-2023','tir-a-l-arc','individuel','confort',19,28,'nuit-hamac,telephone,nourriture,voyage-deux-personnes','precision,dexterite,strategie');
 
 

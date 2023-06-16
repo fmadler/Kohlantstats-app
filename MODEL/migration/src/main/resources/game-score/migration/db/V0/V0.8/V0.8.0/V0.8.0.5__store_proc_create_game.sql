@@ -69,6 +69,104 @@ begin
     call add_game_rewards_stakes_for_id(@game_id, _reward_web_paths, _tag_web_paths);
 
 end$$
+drop procedure IF EXISTS create_game_type$$
+create procedure create_game_type
+    (
+        _game_type_name varchar(100),
+        _game_type_web_path varchar(100),
+        _description varchar(100)
+    )
+begin
+    set @id = null;
+    select id into @id from GS_GAME_TYPE where WEB_PATH = _game_type_web_path or NAME=_game_type_name;
+    IF(@id is null) THEN
+        INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`)
+        VALUES (_game_type_name, _game_type_web_path, _description);
+    END IF;
+end $$
+drop procedure IF EXISTS create_game_stake_type$$
+create procedure create_game_stake_type
+    (
+        _game_stake_type_name varchar(100),
+        _game_stake_type_web_path varchar(100),
+        _description varchar(100)
+    )
+begin
+    set @id = null;
+    select id into @id from GS_GAME_STAKE_TYPE where WEB_PATH = _game_stake_type_web_path or NAME=_game_stake_type_name;
+    IF(@id is null) THEN
+        INSERT INTO `GS_GAME_STAKE_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`)
+        VALUES (_game_stake_type_name, _game_stake_type_web_path, _description);
+    END IF;
+end $$
+drop procedure IF EXISTS create_vote_effectiveness_type$$
+create procedure create_vote_effectiveness_type
+    (
+        _name varchar(100),
+        _web_path varchar(100)
+    )
+begin
+    set @id = null;
+    select id into @id from gs_vote_effectiveness_type where WEB_PATH = _web_path or NAME=_name;
+    IF(@id is null) THEN
+        INSERT INTO `gs_vote_effectiveness_type` (`NAME`, `WEB_PATH`)
+        VALUES (_name, _web_path);
+
+    END IF;
+end $$
+drop procedure IF EXISTS create_departure_type$$
+create procedure create_departure_type
+    (
+        _name varchar(100),
+        _web_path varchar(100)
+    )
+begin
+    set @id = null;
+    select id into @id from GS_TEAM_DEPARTURE_TYPE where WEB_PATH = _web_path or NAME=_name;
+    IF(@id is null) THEN
+        INSERT INTO `GS_TEAM_DEPARTURE_TYPE` (`NAME`, `WEB_PATH`)
+        VALUES (_name, _web_path);
+
+    END IF;
+end $$
+drop procedure IF EXISTS create_reward_type$$
+create procedure create_reward_type
+(
+    _name varchar(100),
+    _web_path varchar(100)
+)
+begin
+    set @id = null;
+    select id into @id from GS_REWARD_TYPE where WEB_PATH = _web_path or NAME=_name;
+    IF(@id is null) THEN
+        INSERT INTO `GS_REWARD_TYPE` (`NAME`, `WEB_PATH`)
+        VALUES (_name, _web_path);
+
+    END IF;
+end $$
+drop procedure IF EXISTS create_reward$$
+create procedure create_reward
+(
+    _reward_name varchar(100),
+    _reward_web_path varchar(100),
+    _reward_type_web_path varchar(100),
+    _is_positive TINYINT(1)
+)
+begin
+    set @id = null;
+    set @reward_type_id = null;
+    select id into @id from GS_REWARD where WEB_PATH = _reward_web_path or NAME=_reward_name;
+    select id into @reward_type_id from GS_REWARD_TYPE where WEB_PATH = _reward_type_web_path;
+    IF(@reward_type_id is null) THEN
+        set @msg = concat('reward type does not exist ', _reward_type_web_path);
+        SIGNAL SQLSTATE '50000'
+            SET MESSAGE_TEXT = @msg;
+    END IF;
+    IF(@id is null) THEN
+        INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`)
+        VALUES (_reward_name, _reward_web_path, @reward_type_id, _is_positive);
+    END IF;
+end $$
 drop procedure IF EXISTS create_game$$
 create procedure create_game
 (

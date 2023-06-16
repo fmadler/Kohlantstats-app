@@ -1,4 +1,5 @@
-INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Destruction de cibles', 'destruction-cibles', NULL);
+-- INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Destruction de cibles', 'destruction-cibles', NULL);
+call create_game_type ('Destruction de cibles', 'destruction-cibles', NULL);
 
 call create_game('le-feu-sacre','Destruction de cibles','destruction-cibles-2023','destruction-cibles','collectif','confort',3,4,'kit-peche','rapidite,force,precision');
 

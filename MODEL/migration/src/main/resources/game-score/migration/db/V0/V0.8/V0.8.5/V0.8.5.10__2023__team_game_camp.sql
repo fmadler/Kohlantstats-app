@@ -1,4 +1,4 @@
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Repas sur lagon', 'repas-sur-lagon', 5, 1);
+call create_reward ('Repas sur lagon', 'repas-sur-lagon', 'nourriture', 1);
 call create_game('le-feu-sacre','Elastique','elastique-2023','elastique','collectif','confort',13,19,'repas-sur-lagon','force,coordination');
 
 
@@ -43,7 +43,7 @@ call team_game_ranking ('rouge-2-2023','puzzle-tortue-2023',1);
 
 -- gilles donne le talisman à tania
 
-insert into gs_vote_effectiveness_type (name, web_path) values ('Annulé par talisman','annule-par-talisman');
+call create_vote_effectiveness_type ('Annulé par talisman','annule-par-talisman');
 call first_vote_against ('le-feu-sacre','nicolas-2023','rudy-2023','jaune-2-2023', 20, 'effectif');
 call first_vote_against ('le-feu-sacre','julie-2023','tania-2023','jaune-2-2023', 20, 'annule-par-talisman');
 call first_vote_against ('le-feu-sacre','rudy-2023','tania-2023','jaune-2-2023', 20, 'annule-par-talisman');

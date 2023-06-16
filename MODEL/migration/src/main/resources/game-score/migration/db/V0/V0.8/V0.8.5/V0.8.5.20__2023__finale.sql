@@ -1,5 +1,5 @@
 
-call create_game('le-feu-sacre','Orientation','orientation-2023','orientation','individuel','finale',29,40,'poteaux,elimination-du-dernier','rapidite,tenacite,perseverance');
+call create_game('le-feu-sacre','Orientation','orientation-2023','orientation','individuel','finale',29,39,'poteaux,elimination-du-dernier','rapidite,tenacite,perseverance');
 
 call create_game_participation('julie-2023','blanc-2023','orientation-2023','participant','individuel',4,'elimination-du-dernier');
 call create_game_participation('nicolas-2023','blanc-2023','orientation-2023','participant','individuel',1,'poteaux');

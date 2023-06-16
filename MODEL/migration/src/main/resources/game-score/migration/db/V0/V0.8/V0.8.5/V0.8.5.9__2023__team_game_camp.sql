@@ -24,8 +24,8 @@ call team_game_ranking ('rouge-2-2023','perche-2023',2);
 
 
 -- 17 ème jour defi placement boule
-INSERT INTO `GS_GAME_STAKE_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Talisman', 'talisman', 'Talisman');
-
+-- INSERT INTO `GS_GAME_STAKE_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Talisman', 'talisman', 'Talisman');
+call create_game_stake_type ('Talisman', 'talisman', 'Talisman');
 call create_game('le-feu-sacre','Empilement boules','empilement-boules-2023','empilement-boules','individuel','talisman',11,17,'nuit-hotel','rapidite,dexterite,collaboration');
 call create_game_participation('nicolas-2023','jaune-2-2023','empilement-boules-2023','participant','individuel',0,'');
 call create_game_participation('grace-2023','jaune-2-2023','empilement-boules-2023','participant','individuel',0,'');

@@ -1,4 +1,4 @@
-INSERT INTO `GS_REWARD` (`NAME`, `WEB_PATH`, `GS_REWARD_TYPE_ID`, `IS_POSITIVE`) VALUES ('Poulets rotis', 'poulets-rotis', 5, 1);
+call create_reward ('Poulets rotis', 'poulets-rotis','nourriture', 1);
 call create_game('le-feu-sacre','Régate','regate-2023','regate','collectif','confort',8,14,'poulets-rotis','rapidite,force,navigation,construction');
 
 
@@ -32,7 +32,7 @@ call fill_participant_longevity ('le-feu-sacre','benjamin-2023',15,1,15);
 
 call create_participant_entrance ('le-feu-sacre','tania-2023','jaune-2-2023',16,'remplacement', @participant_team_id);
 
-INSERT INTO `GS_GAME_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Placement de sacs sur une tour', 'placement-de-sacs-sur-tour', NULL);
+call create_game_type ('Placement de sacs sur une tour', 'placement-de-sacs-sur-tour', NULL);
 
 call create_game('le-feu-sacre','placement-de-sacs-sur-tour','placement-de-sacs-sur-tour-2023','placement-de-sacs-sur-tour','collectif','immunite',9,16,'totem','rapidite,precision,coordination');
 
