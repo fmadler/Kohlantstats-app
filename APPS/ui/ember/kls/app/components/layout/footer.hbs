@@ -25,8 +25,8 @@
                         {{!--TODO when root entities w/ code => display this part
                 <p><b> {{#link-to 'code' (query-params origin="todo origin")}}{{t "nav.code"}}{{/link-to}}</b></p>
                 --}}
-                        <p><b> {{#link-to 'contributeurs'}}Contributeurs{{/link-to}}</b></p>
-                        <p><b> {{#link-to 'mentions-legales'}}Mentions légales{{/link-to}}</b></p>
+  <p><b> <LinkTo @route='contributeurs'>Contributeurs</LinkTo></b></p>
+                      <p><b> <LinkTo @route='mentions-legales'>Mentions légales</LinkTo></b></p>
                     </div>
                     <div class="social-icons">
                         <ul class="nomargin">

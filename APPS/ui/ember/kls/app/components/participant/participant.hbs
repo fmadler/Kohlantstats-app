@@ -32,7 +32,7 @@
   <div class="card">
     <div class="card-header">
       <h3>
-        <b>Edition <span class="badge badge-warning">{{@data.participantSummary.[0].programEditionNumber}}</span></b>
+        <b>Edition <span class="badge bg-warning">{{@data.participantSummary.[0].programEditionNumber}}</span></b>
         <LinkTo @route="programme.programme" @model={{@data.participantSummary.[0].programWebPath}}>
           {{@data.participantSummary.[0].programName}}
         </LinkTo>
@@ -48,7 +48,7 @@
           ...
           {{else}}
           <Snippet::Image
-            @alt="{{item.participantName}}"
+            @alt="{{@data.participantSummary.[0].name}}"
             @src={{@evData.custom.binary_url}}
             @icon="user"
             />
@@ -91,7 +91,7 @@
 
     </div>
     <div class="card-body">
-      {{#if scoreCaption}}
+      {{#if this.scoreCaption}}
       <Layout::InfoCaption>
         <Definition::PlayerPerformanceScoreDefinition></Definition::PlayerPerformanceScoreDefinition>
       </Layout::InfoCaption>
@@ -195,7 +195,7 @@
     </tab.pane>
     <tab.pane @title="Camp">
       <div class="container">
-        {{!-- <h2>Results <span class="badge badge-dark" >{{@data.participantCampActivity.length}}</span></h2> --}}
+        {{!-- <h2>Results <span class="badge bg-dark" >{{@data.participantCampActivity.length}}</span></h2> --}}
         <table class="table table-condensed">
           <thead>
             <tr>

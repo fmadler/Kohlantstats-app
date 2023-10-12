@@ -2,28 +2,67 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
+module.exports = function (defaults) {
+  const app = new EmberApp(defaults, {
     'ember-bootstrap': {
-      bootstrapVersion: 4,
-      importBootstrapCSS: false
+      bootstrapVersion: 5,
+      importBootstrapCSS: false,
     },
-    'asset-cache': {
-      include: [
-        'assets/**/*',
-        'ember-welcome-page/images/*',
-        'fonts/font-awesome.*',
-        'fonts/fontawesome-*'
-      ]
-    },
-    'ember-cli-terser': {
-      enabled: true
-    },
-    minifyCSS: {
-      enabled: true
-    }
   });
 
+  return app.toTree();
+};
+
+/*
+'use strict';
+
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+
+module.exports = function (defaults) {
+  const app = new EmberApp(defaults, {
+    'ember-bootstrap': {
+      bootstrapVersion: 5,
+      importBootstrapCSS: true,
+    },
+  });
+
+  return app.toTree();
+};
+
+ */
+  //
+  //
+  //
+  // const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+  //
+  // module.exports = function(defaults) {
+  //   let app = new EmberApp(defaults, {
+  //     'ember-bootstrap': {
+  //       bootstrapVersion: 4,
+  //       importBootstrapCSS: false
+  //     },
+  //     'asset-cache': {
+  //       include: [
+  //         'assets/**/*',
+  //         'ember-welcome-page/images/*',
+  //         'fonts/font-awesome.*',
+  //         'fonts/fontawesome-*'
+  //       ]
+  //     },
+  //     'ember-cli-terser': {
+  //       enabled: true
+  //     },
+  //     minifyCSS: {
+  //       enabled: true
+  //     }
+  //   });
+  //  return app.toTree();
+// };
+  //
+  //
+  //
+  //
+  //
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
@@ -37,5 +76,4 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
-};
+

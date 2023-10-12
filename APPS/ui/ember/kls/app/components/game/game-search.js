@@ -14,7 +14,6 @@ export default class GameGameSearchComponent extends Component {
 
     @action
     toggleTag(gameTagWebPath) {
-        //debugger
         if (this.selectedGameTagWebPath === gameTagWebPath) {
             this.selectedGameTagWebPath = null;
         } else {

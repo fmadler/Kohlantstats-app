@@ -1,12 +1,12 @@
-{{#let (concat model.taskGameDetail.value.participantGameActivity.[0].gameName " - " model.taskGameDetail.value.programInfo.[0].name)
+{{#let (concat @model.taskGameDetail.value.participantGameActivity.[0].gameName " - " @model.taskGameDetail.value.programInfo.[0].name)
   as |pageTitle|
 }}
 {{page-title pageTitle}}
 <Snippet::SocialNetwork @title={{pageTitle}} />
 {{/let}}
-<Game::Game 
-@dataToRemove={{model}} 
-@data={{model.taskGameDetail.value}} 
-@evTask={{model.taskEntityValue}}
-@evData={{model.taskEntityValue.value}}
+<Game::Game
+@dataToRemove={{@model}}
+@data={{@model.taskGameDetail.value}}
+@evTask={{@model.taskEntityValue}}
+@evData={{@model.taskEntityValue.value}}
 />
