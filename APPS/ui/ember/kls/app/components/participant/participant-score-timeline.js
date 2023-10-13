@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import _ from 'lodash';
 import {getTimelineAbscissa, getChartJsDatasets} from '../../utils/timeline-utils';
 
 export default class ParticipantParticipantScoreTimelineComponent extends Component {

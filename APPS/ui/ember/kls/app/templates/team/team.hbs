@@ -1,4 +1,4 @@
-<Component::PageComponent 
+<Component::PageComponent
     @entity="Tribu"
-    @entityTitle={{model.teamInfo.[0].name}} />
-<Team::Team @data={{model}} @teamWebPath={{this.searchParams.teamWebPath}} />
+    @entityTitle={{@model.teamInfo.[0].name}} />
+<Team::Team @data={{@model}} @teamWebPath={{this.searchParams.teamWebPath}} />

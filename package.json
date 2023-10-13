@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "cypress": "^12.15.0",
+    "cypress-localstorage-commands": "^2.2.3",
+    "ember-auto-import": "^2.4.2",
+    "webpack": "^5.72.1"
+  }
+}

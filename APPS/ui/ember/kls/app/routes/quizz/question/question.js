@@ -7,6 +7,7 @@ import { getEntries } from '../../../utils/quizz-utils'
 
 export default class QuizzQuestionQuestionRoute extends Route {
     @service('quizz') quizz;
+    @service('Score') scoreService;
 
     queryParams = {
         'shuffle': {
@@ -36,32 +37,40 @@ export default class QuizzQuestionQuestionRoute extends Route {
             return d.QuestionDetailOut;
         });
 
+        //improve for perf
+        let distinctPrograms = await this.scoreService
+          .distinctPrograms()
+          .then(d=>{
+            return d.DistinctProgramsOut;
+          })
+
         const questionDetailFirst = questionDetails[0];
         if (filter2) {
             if (filter2 !== "null") {
                 let options = fetchData(
                     getOptionUrl(questionDetailFirst, input)
                 )
-                    .then(d => {
-                        let options = getEntries(questionDetailFirst.questionAnswerOptionsSubUrl, d)
-                        let result = {
-                            input: input,
-                            questionDetail: questionDetailFirst,
-                            questionDetails: questionDetails,
-                            options: options
-                        };
-                        return result;
-                    })
+                .then(d => {
+                    let options = getEntries(questionDetailFirst.questionAnswerOptionsSubUrl, d)
+                    options.distinctPrograms = distinctPrograms;
+                    let result = {
+                        input: input,
+                        questionDetail: questionDetailFirst,
+                        questionDetails: questionDetails,
+                        options: options
+                    };
+                    return result;
+                })
                 let filters = fetchData(
                     getMatrixUrl(questionDetailFirst, input)
                 )
-                    .then(d => {
-                        let filters = getEntries(questionDetailFirst.questionFilterMatrixSubUrl, d)
-                        let result = {
-                            filters: filters
-                        };
-                        return result;
-                    })
+                .then(d => {
+                    let filters = getEntries(questionDetailFirst.questionFilterMatrixSubUrl, d)
+                    let result = {
+                        filters: filters
+                    };
+                    return result;
+                })
                 let promises = {
                     options: options,
                     filters: filters
@@ -72,6 +81,7 @@ export default class QuizzQuestionQuestionRoute extends Route {
                 return {
                     options: {
                         input: input,
+                        distinctPrograms : distinctPrograms,
                         questionDetail: questionDetailFirst,
                         questionDetails: questionDetails
                     }

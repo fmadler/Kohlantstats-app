@@ -3,7 +3,7 @@
     {{!--TODO common filter--}}
     <h1 class="kls-feature">
         Editions
-        <span class="badge badge-success">{{@model.distinctPrograms.length}}</span>
+        <span class="badge bg-success">{{@model.distinctPrograms.length}}</span>
     </h1>
     {{#each @model.distinctPrograms as |item index| }}
     <LinkTo @route="player.index" @query={{hash playerWebPath=@model.params.playerWebPath programWebPath=item.webPath}}>
@@ -23,7 +23,7 @@
     <br />
     <h1 class="kls-feature">
         Participants
-        <span class="badge badge-success">{{@model.distinctParticipants.length}}</span>
+        <span class="badge bg-success">{{@model.distinctParticipants.length}}</span>
     </h1>
     <h2>
         Les participants de l'édition
@@ -84,7 +84,7 @@
     Comparer {{@model.participantSummary.[0].name}} à
     <button class="btn btn-info" {{on "click" (fn this.toogleParticipantCompareTarget)}}>un autre aventurier</button>
     {{/if}}
-    {{#if (or participantCompareTargetToggle @model.params.comparisonPlayerWebPath)}}
+    {{#if (or this.participantCompareTargetToggle @model.params.comparisonPlayerWebPath)}}
     <br />
     {{#each @model.distinctParticipants as |item index| }}
     {{#if (and item.name (not-eq item.webPath @model.params.playerWebPath))}}

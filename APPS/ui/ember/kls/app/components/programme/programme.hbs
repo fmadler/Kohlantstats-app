@@ -7,12 +7,12 @@
         ...
         {{else}}
         {{@data.programInfo.[0].name}}
-        <span class="badge badge-warning">{{@data.programInfo.[0].year}}</span>
+        <span class="badge bg-warning">{{@data.programInfo.[0].year}}</span>
         {{/if}}
 
       </h1>
       <h2>Edition
-        <span class="badge badge-warning">{{@data.programInfo.[0].editionNumber}}</span>
+        <span class="badge bg-warning">{{@data.programInfo.[0].editionNumber}}</span>
       </h2>
       {{#if @evTask.isRunning}}
       {{else}}
@@ -128,12 +128,12 @@
       {{/each}}
     </Modal.body>
     <Modal.footer as |footer|>
-      <BsButton @onClick={{action closePopup}} @type="danger">Close</BsButton>
+      <BsButton @onClick={{action this.closePopup}} @type="danger">Close</BsButton>
     </Modal.footer>
   </BsModal>
 
   <br />
-  {{#if scoreCaption}}
+  {{#if this.scoreCaption}}
   <Layout::InfoCaption>
     <Definition::PlayerPerformanceScoreDefinition></Definition::PlayerPerformanceScoreDefinition>
   </Layout::InfoCaption>
@@ -203,7 +203,7 @@
                   {{/if}}</td>
                 <td>{{item.ranking1AloneScore}}</td>
                 <td>{{item.ranking2AloneScore}}</td>
-                <td class="text-right"><span class="badge badge-danger"
+                <td class="text-right"><span class="badge bg-danger"
                     style="font-size: 1.1em;">{{score-helper item}}</span></td>
 
                 <td>{{item.ranking1}}</td>
@@ -232,7 +232,7 @@
     </tab.pane>
     <tab.pane @title="Tribus et épreuves">
       <div class="col-md-12">
-        {{!-- <h2>Results <span class="badge badge-dark">{{@data.teamGameTimeline.length}}</span></h2> --}}
+        {{!-- <h2>Results <span class="badge bg-dark">{{@data.teamGameTimeline.length}}</span></h2> --}}
         <Component::ViewportComponent @vpLoaderId="tribu-epreuve">
           <table class="table table-condensed">
             <thead>

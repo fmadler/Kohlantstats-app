@@ -7,16 +7,16 @@ import appendQuery from 'append-query';
 import { computed } from '@ember/object';
 import _ from 'lodash'
 import { task } from 'ember-concurrency';
-import { getEntries, 
-    affect, 
-    areChoicesReadyToBeValidated, 
+import { getEntries,
+    affect,
+    areChoicesReadyToBeValidated,
     getChoicesResultsForAffectation,
     isResultSetCorrectForCheckedOptions ,
     fillEvaluations,
     fillEvaluation,
     computeScore,
     fillCorrectAnswer
-} 
+}
 from '../../utils/quizz-utils'
 
 const INCORRECT_CHECKED = 'incorrect-checked';
@@ -118,10 +118,11 @@ export default class QuestionQuestionComponent extends Component {
     }
 
     @task
-    *allPossibilites(item) {
+    *allPossibilites(item, paramName, paramValue) {
         let rootUrl = item.tenantApiRootUrl;
         let subUrl = item.questionFilterMatrixSubUrl;
-        yield fetchData(rootUrl + subUrl)
+        let url = getUrl(rootUrl, subUrl, paramName, paramValue);
+        yield fetchData(url)
             .then(d => {
                 this.matrix = getEntries(item.questionFilterMatrixSubUrl, d);
             });
@@ -245,7 +246,7 @@ export default class QuestionQuestionComponent extends Component {
             this.correctAnswers.push(
                 {
                     questionParams: data.options.input,
-                    //TODO add results 
+                    //TODO add results
                 }
             );
             let s = fillEvaluation(this.evaluations, data.options.input, "correct");
@@ -259,7 +260,7 @@ export default class QuestionQuestionComponent extends Component {
 
         //TODO init ember concurrency task to fetch matrix if not present
         //For next question
-        //if 
+        //if
     }
 
     @action
@@ -327,7 +328,7 @@ export default class QuestionQuestionComponent extends Component {
             this.correctAnswers.push(
                 {
                     questionParams: data.options.input,
-                    //TODO add results 
+                    //TODO add results
                 }
             );
             let s = fillEvaluation(this.evaluations, data.options.input, "correct");
@@ -341,12 +342,12 @@ export default class QuestionQuestionComponent extends Component {
 
         //TODO init ember concurrency task to fetch matrix if not present
         //For next question
-        //if 
+        //if
     }
 
     @action
     nextQuestion(questionWebPath) {
-        //lookup in the matrix for a question not part of the correctAnswersArray 
+        //lookup in the matrix for a question not part of the correctAnswersArray
         //or to start the next question
         //=> search for same question w/ params take next or first if finished
         let lastCorrectAnswer = this.correctAnswers.slice(-1).pop();
@@ -441,7 +442,14 @@ function removeItemScoreOnce(arr, value) {
     return arr;
 }
 
-
+function getUrl(rootUrl, subUrl, paramName, paramValue) {
+  let baseUrl = rootUrl + subUrl;
+  if (paramName) {
+    let connector = baseUrl.indexOf('?') === -1 ? "?":"&";
+    return `${baseUrl}${connector}${paramName}=${paramValue}`;
+  }
+  return baseUrl;
+}
 
 
 // function isResultSetCorrectForOrderddOptions(choicesResults) {

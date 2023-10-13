@@ -26,7 +26,7 @@
 	 - name      : EmberRouteIndexHbs
 	 - file name : EmberRouteIndexHbs.vm
 --}}
-<Participant::Participant 
-	@data={{model}} 
-	@playerWebPath={{this.searchParams.playerWebPath}} 
+<Participant::Participant
+	@data={{@model}}
+	@playerWebPath={{this.searchParams.playerWebPath}}
 	{{did-insert this.didInsert}}/>

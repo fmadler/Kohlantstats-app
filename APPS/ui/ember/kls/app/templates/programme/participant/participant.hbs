@@ -1,13 +1,13 @@
-{{#let (concat model.taskParticipantDetail.value.participantSummary.[0].name " - " model.taskParticipantDetail.value.participantSummary.[0].programName)
+{{#let (concat @model.taskParticipantDetail.value.participantSummary.[0].name " - " @model.taskParticipantDetail.value.participantSummary.[0].programName)
   as |pageTitle|
 }}
 {{page-title pageTitle}}
 <Snippet::SocialNetwork @title={{pageTitle}} />
 {{/let}}
 <Participant::Participant
-@task={{model.taskParticipantDetail}}
-@data={{model.taskParticipantDetail.value}}
-@evTask={{model.taskEntityValue}}
-@evData={{model.taskEntityValue.value}}
-@evPlayerTask={{model.taskPlayerEntityValue}}
+@task={{@model.taskParticipantDetail}}
+@data={{@model.taskParticipantDetail.value}}
+@evTask={{@model.taskEntityValue}}
+@evData={{@model.taskEntityValue.value}}
+@evPlayerTask={{@model.taskPlayerEntityValue}}
     {{did-insert this.didInsert}} />

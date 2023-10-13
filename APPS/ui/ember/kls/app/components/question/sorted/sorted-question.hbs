@@ -18,14 +18,14 @@ https://www.mutuallyhuman.com/blog/creating-an-accordion-with-contextual-compone
         <div data-cy="option-{{item.participantWebPath}}" class="card"
             {{on "click" (fn @selectElement1 item @data.options.input.questionWebPath)}}>
             <div class="card-body">
-            <Snippet::Image 
+            <Snippet::Image
                 @alt="{{item.participantName}}"
                 @src={{binary-url (participant-full-entity-webpath item.programWebPath item.participantWebPath) 'photo_up' }}
                 @icon="user"
                 />
             </div>
             <div data-cy="option-body-participant-{{item.participantWebPath}}"
-                class="{{quiz-result-class this.showResult item.participantWebPath choicesResults}} card-footer">
+                class="{{quiz-result-class this.showResult item.participantWebPath this.choicesResults}} card-footer">
                 <h3>
                     {{#if (eq (affected-option item.participantWebPath @choices) "")}}
                     {{item.participantName}}
@@ -55,7 +55,7 @@ https://www.mutuallyhuman.com/blog/creating-an-accordion-with-contextual-compone
                 <FaIcon @icon="users" />
             </div>
             <div data-cy="option-body-team-{{item.teamWebPath}}"
-                class="{{quiz-result-class this.showResult item.participantWebPath choicesResults}} card-footer">
+                class="{{quiz-result-class this.showResult item.participantWebPath this.choicesResults}} card-footer">
                 <h3>
                     <span class="badge {{find-property-value this.teamProperties 'team-css-class' item.teamWebPath}}">
                         {{item.teamName}}

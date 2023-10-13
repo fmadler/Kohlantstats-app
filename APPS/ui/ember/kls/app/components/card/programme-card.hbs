@@ -3,19 +3,19 @@
         <h2>
             <LinkTo data-cy="link-{{@data.webPath}}" @route="programme.programme" @model={{@data.webPath}}>
                 {{@data.name}}</LinkTo>
-            <span class="badge badge-warning">{{@data.year}}</span>
+            <span class="badge bg-warning">{{@data.year}}</span>
         </h2>
     </div>
     <div class="card-body">
-        {{#if entityValue.isRunning}}
+        {{#if this.entityValue.isRunning}}
         ...
         {{else}}
         <div class="row">
             <div class="col-sm-6">
-                <h3>Edition <span class="badge badge-warning">{{@data.editionNumber}}</span>
+                <h3>Edition <span class="badge bg-warning">{{@data.editionNumber}}</span>
                 </h3>
-                {{#if entityValue.value.custom.description}}
-                {{{entityValue.value.custom.description}}}
+                {{#if this.entityValue.value.custom.description}}
+                {{{this.entityValue.value.custom.description}}}
                 {{/if}}
                 <hr />
                 Candidats {{@data.nbOfParticipants}}
@@ -31,10 +31,10 @@
                 {{/if}}
                 <br />
                 Lieu {{@data.place}}
-                {{#unless gameStatsTask.isRunning}}
+                {{#unless this.gameStatsTask.isRunning}}
                 <br />
                 Points attribués
-                <Score::ScoreDistribution @gameStats={{gameStats.value.GameStatsOut}} />
+                <Score::ScoreDistribution @gameStats={{this.gameStats.value.GameStatsOut}} />
 
                 {{/unless}}
             </div>
@@ -43,7 +43,7 @@
                 <LinkTo @route="programme.programme" @model={{@data.webPath}}>
                     <Snippet::Image
                         @alt={{@data.webPath}}
-                        @src={{entityValue.value.custom.binary_url}}
+                        @src={{this.entityValue.value.custom.binary_url}}
                         @icon="image"/>
                 </LinkTo>
 

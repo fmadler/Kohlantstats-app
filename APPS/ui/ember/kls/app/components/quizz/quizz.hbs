@@ -15,7 +15,7 @@
     {{else if @data.taskInstance.error}}
     erreur : {{@data.taskInstance.error}}
     {{else if @data.taskInstance.value}}
-    {{!-- {{model.taskInstance.value}} --}}
+    {{!-- {{@model.taskInstance.value}} --}}
     {{!-- <Quizz::Quizz @data={{@data.taskInstance.value}} /> --}}
 
     {{#each @data.taskInstance.value.DistinctQuestionsOut as |item index| }}
