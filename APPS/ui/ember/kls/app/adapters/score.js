@@ -268,7 +268,7 @@ export default class score extends JSONAPIAdapter {
 
   /* connector to CreateTimeline info */
   createTimeline (params) {
-    return fetchData(baseUrl+'/data/sdd/CreateTimelineIn'+filterCreateTimeline(params));
+    return postData(baseUrl+'/data/sdd/CreateTimelineIn'+filterCreateTimeline(params));
   }
 
   //package game

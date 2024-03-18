@@ -31,7 +31,7 @@ call create_game_participation('arnaud-2021','blanc-2021','figure-de-proue-2021'
 call create_game_participation('laure-2021','blanc-2021','figure-de-proue-2021','participant','individuel',5,'');
 call create_game_participation('laetitia-2021','blanc-2021','figure-de-proue-2021','participant','individuel',7,'');
 call create_game_participation('thomas-2021','blanc-2021','figure-de-proue-2021','participant','individuel',12,'');
-call create_game_participation('myriam-2021','blanc-2021','figure-de-proue-2021','participant','individuel',6,'');
+call create_game_participation('myriam-2021','blanc-2021','figure-de-proue-2021','participant','individuel',6,'duel');
 call create_game_participation('vincent-2021','blanc-2021','figure-de-proue-2021','participant','individuel',9,'');
 call create_game_participation('flavio-2021','blanc-2021','figure-de-proue-2021','participant','individuel',2,'');
 call create_game_participation('shanice-2021','blanc-2021','figure-de-proue-2021','participant','individuel',4,'');

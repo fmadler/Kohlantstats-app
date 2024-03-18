@@ -68,6 +68,6 @@ call first_vote_against ('les-chasseurs-d-immunite','lea-2024','steve-2024','jau
 call first_vote_against ('les-chasseurs-d-immunite','pauline-2024','steve-2024','jaune-2024', 3, 'effectif');
 
 call create_participant_departure('les-chasseurs-d-immunite','steve-2024','jaune-2024',3,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('les-chasseurs-d-immunite','steve-2024',20,1,3);
+call fill_participant_longevity ('les-chasseurs-d-immunite','steve-2024',22,1,3);
 
 call program_current_time ('les-chasseurs-d-immunite',3);

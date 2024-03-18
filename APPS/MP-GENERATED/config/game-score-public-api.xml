@@ -14,7 +14,7 @@ TODO MP improvements:
 			<target-convention type="disable-timestamp-comment-marker" />
 			<target-convention type="disable-business-model-generation" />
 		</conventions>
-		<model name="score" version="1.0" package-root="com.game">
+		<model name="score" version="${version}" package-root="com.game">
 			<description>
 				<![CDATA[
 					This model illustrates:
@@ -1231,40 +1231,36 @@ select p.name, p.web_path, p.year,
     l.PLACE_WEB_PATH,
     l.LATITUDE,
     l.LONGITUDE,
-   	winner.winners,
-   	participants.nb nb_of_participants,
-   	games.nb nb_of_games
-from gs_location l, gs_program p left outer join
-     (
-         select
-             GROUP_CONCAT(distinct
-                          CONCAT_WS(
-                                  '|',
-                                  pl.name,
-                                  pl.web_path
-                              )
-                 ) winners,
-             pg.id program_id
-         from gs_participant pa, gs_player pl, gs_program pg
-         where pa.gs_program_id = pg.id
-           and pa.gs_player_id = pl.id
-           and pa.final_position = 1
-         group by pg.id
-     ) winner on winner.program_id = p.id,
-     (
-         select count(*) nb, pg.WEB_PATH program_web_path from gs_participant pa, gs_program pg
-         where pa.GS_PROGRAM_ID = pg.ID
-         group by pg.web_path
-     ) participants,
-     (
-         select count(*) nb, pg.WEB_PATH program_web_path from gs_game g, gs_program pg
-         where g.GS_PROGRAM_ID = pg.ID
-         group by pg.web_path
-     ) games
+    winner.name winner_name,
+    winner.WEB_PATH winner_web_path,
+    participants.nb nb_of_participants,
+    games.nb nb_of_games
+ from gs_location l, gs_program p left outer join
+ (
+	select
+		pl.name name,
+		pl.web_path web_path,
+		pg.id program_id
+	from gs_participant pa, gs_player pl, gs_program pg
+	where pa.gs_program_id = pg.id
+		and pa.gs_player_id = pl.id
+		and pa.final_position = 1
+	group by pg.id
+) winner on winner.program_id = p.id,
+(
+	select count(*) nb, pg.WEB_PATH program_web_path from gs_participant pa, gs_program pg
+	where pa.GS_PROGRAM_ID = pg.ID
+	group by pg.web_path
+) participants,
+(
+	select count(*) nb, pg.WEB_PATH program_web_path from gs_game g, gs_program pg
+	where g.GS_PROGRAM_ID = pg.ID
+	group by pg.web_path
+) games
 where
-        p.GS_LOCATION_ID = l.ID and
-        p.web_path = participants.program_web_path and
-        p.web_path = games.program_web_path
+	p.GS_LOCATION_ID = l.ID and
+    p.web_path = participants.program_web_path and
+    p.web_path = games.program_web_path
 $whereProgramWebPath
 ORDER by edition_number asc
 ]]>
@@ -1278,15 +1274,8 @@ ORDER by edition_number asc
 									</query-param>
 								</query-params>
 							</query-filter>
+
 						</query-filters>
-						<query-fields>
-							<query-field name="winners"
-										 is-structured-array="true"
-										 separator-characters=",|"
-										 array-columns="name,web_path"
-										 array-columns-type="string,string">
-							</query-field>
-						</query-fields>
 					</query>
 				<!--  distinct queries -->
 				
@@ -1403,42 +1392,29 @@ ORDER by p.edition_number, g.PROGRAM_INDEX asc
 							<value>
 <![CDATA[
 SELECT p.edition_number, p.year, p.name, p.web_path, p.TOTAL_TIME_LENGTH,
-       l.COUNTRY, l.COUNTRY_FLAG, l.COUNTRY_WEB_PATH, l.PLACE, l.PLACE_WEB_PATH,
-       count(p.ID) nb_of_participants, winner.winners
+l.COUNTRY, l.COUNTRY_FLAG, l.COUNTRY_WEB_PATH, l.PLACE, l.PLACE_WEB_PATH,
+count(p.ID) nb_of_participants, winner.name winner_name, winner.web_path winner_web_path
 FROM gs_program p
-         left outer join
-(
-    select
-        GROUP_CONCAT(distinct
-                     CONCAT_WS(
-                             '|',
-                             pl.name,
-                             pl.web_path
-                         )
-            ) winners,
-           pg.id program_id
-    from gs_participant pa, gs_player pl, gs_program pg
-    where pa.gs_program_id = pg.id
-      and pa.gs_player_id = pl.id
-      and pa.final_position = 1
-    group by pg.id
+left outer join
+ (
+	select
+		pl.name name,
+		pl.web_path web_path,
+		pg.id program_id
+	from gs_participant pa, gs_player pl, gs_program pg
+	where pa.gs_program_id = pg.id
+		and pa.gs_player_id = pl.id
+		and pa.final_position = 1
+	group by pg.id
 ) winner on winner.program_id = p.id
-   , gs_location l, gs_participant pa
+, gs_location l, gs_participant pa
 where
-        p.GS_LOCATION_ID = l.ID and pa.GS_PROGRAM_ID = p.ID
+p.GS_LOCATION_ID = l.ID and pa.GS_PROGRAM_ID = p.ID
 group by p.edition_number
 ORDER by edition_number desc
 ]]>
 							</value>
 						</query-body>
-						<query-fields>
-							<query-field name="winners"
-										 is-structured-array="true"
-										 separator-characters=",|"
-										 array-columns="name,web_path"
-										 array-columns-type="string,string">
-							</query-field>
-						</query-fields>
 					</query>
 					<query name="distinct_teams" id="distinct_teams"
 						package-name="distinct" content-type="master-data">
@@ -2890,8 +2866,7 @@ MP TODO add indirection for mapping input params
 			</statement-model>
 		</model>
 
-		<!-- REST-GRAPHQL_API, REST-Kendoui, Ember -->
-		<targets catalog-entry="${target}"
+		<targets catalog-entry="REST-GRAGHQL_API, REST-Kendoui, Ember"
 			append-catalog-entry-dir-to-outputdir-root="true"
 			outputdir-root="../../product/game-score-public-api">
 
@@ -2902,7 +2877,7 @@ MP TODO add indirection for mapping input params
 			<property name="filter-cors" value="apache" />
 			<property name="swagger" value="true" />
 			<property name="botdetect" value="true" />
-	<!--		<property name="graphql-enabled" value="true" />-->
+			<property name="graphql-enabled" value="true" />
 			<property name="setter-return-instance" value="true" />
 			<property name="add-named-queries" value="false" />
 
@@ -2946,7 +2921,7 @@ MP TODO add indirection for mapping input params
 			</property>
 
 			<property name="disable-sass-maven-plugin" value="true" />
-			<property name="rest-pom-maven-artifact-finalName-suffix" value="PublicApi" />
+			<property name="maven-artifact-finalName-suffix" value="PublicApi" />
 
 		</targets>
 

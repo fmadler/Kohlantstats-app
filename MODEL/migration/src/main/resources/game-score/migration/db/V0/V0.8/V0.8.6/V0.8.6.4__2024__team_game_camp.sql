@@ -32,6 +32,7 @@ call create_game_participation('amri-2024','jaune-2024','labyrinthe-2024','parti
 call create_game_participation('nathalie-2024','jaune-2024','labyrinthe-2024','participant','individuel',2,'elimination-du-dernier');
 
 call create_participant_departure('les-chasseurs-d-immunite','nathalie-2024','jaune-2024',7,'exclusion-par-duel', @participant_team_id);
+call fill_participant_longevity ('les-chasseurs-d-immunite','nathalie-2024',20,1,7);
 
 -- duel amri - nathalie
 
@@ -53,7 +54,6 @@ call create_game_participation('alexis-2024','jaune-2024','le-grand-bleu-2024','
 call create_game_participation('amri-2024','jaune-2024','le-grand-bleu-2024','participant','collectif',2,'conseil');
 call create_game_participation('pauline-2024','jaune-2024','le-grand-bleu-2024','participant','collectif',2,'conseil');
 call create_game_participation('aurelien-2024','jaune-2024','le-grand-bleu-2024','participant','collectif',2,'conseil');
-call create_game_participation('nathalie-2024','jaune-2024','le-grand-bleu-2024','participant','collectif',2,'conseil');
 call create_game_participation('sarah-2024','jaune-2024','le-grand-bleu-2024','participant','collectif',2,'conseil');
 call create_game_participation('oceane-2024','jaune-2024','le-grand-bleu-2024','participant','collectif',2,'conseil');
 call create_game_participation('sebastien-2024','jaune-2024','le-grand-bleu-2024','participant','collectif',2,'conseil');
