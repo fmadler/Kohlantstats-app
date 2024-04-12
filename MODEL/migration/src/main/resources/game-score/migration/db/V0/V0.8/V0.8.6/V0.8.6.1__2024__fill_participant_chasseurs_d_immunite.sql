@@ -45,3 +45,6 @@ call create_participant_entrance ('les-chasseurs-d-immunite','david-2024','rouge
 call create_participant_entrance ('les-chasseurs-d-immunite','cecile-2024','rouge-2024',1,'arrivee', @participant_team_id);
 call create_participant_entrance ('les-chasseurs-d-immunite','julie-2024','rouge-2024',1,'arrivee', @participant_team_id);
 call create_participant_entrance ('les-chasseurs-d-immunite','maxime-2024','rouge-2024',1,'arrivee', @participant_team_id);
+
+INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'jaune-2024', -1, 4, 'kls-team-yellow');
+INSERT INTO `GS_EV_STORE` (`ENTITY_TYPE`, `ENTITY_WEB_PATH`, `ENTITY_ID`, `PROPERTY_ID`, `VALUE`) VALUES ('team', 'rouge-2024', -1, 4, 'kls-team-rouge');
