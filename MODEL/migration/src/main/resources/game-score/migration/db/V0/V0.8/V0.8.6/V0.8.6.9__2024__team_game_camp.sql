@@ -26,3 +26,33 @@ call create_participant_departure('les-chasseurs-d-immunite','ricky-2024','rouge
 call fill_participant_longevity ('les-chasseurs-d-immunite','ricky-2024',14,1,22);
 
 call program_current_time ('les-chasseurs-d-immunite',22);
+
+call create_participant_departure('les-chasseurs-d-immunite','jean-2024','rouge-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','megane-2024','rouge-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','meissa-2024','rouge-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','david-2024','rouge-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','cecile-2024','rouge-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','julie-2024','rouge-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','lea-2-2024','rouge-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','amri-2024','jaune-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','pauline-2024','jaune-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','aurelien-2024','jaune-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','oceane-2024','jaune-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','sebastien-2024','jaune-2024',22,'recomposition-des-equipes', @participant_team_id);
+call create_participant_departure('les-chasseurs-d-immunite','lea-2024','jaune-2024',22,'recomposition-des-equipes', @participant_team_id);
+
+call create_team('les-chasseurs-d-immunite','Blanc','blanc-2024','blanc',22,40);
+
+call create_participant_entrance ('les-chasseurs-d-immunite','jean-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','megane-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','meissa-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','david-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','cecile-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','julie-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','lea-2-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','amri-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','pauline-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','aurelien-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','oceane-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','sebastien-2024','blanc-2024',22,'reunification', @participant_team_id);
+call create_participant_entrance ('les-chasseurs-d-immunite','lea-2024','blanc-2024',22,'reunification', @participant_team_id);

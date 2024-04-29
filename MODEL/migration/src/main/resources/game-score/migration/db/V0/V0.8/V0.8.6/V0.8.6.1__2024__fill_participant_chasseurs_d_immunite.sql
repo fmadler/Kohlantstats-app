@@ -21,8 +21,8 @@ call add_participant('les-chasseurs-d-immunite', 'Sebastien', '', 'sebastien-202
 call add_participant('les-chasseurs-d-immunite', 'Alexis', '', 'alexis-2024', 'H', 21, null, 0, 'Lot', 'Ex-militaire');
 call add_participant('les-chasseurs-d-immunite', 'Julie', '', 'julie-2024', 'F', 37, null, 0, '', 'Gestion de taxis');
 
-call create_team('les-chasseurs-d-immunite','Jaune','jaune-2024','Kadasi',1,10);
-call create_team('les-chasseurs-d-immunite','Rouge','rouge-2024','Matukad',1,10);
+call create_team('les-chasseurs-d-immunite','Jaune','jaune-2024','Kadasi',1,22);
+call create_team('les-chasseurs-d-immunite','Rouge','rouge-2024','Matukad',1,22);
 
 call create_participant_entrance ('les-chasseurs-d-immunite','alexis-2024','jaune-2024',1,'arrivee', @participant_team_id);
 call create_participant_entrance ('les-chasseurs-d-immunite','amri-2024','jaune-2024',1,'arrivee', @participant_team_id);
