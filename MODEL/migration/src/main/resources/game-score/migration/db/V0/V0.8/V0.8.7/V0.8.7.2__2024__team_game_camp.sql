@@ -151,3 +151,4 @@ victoire jaune
 --
 vote
 
+depart ari, alex vote contre ari, et pour marie
