@@ -1,1 +1,14 @@
-
+-- jour 10
+- jour 10
+  - epreuve : relier les cubes aux amarres
+    -recompense: marché nourriture
+    - rouge :
+      - excempte: cassandre
+      - choix : cecile-2
+    - jaune
+      - exempte: jacques, frederic
+      - victoire
+  - epreuve : annito
+    - tribu-maudite
+      - trouvve: nathanael
+  - epreuve duel
