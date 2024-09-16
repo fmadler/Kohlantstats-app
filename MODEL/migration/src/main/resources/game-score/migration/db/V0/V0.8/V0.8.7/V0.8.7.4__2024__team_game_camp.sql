@@ -1,6 +1,6 @@
 -- jour 10
 - jour 10
-  - epreuve : relier les cubes aux amarres
+  - epreuve : relier les cubes aux amarres; confort
     -recompense: marché nourriture
     - rouge :
       - excempte: cassandre
@@ -11,4 +11,35 @@
   - epreuve : annito
     - tribu-maudite
       - trouvve: nathanael
-  - epreuve duel
+  - epreuve duel: edifice 2 étages; duel
+    - victoire: cecile-2+ collier-immunite
+ 
+- jour: 11
+  - epreuve: placement boule, immunite
+    - recompense: totem
+    - rouge
+      - exempte: cassandre
+      - victoire
+    - jaune
+      - exempte: thibaut, michel
+- jour 12
+  - vote
+    - fred -> charlotte
+    - fabrice -> lola
+    - jacques -> charlotte
+    - ilyesse -> lola
+    - michel -> lola
+    - lola -> michel
+    - thibault -> charlotte
+    - sophia -> michel
+    - charlotte -> michel
+- vote 2
+    - fred -> lola
+    - fabrice -> lola
+    - jacques -> lola
+    - ilyesse -> lola
+    - michel -> lola
+    - lola -> michel
+    - thibault -> lola
+    - sophia -> charlotte
+    - charlotte -> lola
