@@ -110,7 +110,7 @@
     {{#if @model.params.comparisonPlayerWebPath}}
     <div class="row">
         <div class="col-sm-6">
-            <h2>
+            <h2 class="d-none d-sm-block">
                 <LinkTo @route="programme.participant.participant"
                     @models={{array @model.params.programWebPath @model.params.playerWebPath}}>
                     <button type="button" class="btn btn-light">
@@ -124,7 +124,7 @@
             </h2>
         </div>
         <div class="col-sm-6">
-            <h2>
+            <h2 class="d-none d-sm-block">
                 <LinkTo @route="programme.participant.participant"
                     @models={{array @model.params.programWebPath @model.params.comparisonPlayerWebPath}}>
                     <button type="button" class="btn btn-light">
@@ -143,6 +143,7 @@
     <div class="row">
         <div class="col-sm-6">
             <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
+                @participantName={{@model.participantSummary.[0].name}}
                 @stats={{@model.gameStats}}
                 @vpLoaderId={{@model.params.playerWebPath}}>
               {{!--
@@ -152,6 +153,7 @@
         </div>
         <div class="col-sm-6">
             <Participant::ParticipantScoreCard @programWebPath={{@model.params.programWebPath}}
+                @participantName={{@model.participantSummaryPlayer2.[0].name}}
                 @stats={{@model.gameStatsPlayer2}}
                 @vpLoaderId={{@model.params.comparisonPlayerWebPath}}>
               {{!--
@@ -168,10 +170,12 @@
     <div class="row">
         <div class="col-sm-6">
             <Participant::GamePalmaresCard @programWebPath={{@model.params.programWebPath}}
+                @participantName={{@model.participantSummary.[0].name}}
                 @stats={{@model.gameStats}} />
         </div>
         <div class="col-sm-6">
             <Participant::GamePalmaresCard @programWebPath={{@model.params.programWebPath}}
+                @participantName={{@model.participantSummaryPlayer2.[0].name}}
                 @stats={{@model.gameStatsPlayer2}} />
         </div>
     </div>
@@ -180,10 +184,12 @@
     <div class="row">
         <div class="col-sm-6">
             <Participant::GamePerformance @programWebPath={{@model.params.programWebPath}}
+                @participantName={{@model.participantSummary.[0].name}}
                 @performances={{@model.gamePerformance}} />
         </div>
         <div class="col-sm-6">
             <Participant::GamePerformance @programWebPath={{@model.params.programWebPath}}
+                @participantName={{@model.participantSummaryPlayer2.[0].name}}
                 @performances={{@model.gamePerformancePlayer2}} />
         </div>
     </div>

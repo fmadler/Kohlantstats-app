@@ -12,6 +12,9 @@ call add_participant('la-tribu-maudite', 'Sarah', '', 'sarah-2-2024', 'F', 34, n
 call add_participant('la-tribu-maudite', 'Cassandre', '', 'cassandre-2024', 'F', 41, null, 0, '', 'Directrice d''implementation de restaurants');
 call add_participant('la-tribu-maudite', 'Marie', '', 'marie-2024', 'F', 35, null, 0, '', 'Gérante de société dans l''immobilier');
 call add_participant('la-tribu-maudite', 'Emmanuelle', '', 'emmanuelle-2024', 'F', 43, null, 0, '', 'Ingénieur en éléctricité');
+call add_participant('la-tribu-maudite', 'Maude', '', 'maude-2024', 'F', 43, null, 0, '', 'Ingénieur en éléctricité');
+call add_participant('la-tribu-maudite', 'Nathanael', '', 'nathanael-2024', 'M', 43, null, 0, '', 'Ingénieur en éléctricité');
+call add_participant('la-tribu-maudite', 'Ilyesse', '', 'ilyesse-2024', 'M', 43, null, 0, '', 'Ingénieur en éléctricité');
 
 call add_participant('la-tribu-maudite', 'Fréderic', 'xxx', 'frederic-2023', 'M', 35, null, 0, '', 'Approvisionneur de distributeurs automatiques');
 call add_participant('la-tribu-maudite', 'Jacques', '', 'jacques-2024', 'H', 42, null, 0, 'Seine-Saint-Denis', 'Gérant d''une salle de sport');
@@ -22,6 +25,8 @@ call add_participant('la-tribu-maudite', 'Charlotte', '', 'charlotte-2024', 'F',
 call add_participant('la-tribu-maudite', 'Lola', '', 'lola-2024', 'F', 30, null, 0, 'Pyrénées-Atlantiques', 'Charpentier');
 call add_participant('la-tribu-maudite', 'Sophia', '', 'sophia-2024', 'F', 21, null, 0, 'Lot', 'Ex-militaire');
 call add_participant('la-tribu-maudite', 'Cécile', '', 'cecile-3-2024', 'F', 37, null, 0, '', 'Gestion de taxis');
+call add_participant('la-tribu-maudite', 'Vanessa', '', 'vanessa-2024', 'F', 37, null, 0, '', 'Gestion de taxis');
+call add_participant('la-tribu-maudite', 'Melissa', '', 'melissa-2024', 'F', 37, null, 0, '', 'Gestion de taxis');
 
 call create_team('la-tribu-maudite','Jaune','jaune-2-2024','Sabitang',1,22);
 call create_team('la-tribu-maudite','Rouge','rouge-2-2024','Pitogo',1,22);
@@ -48,6 +53,12 @@ call create_participant_entrance ('la-tribu-maudite','charlotte-2024','jaune-2-2
 call create_participant_entrance ('la-tribu-maudite','lola-2024','jaune-2-2024',1,'arrivee', @participant_team_id);
 call create_participant_entrance ('la-tribu-maudite','sophia-2024','jaune-2-2024',1,'arrivee', @participant_team_id);
 call create_participant_entrance ('la-tribu-maudite','cecile-3-2024','jaune-2-2024',1,'arrivee', @participant_team_id);
+
+
+call create_participant_entrance ('la-tribu-maudite','melissa-2024','tribu-maudite-2024',1,'arrivee', @participant_team_id);
+call create_participant_entrance ('la-tribu-maudite','vanessa-2024','tribu-maudite-2024',1,'arrivee', @participant_team_id);
+call create_participant_entrance ('la-tribu-maudite','ilyesse-2024','tribu-maudite-2024',1,'arrivee', @participant_team_id);
+call create_participant_entrance ('la-tribu-maudite','nathanael-2024','tribu-maudite-2024',1,'arrivee', @participant_team_id);
 
 /*
 thibault agriculteur corse
@@ -82,7 +93,26 @@ fabrice directeur centre equestre 40
 
 ilyesse etudiant 23
 --
+*/
+insert into gs_game_stake_type (name, web_path) VALUES ('Exclusion de la sélection initiale', 'exclusion-selection-initiale');
+call create_game('la-tribu-maudite','Placement de boule','boule-placement-2-2024','boule placement','collectif','confort',1,1,'selection-initiale,exclusion-selection-initiale','dexterite,rapidite');
 
+call create_team('la-tribu-maudite','Arrivée','arrivee-2024','Arrivée',1,1);
+insert into gs_reward (name, web_path, gs_reward_type_id, is_positive) values ('Sélection initial','selection-initiale',9,1);
+insert into gs_reward (name, web_path, gs_reward_type_id, is_positive) values ('Exclusion sélection initial','exclusion-selection-initiale',9,0);
+
+call create_game_participation('cecile-2-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',1,'selection-initiale');
+call create_game_participation('charlotte-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',2,'selection-initiale');
+call create_game_participation('maude-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',3,'selection-initiale');
+call create_game_participation('lola-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',4,'selection-initiale');
+call create_game_participation('emmanuelle-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',5,'selection-initiale');
+call create_game_participation('sophia-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',6,'selection-initiale');
+call create_game_participation('cassandre-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',7,'selection-initiale');
+call create_game_participation('sarah-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',8,'selection-initiale');
+call create_game_participation('melissa-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'exclusion-selection-initiale');
+call create_game_participation('vanessa-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'exclusion-selection-initiale');
+
+/*
 epreuve boule placement
 
 1 cecile
@@ -96,7 +126,20 @@ sarah
 
 
 -> exclue melissa, vanessa
+*/
 
+call create_game_participation('fabrice-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',1,'selection-initiale');
+call create_game_participation('alexandre-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',2,'selection-initiale');
+call create_game_participation('maxim-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',3,'selection-initiale');
+call create_game_participation('gustin-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',4,'selection-initiale');
+call create_game_participation('ari-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',5,'selection-initiale');
+call create_game_participation('jacques-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',6,'selection-initiale');
+call create_game_participation('michel-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',7,'selection-initiale');
+call create_game_participation('thibault-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',8,'selection-initiale');
+call create_game_participation('nathanael-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'selection-initiale');
+call create_game_participation('ilyesse-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'exclusion-selection-initiale');
+
+/*
 --
 fabrice
 alexandre
@@ -135,6 +178,38 @@ sophia
 cécile
 
 --
+
+ */
+
+call create_game('la-tribu-maudite','Basket coco','basket-coco-2-2024','basket-coco','collectif','immunite',2,2,'totem','force,rapidite');
+
+call create_game_participation('jacques-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('frederic-2023','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('fabrice-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('thibault-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('michel-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('charlotte-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('lola-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('sophia-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('cecile-3-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('emmanuelle-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+
+call create_game_participation('gustin-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('ugo-2012','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('alexandre-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('maxim-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('cecile-2-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('sarah-2-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('ari-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('cassandre-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('marie-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('maude-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+
+
+call create_participant_departure('la-tribu-maudite','cecile-3-2024','jaune-2-2024',2,'exclusion-par-vote', @participant_team_id);
+call fill_participant_longevity ('la-tribu-maudite','cecile-3-2024',22,1,2);
+
+ /*
 epreuve d'immunité'
 
 coco panier alourdir la partie adverse

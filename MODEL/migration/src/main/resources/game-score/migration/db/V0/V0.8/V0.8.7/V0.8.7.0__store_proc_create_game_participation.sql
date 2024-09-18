@@ -36,8 +36,19 @@ begin
     set @participation_type_id = null;
     set @reward_web_paths = null;
     set @penalties_web_paths = null;
+/*
+    select p.id into @participant_id
+    from gs_participant p, gs_player pl, gs_team t, gs_participant_team pt
+    where p.GS_PLAYER_ID = pl.id
+      and pt.GS_PARTICIPANT_ID = p.ID
+      and pt.GS_TEAM_ID = t.ID
+      and pl.WEB_PATH = _participant_web_path
+      and t.WEB_PATH=_team_web_path
+    ;
 
-    select p.id into @participant_id from gs_participant p, gs_player pl where p.GS_PLAYER_ID = pl.id and pl.WEB_PATH = _participant_web_path;
+ */
+    select max(p.id) into @participant_id from gs_participant p, gs_player pl where p.GS_PLAYER_ID = pl.id and pl.WEB_PATH = _participant_web_path;
+
     IF(@participant_id is null) THEN
 		SIGNAL SQLSTATE '50000'
 			SET MESSAGE_TEXT = 'Participant not found for ';

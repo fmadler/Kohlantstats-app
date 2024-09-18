@@ -1,129 +1,77 @@
-call create_programme('La tribu maudite', 'La-tribu-maudite', '2024', 22, 40, 'philippines', 'philippines', 1);
-
-
-thibault agriculteur corse
-
-cassandre ecrivaine 23
-lola kine 25
-
-frederic 35 restaurateur
-ugo guide nature 42 ans
-
-michel responsalbe rh 36
-melissa responsable en supermarché 35 var
-
-ilyesse
-jaccques danse 38
-sarah 32 responsable merchandising
-ccharlotte aide à la jeunesse 28 belgique
-nathanael cariste 27
-cécile 41 prof pilate
-emamnuelle
-
-41 hours
-
-maud
-alexandre osteopathe 33 paris
-cécile2 hotesse de l'air' 34 haute savoie
-marie 29 vendeuse
-maxim livreur velo 28 paris
-soohia coach sportif 36
-vanessa danseuse et chorégrphe 39
-fabrice directeur centre equestre 40
-
-ilyesse etudiant 23
---
-
-epreuve boule placement
-
-1 cecile
-2 charlotte
-3 maude
-lola
-emmanuelle
-sophia
-cassandre
-sarah
-
-
--> exclue melissa, vanessa
 
 --
-fabrice
-alexandre
-maxim
-guistin
+-- tribu maudite recherche anito blancinsert into gs_reward (name, web_path, gs_reward_type_id, is_positive) values ('Exclusion sélection initial','exclusion-selection-initiale',9,0);
+insert into gs_reward (name, web_path, gs_reward_type_id, is_positive) values ('Participation à un duel de réintegration','duel-de-reintegration',9,1);
+INSERT INTO `GS_GAME_STAKE_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Duel', 'duel', 'participation à un duel');
 
-ari cchef d'entreprise 51'
-jacques
-michel
+call create_game('la-tribu-maudite','Anito','anito-2024','anito','collectif','duel',3,3,'duel-de-reintegration','recherche,patience');
+call create_game_participation('nathanael-2024','tribu-maudite-2024','anito-2024','participant','individuel',0,'');
+call create_game_participation('melissa-2024','tribu-maudite-2024','anito-2024','participant','individuel',0,'');
+call create_game_participation('vanessa-2024','tribu-maudite-2024','anito-2024','participant','individuel',0,'');
+call create_game_participation('ilyesse-2024','tribu-maudite-2024','anito-2024','participant','individuel',1,'');
 
+call create_game('la-tribu-maudite','Flambeaux','flambeaux-2-2024','flambeaux','collectif','confort',4,3,'kit-peche,duel-de-reintegration','force,logique,rapidite');
 
---- equipen
+call create_game_participation('jacques-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('frederic-2023','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('fabrice-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('thibault-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('michel-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('charlotte-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('lola-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('sophia-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',0,'');
+call create_game_participation('emmanuelle-2024','jaune-2-2024','flambeaux-2-2024','participant','collectif',1,'duel-de-reintegration');
 
--- ugo rouge pitogo
-gustin
-alexandre
-maxim
-ari
-cecile
-sarah
-cassandre
-marie
-emmanuelle
-maud
+call create_game_participation('gustin-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('ugo-2012','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('alexandre-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('maxim-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('cecile-2-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('sarah-2-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('ari-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('cassandre-2024','rouge-2-2024','flambeaux-2-2024','exclusion-apres-tirage-au-sort','collectif',1,'kit-peche');
+call create_game_participation('marie-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
+call create_game_participation('maude-2024','rouge-2-2024','flambeaux-2-2024','participant','collectif',1,'kit-peche');
 
+-- call create_game('la-legende-2021','Table bascule','table-bascule-2021-2','table-bascule','individuel','arene',23,24,'exclusion-immediate,continuation-aventure','concentration,precision,rapidite');
 
+-- call create_game('la-tribu-maudite','Equilibre-bascule','equilibre-bascule-2-2024','table-bascule','individuel','duel',5,3,'duel-de-reintegration','rapidite,precision');
+call create_game('la-tribu-maudite','Equilibre-bascule','equilibre-bascule-2-2024','table-bascule','individuel','arene',5,3,'continuation-aventure','rapidite,precision');
 
---- fred jaune sabitang
-jacques
-thibault
-fabrice
-michel
-charlotte
-lola
-sophia
-cécile
+call create_game_participation('ilyesse-2024','rouge-2-2024','equilibre-bascule-2-2024','participant','individuel',0,'');
+call create_game_participation('emmanuelle-2024','rouge-2-2024','equilibre-bascule-2-2024','participant','individuel',1,'');
 
---
-epreuve d'immunité'
-
-coco panier alourdir la partie adverse
-
-victoire rouge
-
---
-
-vote
-
-départ cécile
+-- TODO departure emmanuel entry tribu-maudite
+-- TODO departure ilyesse entry tribu-maudite
 
 
-call add_participant('La-tribu-maudite', 'Lea', 'xxx', 'lea-2024', 'F', 33, null, 0, 'xx', 'x');
-call add_participant('La-tribu-maudite', 'Steve', 'xxx', 'steve-2024', 'M', 27, null, 0, 'x', 'x');
-call add_participant('La-tribu-maudite', 'Ricky', '', 'anne-sophie-2024', 'M', 23, null, 0, 'xx', 'xx');
-call add_participant('La-tribu-maudite', 'Jean', '', 'jean-2024', 'M', 35, null, 0, 'yy', 'yy');
-call add_participant('La-tribu-maudite', 'Mégane', '', 'megane-2024', 'F', 28, null, 0, 'xx', 'Vendeuse');
-call add_participant('La-tribu-maudite', 'Émilie', '', 'emilie-2024', 'F', 45, null, 0, 'xxx', '');
-call add_participant('La-tribu-maudite', 'Alicia', '', 'alicia-2024', 'F', 23, null, 0, '', '');
-call add_participant('La-tribu-maudite', 'Meissa', '', 'meissa-2024', 'M', 99, null, 0, 'xx', '');
-call add_participant('La-tribu-maudite', 'David', '', 'david-2024', 'M', 36, null, 0, 'Alsace', 'Boucher');
-call add_participant('La-tribu-maudite', 'Cécile', '', 'cecile-2024', 'F', 41, null, 0, 'x', 'xx');
-call add_participant('La-tribu-maudite', 'Océane', '', 'oceane-2024', 'H', 37, null, 0, 'rr', 'rr');
-call add_participant('La-tribu-maudite', 'Maxime', '', 'maxime-2024', 'H', 43, null, 0, 'xx', 'xx');
-call add_participant('La-tribu-maudite', 'Amri', '', 'amri-2024', 'H', 42, null, 0, 'xx', 'xx');
-call add_participant('La-tribu-maudite', 'Pauline', '', 'pauline-2024', 'F', 99, null, 0, 'x', 'xx');
-call add_participant('La-tribu-maudite', 'Aurélien', '', 'aurelien-2024', 'H', 99, null, 0, 'xx', 'xx');
-call add_participant('La-tribu-maudite', 'Natalie', '', 'natalie-2024', 'F', 45, null, 0, 'x', 'xx');
-call add_participant('La-tribu-maudite', 'Sarah', '', 'sarah-2024', 'F', 99, null, 0, 'xx', 'xx');
-call add_participant('La-tribu-maudite', 'Sebastien', '', 'sebastien-2024', 'H', 99, null, 0, 'xx', 'Charpentier');
+call create_game('la-tribu-maudite','Catapulte','catapulte-2-2024','catapulte','collectif','immunite',6,4,'totem','force,precision,rapidite');
 
+call create_game_participation('jacques-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('frederic-2023','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('fabrice-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('thibault-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('michel-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('charlotte-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('lola-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('sophia-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
+call create_game_participation('ilyesse-2024','jaune-2-2024','catapulte-2-2024','participant','collectif',1,'totem');
 
---
-tribu maudite recherche anito blanc
+call create_game_participation('gustin-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('ugo-2012','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('alexandre-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('maxim-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('cecile-2-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('sarah-2-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('ari-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('cassandre-2024','rouge-2-2024','catapulte-2-2024','exclusion-apres-tirage-au-sort','collectif',0,'conseil');
+call create_game_participation('marie-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
+call create_game_participation('maude-2024','rouge-2-2024','catapulte-2-2024','participant','collectif',0,'conseil');
 
-inesse trouve l'anito' contre nathanael, vanessa, melissa
+call create_participant_departure('la-tribu-maudite','ari-2024','rouge-2-2024',6,'exclusion-par-vote', @participant_team_id);
+call fill_participant_longevity ('la-tribu-maudite','ari-2024',21,1,6);
 
+/*
 --
 Epreuve de confort
 
@@ -152,3 +100,4 @@ victoire jaune
 vote
 
 depart ari, alex vote contre ari, et pour marie
+*/

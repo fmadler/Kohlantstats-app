@@ -1,6 +1,5 @@
 <Component::ViewportComponent @vpLoaderId={{@vpLoaderId}}>
-    <h3>Score</h3>
-    <Participant::ParticipantScoreTable @stats={{participant-game-stats @stats @programWebPath}}>
-    </Participant::ParticipantScoreTable>
+    <h3>Score <div class="d-inline-block d-sm-none">{{@participantName}}</div></h3>
+    <Participant::ParticipantScoreTable @stats={{participant-game-stats @stats @programWebPath}}/>
     {{yield}}
 </Component::ViewportComponent>
