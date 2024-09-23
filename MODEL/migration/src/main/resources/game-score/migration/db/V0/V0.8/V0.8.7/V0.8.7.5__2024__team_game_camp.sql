@@ -1,0 +1,51 @@
+-- jour 10
+- jour 13
+  - epreuve : tribu maudite : cercle de pièce :
+    -recompense: reintegraion tribu, depart avanture
+    - tribu maudite :
+    - victoire: melissa 1, emmanuelle 2
+
+  - candidat
+    - melissa 35 ans
+    -  alex ostéo 33 ans
+  - equipe
+    - melissa : integre tribu rouge;
+    - emmanuelle : integre tribu jaune;
+    - alex : quitte l''avanture : abandon
+      
+-jour: 15    
+  - epreuve: poutre lié
+    - recompense: nourriture, massage, nuit
+    - rouge
+      - exempte: cassandre, emmanuelle
+      - victoire
+    - jaune
+      - exempte: michelle, ilyesse fabrice
+-jour: 15    
+  - epreuve: pierre sous l''eau
+    - recompense: totem
+    - rouge
+      - exempte: cecile, sarah
+      - victoire
+    - jaune
+      - exempte: michel, thibaut fabrice
+  - vote
+    - fred -> charlotte
+    - fabrice -> lola
+    - jacques -> charlotte
+    - ilyesse -> lola
+    - michel -> lola
+    - lola -> michel
+    - thibault -> charlotte
+    - sophia -> michel
+    - charlotte -> michel
+- vote 2
+    - fred -> lola
+    - fabrice -> lola
+    - jacques -> lola
+    - ilyesse -> lola
+    - michel -> lola
+    - lola -> michel
+    - thibault -> lola
+    - sophia -> charlotte
+    - charlotte -> lola
