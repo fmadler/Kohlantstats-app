@@ -30,22 +30,13 @@
     - jaune
       - exempte: michel, thibaut fabrice
   - vote
-    - fred -> charlotte
-    - fabrice -> lola
-    - jacques -> charlotte
-    - ilyesse -> lola
-    - michel -> lola
-    - lola -> michel
-    - thibault -> charlotte
+    - fred -> melissa
+    - fabrice -> melissa
+    - jacques -> melissa
+    - ilyesse -> melissa
+    - michel -> melissa
+    - thibault -> melissa
     - sophia -> michel
     - charlotte -> michel
-- vote 2
-    - fred -> lola
-    - fabrice -> lola
-    - jacques -> lola
-    - ilyesse -> lola
-    - michel -> lola
-    - lola -> michel
-    - thibault -> lola
-    - sophia -> charlotte
-    - charlotte -> lola
+    - melissa -> michel
+
