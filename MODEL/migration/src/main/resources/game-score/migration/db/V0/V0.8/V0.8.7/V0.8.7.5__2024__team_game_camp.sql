@@ -40,3 +40,30 @@
     - charlotte -> michel
     - melissa -> michel
 
+- jour 16
+  - epreuve: casse poterie sur plateforme
+    - recompense: telephone, 1 kg de chocolat
+    - rouge
+      - exempte: cassandre, sarah
+      - victoire
+    - jaune
+      - exempte: thibaut, frederic
+- jour 17
+  - epreuve: fugitif et meute
+    - recompense: totem
+    - rouge
+      - exempte: emmanuelle, cecile
+      - victoire
+    - jaune
+      - exempte: ilyesse jacques
+  - vote
+    - fred -> melissa
+    - fabrice -> melissa
+    - jacques -> melissa
+    - ilyesse -> charlotte
+    - michel -> melissa
+    - thibault -> melissa
+    - sophia -> melissa
+    - charlotte -> melissa
+    - melissa -> frederic
+
