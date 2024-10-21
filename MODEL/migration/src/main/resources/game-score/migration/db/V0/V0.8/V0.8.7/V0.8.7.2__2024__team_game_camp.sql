@@ -1,8 +1,8 @@
 
 --
 -- tribu maudite recherche anito blancinsert into gs_reward (name, web_path, gs_reward_type_id, is_positive) values ('Exclusion sélection initial','exclusion-selection-initiale',9,0);
-insert into gs_reward (name, web_path, gs_reward_type_id, is_positive) values ('Participation à un duel de réintegration','duel-de-reintegration',9,1);
-INSERT INTO `GS_GAME_STAKE_TYPE` (`NAME`, `WEB_PATH`, `DESCRIPTION`) VALUES ('Duel', 'duel', 'participation à un duel');
+call create_reward ('Participation à un duel de réintegration','duel-de-reintegration', 'avantage-strategique', 1);
+call create_GAME_STAKE_TYPE ('Duel', 'duel', 'participation à un duel');
 
 call create_game('la-tribu-maudite','Anito','anito-2024','anito','collectif','duel',3,3,'duel-de-reintegration','recherche,patience');
 call create_game_participation('nathanael-2024','tribu-maudite-2024','anito-2024','participant','individuel',0,'');
@@ -43,7 +43,11 @@ call create_game_participation('emmanuelle-2024','rouge-2-2024','equilibre-bascu
 
 -- TODO departure emmanuel entry tribu-maudite
 -- TODO departure ilyesse entry tribu-maudite
+call create_participant_departure('la-tribu-maudite','emmanuelle-2024','jaune-2-2024',3,'elimination-du-dernier', @participant_team_id);
+call create_participant_entrance ('la-tribu-maudite','emmanuelle-2024','tribu-maudite-2024',3,'remplacement', @participant_team_id);
 
+call create_participant_departure('la-tribu-maudite','ilyesse-2024','tribu-maudite-2024',3,'reintegration-aventure', @participant_team_id);
+call create_participant_entrance ('la-tribu-maudite','ilyesse-2024','jaune-2-2024',3,'reintegration-aventure', @participant_team_id);
 
 call create_game('la-tribu-maudite','Catapulte','catapulte-2-2024','catapulte','collectif','immunite',6,4,'totem','force,precision,rapidite');
 
