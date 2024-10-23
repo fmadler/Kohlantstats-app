@@ -43,7 +43,6 @@ call create_game_participation('maude-2024','blanc-2-2024','grapin-trois-pallets
 
 call create_game_participation('frederic-2023','blanc-2-2024','grapin-trois-pallets-2024','participant','individuel',1,'repas-sur-ile');
 call create_game_participation('jacques-2024','blanc-2-2024','grapin-trois-pallets-2024','participant','individuel',11,'repas-sur-ile');
-call create_game_participation('fabrice-2024','blanc-2-2024','grapin-trois-pallets-2024','participant','individuel',1,'');
 call create_game_participation('thibault-2024','blanc-2-2024','grapin-trois-pallets-2024','participant','individuel',6,'');
 call create_game_participation('charlotte-2024','blanc-2-2024','grapin-trois-pallets-2024','participant','individuel',9,'');
 call create_game_participation('sophia-2024','blanc-2-2024','grapin-trois-pallets-2024','participant','individuel',12,'');
@@ -83,7 +82,6 @@ call create_game_participation('maude-2024','blanc-2-2024','bambou-2-2024','part
 
 call create_game_participation('frederic-2023','blanc-2-2024','bambou-2-2024','participant','individuel',2,'');
 call create_game_participation('jacques-2024','blanc-2-2024','bambou-2-2024','participant','individuel',5,'');
-call create_game_participation('fabrice-2024','blanc-2-2024','bambou-2-2024','participant','individuel',1,'');
 call create_game_participation('thibault-2024','blanc-2-2024','bambou-2-2024','participant','individuel',3,'');
 call create_game_participation('charlotte-2024','blanc-2-2024','bambou-2-2024','exempte-sur-raison-medicale','individuel',0,'');
 call create_game_participation('sophia-2024','blanc-2-2024','bambou-2-2024','participant','individuel',9,'');

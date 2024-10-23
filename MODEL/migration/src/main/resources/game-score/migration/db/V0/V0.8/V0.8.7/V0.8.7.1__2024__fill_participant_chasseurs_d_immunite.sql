@@ -98,22 +98,23 @@ ilyesse etudiant 23
 --
 */
 call create_game_stake_type ('Exclusion de la sélection initiale', 'exclusion-selection-initiale', 'Exclusion de la sélection initiale');
-call create_game('la-tribu-maudite','Placement de boule','boule-placement-2-2024','boule placement','collectif','confort',1,1,'selection-initiale,exclusion-selection-initiale','dexterite,rapidite');
+call create_game('la-tribu-maudite','Placement de boule','boule-placement-femmes-2-2024','boule placement','collectif','confort',1,1,'selection-initiale,exclusion-selection-initiale','dexterite,rapidite');
+call create_game('la-tribu-maudite','Placement de boule','boule-placement-hommes-2-2024','boule placement','collectif','confort',1,1,'selection-initiale,exclusion-selection-initiale','dexterite,rapidite');
 
 call create_team('la-tribu-maudite','Arrivée','arrivee-2024','Arrivée',1,1);
-call create_reward('Sélection initial','selection-initiale','avantage-strategique',1);
-call create_reward ('Exclusion sélection initial','exclusion-selection-initiale','avantage-strategique',0);
+call create_reward('Sélection initiale','selection-initiale','avantage-strategique',1);
+call create_reward ('Exclusion sélection initiale','exclusion-selection-initiale','avantage-strategique',0);
 
-call create_game_participation('cecile-2-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',1,'selection-initiale');
-call create_game_participation('charlotte-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',2,'selection-initiale');
-call create_game_participation('maude-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',3,'selection-initiale');
-call create_game_participation('lola-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',4,'selection-initiale');
-call create_game_participation('emmanuelle-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',5,'selection-initiale');
-call create_game_participation('sophia-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',6,'selection-initiale');
-call create_game_participation('cassandre-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',7,'selection-initiale');
-call create_game_participation('sarah-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',8,'selection-initiale');
-call create_game_participation('melissa-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'exclusion-selection-initiale');
-call create_game_participation('vanessa-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'exclusion-selection-initiale');
+call create_game_participation('cecile-2-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',1,'selection-initiale');
+call create_game_participation('charlotte-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',2,'selection-initiale');
+call create_game_participation('maude-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',3,'selection-initiale');
+call create_game_participation('lola-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',4,'selection-initiale');
+call create_game_participation('emmanuelle-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',5,'selection-initiale');
+call create_game_participation('sophia-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',6,'selection-initiale');
+call create_game_participation('cassandre-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',7,'selection-initiale');
+call create_game_participation('sarah-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',8,'selection-initiale');
+call create_game_participation('melissa-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',0,'exclusion-selection-initiale');
+call create_game_participation('vanessa-2024','arrivee-2024','boule-placement-femmes-2-2024','participant','individuel',0,'exclusion-selection-initiale');
 
 /*
 epreuve boule placement
@@ -131,16 +132,16 @@ sarah
 -> exclue melissa, vanessa
 */
 
-call create_game_participation('fabrice-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',1,'selection-initiale');
-call create_game_participation('alexandre-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',2,'selection-initiale');
-call create_game_participation('maxim-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',3,'selection-initiale');
-call create_game_participation('gustin-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',4,'selection-initiale');
-call create_game_participation('ari-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',5,'selection-initiale');
-call create_game_participation('jacques-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',6,'selection-initiale');
-call create_game_participation('michel-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',7,'selection-initiale');
-call create_game_participation('thibault-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',8,'selection-initiale');
-call create_game_participation('nathanael-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'selection-initiale');
-call create_game_participation('ilyesse-2024','arrivee-2024','boule-placement-2-2024','participant','individuel',0,'exclusion-selection-initiale');
+call create_game_participation('fabrice-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',1,'selection-initiale');
+call create_game_participation('alexandre-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',2,'selection-initiale');
+call create_game_participation('maxim-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',3,'selection-initiale');
+call create_game_participation('gustin-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',4,'selection-initiale');
+call create_game_participation('ari-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',5,'selection-initiale');
+call create_game_participation('jacques-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',6,'selection-initiale');
+call create_game_participation('michel-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',7,'selection-initiale');
+call create_game_participation('thibault-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',8,'selection-initiale');
+call create_game_participation('nathanael-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',0,'selection-initiale');
+call create_game_participation('ilyesse-2024','arrivee-2024','boule-placement-hommes-2-2024','participant','individuel',0,'exclusion-selection-initiale');
 
 /*
 --
