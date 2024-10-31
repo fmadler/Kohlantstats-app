@@ -55,7 +55,7 @@ call create_game_participation('ilyesse-2024','blanc-2-2024','paresseux-2-2024',
 call create_participant_departure('la-tribu-maudite','frederic-2023','blanc-2-2024',27,'exclusion-par-vote', @participant_team_id);
 call fill_participant_longevity ('la-tribu-maudite','frederic-2023',11,1,27);
 
-call program_current_time ('les-chasseurs-d-immunite',27);
+call program_current_time ('la-tribu-maudite',27);
 
 /*
 - jour: 27

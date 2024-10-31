@@ -198,16 +198,16 @@ call create_game_participation('sophia-2024','jaune-2-2024','basket-coco-2-2024'
 call create_game_participation('cecile-3-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',0,'conseil');
 call create_game_participation('emmanuelle-2024','jaune-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
 
-call create_game_participation('gustin-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('ugo-2012','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('alexandre-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('maxim-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('cecile-2-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('sarah-2-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('ari-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('cassandre-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('marie-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
-call create_game_participation('maude-2024','rouge-2-2024','basket-coco-2-2024','participant','individuel',1,'totem');
+call create_game_participation('gustin-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('ugo-2012','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('alexandre-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('maxim-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('cecile-2-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('sarah-2-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('ari-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('cassandre-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('marie-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
+call create_game_participation('maude-2024','rouge-2-2024','basket-coco-2-2024','participant','collectif',1,'totem');
 
 
 call create_participant_departure('la-tribu-maudite','cecile-3-2024','jaune-2-2024',2,'exclusion-par-vote', @participant_team_id);
