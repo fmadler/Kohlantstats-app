@@ -1,0 +1,28 @@
+-jour: 32
+  - 
+  - victoire: ilyesse et charlotte
+-jour: 32
+  - duel puzzle (tribu maudite)
+    - cassandre (victoire)
+    - maxime
+- jour: 33
+  - epreuve: parcours puzzle, vote contre soi
+    - charlotte 1
+    - gustin 2
+    - thibault
+    - ilyesse
+    - cecile
+    - hugo
+    - sophia
+    - cassandre
+    - jacques
+
+- vote
+  - hugo -> gustin x2
+  - cassandre -> gustin
+  - jacques -> cassandre
+  - charlotte -> cassandre
+  - sophia -> cassandre
+  - gustin-> cecile
+  - cecile -> gustin
+  
