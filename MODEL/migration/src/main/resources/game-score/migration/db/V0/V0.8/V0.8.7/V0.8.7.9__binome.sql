@@ -1,5 +1,5 @@
 # binome
-call create_game('la-tribu-maudite','XXX','xxx-2-2024','degustation','binome','confort',25,28,'excursion-chez-l-habitant','degustation,rapidite');
+call create_game('la-tribu-maudite','Monte charge','xxx-2-2024','degustation','binome','confort',25,28,'excursion-chez-l-habitant','degustation,rapidite');
 -- degustation + boue
 
 call create_game_participation('ugo-2012','blanc-2-2024','xxx-2-2024','participant','binome',1,'excursion-chez-l-habitant');
