@@ -1,5 +1,3 @@
-insert into gs_team_entrance_type (NAME, WEB_PATH) values ('reintegration d''une equipe','reintegration-aventure');
-
 call create_programme('La tribu maudite', 'la-tribu-maudite', '2024', 26, 40, 'philippines', 'philippines', 1);
 
 -- epreuve placement de boule blanche 1

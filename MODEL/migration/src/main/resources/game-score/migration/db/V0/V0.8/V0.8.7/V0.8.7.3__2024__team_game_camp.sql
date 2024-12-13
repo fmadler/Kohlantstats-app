@@ -89,5 +89,5 @@ maxime -> marie
 hugo -> alex
 
  */
-call create_participant_departure('la-tribu-maudite','marie-2024','rouge-2-2024',8,'exclusion-par-vote', @participant_team_id);
-call fill_participant_longevity ('la-tribu-maudite','ari-2024',20,1,8);
+call create_participant_departure('la-tribu-maudite','marie-2024','rouge-2-2024',9,'exclusion-par-vote', @participant_team_id);
+call fill_participant_longevity ('la-tribu-maudite','marie-2024',15,1,9);

@@ -1,5 +1,6 @@
 INSERT INTO `GS_TEAM_DEPARTURE_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Réintegration dans l''aventure', 'reintegration-aventure');
 INSERT INTO `GS_TEAM_ENTRANCE_TYPE` (`NAME`, `WEB_PATH`) VALUES ('Réintegration à l''orientation', 'reintegration-orientation');
+insert into gs_team_entrance_type (NAME, WEB_PATH) values ('reintegration d''une equipe','reintegration-aventure');
 
 call create_game('la-legende-2021','Labyrinthe géant','labyrinthe-geant-2021-2','labyrinthe','individuel','arene',34,33,'exclusion-immediate,continuation-aventure','concentration,rapidite');
 
