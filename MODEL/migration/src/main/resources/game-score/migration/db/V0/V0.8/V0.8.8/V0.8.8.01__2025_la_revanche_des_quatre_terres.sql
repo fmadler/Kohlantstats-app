@@ -20,7 +20,7 @@ est: silongan : vert
 
 ouest: orange: kaluran
   mael, patissier
-  mehdi
+  mehdi: chauffeur poids lourds, 27, lot et garonne
   néomei: 32, cheffe d'entreprise, ille et vilaine
   romane: 20 nantes coach sportif
   jeromee: 52, ex-militaire, lande
@@ -28,8 +28,8 @@ ouest: orange: kaluran
 
 nord: ilaga violet
   allan, 25, docker dunkerque
-  mohamed
-  frédéreic
+  mohamed: 30: éducateur sportif
+  frédéreic: 56: directeur service sport: 77 seine et marne
   andréa: étudiant, 24
   claire, 37, scénographe produit
   joana: 32, gérante salon de beauté, seine saint denis
@@ -49,6 +49,7 @@ nord: ilaga violet
   est 3
   ouest 4
   
+  sortie :  cynthiana
   
 -- epreuve placement de boule blanche 1
 -- todo verifier age / profession
