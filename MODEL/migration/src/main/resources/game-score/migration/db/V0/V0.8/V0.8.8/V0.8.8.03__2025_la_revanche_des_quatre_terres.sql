@@ -1,7 +1,49 @@
+--
+Episode 2
+nord defaite 1ème epreuve confort
 
+nord victoire 1ème epreuve imminite
 
+  conseil ouest: medhi depart
+--
+
+  Episode 3
+
+6ème jour:
+
+  medhi remplace alan sorti sur blessure
+
+  7ème jour
+  epreuve radeau: construction rapid
+    - participe pas:
+      - est: maxime, christian
+      - nord: andrea, mohamed
+      - sud: adrien, jerome
+    
+  
+    -victoire:
+      - 1: est: kit de pêche
+      - 2: ouest: poissons cuits
+      - 3: sud
+      - 4: nord: ile de l''exil
+
+  jour 8
+  epreuve: puzzle structure (equilibe,rapi)
+    - participe pas:
+      - est: maxime, christian
+      - nord: medhi, andrea (medical)
+      - sud: gaelle, louise
+
+  - victoire
+        - 1: nord: totem
+      - 2: sud: 
+      - 3: ouest
+      - 4: est: conseil
+
+  - depart de christian
+
+  
 est: silongan : vert
-  maxime
   gaelle : 34 ain, mère au foyer
   benoit: 24 ans, saut à la perche
   céline: 39, commerciale dans le soport, savoie
@@ -20,7 +62,6 @@ est: silongan : vert
 
 ouest: orange: kaluran
   mael, patissier
-  mehdi: chauffeur poids lourds, 27, lot et garonne
   néomei: 32, cheffe d'entreprise, ille et vilaine
   romane: 20 nantes coach sportif
   jeromee: 52, ex-militaire, lande
