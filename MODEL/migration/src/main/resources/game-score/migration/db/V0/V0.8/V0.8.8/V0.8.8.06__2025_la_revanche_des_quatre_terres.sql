@@ -1,6 +1,6 @@
 15ème jour
 
-  flambeaux: recompense courrier
+  flambeaux: confort: recompense courrier
 jaune (virak)
     maxime cap exlus tirage au sort
     louise
@@ -24,4 +24,12 @@ jaune (virak)
 
 victoire rouge
 
+16:
+ figitif: immunité
+
+  jaune jérome exlus tirage au sort
+  victoire rouge
+
+
+- depart pauline
     
