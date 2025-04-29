@@ -18,7 +18,7 @@
 
 - elimination adrien
 
-25ème jour
+24ème jour
 - parcours du combattant - confort
   louise 1
   gaelle 2
@@ -28,10 +28,13 @@
   louise choisit celine
   jerome choisit joana
 
-27ème jour
+25ème jour
   - fred abandon
   - maxime revient
 
   - tire à l'arc: immunité
     - victoire: jerome totem
     - jessica eliminée
+
+26ème
+  - elimination : louise
