@@ -38,3 +38,24 @@
 
 26ème
   - elimination : louise
+
+27ème jour
+  - boue: confort: excursion
+  - victoire nais 1, pierre-marie choisi
+
+28ème
+  - epreuvem surfeur: totem, vvote contre
+  - johana (dernier)
+    nais
+    claire
+    maxime
+    jerome
+    noemie
+    celine
+    gaelle
+    jerome-2
+    mael 2
+    pierre-marie 1
+  - conseil: depart joana
+  
+  - 
