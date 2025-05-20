@@ -58,4 +58,33 @@
     pierre-marie 1
   - conseil: depart joana
   
-  - 
+30ème
+    - epreuve : degustation
+    - maxime
+    - jerome 2
+    - jerome 
+    - noemie
+    - claire
+    - mael
+    - gael
+    - celine
+    - pierre-marie
+    - nais
+
+  - destin lié
+    - maxime-noemie 1
+    - pierre-marie nais
+    - mael celine
+    - jerome-2 claire
+    - jerome gael
+  
+  31ème
+    - epreuvve: equilibre sur rondins
+    - resultat
+      - maxime-noemie 1
+      - pierre-marie nais 5
+      - mael celine 4
+      - jerome-2 claire 2
+      - jerome gaelle 3
+
+ - vote elimination de pierre-marie nais
