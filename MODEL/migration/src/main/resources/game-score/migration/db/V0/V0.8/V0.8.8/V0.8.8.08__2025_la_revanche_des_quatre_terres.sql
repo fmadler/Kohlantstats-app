@@ -88,3 +88,19 @@
       - jerome gaelle 3
 
  - vote elimination de pierre-marie nais
+
+33ème
+  - epreuve: etoile; choix-candidat-epreuve-eliminatoire, epreuve eliminatoire; repas chez habitant
+  - maxime 8 -> epreuve eliminatoire
+  - gaelle
+  - jerome-2 -> choix-candidat-epreuve-eliminatoire
+  - noemie
+  - celine
+  - claire -> choix-candidat-epreuve-eliminatoire
+  - mael
+  - jerome victoire
+
+ - epreuve eliminatoire
+  - maxime: elimine
+  - claire
+  - jerome-2 : vainqueur
