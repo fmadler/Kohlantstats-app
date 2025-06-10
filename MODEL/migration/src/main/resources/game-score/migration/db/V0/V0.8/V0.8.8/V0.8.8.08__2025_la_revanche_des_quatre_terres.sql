@@ -115,10 +115,23 @@
     - jerome-2
 
 34ème
- - pzrcours en cinq etapes (6 étoiles luxe)
+ - pzrcours en cinq etapes (6 étoiles luxe) confort
   - claire
   - jerome
   - jerome-2
   - mael
   - gaelle (6 étoiles luxe)
   - celine (6 étoiles luxe)
+
+35ème
+  - immunite: totem: boule-support, voie-contre-soi
+    - jerome-2 1 totem
+    - mael 2
+    - celine
+    - gaelle
+    - claire
+    - jerome voie-contre-soi
+
+37ème
+  - depart celine
+
