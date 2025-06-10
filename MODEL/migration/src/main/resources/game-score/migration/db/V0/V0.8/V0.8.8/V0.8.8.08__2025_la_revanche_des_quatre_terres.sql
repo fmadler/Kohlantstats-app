@@ -104,3 +104,21 @@
   - maxime: elimine
   - claire
   - jerome-2 : vainqueur
+
+35ème  
+  - equilibre sur l'eau
+    - claire 7
+    - jérome 6
+    - celine
+    - mael
+    - gaelle / noemie
+    - jerome-2
+
+34ème
+ - pzrcours en cinq etapes (6 étoiles luxe)
+  - claire
+  - jerome
+  - jerome-2
+  - mael
+  - gaelle (6 étoiles luxe)
+  - celine (6 étoiles luxe)
