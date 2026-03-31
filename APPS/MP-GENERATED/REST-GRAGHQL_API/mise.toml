@@ -1,0 +1,23 @@
+[tools]
+java = "temurin-8"
+maven = "latest"
+
+[env]
+# Environment variables for Maven
+MAVEN_OPTS = "-Xmx1024m -Xms512m"
+
+# Aliases for common Maven commands
+[tasks.clean]
+run = "mvn clean"
+
+[tasks.install]
+run = "mvn install"
+
+[tasks.test]
+run = "mvn test"
+
+[tasks.package]
+run = "mvn package"
+
+[tasks.tomcat-build]
+run = "mvn clean package -Ptomcat-embedded-ds"

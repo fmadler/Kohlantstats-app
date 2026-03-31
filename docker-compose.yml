@@ -2,14 +2,14 @@ version: '3'
 services:
   flyway_clean:
    image: flyway/flyway
-   command: -url=jdbc:mysql://db -schemas=kohlantstats -user=root -password=P@ssw0rd -connectRetries=60 clean
+   command: -url=jdbc:mysql://db?allowPublicKeyRetrieval=true -schemas=kohlantstats -user=root -password=P@ssw0rd -connectRetries=60 clean
    volumes:
      - ./MODEL/migration/src/main/resources/game-score/clean/:/flyway/sql
    depends_on:
      - db
   flyway:
     image: flyway/flyway
-    command: -url=jdbc:mysql://db -schemas=kohlantstats -user=root -password=P@ssw0rd -connectRetries=60 migrate
+    command: -url=jdbc:mysql://db?allowPublicKeyRetrieval=true -schemas=kohlantstats -user=root -password=P@ssw0rd -connectRetries=60 migrate
     volumes:
       - ./MODEL/migration/src/main/resources/game-score/migration/:/flyway/sql
     depends_on:
@@ -23,25 +23,25 @@ services:
     image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=P@ssw0rd
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1 --log_bin_trust_function_creators=1
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1 --log_bin_trust_function_creators=1 --sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
     ports:
-      - 3307:3306
+      - 3306:3306
 
   web:
-    image: tomcat:latest
-    #image: tomcat:8.0
-    ##TODO add context.xml with jndi embedded into META-INF/ dir
-    ##TODO add remove jdk11 dep en EE libs
-    # Environment variables do not appear to be getting loaded the first time Tomcat starts!
+    #image: tomcat:latest
+    image: tomcat:9-jdk17
+    command: bash -c "cp -rn /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps/ && catalina.sh run"
     environment:
-      JDBC_URL: jdbc:mysql://db:3306/kohlantstats?connectTimeout=0&amp;socketTimeout=0&amp;autoReconnect=true
+      JDBC_URL: jdbc:mysql://db:3306/kohlantstats?connectTimeout=0&amp;socketTimeout=0&amp;autoReconnect=true&amp;allowPublicKeyRetrieval=true
       JDBC_USER: root
       JDBC_PASS: P@ssw0rd
     ports:
     - "80:8080"
     volumes:
     - ./APPS/__RELEASES/tomcat:/usr/local/tomcat/webapps
-   # - ./APPS/__RELEASES/tomcat-conf:/usr/local/tomcat/conf
+    - ./APPS/tomcat-conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+    - ./APPS/tomcat-conf/manager/context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml
+    - ./APPS/tomcat-conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
    # - ./APPS/__RELEASES/tomcat-lib:/usr/local/tomcat/lib
     links:
       - db
