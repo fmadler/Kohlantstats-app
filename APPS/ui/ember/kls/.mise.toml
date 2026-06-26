@@ -1,0 +1,14 @@
+[tools]
+node = "22"
+
+[tasks.install]
+description = "PNPM install"
+run = "pnpm install"
+
+[tasks.serve-local]
+description = "ember serve"
+run = "ember s --environment=development --port 4800 "
+
+[tasks.serve-remote]
+description = "ember serve"
+run = "ember s --port 4800"
