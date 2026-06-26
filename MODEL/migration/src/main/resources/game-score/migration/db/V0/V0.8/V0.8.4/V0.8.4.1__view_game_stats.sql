@@ -1,6 +1,7 @@
 create or replace view v_game_stats
 as
-select 	
+select
+    CONCAT(p.web_path, '|', pl.WEB_PATH, '|', g.WEB_PATH) ID,
 	pl.name participant_name,
 	pl.WEB_PATH participant_web_path,
 	case when pa.start_day is not null and pa.end_day is not null then pa.end_day - pa.start_day + 1 else p.current_day end longevity,
